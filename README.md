@@ -86,6 +86,8 @@ workspace/
 │   │   ├── OFFER_FINAL.md
 │   │   ├── PROSPECTION_PLAYBOOK.md
 │   │   ├── PROSPECTS_*.csv
+│   │   ├── DISCOVERY_CALL_PLAN.md   ← /discovery-call (plan d’entretien)
+│   │   ├── CALL_RECAP_*.md          ← compte-rendu post-call (rempli après le RDV)
 │   │   ├── pitch-deck/
 │   │   └── website/
 │   └── archive/
@@ -109,8 +111,11 @@ workspace/
 | `/pitch-deck` | `pitch-deck/` | Pitch deck HTML 12 slides |
 | `/prospection-strategy` | `PROSPECTION_PLAYBOOK.md` | Stratégie outbound + templates |
 | `/prospection-list` | `PROSPECTS_*.csv` | Liste de prospects qualifiés |
+| `/discovery-call` | `DISCOVERY_CALL_PLAN.md` + `CALL_RECAP_YYYY-MM-DD_<prospect>.md` | Plan d’entretien commercial (SPICED, MEDDIC, adaptation DISC) + modèle de compte-rendu après le call |
 | `/study-website` | `website/` | Site web multi-pages |
 | `/orchestrator` | tout | Pipeline complet automatique |
+
+**`/discovery-call`** — à lancer quand l’offre est figée : il exige en général `OFFER_FINAL.md`, `PERSONA_ACHETEUR.md`, `PRICING_BRIEF.md` (et idéalement `COMPETITIVE_BRIEF.md`). Il produit d’abord **`DISCOVERY_CALL_PLAN.md`** (trame du call), puis tu utilises le gabarit **`CALL_RECAP_…`** pour noter ce qui s’est passé après l’entretien.
 
 ---
 
