@@ -1,10 +1,24 @@
 # Offer Pipeline — Workspace
 
-Workspace de travail du pipeline de création d’offres.
-Contient tous les fichiers produits par les agents IA : briefs, personas, pricing, pitch decks, listes de prospects…
+Ce dépôt est un **template d’espace de travail** : tu y versions uniquement **tes livrables** (briefs, personas, pitch decks, listes de prospects, etc.).
 
-> **Les skills** (les agents du pipeline) vivent dans un **autre dépôt Git** — en général un dépôt nommé `Offer-Pipeline` — que tu clones à part (voir étape 2).  
-> **Ce dépôt-ci** ne sert qu’à versionner tes outputs et ta config de workspace.
+Les **agents IA** du pipeline (commandes `/idea-finder`, `/offer-cadrage`, etc.) ne sont **pas** dans ce dépôt. Ils sont fournis par un **autre dépôt**, à cloner à part et à installer une fois sur ta machine.
+
+---
+
+## Ce dépôt vs dépôt des skills
+
+| | **Ce dépôt (template workspace)** | **[Offer-Pipeline](https://github.com/uccellolabs/Offer-Pipeline)** — dépôt principal |
+|---|---|---|
+| **Rôle** | Ton projet Git : `projects/`, `CLAUDE.md`, `templates/` | Catalogue des **skills** (`skills/*/SKILL.md`), script `install-skills.sh`, doc complète |
+| **Tu le forks / dupliques ?** | Oui — via « Use this template » pour **ton** repo | Tu le **clones** (ou tu en fais un fork si tu veux figer ta version) |
+| **Fréquence de mise à jour** | Souvent (chaque étape du pipeline) | Rarement ; `git pull` met à jour les agents pour tout le monde |
+
+**Lien direct du dépôt principal :** [github.com/uccellolabs/Offer-Pipeline](https://github.com/uccellolabs/Offer-Pipeline)
+
+**Documentation détaillée** (installation Cursor / Claude Code, dépannage, liste des agents) : [README du dépôt Offer-Pipeline](https://github.com/uccellolabs/Offer-Pipeline/blob/main/README.md).
+
+En résumé : **ouvre ton workspace dans l’IDE** (ce repo-ci) ; **installe les skills une fois** depuis Offer-Pipeline ; les fichiers générés par les agents vont dans `projects/<nom>/` ici.
 
 ---
 
@@ -22,24 +36,26 @@ cd <ton-repo>
 
 ### 2. Installer les skills (Cursor ou Claude Code)
 
-Récupère le dépôt qui contient les skills (remplace `<organisation>` par le compte ou l’orga qui héberge le dépôt — ou l’URL d’un fork) :
+Clone le **dépôt principal** qui contient les skills (même emplacement que le tableau ci-dessus) :
 
 ```bash
-git clone git@github.com:<organisation>/Offer-Pipeline.git
+git clone https://github.com/uccellolabs/Offer-Pipeline.git
 cd Offer-Pipeline
 bash install-skills.sh
 ```
 
+*(En SSH : `git clone git@github.com:uccellolabs/Offer-Pipeline.git`.)*
+
 Le menu propose **Cursor** (`~/.cursor/skills/`), **Claude Code** (`~/.claude/skills/`) ou **les deux**. Sans menu : `bash install-skills.sh --cursor`, `--claude` ou `--both`.
 
-**Documentation** : ouvre le fichier `README.md` à la racine de ton clone `Offer-Pipeline` et suis la section sur l’installation des skills (Cursor ou Claude Code).
+Si tu utilises **un fork** d’Offer-Pipeline, remplace l’URL par celle de ton fork ; le principe reste le même : un clone du repo qui contient le dossier `skills/` et le script `install-skills.sh`.
 
 ### 3. Ouvrir ce dossier dans ton IDE
 
-- **Cursor** : `File → Open Folder → <ton-repo>/`
+- **Cursor** : `File → Open Folder → <ton-repo>/` (le repo créé à l’étape 1, pas obligatoirement `Offer-Pipeline`)
 - **Claude Code** : ouvre ce même dossier comme projet
 
-`CLAUDE.md` à la racine charge les règles du pipeline ; les commandes `/…` viennent des skills installés à l’étape 2.
+`CLAUDE.md` à la racine de **ton** workspace charge les règles du pipeline ; les commandes `/…` viennent des skills installés à l’étape 2.
 
 ### 4. Lancer le pipeline
 
@@ -47,7 +63,7 @@ Le menu propose **Cursor** (`~/.cursor/skills/`), **Claude Code** (`~/.claude/sk
 /project-manager new mon-projet
 ```
 
-Remplis `projects/mon-projet/PROJECT_CONTEXT.md` puis suis le pipeline.
+Remplis `projects/mon-projet/PROJECT_CONTEXT.md` puis suis le pipeline (voir le README d’Offer-Pipeline pour l’ordre des étapes).
 
 ---
 
@@ -100,7 +116,7 @@ workspace/
 
 ## Mettre à jour les skills
 
-Les skills pointent vers ton clone local de `Offer-Pipeline` via des symlinks.
+Les skills installés pointent en général vers ton clone local d’**Offer-Pipeline** via des symlinks.
 
 ```bash
 cd Offer-Pipeline
@@ -110,10 +126,8 @@ git pull
 Si les symlinks sont cassés (nouveau poste, nouvelle machine) :
 
 ```bash
-bash Offer-Pipeline/install-skills.sh --both
+bash /chemin/vers/Offer-Pipeline/install-skills.sh --both
 ```
-
-(adapte le chemin si ton clone n’est pas à côté du workspace.)
 
 ---
 
@@ -131,5 +145,5 @@ git push
 
 ## Prérequis
 
-- [Cursor](https://cursor.sh) et/ou **Claude Code**, avec les skills installés (`install-skills.sh`)
-- Un clone du dépôt **Offer-Pipeline** (ou équivalent) contenant le dossier `skills/`, puis `bash install-skills.sh`
+- [Cursor](https://cursor.sh) et/ou **Claude Code**
+- Clone de **[uccellolabs/Offer-Pipeline](https://github.com/uccellolabs/Offer-Pipeline)** puis exécution de `bash install-skills.sh` (voir [README](https://github.com/uccellolabs/Offer-Pipeline/blob/main/README.md))
