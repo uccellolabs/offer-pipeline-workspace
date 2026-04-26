@@ -55,7 +55,7 @@ Si tu utilises **un fork** d’Offer-Pipeline, remplace l’URL par celle de ton
 - **Cursor** : `File → Open Folder → <ton-repo>/` (le repo créé à l’étape 1, pas obligatoirement `Offer-Pipeline`)
 - **Claude Code** : ouvre ce même dossier comme projet
 
-`CLAUDE.md` à la racine de **ton** workspace charge les règles du pipeline ; les commandes `/…` viennent des skills installés à l’étape 2.
+**`AGENT.md`** et **`CLAUDE.md`** à la racine du workspace reprennent les mêmes règles du pipeline (**Cursor** charge en priorité `AGENT.md` ; garde les deux fichiers alignés). Les commandes `/…` viennent des skills installés à l’étape 2.
 
 ### 4. Lancer le pipeline
 
@@ -72,6 +72,7 @@ Remplis `projects/mon-projet/PROJECT_CONTEXT.md` puis suis le pipeline (voir le 
 ```
 workspace/
 ├── CLAUDE.md                    ← Règles globales du pipeline
+├── AGENT.md                     ← Même contenu pour Cursor (instructions projet)
 ├── templates/                   ← Templates de démarrage
 │   ├── PROJECT_CONTEXT.template.md
 │   └── SESSION_LOG.template.md
