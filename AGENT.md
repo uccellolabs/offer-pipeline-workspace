@@ -1,7 +1,6 @@
-# CLAUDE.md — Pipeline Création d'Offre
+# AGENT.md — Pipeline Création d'Offre
 
-> **Workspace :** ce fichier est à la racine de **ton dépôt de travail** (template). Les agents (`SKILL.md`) viennent d’un **clone séparé** d’Offer-Pipeline + `install-skills.sh` — voir `README.md`.  
-> **Cursor :** les mêmes règles sont dans **`AGENT.md`** — garde **les deux** fichiers synchronisés quand tu modifies les règles ici.
+> **Cursor :** instructions projet à la racine de **ce workspace** (template). Le corps est **aligné sur `CLAUDE.md`** — synchronise les deux fichiers quand tu changes les règles. Les `SKILL.md` viennent du clone **Offer-Pipeline** + `install-skills.sh` (voir `README.md`).
 
 Pipeline d'agents IA spécialisés dans la création et la validation d'offres commerciales.
 Architecture multi-projets avec rétrocompatibilité single-projet.
@@ -171,24 +170,19 @@ Utile pour analyse géographique de la distribution.
 ```
 ton-workspace/
 ├── README.md
-├── CLAUDE.md                    ← ce fichier
-├── AGENT.md                     ← miroir pour Cursor (mêmes règles)
+├── CLAUDE.md
+├── AGENT.md                     ← ce fichier
 ├── .gitignore
-├── .active-project              ← (absent si mode single)
-│
+├── .active-project
 ├── templates/
 │   ├── PROJECT_CONTEXT.template.md
 │   └── SESSION_LOG.template.md
-│
 └── projects/
     ├── <projet-1>/
-    │   ├── PROJECT_CONTEXT.md
-    │   ├── SESSION_LOG.md
-    │   └── … (fichiers du pipeline)
     └── archive/
 ```
 
-**Dépôt des agents (à part)** : les `skills/<nom>/SKILL.md` sont dans ton clone **Offer-Pipeline**, exposés via `~/.cursor/skills/` et/ou `~/.claude/skills/` après `install-skills.sh` (voir `README.md`).
+**Dépôt des agents (à part)** : `skills/` dans ton clone **Offer-Pipeline**, via `~/.cursor/skills/` et/ou `~/.claude/skills/`.
 
 ---
 
