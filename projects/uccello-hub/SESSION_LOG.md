@@ -1,0 +1,83 @@
+# SESSION_LOG.md — Journal du pipeline
+
+> Créé automatiquement par le premier agent lancé sur le projet.
+> Mis à jour à chaque étape.
+> Évite aux agents de relire tous les fichiers en détail.
+
+---
+
+## Statut du pipeline
+
+```
+/idea-finder       : ⬜ Non lancé
+/offer-cadrage     : ✅ 2026-04-25
+/persona           : ✅ 2026-04-25
+/market-research   : ✅ 2026-04-25
+/competitive-intel : ✅ 2026-04-25
+/pricing           : ✅ 2026-04-25
+/offer-final       : ✅ 2026-04-25
+/pitch-deck        : ✅ 2026-04-25
+/study-website     : ✅ 2026-04-25
+```
+
+---
+
+## Décisions clés
+
+*(Format : [DATE] [AGENT] — [décision] — [output])*
+
+2026-04-25 /offer-cadrage — Verdict GO — Hub IA souverain, modèle indirect, douleur quantifiable, pricing à construire → OFFER_BRIEF.md v1.0 créé
+2026-04-25 /persona — Acheteur : Marc (consultant indépendant, 9/10 prospect.) | Utilisateur : Claire (dirigeante agence marketing B2B) → PERSONA_ACHETEUR.md + PERSONA_UTILISATEUR.md créés
+2026-04-25 /market-research — Canal B (revendeurs) | Score Marc 18/20 | Viabilité 3 : ✅ Budget OK, ⚠️ Maturité Conscient→Éduqué, Cycle 2-4 sem → MARKET_RESEARCH.md créé
+2026-04-25 /pricing — Modèle : Hybride D | Revendeur 99€/mois + par tier utilisateurs | Tiers Marc: 99/174/274/399€/mois | Marge Marc 46-48% | On-premise 1 000-2 000€ → PRICING_BRIEF.md v2.0 créé
+2026-04-25 /offer-final — Score viabilité : ✅ VIABLE | Format : One-pager partenaire revendeur | Destinataire : Marc | ⚠️ 2 actions avant signature : contrat revendeur + support démo client final → OFFER_FINAL.md v1.0 créé
+2026-04-25 /pitch-deck — Destinataire : Les deux | Contexte : Démo live | Durée : 15 min | Format : HTML → pitch-deck-client/ + pitch-deck-revendeur/ créés (index.html + style.css + script.js)
+
+---
+
+## Versions des fichiers
+
+| Fichier | Version actuelle | Date | Changement |
+|---------|-----------------|------|------------|
+| IDEA_BRIEF.md | — | — | — |
+| OFFER_BRIEF.md | — | — | — |
+| PERSONA_ACHETEUR.md | — | — | — |
+| PERSONA_UTILISATEUR.md | — | — | — |
+| COMPETITIVE_BRIEF.md | — | — | — |
+| PRICING_BRIEF.md | — | — | — |
+| OFFER_FINAL.md | v1.0 | 2026-04-25 | Score viabilité global + one-pager partenaire revendeur |
+| PITCH_DECK.pptx | — | — | — |
+
+---
+
+## Apprentissages terrain
+
+> Rempli par l'utilisateur après tests, interviews ou retours prospects.
+> Format : `[DATE] — [source] — [apprentissage] — [agent impacté]`
+>
+> Exemple : `2026-05-12 — Interview ESN X — Budget max 500€/mois, pas 2000€ — /pricing à revoir`
+
+---
+
+2026-04-25 /study-website — Deux sites générés complets | website-public (5 pages, hub.uccello.io) + website-internal (8 pages, usage local) | HTML/CSS/JS pur, Lucide icons, Bricolage Grotesque + DM Sans → website-public/ + website-internal/ créés
+
+2026-04-26 /prospection-strategy — Canal : Revendeurs | Persona : Marc | Mode : A (SIRENE + LinkedIn manuel) | Volume : 20-50 prospects pilote
+→ PROSPECTION_PLAYBOOK.md créé | 22 prospects Priorité A identifiés via Annuaire Entreprises data.gouv.fr (NAF 62.02A/62.01Z, solopreneurs, grandes métropoles) | Séquence LinkedIn 3 touches + Email 5 touches + Omnichannel J-3→J+14
+/prospection-strategy : ✅ 2026-04-26
+
+2026-04-26 /prospection-list — Segment : Consultants IT solopreneurs | Volume : 50 | Niveau : 1 (SIRENE + site web)
+→ prospection.html créée (9 sections : config, top prospects, séquences LinkedIn+Email, omnichannel, objections, KPIs) | Nav ajoutée dans 8 pages | Pipeline steps mis à jour | index.html + contact.html mis à jour
+/study-website update : ✅ 2026-04-26
+→ PROSPECTS_2026-04-26_consultants-IT-solopreneurs.csv créé | 50 lignes | Score moyen 4.5/6 | 5 profils idéaux (score 6) | 16 très bons (score 5) | 47/50 NAF 62.02A/62.01Z | 42/50 grandes métropoles | 46/50 dirigeants identifiés
+Complétude : 2% sites web (1/50 — enrichissement manuel requis via Hunter.io) | 92% dirigeants identifiés (via SIRENE)
+/prospection-list : ✅ 2026-04-26 (vague 1)
+
+2026-04-26 /pricing update — Validation marché on-premise + correction grille MSP
+→ Étude marché on-premise réelle : OnPremiseAgent ($499/$1 499/mois), n8n Business self-hosted ($667/mois), Chatwoot Enterprise ($99/agent/mois), AirgapAI ($697/user one-time)
+→ Correction erreur précédente : comparaison GoHighLevel/Mewayz était du cloud SaaS white-label, pas du on-premise — invalide pour le scénario Marc MSP
+→ Grille MSP validée et conforme au marché : 499€ (≤20 users) / 899€ (21–50) / 1 499€ (51–100) / Custom (100+) + setup 2 000–3 000€
+→ Distinction clarifiée dans PRICING_BRIEF.md : On-premise Marc MSP (flat capacitaire, 1 instance) vs On-premise client final (par client, 1 000–2 000€/client)
+→ Simulation marge Marc MSP (Growth 8 clients) : 61–63% marge brute vs 46% en SaaS — meilleure marge Marc mais -35% revenus Jonathan
+/pricing update : ✅ 2026-04-26
+
+> Les agents notent ici ce qui nécessite une validation humaine avant de continuer.
