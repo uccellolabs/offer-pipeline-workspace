@@ -3,6 +3,8 @@
 Pipeline d'agents IA spécialisés dans la création et la validation d'offres commerciales.
 Architecture multi-projets avec rétrocompatibilité single-projet.
 
+> **Workspace :** ce fichier est à la racine de **ton dépôt de travail** (souvent créé depuis un template GitHub). Les agents (`SKILL.md`) viennent d’un **autre dépôt** cloné à part ; ils sont chargés dans Cursor ou Claude Code après `install-skills.sh`. Voir le `README.md` de ce workspace.
+
 ---
 
 ## Pipeline (ordre logique)
@@ -35,7 +37,7 @@ Architecture multi-projets avec rétrocompatibilité single-projet.
 
 ### Mode single-projet (par défaut)
 Si aucun dossier `projects/<nom>/` n'existe et aucun fichier `.active-project` :
-→ tous les fichiers sont à la racine du pipeline.
+→ tous les fichiers sont à la racine du workspace.
 → comportement simple, un seul projet en cours.
 
 ### Mode multi-projets (activé par /project-manager)
@@ -44,7 +46,7 @@ Si `.active-project` existe et contient un nom de projet :
 → plusieurs offres peuvent être développées en parallèle
 
 **Détection automatique par chaque agent :**
-1. Vérifier l'existence de `.active-project` à la racine
+1. Vérifier l'existence de `.active-project` à la racine **de ce dépôt**
 2. Si existe → lire le nom du projet actif → travailler dans `projects/<nom>/`
 3. Si absent → travailler à la racine (mode single)
 
@@ -76,7 +78,7 @@ Si `.active-project` existe et contient un nom de projet :
 ## Règles globales (TOUS les agents)
 
 ### Détection du projet actif
-1. **En tout début d'étape 0**, vérifier `.active-project` à la racine du pipeline.
+1. **En tout début d'étape 0**, vérifier `.active-project` à la racine du workspace.
 2. Si présent → résoudre les chemins relatifs à `projects/<nom>/`
 3. Si absent → travailler à la racine
 
@@ -160,12 +162,14 @@ Utile pour analyse géographique de la distribution.
 
 ---
 
-## Structure des dossiers
+## Structure de ce dépôt (workspace)
+
+Typiquement, **ce repo** ne contient que le travail et les règles locales :
 
 ```
-offer-pipeline/
+ton-workspace/
 ├── README.md
-├── CLAUDE.md
+├── CLAUDE.md                    ← ce fichier
 ├── .gitignore
 ├── .active-project              ← (absent si mode single)
 │
@@ -183,27 +187,13 @@ offer-pipeline/
 │   │   ├── COMPETITIVE_BRIEF.md
 │   │   ├── PRICING_BRIEF.md
 │   │   ├── OFFER_FINAL.md
-│   │   └── PITCH_DECK.pptx
+│   │   └── …
 │   ├── <projet-2>/
 │   └── archive/
-│       └── <projet-abandonné>/
-│
-└── .claude/
-    └── skills/
-        ├── project-manager/SKILL.md
-        ├── idea-finder/SKILL.md
-        ├── offer-cadrage/SKILL.md
-        ├── persona/SKILL.md
-        ├── market-research/SKILL.md
-        ├── competitive-intel/SKILL.md
-        ├── pricing/SKILL.md
-        ├── offer-final/SKILL.md
-        ├── pitch-deck/SKILL.md
-        ├── prospection-strategy/SKILL.md
-        ├── prospection-list/SKILL.md
-        ├── study-website/SKILL.md
-        └── orchestrator/SKILL.md
+│       └── <projet-archivé>/
 ```
+
+**Dépôt des agents (à part)** : les `skills/<nom>/SKILL.md` ne sont pas ici. Ils sont installés en symlinks sous `~/.cursor/skills/` et/ou `~/.claude/skills/` depuis le dépôt que tu clones pour les skills (voir `README.md`).
 
 ---
 

@@ -7,7 +7,7 @@
 
 ## L'entreprise
 
-**Nom** — [ex : Uccello Labs]
+**Nom** — [ex : Acme SAS]
 **Secteur** — [ex : Édition SaaS B2B]
 **Description (2 phrases)** — [ce que fait l'entreprise, pour qui, depuis quand]
 **Stade** — [ ] Idée  [ ] MVP  [ ] Traction  [ ] Croissance établie
@@ -28,9 +28,9 @@
 > Utilisé par `/idea-finder` pour filtrer les opportunités business.
 
 **Compétences techniques fortes** (ordre décroissant)
-- [ex : Backend Laravel — 21 ans d'expérience]
-- [ex : Architecture SaaS B2B — 10 ans]
-- [ex : IA locale via Ollama / Qwen3]
+- [ex : Développement web full-stack — 10 ans d'expérience]
+- [ex : Architecture SaaS B2B — 5 ans]
+- [ex : Intégrations API & automatisation]
 
 **Type de projet préféré**
 [ ] SaaS B2B récurrent
@@ -66,7 +66,7 @@
 
 **Outils utilisés en interne** — [CRM, ERP, analytics, code...]
 **Intégrations possibles avec l'offre** — [APIs, connecteurs disponibles]
-**Dépendances tierces critiques** — [ex : Scaleway pour IA, Stripe pour paiement]
+**Dépendances tierces critiques** — [ex : hébergeur cloud, prestataire paiement]
 
 ---
 
@@ -76,9 +76,9 @@
 > Si absent, les agents proposent 3 thèmes prédéfinis.
 
 **Identité visuelle**
-- Nom de marque : [ex : Axell]
+- Nom de marque : [ex : MarqueProduit]
 - Logo : [chemin vers logo.svg ou logo.png — relatif au projet]
-- Tagline : [ex : "L'IA commerciale pour PME"]
+- Tagline : [ex : "Slogan orienté bénéfice client"]
 
 **Palette de couleurs (HEX)**
 - Primaire : [#1E2761]
@@ -121,7 +121,7 @@
 > Remplir si tu as déjà une offre en production sur ce projet.
 
 **Offre principale**
-- Nom — [ex : Uccello Hub]
+- Nom — [ex : Offre coaching + outil]
 - Description (2 phrases) — [...]
 - Prix actuel — [ex : 299€/mois + 500€ setup]
 - Clients actuels — [nombre, profil]
@@ -132,8 +132,8 @@
 
 ## Ambition
 
-**Objectif 12 mois** — [ex : 10 revendeurs / 50 clients / 100k€ ARR]
-**Objectif 3 ans** — [ex : Sortir de l'exécution solo / Équipe 5 / Leader FR]
+**Objectif 12 mois** — [ex : 10 partenaires / 50 clients / 100k€ ARR]
+**Objectif 3 ans** — [ex : Sortir de l'exécution solo / Équipe 5 / leader sur un segment]
 
 ---
 
