@@ -72,6 +72,30 @@
 Complétude : 2% sites web (1/50 — enrichissement manuel requis via Hunter.io) | 92% dirigeants identifiés (via SIRENE)
 /prospection-list : ✅ 2026-04-26 (vague 1)
 
+2026-04-26 /study-website update v2 — prospection.html mis à jour avec couche DISC complète
+→ Grille DISC 30 sec (tableau signaux) | 6 biais cognitifs (cartes) | Matrice DISC × Biais
+→ Onglets DISC (D/I/S/C) sur les 3 touches LinkedIn + 5 touches Email (= 32 templates)
+→ Timeline omnichannel avec colonne adaptation DISC | Objections DISC en tableau croisé
+→ KPIs avec colonne "Tracking DISC" | Répartition DISC 50 prospects (barres visuelles)
+→ Stats v2 (43 DISC estimés) | Référence CSV v2 | Footer v2.0
+/study-website update v2 : ✅ 2026-04-26
+
+2026-04-26 /prospection-list v2 — Enrichissement DISC sur 50 prospects existants
+→ 6 colonnes ajoutées : LinkedIn_décideur, Email_pattern_1/2, Profil_DISC_estime, Signaux_DISC, Confiance_DISC
+→ 1 DISC Moyenne (Marwan Toufiq — Codeur.com confirmé D-C) | 1 DISC Faible sourcé (Adil El Marradi — Viadeo C-S)
+→ 3 INDÉTERMINABLE score 6 (Adem Boukhanoufa, Olivier Malamou, Philippe Vaitilingam — LinkedIn à chercher manuellement)
+→ 4 INDÉTERMINABLE sans dirigeant (Colors Process, SARL Workflow, Workflow Groupware, Conception Integration PACA)
+→ 42 DISC inférés contextuellement (Faible) depuis nom société + forme juridique + ancienneté + localisation
+→ PROSPECTS_2026-04-26_consultants-IT-solopreneurs_v2.csv créé (50 lignes, v1 conservée)
+Répartition DISC estimée : D=8 | D-C=3 | D-I=4 | C=11 | C-S=9 | C-D=2 | S=3 | S-C=3 | S-I=2 | I=4 | I-S=1 | INDÉT.=7 (dont 4 sans dirigeant)
+/prospection-list v2 : ✅ 2026-04-26
+
+2026-04-26 /prospection-strategy v2 — Ajout couche DISC complète + 6 biais cognitifs
+→ Grille détection DISC 30 sec | Matrice DISC × Biais | 4 variantes par template (D/I/S/C)
+→ Touches LinkedIn 1-2-3 modulées DISC | Emails Touch 1-5 × 4 profils | Objections DISC-adaptées
+→ PROSPECTION_PLAYBOOK_v2.md créé (v1 conservée)
+/prospection-strategy v2 : ✅ 2026-04-26
+
 2026-04-26 /pricing update — Validation marché on-premise + correction grille MSP
 → Étude marché on-premise réelle : OnPremiseAgent ($499/$1 499/mois), n8n Business self-hosted ($667/mois), Chatwoot Enterprise ($99/agent/mois), AirgapAI ($697/user one-time)
 → Correction erreur précédente : comparaison GoHighLevel/Mewayz était du cloud SaaS white-label, pas du on-premise — invalide pour le scénario Marc MSP

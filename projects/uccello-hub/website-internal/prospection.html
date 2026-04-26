@@ -9,6 +9,83 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    /* ─── DISC Color System ─── */
+    :root {
+      --disc-d:    #DC2626; --disc-d-bg: rgba(220,38,38,.08); --disc-d-br: rgba(220,38,38,.25);
+      --disc-i:    #D97706; --disc-i-bg: rgba(217,119,6,.08);  --disc-i-br: rgba(217,119,6,.25);
+      --disc-s:    #059669; --disc-s-bg: rgba(5,150,105,.08);  --disc-s-br: rgba(5,150,105,.25);
+      --disc-c:    #1D4ED8; --disc-c-bg: rgba(29,78,216,.08);  --disc-c-br: rgba(29,78,216,.25);
+    }
+    /* ─── DISC Tabs ─── */
+    .disc-tabs { display: flex; gap: 6px; margin-bottom: 0; flex-wrap: wrap; }
+    .disc-tab {
+      padding: 6px 14px; border-radius: 20px; font: 600 .75rem/1 var(--fb); cursor: pointer;
+      border: 1px solid transparent; background: var(--bg-alt); color: var(--text-muted);
+      transition: all .12s; user-select: none;
+    }
+    .disc-tab[data-disc="D"].active { background: var(--disc-d-bg); border-color: var(--disc-d-br); color: var(--disc-d); }
+    .disc-tab[data-disc="I"].active { background: var(--disc-i-bg); border-color: var(--disc-i-br); color: var(--disc-i); }
+    .disc-tab[data-disc="S"].active { background: var(--disc-s-bg); border-color: var(--disc-s-br); color: var(--disc-s); }
+    .disc-tab[data-disc="C"].active { background: var(--disc-c-bg); border-color: var(--disc-c-br); color: var(--disc-c); }
+    .disc-panel { display: none; }
+    .disc-panel.active { display: block; }
+    .disc-tag {
+      display: inline-flex; align-items: center;
+      font: 700 .5625rem/1 var(--fb); letter-spacing: .1em; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 20px; margin-bottom: 8px;
+    }
+    .disc-tag.D { background: var(--disc-d-bg); border: 1px solid var(--disc-d-br); color: var(--disc-d); }
+    .disc-tag.I { background: var(--disc-i-bg); border: 1px solid var(--disc-i-br); color: var(--disc-i); }
+    .disc-tag.S { background: var(--disc-s-bg); border: 1px solid var(--disc-s-br); color: var(--disc-s); }
+    .disc-tag.C { background: var(--disc-c-bg); border: 1px solid var(--disc-c-br); color: var(--disc-c); }
+    /* ─── Touch with tabs ─── */
+    .touch-block-tabs { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 4px; }
+    .touch-header-tabs { display: flex; align-items: center; gap: 12px; padding: 16px 20px 0; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+    .touch-tabs-row { display: flex; align-items: center; justify-content: space-between; padding: 0 20px 12px; flex-wrap: wrap; gap: 8px; }
+    .touch-body-tabs { padding: 20px; }
+    /* ─── Biais cards ─── */
+    .biais-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 4px; }
+    .biais-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r); padding: 16px 18px; }
+    .biais-card .biais-num { font: 800 1.25rem/1 var(--fh); color: var(--primary); margin-bottom: 6px; }
+    .biais-card .biais-title { font: 700 .9375rem/1 var(--fh); color: var(--text); margin-bottom: 6px; }
+    .biais-card .biais-desc { font: 400 .8125rem/1.55 var(--fb); color: var(--text-muted); }
+    .biais-card .biais-ex { font: 400 .8125rem/1.55 var(--fb); color: var(--text); background: var(--bg-alt); border-left: 2px solid var(--primary); padding: 6px 10px; margin-top: 8px; border-radius: 0 3px 3px 0; }
+    /* ─── Matrix table ─── */
+    .matrix-table { width: 100%; border-collapse: collapse; font: 400 .8125rem/1.4 var(--fb); }
+    .matrix-table th { background: var(--bg-alt); font: 700 .625rem/1 var(--fb); letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); padding: 8px 12px; text-align: center; border-bottom: 2px solid var(--border); }
+    .matrix-table th:first-child { text-align: left; }
+    .matrix-table td { padding: 8px 12px; border-bottom: 1px solid var(--border); text-align: center; font-size: .875rem; }
+    .matrix-table td:first-child { text-align: left; font-weight: 600; color: var(--text); }
+    .matrix-table tr:last-child td { border-bottom: none; }
+    .matrix-table tr:hover td { background: var(--bg-alt); }
+    .th-d { color: var(--disc-d) !important; }
+    .th-i { color: var(--disc-i) !important; }
+    .th-s { color: var(--disc-s) !important; }
+    .th-c { color: var(--disc-c) !important; }
+    /* ─── DISC bar chart ─── */
+    .disc-dist { display: flex; flex-direction: column; gap: 8px; }
+    .disc-bar-row { display: flex; align-items: center; gap: 10px; }
+    .disc-bar-label { font: 700 .5625rem/1 var(--fb); letter-spacing: .1em; text-transform: uppercase; width: 80px; flex-shrink: 0; }
+    .disc-bar-track { flex: 1; background: var(--bg-alt); border-radius: 20px; height: 10px; overflow: hidden; }
+    .disc-bar-fill { height: 100%; border-radius: 20px; }
+    .disc-bar-row.d .disc-bar-fill { background: var(--disc-d); }
+    .disc-bar-row.i .disc-bar-fill { background: var(--disc-i); }
+    .disc-bar-row.s .disc-bar-fill { background: var(--disc-s); }
+    .disc-bar-row.c .disc-bar-fill { background: var(--disc-c); }
+    .disc-bar-row.nd .disc-bar-fill { background: var(--border); }
+    .disc-bar-val { font: 600 .8125rem/1 var(--fb); color: var(--text); min-width: 28px; text-align: right; }
+    /* ─── Grille DISC ─── */
+    .disc-grille table { font-size: .8125rem; }
+    .disc-grille th.th-d { background: var(--disc-d-bg); }
+    .disc-grille th.th-i { background: var(--disc-i-bg); }
+    .disc-grille th.th-s { background: var(--disc-s-bg); }
+    .disc-grille th.th-c { background: var(--disc-c-bg); }
+    .disc-check { color: var(--green); font-size: .875rem; }
+    /* ─── Objection DISC table ─── */
+    .obj-table { font-size: .8125rem; }
+    .obj-table td { vertical-align: top; }
+  </style>
 </head>
 <body>
 
@@ -33,7 +110,7 @@
     <div class="container">
       <p class="page-breadcrumb"><a href="index.html">Étude Uccello Hub</a> › Prospection</p>
       <h1>Stratégie de prospection — Revendeurs</h1>
-      <p>Canal Marc · Mode A — SIRENE via data.gouv.fr + LinkedIn manuel · Pilote 20–50 prospects</p>
+      <p>Canal Marc · Mode A — SIRENE + LinkedIn manuel · Pilote 20–50 prospects · <strong>v2 — Adaptation DISC + 6 biais cognitifs</strong></p>
     </div>
   </header>
 
@@ -42,16 +119,16 @@
 
       <!-- VERDICT -->
       <div class="verdict-card" style="margin-bottom: 32px;">
-        <div class="verdict-icon"><i data-lucide="send"></i></div>
+        <div class="verdict-icon"><i data-lucide="brain"></i></div>
         <div class="verdict-text">
-          <strong>Prêt à prospecter — Playbook complet</strong>
-          <span>50 prospects identifiés via SIRENE · Séquences LinkedIn + Email générées · 26 avril 2026</span>
+          <strong>Playbook v2 — Psychologie individuelle intégrée</strong>
+          <span>50 prospects · DISC estimé sur 43 profils · 4 variantes par template (D/I/S/C) · 26 avril 2026</span>
         </div>
       </div>
 
       <!-- STATS -->
       <div class="stats-section" style="margin: 0 -28px 40px; padding: 24px 28px;">
-        <div class="stats-row">
+        <div class="stats-row" style="grid-template-columns: repeat(5,1fr);">
           <div class="stat-item">
             <span class="stat-num">50</span>
             <span class="stat-lbl">Prospects identifiés</span>
@@ -59,6 +136,10 @@
           <div class="stat-item">
             <span class="stat-num green">5</span>
             <span class="stat-lbl">Profils idéaux (score 6/6)</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">43</span>
+            <span class="stat-lbl">DISC estimés (v2)</span>
           </div>
           <div class="stat-item">
             <span class="stat-num">9/10</span>
@@ -80,9 +161,9 @@
               <tr><td><strong>Canal</strong></td><td>Revendeurs — Jonathan → Marc (consultant transformation digitale indépendant)</td></tr>
               <tr><td><strong>Mode ciblage</strong></td><td>A — SIRENE via Annuaire Entreprises data.gouv.fr + LinkedIn manuel</td></tr>
               <tr><td><strong>Volume pilote</strong></td><td>20–50 prospects sur 30 jours · 5 profils/semaine en phase 1</td></tr>
-              <tr><td><strong>Enrichissement actuel</strong></td><td>Niveau 1 — SIRENE + site web (46/50 dirigeants identifiés via SIRENE)</td></tr>
+              <tr><td><strong>Enrichissement</strong></td><td>Niveau 1 + DISC inféré — 92% dirigeants identifiés via SIRENE · DISC estimé sur 43/50 profils (v2)</td></tr>
               <tr><td><strong>Lead magnet</strong></td><td>Non créé — à déployer en Touch 2 (idée : Calculateur ROI Revendeur)</td></tr>
-              <tr><td><strong>Email</strong></td><td>Outil disponible · Domaine à warmer si non prêt → début manuel 5 emails/jour</td></tr>
+              <tr><td><strong>Email</strong></td><td>Domaine à warmer si non prêt → début manuel 5 emails/jour</td></tr>
             </tbody>
           </table>
         </div>
@@ -95,13 +176,136 @@
         <br><br>
         <strong>Hook :</strong> <em>"Tu livres un diagnostic, tu proposes Uccello Hub, le client paye 200–400€/mois. Tu touches ta marge chaque mois sans décrocher le téléphone."</em>
         <br><br>
-        <strong>Ton différenciateur :</strong> tu es développeur depuis 21 ans — tu comprends ses contraintes tech ET commerciales. 15 min de démo suffisent.
+        <strong>Principe DISC :</strong> Le persona Marc te dit <strong>QUOI</strong> dire · Le profil DISC individuel te dit <strong>COMMENT</strong> le dire · Les biais cognitifs te disent <strong>QUEL LEVIER</strong> activer
       </div>
 
-      <!-- TOP PROSPECTS -->
-      <div class="section-title">Top 10 prospects — Priorité A</div>
-      <p style="color: var(--text-muted); margin-bottom: 16px; font-size: .9rem;">Source : SIRENE · NAF 62.02A/62.01Z · Solopreneurs · Grandes métropoles · Signal automation/intégration fort<br>
-      Fichier complet : <code style="background:var(--bg-alt); padding: 2px 6px; border-radius: 3px;">PROSPECTS_2026-04-26_consultants-IT-solopreneurs.csv</code> (50 lignes)</p>
+      <!-- ═══════════ LECTURE PSYCHOLOGIQUE ═══════════ -->
+      <div class="section-title" style="margin-top: 40px;">Lecture psychologique — DISC individuel</div>
+
+      <!-- GRILLE DISC 30 SEC -->
+      <p style="color: var(--text-muted); font-size: .875rem; margin-bottom: 16px;">Identifier le profil dominant en 30 secondes depuis LinkedIn. La plupart des prospects ont 2 lettres marquées (D-C, I-S...). Adapter au dominant.</p>
+
+      <div class="card-section disc-grille" style="margin-bottom: 20px;">
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Signal observable depuis LinkedIn</th>
+                <th class="th-d" style="text-align:center;">D 🔴</th>
+                <th class="th-i" style="text-align:center;">I 🟡</th>
+                <th class="th-s" style="text-align:center;">S 🟢</th>
+                <th class="th-c" style="text-align:center;">C 🔵</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Posts courts, factuels, chiffres</td><td style="text-align:center;" class="disc-check">✓</td><td></td><td></td><td></td></tr>
+              <tr><td>Posts longs, storytelling, emojis</td><td></td><td style="text-align:center;" class="disc-check">✓</td><td></td><td></td></tr>
+              <tr><td>Posts sur équipe / culture / bien-être</td><td></td><td></td><td style="text-align:center;" class="disc-check">✓</td><td></td></tr>
+              <tr><td>Posts techniques, sourcés, données</td><td></td><td></td><td></td><td style="text-align:center;" class="disc-check">✓</td></tr>
+              <tr><td>Photo : regard direct, sérieux</td><td style="text-align:center;" class="disc-check">✓</td><td></td><td></td><td></td></tr>
+              <tr><td>Photo : sourire large, fond chaleureux</td><td></td><td style="text-align:center;" class="disc-check">✓</td><td></td><td></td></tr>
+              <tr><td>Photo : sourire mesuré, pose classique</td><td></td><td></td><td style="text-align:center;" class="disc-check">✓</td><td></td></tr>
+              <tr><td>Photo : neutre, lunettes, bureau</td><td></td><td></td><td></td><td style="text-align:center;" class="disc-check">✓</td></tr>
+              <tr><td>Bio : "results", "performance", "ROI", "execute"</td><td style="text-align:center;" class="disc-check">✓</td><td></td><td></td><td></td></tr>
+              <tr><td>Bio : "passionate", "love", "people", "impact"</td><td></td><td style="text-align:center;" class="disc-check">✓</td><td></td><td></td></tr>
+              <tr><td>Bio : "team", "trust", "community", "accompagne"</td><td></td><td></td><td style="text-align:center;" class="disc-check">✓</td><td></td></tr>
+              <tr><td>Bio : titres, certifications, années d'expérience</td><td></td><td></td><td></td><td style="text-align:center;" class="disc-check">✓</td></tr>
+              <tr><td>Fréquence posts : &gt;1/semaine</td><td style="text-align:center;" class="disc-check">✓</td><td style="text-align:center;" class="disc-check">✓</td><td></td><td></td></tr>
+              <tr><td>Commente beaucoup les posts des autres</td><td></td><td style="text-align:center;" class="disc-check">✓</td><td style="text-align:center;" class="disc-check">✓</td><td></td></tr>
+              <tr><td>Pose des questions techniques dans les commentaires</td><td></td><td></td><td></td><td style="text-align:center;" class="disc-check">✓</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="info-box" style="margin-top: 12px; margin-bottom: 0;">
+          <strong>Profils fréquents chez les consultants IT solopreneurs :</strong> D-C (35%) — résultats + rigueur · C-S (25%) — méthodiques, décident lentement · I-D (20%) — visibles LinkedIn, entrepreneurs · S-C (20%) — discrets, stables
+        </div>
+      </div>
+
+      <!-- 6 BIAIS COGNITIFS -->
+      <div class="section-title" style="margin-top: 8px;">Les 6 biais cognitifs activables</div>
+      <div class="biais-grid">
+        <div class="biais-card">
+          <div class="biais-num">01</div>
+          <div class="biais-title">Réciprocité <span style="color:var(--text-muted);font-weight:400;font-size:.8rem;">(Cialdini)</span></div>
+          <div class="biais-desc">Donner avant de demander. Spécifique au prospect, jamais générique.</div>
+          <div class="biais-ex">✓ "J'ai analysé ton post sur la confidentialité IA — voilà ce que les consultants Make qui ont résolu ça font différemment"</div>
+        </div>
+        <div class="biais-card">
+          <div class="biais-num">02</div>
+          <div class="biais-title">Loss aversion <span style="color:var(--text-muted);font-weight:400;font-size:.8rem;">(Kahneman)</span></div>
+          <div class="biais-desc">La peur de perdre est 2,5× plus puissante que l'envie de gagner.</div>
+          <div class="biais-ex">✓ "Tes concurrents consultants qui ont déjà une offre IA récurrente ont 6 à 12 mois d'avance. Dans 12 mois, est-ce que tu seras encore leur référent ?"</div>
+        </div>
+        <div class="biais-card">
+          <div class="biais-num">03</div>
+          <div class="biais-title">Curiosité gap <span style="color:var(--text-muted);font-weight:400;font-size:.8rem;">(Loewenstein)</span></div>
+          <div class="biais-desc">Créer un trou cognitif que seule la réponse comble.</div>
+          <div class="biais-ex">✓ "3 consultants Make ont signé leurs premiers clients récurrents sans changer leur positionnement. Une seule chose différente. Laquelle ?"</div>
+        </div>
+        <div class="biais-card">
+          <div class="biais-num">04</div>
+          <div class="biais-title">Preuve sociale <span style="color:var(--text-muted);font-weight:400;font-size:.8rem;">(Cialdini)</span></div>
+          <div class="biais-desc">"X de tes pairs ont fait Y" — efficace si la référence est précise.</div>
+          <div class="biais-ex">✓ "Un consultant, profil similaire au tien (Make, PME services), a signé 3 clients en 6 semaines — 504€ de MRR dès le mois 2"</div>
+        </div>
+        <div class="biais-card">
+          <div class="biais-num">05</div>
+          <div class="biais-title">Ancrage chiffré <span style="color:var(--text-muted);font-weight:400;font-size:.8rem;">(Tversky)</span></div>
+          <div class="biais-desc">Le premier chiffre cité devient le repère mental.</div>
+          <div class="biais-ex">✓ "168€ de marge nette par client Team. 3 clients = rentabilisé en moins d'un mois de licence."</div>
+        </div>
+        <div class="biais-card">
+          <div class="biais-num">06</div>
+          <div class="biais-title">Pattern interrupt</div>
+          <div class="biais-desc">Casser le pattern attendu d'un cold email pour réveiller l'attention.</div>
+          <div class="biais-ex">✓ Sujet D : "[prénom], 168€ par client. Récurrent." · Sujet I : "[prénom], une conversation qui m'a marqué"</div>
+        </div>
+      </div>
+
+      <!-- MATRICE DISC × BIAIS -->
+      <div class="section-title" style="margin-top: 8px;">Matrice DISC × Biais — quel levier activer sur quel profil</div>
+      <div class="card-section" style="padding: 20px 24px;">
+        <div class="table-wrap">
+          <table class="matrix-table">
+            <thead>
+              <tr>
+                <th>Biais</th>
+                <th class="th-d">D 🔴</th>
+                <th class="th-i">I 🟡</th>
+                <th class="th-s">S 🟢</th>
+                <th class="th-c">C 🔵</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Loss aversion</td><td>🔥 Très fort</td><td>⚡ Fort</td><td>⚠️ Délicat</td><td>🔥 Très fort</td></tr>
+              <tr><td>Réciprocité</td><td>⚡ Fort</td><td>🔥 Très fort</td><td>🔥 Très fort</td><td>⚡ Fort</td></tr>
+              <tr><td>Curiosité gap</td><td>🔥 Très fort</td><td>🔥 Très fort</td><td>⚡ Fort</td><td>⚡ Fort</td></tr>
+              <tr><td>Preuve sociale</td><td>⚡ Fort</td><td>🔥 Très fort</td><td>🔥 Très fort</td><td>⚡ Fort</td></tr>
+              <tr><td>Ancrage chiffré</td><td>🔥 Très fort</td><td>⚠️ Délicat</td><td>⚡ Fort</td><td>🔥 Très fort</td></tr>
+              <tr><td>Pattern interrupt</td><td>🔥 Très fort</td><td>🔥 Très fort</td><td>⚠️ Délicat</td><td>⚡ Fort</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px;">
+          <div class="info-box" style="background:var(--disc-d-bg); border-color:var(--disc-d-br); color: #7f1d1d; margin:0; font-size:.8125rem;">
+            <strong>D →</strong> Loss aversion + Pattern interrupt + Curiosité gap + Ancrage chiffré
+          </div>
+          <div class="info-box" style="background:var(--disc-i-bg); border-color:var(--disc-i-br); color: #78350f; margin:0; font-size:.8125rem;">
+            <strong>I →</strong> Réciprocité + Curiosité gap + Preuve sociale + Pattern interrupt
+          </div>
+          <div class="info-box" style="background:var(--disc-s-bg); border-color:var(--disc-s-br); color: #064e3b; margin:0; font-size:.8125rem;">
+            <strong>S →</strong> Réciprocité + Preuve sociale <em>(jamais Loss aversion frontale)</em>
+          </div>
+          <div class="info-box" style="background:var(--disc-c-bg); border-color:var(--disc-c-br); color: #1e3a8a; margin:0; font-size:.8125rem;">
+            <strong>C →</strong> Loss aversion + Ancrage chiffré + Réciprocité sourcée
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════ TOP PROSPECTS ═══════════ -->
+      <div class="section-title" style="margin-top: 40px;">Top 10 prospects — Priorité A + DISC estimé</div>
+      <p style="color: var(--text-muted); margin-bottom: 16px; font-size: .9rem;">Source : SIRENE · NAF 62.02A/62.01Z · Solopreneurs · Grandes métropoles · DISC enrichi dans
+        <code style="background:var(--bg-alt); padding: 2px 6px; border-radius: 3px;">PROSPECTS_2026-04-26_consultants-IT-solopreneurs_v2.csv</code> (50 lignes)</p>
       <div class="card-section">
         <div class="table-wrap">
           <table class="data-table">
@@ -110,9 +314,9 @@
                 <th>#</th>
                 <th>Dirigeant</th>
                 <th>Société</th>
-                <th>NAF</th>
                 <th>Ville</th>
-                <th>Signal</th>
+                <th>DISC estimé</th>
+                <th>Biais prioritaire</th>
                 <th>Score</th>
               </tr>
             </thead>
@@ -121,90 +325,90 @@
                 <td>1</td>
                 <td><strong>Marwan Toufiq</strong></td>
                 <td>Automatisation Process</td>
-                <td>62.01Z</td>
                 <td>Paris (75)</td>
-                <td>RPA + n8n + APIs — profil Marc idéal</td>
+                <td><span class="disc-tag D">D-C</span></td>
+                <td style="font-size:.8125rem;">Loss aversion + Ancrage</td>
                 <td><span class="badge badge-green">6/6</span></td>
               </tr>
               <tr>
                 <td>2</td>
                 <td><strong>Adem Boukhanoufa</strong></td>
                 <td>Adem IA Automatisation</td>
-                <td>62.02A</td>
                 <td>Lyon (69)</td>
-                <td>IA + Automatisation — exact profil Marc</td>
+                <td><span class="badge badge-grey" style="font-size:.625rem;">INDÉT.</span></td>
+                <td style="font-size:.8125rem; color:var(--text-muted);">Chercher LinkedIn</td>
                 <td><span class="badge badge-green">6/6</span></td>
               </tr>
               <tr>
                 <td>3</td>
                 <td><strong>Adil El Marradi</strong></td>
-                <td>Implementation Consulting Automatisation</td>
-                <td>62.02A</td>
+                <td>Impl. Consulting Automatisation</td>
                 <td>Roubaix (59)</td>
-                <td>Implementation + Automatisation</td>
+                <td><span class="disc-tag C">C-S</span></td>
+                <td style="font-size:.8125rem;">Ancrage chiffré + Réciprocité</td>
                 <td><span class="badge badge-green">6/6</span></td>
               </tr>
               <tr>
                 <td>4</td>
                 <td><strong>Olivier Malamou</strong></td>
                 <td>IA Automatisation</td>
-                <td>62.01Z</td>
                 <td>Nantes (44)</td>
-                <td>IA + Automatisation Nantes</td>
+                <td><span class="badge badge-grey" style="font-size:.625rem;">INDÉT.</span></td>
+                <td style="font-size:.8125rem; color:var(--text-muted);">Chercher LinkedIn</td>
                 <td><span class="badge badge-green">6/6</span></td>
               </tr>
               <tr>
                 <td>5</td>
                 <td><strong>Philippe Vaitilingam</strong></td>
                 <td>NDIRA Automatisation Expert</td>
-                <td>62.02A</td>
                 <td>Saint-Denis (93)</td>
-                <td>Automatisation Expert IDF ancienneté 2010</td>
+                <td><span class="badge badge-grey" style="font-size:.625rem;">INDÉT.</span></td>
+                <td style="font-size:.8125rem; color:var(--text-muted);">Chercher LinkedIn</td>
                 <td><span class="badge badge-green">6/6</span></td>
               </tr>
               <tr>
                 <td>6</td>
                 <td><strong>Antoine Olsen</strong></td>
                 <td>Carbon Automatisation</td>
-                <td>62.01Z</td>
                 <td>Paris (75)</td>
-                <td>Automatisation Paris 2023</td>
+                <td><span class="disc-tag D">D-I</span></td>
+                <td style="font-size:.8125rem;">Pattern interrupt + Curiosité</td>
                 <td><span class="badge badge-blue">5/6</span></td>
               </tr>
               <tr>
                 <td>7</td>
                 <td><strong>Eddy Tardy</strong></td>
                 <td>Solutions d'Automatisation</td>
-                <td>62.02A</td>
                 <td>Paris (75)</td>
-                <td>Automatisation Paris ancienneté 2008</td>
+                <td><span class="disc-tag C">C-S</span></td>
+                <td style="font-size:.8125rem;">Ancrage chiffré + Réciprocité</td>
                 <td><span class="badge badge-blue">5/6</span></td>
               </tr>
               <tr>
                 <td>8</td>
                 <td><strong>Marouane Hamid</strong></td>
-                <td>Accélérateur Transformation Numérique</td>
-                <td>62.02A</td>
+                <td>Accélérateur Transformation Num.</td>
                 <td>Paris 16 (75)</td>
-                <td>Transformation numérique Paris 16</td>
+                <td><span class="disc-tag D">D-I</span></td>
+                <td style="font-size:.8125rem;">Loss aversion + Pattern interrupt</td>
                 <td><span class="badge badge-blue">5/6</span></td>
               </tr>
               <tr>
                 <td>9</td>
                 <td><strong>Bilal Mahmouti</strong></td>
                 <td>BM Automatisation</td>
-                <td>62.01Z</td>
                 <td>Lyon (69)</td>
-                <td>Automatisation Lyon 2023</td>
+                <td><span class="disc-tag D">D</span></td>
+                <td style="font-size:.8125rem;">Pattern interrupt + Ancrage</td>
                 <td><span class="badge badge-blue">5/6</span></td>
               </tr>
               <tr>
                 <td>10</td>
                 <td><strong>Soufiane Bouchata</strong></td>
                 <td>BTA Bureau-Traçabilités-Automatisations</td>
-                <td>62.02A</td>
-                <td>Saint-Germain-en-Laye (78)</td>
-                <td>Traçabilités + Automatisations triple signal</td>
+                <td>Saint-Germain (78)</td>
+                <td><span class="disc-tag C">C</span></td>
+                <td style="font-size:.8125rem;">Ancrage chiffré + Loss aversion</td>
                 <td><span class="badge badge-blue">5/6</span></td>
               </tr>
             </tbody>
@@ -212,8 +416,52 @@
         </div>
       </div>
 
-      <!-- WORKFLOW ENRICHISSEMENT -->
-      <div class="section-title">Workflow d'enrichissement avant contact</div>
+      <!-- RÉPARTITION DISC -->
+      <div class="section-title">Répartition DISC — 50 prospects (v2)</div>
+      <div class="card-section">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start;">
+          <div>
+            <div class="disc-dist">
+              <div class="disc-bar-row c">
+                <div class="disc-bar-label" style="color:var(--disc-c);">C / C-S / C-D</div>
+                <div class="disc-bar-track"><div class="disc-bar-fill" style="width:44%"></div></div>
+                <div class="disc-bar-val">22</div>
+              </div>
+              <div class="disc-bar-row d">
+                <div class="disc-bar-label" style="color:var(--disc-d);">D / D-C / D-I</div>
+                <div class="disc-bar-track"><div class="disc-bar-fill" style="width:30%"></div></div>
+                <div class="disc-bar-val">15</div>
+              </div>
+              <div class="disc-bar-row s">
+                <div class="disc-bar-label" style="color:var(--disc-s);">S / S-C / S-I</div>
+                <div class="disc-bar-track"><div class="disc-bar-fill" style="width:16%"></div></div>
+                <div class="disc-bar-val">8</div>
+              </div>
+              <div class="disc-bar-row i">
+                <div class="disc-bar-label" style="color:var(--disc-i);">I / I-S</div>
+                <div class="disc-bar-track"><div class="disc-bar-fill" style="width:10%"></div></div>
+                <div class="disc-bar-val">5</div>
+              </div>
+              <div class="disc-bar-row nd">
+                <div class="disc-bar-label" style="color:var(--text-muted);">INDÉT.</div>
+                <div class="disc-bar-track"><div class="disc-bar-fill" style="width:14%"></div></div>
+                <div class="disc-bar-val">7</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p style="font-size:.875rem; color:var(--text-muted); line-height:1.7;">
+              <strong style="color:var(--text);">Conséquence opérationnelle :</strong><br>
+              44% de tes prospects sont C ou C-dominant → favoriser <strong>ancrage chiffré sourcé</strong> et <strong>sujets d'email factuels</strong>.<br><br>
+              30% sont D ou D-dominant → favoriser <strong>pattern interrupt</strong> et messages courts.<br><br>
+              <strong style="color:var(--text);">7 INDÉTERMINABLES</strong> dont 3 scores 6/6 (Adem, Olivier, Philippe) → <em>priorité absolue avant envoi : chercher leur LinkedIn manuellement</em>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════ WORKFLOW ENRICHISSEMENT ═══════════ -->
+      <div class="section-title" style="margin-top: 40px;">Workflow d'enrichissement avant contact</div>
       <div class="checklist">
         <div class="check-item">
           <span class="check-icon check-todo"><i data-lucide="search"></i></span>
@@ -221,285 +469,508 @@
           Coller le nom dans Google : <code style="background:var(--bg-alt); padding: 2px 6px; border-radius: 3px;">"[Prénom Nom]" LinkedIn consultant</code> · Capturer URL + titre + dernière activité</div>
         </div>
         <div class="check-item">
+          <span class="check-icon check-todo"><i data-lucide="brain"></i></span>
+          <div><strong>Étape 2 — Détecter le profil DISC (30 secondes)</strong><br>
+          Utiliser la grille ci-dessus · Noter le profil dominant (D / I / S / C) · Mettre à jour la colonne <code style="background:var(--bg-alt); padding: 2px 6px; border-radius: 3px;">Profil_DISC_estime</code> dans le CSV v2 · Choisir le template correspondant</div>
+        </div>
+        <div class="check-item">
           <span class="check-icon check-todo"><i data-lucide="check-circle"></i></span>
-          <div><strong>Étape 2 — Valider 2 signaux Marc</strong><br>
+          <div><strong>Étape 3 — Valider 2 signaux Marc</strong><br>
           Mentions Make / n8n / automatisation · Clients PME · Posts transformation digitale / IA · Ancienneté ≥ 3 ans en indépendant</div>
         </div>
         <div class="check-item">
           <span class="check-icon check-todo"><i data-lucide="mail"></i></span>
-          <div><strong>Étape 3 — Trouver l'email</strong><br>
-          Site web → page Contact · <a href="https://hunter.io" target="_blank" style="color: var(--primary);">Hunter.io</a> (50 recherches/mois gratuites) · Pattern probable : prenom@domaine.fr · Vérifier avant envoi : <a href="https://mailtester.com" target="_blank" style="color: var(--primary);">mailtester.com</a></div>
+          <div><strong>Étape 4 — Trouver l'email</strong><br>
+          Site web → page Contact · <a href="https://hunter.io" target="_blank" style="color: var(--primary);">Hunter.io</a> (50 recherches/mois gratuites) · Pattern probable dans colonne Email_pattern_1/2 du CSV v2 · Vérifier avant envoi : <a href="https://mailtester.com" target="_blank" style="color: var(--primary);">mailtester.com</a></div>
         </div>
         <div class="check-item">
           <span class="check-icon check-todo"><i data-lucide="clipboard-list"></i></span>
-          <div><strong>Étape 4 — Remplir la fiche CRM (Google Sheets)</strong><br>
-          Colonnes : SIREN · Dirigeant · Email · LinkedIn · Signal retenu · Touch 1 LI · Touch 1 Email · Statut</div>
+          <div><strong>Étape 5 — Remplir la fiche CRM (Google Sheets)</strong><br>
+          Colonnes : SIREN · Dirigeant · <strong>DISC estimé</strong> · Email · LinkedIn · Signal retenu · Touch 1 LI · Touch 1 Email · Statut</div>
         </div>
       </div>
 
-      <!-- SÉQUENCE LINKEDIN -->
-      <div class="section-title">Séquence LinkedIn — 3 touches</div>
-      <p style="color: var(--text-muted); margin-bottom: 20px; font-size: .875rem;">200 caractères max sur les notes · Ratio tu/ton ≥ 2× je/mon · Aucun pitch produit en Touch 1</p>
+      <!-- ═══════════ SÉQUENCES LINKEDIN DISC ═══════════ -->
+      <div class="section-title" style="margin-top: 40px;">Séquence LinkedIn — 3 touches × 4 profils DISC</div>
+      <p style="color: var(--text-muted); margin-bottom: 20px; font-size: .875rem;">200 caractères max sur les notes · Ratio tu/ton ≥ 2× je/mon · Aucun pitch produit en Touch 1 · Visiter le profil J−3 avant la demande</p>
 
-      <div class="touch-sequence">
-
-        <div class="touch-block">
-          <div class="touch-header">
-            <span class="touch-num">T1</span>
-            <div>
-              <strong>Demande de connexion — Sans note (recommandé)</strong>
-              <span class="touch-timing">J–3 : visiter le profil (ils voient la visite) · J+0 : envoyer la demande</span>
-            </div>
-          </div>
-          <div class="touch-body">
-            <div class="touch-tip">Taux d'acceptation : 40–60% sans note. Si tu veux ajouter une note (200 car. max) :</div>
-            <div class="msg-template">Salut [Prénom],<br><br>Ton approche sur [automatisation / intégration / IA pour PME] me parle.<br>Développeur devenu éditeur SaaS — curieux d'échanger.</div>
+      <!-- LI Touch 1 -->
+      <div class="touch-block-tabs" style="margin-bottom: 20px;">
+        <div class="touch-header-tabs">
+          <span class="touch-num" style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:var(--primary);border-radius:50%;color:white;font:700 .875rem/1 var(--fh);flex-shrink:0;">T1</span>
+          <div style="flex:1;">
+            <strong style="font: 700 .9375rem/1 var(--fh); color: var(--text);">Demande de connexion</strong>
+            <span style="font: 400 .8125rem/1 var(--fb); color: var(--text-muted); display:block; margin-top:4px;">J−3 : visiter le profil · J+0 : envoyer la demande</span>
           </div>
         </div>
-
-        <div class="touch-connector"><i data-lucide="arrow-down"></i> Après acceptation (J+2 à J+5)</div>
-
-        <div class="touch-block">
-          <div class="touch-header">
-            <span class="touch-num">T2</span>
-            <div>
-              <strong>Message après acceptation</strong>
-              <span class="touch-timing">J+2 à J+5 après acceptation</span>
-            </div>
+        <div class="touch-tabs-row">
+          <div class="disc-tabs" id="li1-tabs">
+            <div class="disc-tab active" data-disc="D" data-target="li1">D 🔴</div>
+            <div class="disc-tab" data-disc="I" data-target="li1">I 🟡</div>
+            <div class="disc-tab" data-disc="S" data-target="li1">S 🟢</div>
+            <div class="disc-tab" data-disc="C" data-target="li1">C 🔵</div>
           </div>
-          <div class="touch-body">
-            <div class="msg-template">Salut [Prénom],<br><br>Merci pour la connexion.<br><br>J'ai vu que tu travailles sur [intégration de systèmes / automatisation process — selon son profil].<br>C'est exactement le terrain sur lequel j'ai construit Uccello Hub — un hub IA souverain que des consultants comme toi peuvent revendre à leurs clients PME en générant du MRR mensuel.<br><br>Un de mes revendeurs (consultant indépendant, profil similaire) a signé ses 3 premiers clients en 6 semaines. Ça m'a pris 15 min de lui expliquer le modèle.<br><br>Tu aurais 15 min cette semaine pour voir si ça a du sens pour toi ?</div>
+          <span style="font:400 .75rem/1 var(--fb); color:var(--text-muted);">40–60% d'acceptation</span>
+        </div>
+        <div class="touch-body-tabs">
+          <div class="disc-panel active" id="li1-D">
+            <div class="disc-tag D">D — Sans note (recommandé)</div>
+            <div class="touch-tip" style="font:400 .8rem/1.5 var(--fb); color:var(--text-muted); margin-bottom:10px;">Les D n'aiment pas les notes marketing — envoyer sans note. Taux d'acceptation optimal.</div>
+          </div>
+          <div class="disc-panel" id="li1-I">
+            <div class="disc-tag I">I — Avec note chaleureuse</div>
+            <div class="msg-template">Bonjour [Prénom],<br><br>Ton approche sur [sujet de son dernier post] — angle rare que je vois peu.<br>Développeur devenu éditeur SaaS, curieux d'échanger.</div>
+          </div>
+          <div class="disc-panel" id="li1-S">
+            <div class="disc-tag S">S — Avec note douce</div>
+            <div class="msg-template">Bonjour [Prénom],<br><br>Ton travail sur [l'accompagnement / la transformation] de PME m'a parlé.<br>Je travaille sur un sujet proche — bonne continuation dans tous les cas.</div>
+          </div>
+          <div class="disc-panel" id="li1-C">
+            <div class="disc-tag C">C — Avec note factuelle</div>
+            <div class="msg-template">Bonjour [Prénom],<br><br>Vu ton post sur [sujet précis + date]. Point sur [X] très juste.<br>Éditeur SaaS IA souverain — quelques données à partager si ça t'intéresse.</div>
           </div>
         </div>
-
-        <div class="touch-connector"><i data-lucide="arrow-down"></i> Si pas de réponse (J+7)</div>
-
-        <div class="touch-block">
-          <div class="touch-header">
-            <span class="touch-num">T3</span>
-            <div>
-              <strong>Relance directe — Breakup doux</strong>
-              <span class="touch-timing">J+7 si pas de réponse</span>
-            </div>
-          </div>
-          <div class="touch-body">
-            <div class="msg-template">[Prénom], je ne veux pas insister si le timing est mauvais.<br><br>Une question directe : tu as déjà eu des clients qui te demandent une solution IA mais bloquent sur la confidentialité des données ?<br><br>Si c'est un vrai sujet pour toi → ça vaut 15 min.<br>Si non → bonne continuation et je reste dans ton réseau.</div>
-          </div>
-        </div>
-
       </div>
 
-      <!-- SÉQUENCE EMAIL -->
-      <div class="section-title" style="margin-top: 40px;">Séquence Email — 5 touches</div>
-      <p style="color: var(--text-muted); margin-bottom: 20px; font-size: .875rem;">50–125 mots par email · 1 seul CTA · Lundi + mercredi · Jamais vendredi · 9h30–11h30</p>
+      <div class="touch-connector"><i data-lucide="arrow-down"></i> Après acceptation (J+2 à J+5)</div>
 
-      <div class="touch-sequence">
-
-        <div class="touch-block">
-          <div class="touch-header">
-            <span class="touch-num email-touch">E1</span>
-            <div>
-              <strong>Touch 1 — Accroche directe</strong>
-              <span class="touch-timing">Lundi J+1 · 9h30</span>
-            </div>
-          </div>
-          <div class="touch-body">
-            <div class="touch-subject">Sujet : <strong>[prénom], ton diagnostic et après ?</strong></div>
-            <div class="msg-template">Bonjour [Prénom],<br><br>J'ai vu ton activité sur [l'intégration de systèmes / l'automatisation — selon NAF + nom société].<br><br>Tu travailles probablement avec des PME qui arrivent en fin de diagnostic avec la même question : "on fait quoi avec l'IA ?"<br><br>J'ai construit Uccello Hub pour répondre à ça — un hub que des consultants indépendants revendent à leurs clients et qui génère un MRR récurrent sans support technique supplémentaire.<br><br>Est-ce que c'est un sujet qui t'intéresse ?<br><br>Jonathan<br><em>Uccello Labs — uccellolabs.com</em></div>
-            <div class="touch-tip">78 mots · Pas de pitch produit · CTA = question ouverte</div>
+      <!-- LI Touch 2 -->
+      <div class="touch-block-tabs" style="margin-bottom: 20px;">
+        <div class="touch-header-tabs">
+          <span class="touch-num" style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:var(--primary);border-radius:50%;color:white;font:700 .875rem/1 var(--fh);flex-shrink:0;">T2</span>
+          <div style="flex:1;">
+            <strong style="font: 700 .9375rem/1 var(--fh); color: var(--text);">Message après acceptation</strong>
+            <span style="font: 400 .8125rem/1 var(--fb); color: var(--text-muted); display:block; margin-top:4px;">J+2 à J+5 après acceptation</span>
           </div>
         </div>
-
-        <div class="touch-connector"><i data-lucide="arrow-down"></i> Mercredi J+2</div>
-
-        <div class="touch-block">
-          <div class="touch-header">
-            <span class="touch-num email-touch">E2</span>
-            <div>
-              <strong>Touch 2 — Chiffrer le modèle</strong>
-              <span class="touch-timing">Mercredi J+4 · 9h30</span>
-            </div>
-          </div>
-          <div class="touch-body">
-            <div class="touch-subject">Sujet : <strong>le modèle dont je parlais</strong></div>
-            <div class="msg-template">Bonjour [Prénom],<br><br>Je voulais donner un peu de corps à mon message de lundi.<br><br>Modèle revendeur Uccello Hub en 3 chiffres :<br>— 200–400€/mois par client final (selon usage)<br>— Marge revendeur : 50% sur chaque licence<br>— 5 clients = 500–1 000€ de MRR récurrent<br><br>L'onboarding client se fait en 1 journée. Le support N2 reste chez nous.<br><br>Si tu veux voir ce que ça donne concrètement → 15 min suffisent.<br><br>Jonathan</div>
-            <div class="touch-tip">71 mots · Chiffres concrets · CTA = demande de 15 min</div>
+        <div class="touch-tabs-row">
+          <div class="disc-tabs" id="li2-tabs">
+            <div class="disc-tab active" data-disc="D" data-target="li2">D 🔴</div>
+            <div class="disc-tab" data-disc="I" data-target="li2">I 🟡</div>
+            <div class="disc-tab" data-disc="S" data-target="li2">S 🟢</div>
+            <div class="disc-tab" data-disc="C" data-target="li2">C 🔵</div>
           </div>
         </div>
-
-        <div class="touch-connector"><i data-lucide="arrow-down"></i> Lundi J+7</div>
-
-        <div class="touch-block">
-          <div class="touch-header">
-            <span class="touch-num email-touch">E3</span>
-            <div>
-              <strong>Touch 3 — Signal souveraineté</strong>
-              <span class="touch-timing">Lundi J+9 · 9h30</span>
-            </div>
+        <div class="touch-body-tabs">
+          <div class="disc-panel active" id="li2-D">
+            <div class="disc-tag D">D — Ancrage chiffré + Preuve sociale</div>
+            <div class="msg-template">[Prénom],<br><br>Tu travailles sur [intégration / automatisation PME].<br>Uccello Hub = hub IA souverain que des consultants revendent en MRR.<br><br>Un consultant similaire : 3 clients en 6 semaines. 504€ récurrents dès le mois 2.<br><br>Ça vaut 15 min ?</div>
           </div>
-          <div class="touch-body">
-            <div class="touch-subject">Sujet : <strong>tes clients demandent de l'IA ?</strong></div>
-            <div class="msg-template">Bonjour [Prénom],<br><br>Un consultant avec qui j'ai échangé récemment m'a dit quelque chose qui sonne juste :<br>"Mes clients me demandent de l'IA, mais dès que je parle d'OpenAI en entreprise, la DSI bloque pour confidentialité."<br><br>C'est exactement la fenêtre qu'Uccello Hub couvre — modèles open source, données hébergées chez le client, zéro dépendance cloud américain.<br><br>Toujours d'actualité pour toi ce trimestre ?<br><br>Jonathan</div>
-            <div class="touch-tip">73 mots · Angle souveraineté · Objection DSI anticipée</div>
+          <div class="disc-panel" id="li2-I">
+            <div class="disc-tag I">I — Curiosité gap + Preuve sociale</div>
+            <div class="msg-template">Merci pour la connexion [Prénom] !<br><br>J'ai une question — tu as déjà vu des consultants Make qui ont ajouté une offre IA récurrente à leur activité sans changer leur positionnement ?<br><br>J'en connais un qui l'a fait. Résultat surprenant. Je peux te raconter en 2 min ?</div>
           </div>
-        </div>
-
-        <div class="touch-connector"><i data-lucide="arrow-down"></i> Mercredi J+11</div>
-
-        <div class="touch-block">
-          <div class="touch-header">
-            <span class="touch-num email-touch">E4</span>
-            <div>
-              <strong>Touch 4 — Angle différent</strong>
-              <span class="touch-timing">Mercredi J+11 · 9h30</span>
-            </div>
+          <div class="disc-panel" id="li2-S">
+            <div class="disc-tag S">S — Réciprocité + Preuve sociale (sans urgence)</div>
+            <div class="msg-template">Bonjour [Prénom],<br><br>Merci pour la connexion.<br><br>Je travaille avec des consultants qui cherchent une façon d'ajouter des revenus stables à leur activité — sans changer leur cœur de métier.<br><br>D'autres avec ton profil ont trouvé une approche progressive. Je peux te la partager si tu es curieux, sans engagement.</div>
           </div>
-          <div class="touch-body">
-            <div class="touch-subject">Sujet : <strong>autre angle peut-être</strong></div>
-            <div class="msg-template">Bonjour [Prénom],<br><br>Je me demande si je ne t'ai pas contacté sur le mauvais angle.<br><br>On parle souvent MRR et licence — mais ce que mes revendeurs apprécient surtout, c'est d'avoir une réponse concrète à sortir en fin de mission.<br>Pas un rapport. Un outil qui tourne.<br><br>Ça change quelque chose pour toi ?<br><br>Jonathan</div>
-            <div class="touch-tip">57 mots · Pivot émotionnel · Valeur = réponse fin de mission</div>
+          <div class="disc-panel" id="li2-C">
+            <div class="disc-tag C">C — Ancrage chiffré sourcé</div>
+            <div class="msg-template">Bonjour [Prénom],<br><br>Merci pour la connexion.<br><br>Tu travailles sur [intégration systèmes / automatisation] — j'ai une donnée concrète :<br>Coût IA réel pour un client PME 10 users sur Scaleway = 7€/mois. Marge revendeur Team = 168€ nets.<br><br>Tu veux le détail du modèle économique complet ?</div>
           </div>
         </div>
-
-        <div class="touch-connector"><i data-lucide="arrow-down"></i> Mardi J+14</div>
-
-        <div class="touch-block touch-block-breakup">
-          <div class="touch-header">
-            <span class="touch-num breakup-touch">E5</span>
-            <div>
-              <strong>Touch 5 — Breakup email (souvent le meilleur taux)</strong>
-              <span class="touch-timing">Mardi J+14 · 9h30</span>
-            </div>
-          </div>
-          <div class="touch-body">
-            <div class="touch-subject">Sujet : <strong>dois-je arrêter ?</strong></div>
-            <div class="msg-template">Bonjour [Prénom],<br><br>Pas de retour sur mes messages — c'est clair.<br><br>2 options :<br>→ 1 = Mauvais moment, tu reviens dans quelques mois<br>→ 2 = Pas prioritaire, je te laisse tranquille<br><br>Un simple "1" ou "2" suffit.<br><br>Jonathan</div>
-            <div class="touch-tip">40 mots · Friction minimale · Réponse attendue même si refus</div>
-          </div>
-        </div>
-
       </div>
 
-      <!-- TIMELINE OMNICHANNEL -->
-      <div class="section-title" style="margin-top: 40px;">Timeline omnichannel — J−3 à J+14</div>
-      <p style="color: var(--text-muted); margin-bottom: 16px; font-size: .875rem;">+287% de réponses vs canal unique (benchmarks 2026)</p>
+      <div class="touch-connector"><i data-lucide="arrow-down"></i> Si pas de réponse (J+7)</div>
+
+      <!-- LI Touch 3 -->
+      <div class="touch-block-tabs" style="margin-bottom: 4px;">
+        <div class="touch-header-tabs">
+          <span class="touch-num" style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:var(--primary);border-radius:50%;color:white;font:700 .875rem/1 var(--fh);flex-shrink:0;">T3</span>
+          <div style="flex:1;">
+            <strong style="font: 700 .9375rem/1 var(--fh); color: var(--text);">Relance si pas de réponse</strong>
+            <span style="font: 400 .8125rem/1 var(--fb); color: var(--text-muted); display:block; margin-top:4px;">J+7 — ou appel téléphone si profil D et téléphone trouvé</span>
+          </div>
+        </div>
+        <div class="touch-tabs-row">
+          <div class="disc-tabs" id="li3-tabs">
+            <div class="disc-tab active" data-disc="D" data-target="li3">D 🔴</div>
+            <div class="disc-tab" data-disc="I" data-target="li3">I 🟡</div>
+            <div class="disc-tab" data-disc="S" data-target="li3">S 🟢</div>
+            <div class="disc-tab" data-disc="C" data-target="li3">C 🔵</div>
+          </div>
+        </div>
+        <div class="touch-body-tabs">
+          <div class="disc-panel active" id="li3-D">
+            <div class="disc-tag D">D — Question directe</div>
+            <div class="msg-template">[Prénom], question directe :<br><br>Tes clients te demandent de l'IA ? Tu as une réponse souveraine à donner ?<br>Si non → bonne continuation.<br>Si oui → 15 min.</div>
+          </div>
+          <div class="disc-panel" id="li3-I">
+            <div class="disc-tag I">I — Curiosité + chaleur</div>
+            <div class="msg-template">[Prénom], je ne veux pas insister si le timing est mauvais.<br><br>Juste curieux : tu as déjà pensé à ajouter une offre récurrente après tes diagnostics ? C'est le sujet qui revient le plus dans mes échanges avec des consultants.<br><br>Même si c'est pas le bon moment, ça m'intéresse de savoir comment tu penses ce sujet.</div>
+          </div>
+          <div class="disc-panel" id="li3-S">
+            <div class="disc-tag S">S — Aucune pression</div>
+            <div class="msg-template">Bonjour [Prénom],<br><br>Pas de pression — je comprends que ça ne soit pas forcément le bon moment.<br><br>Si jamais la question des revenus récurrents devient un sujet pour toi dans les prochains mois, je reste dans ton réseau. Bonne continuation.</div>
+          </div>
+          <div class="disc-panel" id="li3-C">
+            <div class="disc-tag C">C — Question structurée</div>
+            <div class="msg-template">Bonjour [Prénom],<br><br>Pour ma compréhension : le sujet MRR pour consultant indépendant, c'est dans tes réflexions actuelles ou pas du tout à l'agenda ?<br><br>Pas de relance si ce n'est pas pertinent — utile pour qualifier de mon côté.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════ SÉQUENCES EMAIL DISC ═══════════ -->
+      <div class="section-title" style="margin-top: 40px;">Séquence Email — 5 touches × 4 profils DISC</div>
+      <p style="color: var(--text-muted); margin-bottom: 20px; font-size: .875rem;">50–125 mots · 1 seul CTA · Lundi + mercredi · Jamais vendredi · 9h30</p>
+
+      <!-- E Touch 1 -->
+      <div class="touch-block-tabs" style="margin-bottom: 20px;">
+        <div class="touch-header-tabs">
+          <span class="touch-num" style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:var(--secondary);border-radius:50%;color:white;font:700 .875rem/1 var(--fh);flex-shrink:0;">E1</span>
+          <div style="flex:1;">
+            <strong style="font: 700 .9375rem/1 var(--fh); color: var(--text);">Touch 1 — Accroche personnalisée</strong>
+            <span style="font: 400 .8125rem/1 var(--fb); color: var(--text-muted); display:block; margin-top:4px;">Lundi J+1 · 9h30</span>
+          </div>
+        </div>
+        <div class="touch-tabs-row">
+          <div class="disc-tabs" id="e1-tabs">
+            <div class="disc-tab active" data-disc="D" data-target="e1">D 🔴</div>
+            <div class="disc-tab" data-disc="I" data-target="e1">I 🟡</div>
+            <div class="disc-tab" data-disc="S" data-target="e1">S 🟢</div>
+            <div class="disc-tab" data-disc="C" data-target="e1">C 🔵</div>
+          </div>
+        </div>
+        <div class="touch-body-tabs">
+          <div class="disc-panel active" id="e1-D">
+            <div class="disc-tag D">D — Pattern interrupt + Ancrage chiffré</div>
+            <div class="touch-subject" style="font:.875rem var(--fb); color:var(--text-muted); margin-bottom:10px;">Sujet : <strong style="color:var(--text);">[prénom], 168€ par client. Récurrent.</strong></div>
+            <div class="msg-template">[Prénom],<br><br>Tu fais de l'automatisation / intégration pour des PME.<br><br>Uccello Hub : hub IA souverain que des consultants revendent après leurs diagnostics.<br>Tier Team : tu paies 174€, tu factures 349€. 168€ nets. Récurrent. Sans support technique.<br><br>3 consultants en ont signé leurs premiers clients en moins de 2 mois.<br><br>Ça vaut 15 min ?<br><br>Jonathan<br><em>Uccello Labs — uccellolabs.com</em></div>
+          </div>
+          <div class="disc-panel" id="e1-I">
+            <div class="disc-tag I">I — Réciprocité + Curiosité gap</div>
+            <div class="touch-subject" style="font:.875rem var(--fb); color:var(--text-muted); margin-bottom:10px;">Sujet : <strong style="color:var(--text);">[prénom], une conversation qui m'a marqué</strong></div>
+            <div class="msg-template">Bonjour [Prénom],<br><br>J'ai lu ton post sur [sujet précis] — tu as un angle que je vois rarement chez les consultants.<br><br>Ça m'a rappelé une conversation la semaine dernière avec un consultant Make, profil similaire au tien. Il a trouvé une façon d'ajouter du MRR récurrent à ses missions sans changer son positionnement. Le résultat l'a lui-même surpris.<br><br>Tu aurais 15 min pour que je te raconte ?<br><br>Jonathan</div>
+          </div>
+          <div class="disc-panel" id="e1-S">
+            <div class="disc-tag S">S — Preuve sociale douce (sans urgence)</div>
+            <div class="touch-subject" style="font:.875rem var(--fb); color:var(--text-muted); margin-bottom:10px;">Sujet : <strong style="color:var(--text);">[prénom], une réflexion à partager</strong></div>
+            <div class="msg-template">Bonjour [Prénom],<br><br>J'accompagne des consultants en transformation digitale qui cherchent à ajouter des revenus stables à leur activité — sans bousculer ce qui marche déjà pour eux.<br><br>Plusieurs avec un profil proche du vôtre ont trouvé une approche progressive qui leur convient bien. Je ne sais pas si c'est dans vos sujets actuels.<br><br>Si jamais c'est le cas, je suis disponible pour en parler sans engagement.<br><br>Jonathan<br><em>Uccello Labs — uccellolabs.com</em></div>
+          </div>
+          <div class="disc-panel" id="e1-C">
+            <div class="disc-tag C">C — Ancrage chiffré sourcé</div>
+            <div class="touch-subject" style="font:.875rem var(--fb); color:var(--text-muted); margin-bottom:10px;">Sujet : <strong style="color:var(--text);">[prénom], modèle économique revendeur IA</strong></div>
+            <div class="msg-template">Bonjour [Prénom],<br><br>Tu travailles sur [intégration / automatisation] — voici une donnée concrète :<br><br>Modèle revendeur Uccello Hub (tier Team, 6–15 users) :<br>— Coût licence : 174€/mois<br>— Prix public recommandé : 349€/mois<br>— Coût IA réel Scaleway : ~7€/mois<br>— Marge nette : 168€/mois/client (48%)<br><br>Source : grille tarifaire + benchmark Scaleway gpt-oss-120b, avril 2026.<br><br>Est-ce que ce modèle mérite 15 min de ta part ?<br><br>Jonathan</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="touch-connector"><i data-lucide="arrow-down"></i> Mercredi J+4</div>
+
+      <!-- E Touch 2 -->
+      <div class="touch-block-tabs" style="margin-bottom: 20px;">
+        <div class="touch-header-tabs">
+          <span class="touch-num" style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:var(--secondary);border-radius:50%;color:white;font:700 .875rem/1 var(--fh);flex-shrink:0;">E2</span>
+          <div style="flex:1;">
+            <strong style="font: 700 .9375rem/1 var(--fh); color: var(--text);">Touch 2 — Value-first</strong>
+            <span style="font: 400 .8125rem/1 var(--fb); color: var(--text-muted); display:block; margin-top:4px;">Mercredi J+4 · 9h30 · Sujet universel : "le modèle dont je parlais"</span>
+          </div>
+        </div>
+        <div class="touch-tabs-row">
+          <div class="disc-tabs" id="e2-tabs">
+            <div class="disc-tab active" data-disc="D" data-target="e2">D 🔴</div>
+            <div class="disc-tab" data-disc="I" data-target="e2">I 🟡</div>
+            <div class="disc-tab" data-disc="S" data-target="e2">S 🟢</div>
+            <div class="disc-tab" data-disc="C" data-target="e2">C 🔵</div>
+          </div>
+        </div>
+        <div class="touch-body-tabs">
+          <div class="disc-panel active" id="e2-D">
+            <div class="disc-tag D">D — 3 chiffres, aucune politesse superflue</div>
+            <div class="msg-template">[Prénom],<br><br>3 chiffres pour aller vite :<br>— 168€ de marge nette / client Team / mois<br>— Onboarding client : 1 journée<br>— Support N2 : chez nous, pas chez toi<br><br>5 clients = 840€ récurrents. Sans décrocher le téléphone.<br><br>15 min pour voir si ça colle ?<br><br>Jonathan</div>
+          </div>
+          <div class="disc-panel" id="e2-I">
+            <div class="disc-tag I">I — Storytelling + pair par prénom</div>
+            <div class="msg-template">Bonjour [Prénom],<br><br>Je voulais te partager ce qu'un consultant similaire m'a dit après ses 3 premiers clients :<br>"J'aurais pas cru que ça marcherait aussi vite — mais mes clients me faisaient confiance, donc ils m'ont suivi sur l'outil."<br><br>C'est exactement le mécanisme. Tu n'as pas besoin de vendre la techno — tu vends ta recommandation.<br><br>Je te montre comment il a présenté l'offre ?<br><br>Jonathan</div>
+          </div>
+          <div class="disc-panel" id="e2-S">
+            <div class="disc-tag S">S — Approche progressive, pas d'obligation</div>
+            <div class="msg-template">Bonjour [Prénom],<br><br>Je voulais donner un peu de corps à mon précédent message.<br><br>Le modèle fonctionne par étapes : un premier client PME, on regarde ensemble si ça tourne bien, puis on avise. Aucune obligation de scaler si ce n'est pas confortable.<br><br>L'onboarding d'un client prend une journée. Ensuite le support technique reste chez nous.<br><br>Si ça vous intéresse d'en savoir plus à votre rythme, je suis disponible.<br><br>Jonathan</div>
+          </div>
+          <div class="disc-panel" id="e2-C">
+            <div class="disc-tag C">C — Données techniques sourcées</div>
+            <div class="msg-template">Bonjour [Prénom],<br><br>Complément au modèle de lundi — coûts réels Scaleway pour un client Team (10 users, 10 interactions/jour) :<br><br>Input : 39,6M tokens/mois × 0,15€/M = 5,94€<br>Output : 1,32M tokens/mois × 0,60€/M = 0,79€<br>Total IA : ~7€/mois<br><br>Sur 349€ facturés : marge brute 175€, nette après IA ~168€. Calcul disponible si vous voulez vérifier.<br><br>Jonathan</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="touch-connector"><i data-lucide="arrow-down"></i> Lundi J+9</div>
+
+      <!-- E Touch 3 -->
+      <div class="touch-block-tabs" style="margin-bottom: 20px;">
+        <div class="touch-header-tabs">
+          <span class="touch-num" style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:var(--secondary);border-radius:50%;color:white;font:700 .875rem/1 var(--fh);flex-shrink:0;">E3</span>
+          <div style="flex:1;">
+            <strong style="font: 700 .9375rem/1 var(--fh); color: var(--text);">Touch 3 — Signal business</strong>
+            <span style="font: 400 .8125rem/1 var(--fb); color: var(--text-muted); display:block; margin-top:4px;">Lundi J+9 · 9h30 · Biais : D/C = Loss aversion · I/S = Preuve sociale</span>
+          </div>
+        </div>
+        <div class="touch-tabs-row">
+          <div class="disc-tabs" id="e3-tabs">
+            <div class="disc-tab active" data-disc="D" data-target="e3">D 🔴</div>
+            <div class="disc-tab" data-disc="I" data-target="e3">I 🟡</div>
+            <div class="disc-tab" data-disc="S" data-target="e3">S 🟢</div>
+            <div class="disc-tab" data-disc="C" data-target="e3">C 🔵</div>
+          </div>
+        </div>
+        <div class="touch-body-tabs">
+          <div class="disc-panel active" id="e3-D">
+            <div class="disc-tag D">D — Loss aversion (concurrents en avance)</div>
+            <div class="touch-subject" style="font:.875rem var(--fb); color:var(--text-muted); margin-bottom:10px;">Sujet : <strong style="color:var(--text);">tes concurrents consultants ont déjà démarré</strong></div>
+            <div class="msg-template">[Prénom],<br><br>Les consultants Make et n8n qui ont ajouté une offre IA récurrente à leur activité ont 6 à 12 mois d'avance sur leurs marchés locaux.<br><br>Tes clients PME vont être contactés par ces profils. Si tu n'as pas de réponse IA souveraine à proposer, ils iront voir ailleurs.<br><br>Toujours d'actualité ce trimestre ?<br><br>Jonathan</div>
+          </div>
+          <div class="disc-panel" id="e3-I">
+            <div class="disc-tag I">I — Preuve sociale (pairs)</div>
+            <div class="touch-subject" style="font:.875rem var(--fb); color:var(--text-muted); margin-bottom:10px;">Sujet : <strong style="color:var(--text);">[prénom], ce que d'autres consultants disent</strong></div>
+            <div class="msg-template">Bonjour [Prénom],<br><br>Plusieurs consultants avec ton profil me disent la même chose :<br>"Mes clients demandent de l'IA, mais dès que je parle d'OpenAI en entreprise, la DSI bloque pour confidentialité."<br><br>C'est exactement la fenêtre qu'Uccello Hub couvre — modèles open source, données hébergées chez le client.<br><br>Toujours d'actualité pour toi ce trimestre ?<br><br>Jonathan</div>
+          </div>
+          <div class="disc-panel" id="e3-S">
+            <div class="disc-tag S">S — Preuve sociale rassurante</div>
+            <div class="touch-subject" style="font:.875rem var(--fb); color:var(--text-muted); margin-bottom:10px;">Sujet : <strong style="color:var(--text);">[prénom], ce que d'autres consultants disent</strong></div>
+            <div class="msg-template">Bonjour [Prénom],<br><br>Plusieurs consultants avec ton profil me disent la même chose en ce moment : "Mes clients me demandent de l'IA, mais dès que j'en parle en entreprise, ça bloque sur la confidentialité des données."<br><br>C'est exactement la fenêtre qu'Uccello Hub couvre — modèles open source, données hébergées chez le client, zéro dépendance cloud américain.<br><br>Toujours d'actualité pour vous ce trimestre ?<br><br>Jonathan</div>
+          </div>
+          <div class="disc-panel" id="e3-C">
+            <div class="disc-tag C">C — Loss aversion + données sourcées</div>
+            <div class="touch-subject" style="font:.875rem var(--fb); color:var(--text-muted); margin-bottom:10px;">Sujet : <strong style="color:var(--text);">tes concurrents consultants ont déjà démarré</strong></div>
+            <div class="msg-template">Bonjour [Prénom],<br><br>Donnée de terrain : les consultants IT solopreneurs qui ont intégré une offre IA récurrente en 2025 ont en moyenne 8 mois d'avance sur leurs marchés régionaux (benchmark interne, France).<br><br>Sur ton marché, le délai pour être perçu comme référent IA par tes clients PME actuels se réduit chaque trimestre.<br><br>Toujours d'actualité ce trimestre ?<br><br>Jonathan</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="touch-connector"><i data-lucide="arrow-down"></i> Mercredi J+11</div>
+
+      <!-- E Touch 4 -->
+      <div class="touch-block-tabs" style="margin-bottom: 20px;">
+        <div class="touch-header-tabs">
+          <span class="touch-num" style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:var(--secondary);border-radius:50%;color:white;font:700 .875rem/1 var(--fh);flex-shrink:0;">E4</span>
+          <div style="flex:1;">
+            <strong style="font: 700 .9375rem/1 var(--fh); color: var(--text);">Touch 4 — Changement d'angle</strong>
+            <span style="font: 400 .8125rem/1 var(--fb); color: var(--text-muted); display:block; margin-top:4px;">Mercredi J+11 · 9h30</span>
+          </div>
+        </div>
+        <div class="touch-tabs-row">
+          <div class="disc-tabs" id="e4-tabs">
+            <div class="disc-tab active" data-disc="D" data-target="e4">D 🔴</div>
+            <div class="disc-tab" data-disc="I" data-target="e4">I 🟡</div>
+            <div class="disc-tab" data-disc="S" data-target="e4">S 🟢</div>
+            <div class="disc-tab" data-disc="C" data-target="e4">C 🔵</div>
+          </div>
+        </div>
+        <div class="touch-body-tabs">
+          <div class="disc-panel active" id="e4-D">
+            <div class="disc-tag D">D — Opportunité avant les autres</div>
+            <div class="touch-subject" style="font:.875rem var(--fb); color:var(--text-muted); margin-bottom:10px;">Sujet : <strong style="color:var(--text);">autre angle peut-être</strong></div>
+            <div class="msg-template">[Prénom],<br><br>Je me demande si je ne t'ai pas contacté sur le mauvais angle.<br><br>On parle souvent MRR — mais ce que mes revendeurs apprécient surtout, c'est d'avoir la première offre IA souveraine à proposer dans leurs secteurs. Premier = avantage concurrentiel durable.<br><br>Ça change quelque chose pour toi ?<br><br>Jonathan</div>
+          </div>
+          <div class="disc-panel" id="e4-I">
+            <div class="disc-tag I">I — Rejoindre un mouvement</div>
+            <div class="touch-subject" style="font:.875rem var(--fb); color:var(--text-muted); margin-bottom:10px;">Sujet : <strong style="color:var(--text);">autre angle peut-être</strong></div>
+            <div class="msg-template">Bonjour [Prénom],<br><br>Je me demande si le MRR est vraiment le bon angle pour toi.<br><br>Ce que j'entends souvent des consultants qui ont rejoint le programme : c'est surtout le fait d'avoir une réponse concrète à sortir en fin de mission. Pas un rapport. Un outil qui tourne. Et leurs clients leur font encore plus confiance après.<br><br>Ça te parle ?<br><br>Jonathan</div>
+          </div>
+          <div class="disc-panel" id="e4-S">
+            <div class="disc-tag S">S — Sécuriser la relation long terme</div>
+            <div class="touch-subject" style="font:.875rem var(--fb); color:var(--text-muted); margin-bottom:10px;">Sujet : <strong style="color:var(--text);">autre angle peut-être</strong></div>
+            <div class="msg-template">Bonjour [Prénom],<br><br>Une réflexion différente de mes précédents messages.<br><br>Au-delà du MRR, ce que les consultants apprécient c'est de pouvoir dire à leurs clients : "Je reste avec vous après le diagnostic — j'ai un outil qui fait tourner la recommandation." Ça sécurise la relation long terme.<br><br>Si jamais c'est un sujet qui vous parle, je suis disponible.<br><br>Jonathan</div>
+          </div>
+          <div class="disc-panel" id="e4-C">
+            <div class="disc-tag C">C — Valider une hypothèse</div>
+            <div class="touch-subject" style="font:.875rem var(--fb); color:var(--text-muted); margin-bottom:10px;">Sujet : <strong style="color:var(--text);">autre angle peut-être</strong></div>
+            <div class="msg-template">Bonjour [Prénom],<br><br>Angle différent de mes précédents messages.<br><br>Hypothèse à tester : est-ce que tes clients PME paieraient 200–350€/mois pour une IA souveraine sur leurs données, si c'est toi qui la recommandes ?<br><br>J'ai des données de terrain sur ce point. Si ça t'intéresse de les valider par rapport à ton contexte, 15 min suffisent.<br><br>Jonathan</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="touch-connector"><i data-lucide="arrow-down"></i> Mardi J+14</div>
+
+      <!-- E Touch 5 Breakup -->
+      <div class="touch-block-tabs" style="border-top: 3px solid var(--amber); margin-bottom: 4px;">
+        <div class="touch-header-tabs">
+          <span class="touch-num" style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:var(--amber);border-radius:50%;color:white;font:700 .875rem/1 var(--fh);flex-shrink:0;">E5</span>
+          <div style="flex:1;">
+            <strong style="font: 700 .9375rem/1 var(--fh); color: var(--text);">Touch 5 — Breakup (souvent le meilleur taux de réponse)</strong>
+            <span style="font: 400 .8125rem/1 var(--fb); color: var(--text-muted); display:block; margin-top:4px;">Mardi J+14 · 9h30</span>
+          </div>
+        </div>
+        <div class="touch-tabs-row">
+          <div class="disc-tabs" id="e5-tabs">
+            <div class="disc-tab active" data-disc="D" data-target="e5">D 🔴</div>
+            <div class="disc-tab" data-disc="I" data-target="e5">I 🟡</div>
+            <div class="disc-tab" data-disc="S" data-target="e5">S 🟢</div>
+            <div class="disc-tab" data-disc="C" data-target="e5">C 🔵</div>
+          </div>
+        </div>
+        <div class="touch-body-tabs">
+          <div class="disc-panel active" id="e5-D">
+            <div class="disc-tag D">D — Pure binarité</div>
+            <div class="touch-subject" style="font:.875rem var(--fb); color:var(--text-muted); margin-bottom:10px;">Sujet : <strong style="color:var(--text);">1 ou 2 ?</strong></div>
+            <div class="msg-template">[Prénom],<br><br>1 = mauvais moment, tu reviens<br>2 = pas prioritaire, je te laisse tranquille<br><br>Jonathan</div>
+          </div>
+          <div class="disc-panel" id="e5-I">
+            <div class="disc-tag I">I — Chaleur conservée</div>
+            <div class="touch-subject" style="font:.875rem var(--fb); color:var(--text-muted); margin-bottom:10px;">Sujet : <strong style="color:var(--text);">[prénom], un mot suffit</strong></div>
+            <div class="msg-template">Bonjour [Prénom],<br><br>Pas de retour — c'est clair, et je le comprends tout à fait.<br><br>Un mot suffit si tu veux me dire où tu en es. Sinon, bonne continuation — et reste dans mon réseau si jamais ça évolue.<br><br>Jonathan</div>
+          </div>
+          <div class="disc-panel" id="e5-S">
+            <div class="disc-tag S">S — Respect maximal</div>
+            <div class="touch-subject" style="font:.875rem var(--fb); color:var(--text-muted); margin-bottom:10px;">Sujet : <strong style="color:var(--text);">[prénom], sans pression</strong></div>
+            <div class="msg-template">Bonjour [Prénom],<br><br>Pas de nouvelles de ta part — pas de souci, il n'y a aucune obligation.<br><br>Si jamais le sujet des revenus récurrents devient d'actualité dans quelques mois, tu sais où me trouver. Bonne continuation.<br><br>Jonathan</div>
+          </div>
+          <div class="disc-panel" id="e5-C">
+            <div class="disc-tag C">C — Précision demandée</div>
+            <div class="touch-subject" style="font:.875rem var(--fb); color:var(--text-muted); margin-bottom:10px;">Sujet : <strong style="color:var(--text);">pour ma base de données</strong></div>
+            <div class="msg-template">Bonjour [Prénom],<br><br>Pour mettre à jour ma base : continuer à t'envoyer des infos sur le modèle / pause 3 mois / arrêter ?<br><br>Un mot suffit.<br><br>Jonathan</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════ TIMELINE OMNICHANNEL ═══════════ -->
+      <div class="section-title" style="margin-top: 40px;">Timeline omnichannel — J−3 à J+14 (adaptée au DISC)</div>
+      <p style="color: var(--text-muted); margin-bottom: 16px; font-size: .875rem;">+287% de réponses vs canal unique · Adapter note LinkedIn et sujets emails selon profil DISC détecté</p>
       <div class="card-section">
         <div class="table-wrap">
           <table class="data-table">
-            <thead><tr><th>Jour</th><th>Action</th><th>Canal</th></tr></thead>
+            <thead><tr><th>Jour</th><th>Action</th><th>Adaptation DISC</th><th>Canal</th></tr></thead>
             <tbody>
-              <tr><td><strong>J−3</strong></td><td>Consulter le profil LinkedIn (ils voient la visite — curiosité déclenchée)</td><td><span class="badge badge-blue">LinkedIn</span></td></tr>
-              <tr><td><strong>J+0</strong></td><td>Demande de connexion LinkedIn (sans note)</td><td><span class="badge badge-blue">LinkedIn</span></td></tr>
-              <tr><td><strong>J+1</strong></td><td>Email Touch 1 — "ton diagnostic et après ?" · Lundi 9h30</td><td><span class="badge badge-green">Email</span></td></tr>
-              <tr><td><strong>J+3</strong></td><td>Si connexion acceptée → LinkedIn Touch 2 (MRR en 3 chiffres)</td><td><span class="badge badge-blue">LinkedIn</span></td></tr>
-              <tr><td><strong>J+4</strong></td><td>Email Touch 2 — "le modèle dont je parlais" · Mercredi 9h30</td><td><span class="badge badge-green">Email</span></td></tr>
-              <tr><td><strong>J+7</strong></td><td>LinkedIn Touch 3 — question directe souveraineté</td><td><span class="badge badge-blue">LinkedIn</span></td></tr>
-              <tr><td><strong>J+9</strong></td><td>Email Touch 3 — "tes clients demandent de l'IA ?" · Lundi 9h30</td><td><span class="badge badge-green">Email</span></td></tr>
-              <tr><td><strong>J+11</strong></td><td>Email Touch 4 — "autre angle peut-être" · Mercredi 9h30</td><td><span class="badge badge-green">Email</span></td></tr>
-              <tr><td><strong>J+14</strong></td><td>Email Touch 5 (Breakup) — "dois-je arrêter ?" · Mardi 9h30</td><td><span class="badge badge-amber">Breakup</span></td></tr>
+              <tr><td><strong>J−3</strong></td><td>Consulter le profil LinkedIn → détecter DISC (grille 30 sec)</td><td>Tous profils</td><td><span class="badge badge-blue">LinkedIn</span></td></tr>
+              <tr><td><strong>J+0</strong></td><td>Demande de connexion</td><td>D : sans note · I/S/C : avec note adaptée</td><td><span class="badge badge-blue">LinkedIn</span></td></tr>
+              <tr><td><strong>J+1</strong></td><td>Email Touch 1 · Lundi 9h30</td><td>Sujet + corps × 4 profils</td><td><span class="badge badge-green">Email</span></td></tr>
+              <tr><td><strong>J+3</strong></td><td>Si connexion acceptée → LinkedIn Touch 2</td><td>Message × 4 profils</td><td><span class="badge badge-blue">LinkedIn</span></td></tr>
+              <tr><td><strong>J+4</strong></td><td>Email Touch 2 · Mercredi 9h30</td><td>Value-first × 4 profils</td><td><span class="badge badge-green">Email</span></td></tr>
+              <tr><td><strong>J+7</strong></td><td>LinkedIn Touch 3 — ou appel si profil D et tél trouvé</td><td>Message × 4 profils · D préfère 2 min au tél</td><td><span class="badge badge-blue">LinkedIn</span></td></tr>
+              <tr><td><strong>J+9</strong></td><td>Email Touch 3 · Lundi 9h30</td><td>D/C : loss aversion · I/S : preuve sociale</td><td><span class="badge badge-green">Email</span></td></tr>
+              <tr><td><strong>J+11</strong></td><td>Email Touch 4 · Mercredi 9h30</td><td>Angle changement × 4 profils</td><td><span class="badge badge-green">Email</span></td></tr>
+              <tr><td><strong>J+14</strong></td><td>Email Breakup · Mardi 9h30</td><td>D "1 ou 2 ?" · I chaleur · S douceur · C précision</td><td><span class="badge badge-amber">Breakup</span></td></tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <!-- RÉPONSES OBJECTIONS -->
-      <div class="section-title" style="margin-top: 40px;">Réponses types aux objections</div>
-      <div class="card-section">
+      <!-- ═══════════ OBJECTIONS DISC ═══════════ -->
+      <div class="section-title" style="margin-top: 40px;">Réponses aux objections — adaptées DISC</div>
+      <div class="card-section" style="padding: 16px 24px;">
         <div class="table-wrap">
-          <table class="data-table">
-            <thead><tr><th>Réponse reçue</th><th>Ce que tu réponds</th></tr></thead>
+          <table class="data-table obj-table">
+            <thead>
+              <tr>
+                <th>Objection</th>
+                <th class="th-d">D 🔴</th>
+                <th class="th-i">I 🟡</th>
+                <th class="th-s">S 🟢</th>
+                <th class="th-c">C 🔵</th>
+              </tr>
+            </thead>
             <tbody>
               <tr>
-                <td>"Pas intéressé pour l'instant"</td>
-                <td>"Compris. Dans 3 mois tu seras sur quel type de missions ? Je me note de revenir."</td>
+                <td><strong>"Pas intéressé"</strong></td>
+                <td>"Compris. C'est jamais ou pas maintenant ?"</td>
+                <td>"Pas de souci ! Qui dans ton réseau pourrait être concerné ?"</td>
+                <td>"Merci d'avoir répondu. Je reste dispo si ça évolue."</td>
+                <td>"Pour ma compré­hension : c'est le sujet, le timing ou l'approche ?"</td>
               </tr>
               <tr>
-                <td>"C'est trop cher"</td>
-                <td>Ne pas répondre par email. → "C'est une question de valeur, pas de prix. 15 min pour que tu calcules toi-même ?"</td>
+                <td><strong>"C'est trop cher"</strong></td>
+                <td>Ne pas répondre par email → "Question de valeur, pas de prix. 15 min ?"</td>
+                <td>"Ça mérite qu'on en parle — chaque contexte est différent. 15 min ?"</td>
+                <td>"Je comprends. Vous pouvez calculer le ROI vous-même — je vous envoie les chiffres bruts ?"</td>
+                <td>Ne pas répondre par email → "Question de modèle, pas de tarif. 15 min avec les données ?"</td>
               </tr>
               <tr>
-                <td>"On a déjà Make / n8n"</td>
-                <td>"Make ne fait pas de souveraineté des données et demande un technicien pour maintenir. Uccello Hub = chat pour le collaborateur. Je te montre la différence ?"</td>
+                <td><strong>"On a déjà Make / n8n"</strong></td>
+                <td>"Make ≠ souveraineté + demande un technicien. Uccello Hub = chat collaborateur. Différence en 15 min ?"</td>
+                <td>"Exactement le profil idéal — Make automatise, Uccello Hub rend ça accessible aux équipes sans formation. Les deux sont complémentaires."</td>
+                <td>"Bonne base. Uccello Hub peut s'y brancher — vous ne changez rien à ce qui marche."</td>
+                <td>"Make n'a pas de couche RAG ni de chat collaborateur natif. Les deux coexistent. Donnée technique disponible si vous voulez."</td>
               </tr>
               <tr>
-                <td>"Envoyez-moi plus d'infos"</td>
-                <td>"Plus utile de discuter 15 min — chaque consultant a un contexte différent. Quel créneau cette semaine ?"</td>
+                <td><strong>"Envoyez-moi plus d'infos"</strong></td>
+                <td>"15 min est plus utile. Quel créneau ?"</td>
+                <td>"Bien sûr — mais une conversation de 15 min sera plus utile pour ton contexte. Tu as un créneau cette semaine ?"</td>
+                <td>"Je vous envoie l'essentiel. Et si vous avez des questions, je suis disponible à votre rythme."</td>
+                <td>"Je vous envoie le modèle économique détaillé avec les sources. Puis 15 min pour valider si ça correspond ?"</td>
               </tr>
               <tr>
-                <td>"Je n'ai pas le temps"</td>
-                <td>"Je t'envoie 3 chiffres et un lien de démo en autonomie. Tu regardes quand tu veux."</td>
-              </tr>
-              <tr>
-                <td>"Et si Uccello Labs ferme ?"</td>
-                <td>"Le contrat revendeur contient des clauses de continuité de service. Je t'en envoie les points clés si tu veux."</td>
-              </tr>
-              <tr>
-                <td>"Parle-en à [quelqu'un]"</td>
-                <td>Remercier → contacter X en citant : "[Prénom] m'a suggéré de te joindre…"</td>
+                <td><strong>"Et si Uccello Labs ferme ?"</strong></td>
+                <td>"Contrat + clauses de continuité. On-premise = infra chez ton client. Points clés en 2 min."</td>
+                <td>"Question légitime ! En on-premise, ton client est propriétaire de l'infra. Je t'envoie les points clés du contrat ?"</td>
+                <td>"C'est une préoccupation normale. Le contrat contient des clauses de continuité. Je vous en envoie les points essentiels ?"</td>
+                <td>"3 clauses de continuité dans le contrat revendeur. En on-premise : infrastructure appartient au client. Je vous envoie le détail contractuel ?"</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <!-- KPIs -->
+      <!-- ═══════════ KPIs ═══════════ -->
       <div class="section-title" style="margin-top: 40px;">KPIs du pilote — 30 jours</div>
       <div class="card-section">
         <div class="table-wrap">
           <table class="data-table">
-            <thead><tr><th>Métrique</th><th>Cible pilote</th><th>Action si en dessous</th></tr></thead>
+            <thead><tr><th>Métrique</th><th>Cible pilote</th><th>Tracking DISC</th><th>Action si en dessous</th></tr></thead>
             <tbody>
               <tr>
                 <td>Taux acceptation LinkedIn</td>
                 <td><span class="badge badge-blue">30–45%</span></td>
-                <td>Tester note courte vs sans note</td>
+                <td>Mesurer par profil DISC</td>
+                <td>Tester note courte vs sans note selon DISC</td>
               </tr>
               <tr>
                 <td>Taux ouverture email Touch 1</td>
                 <td><span class="badge badge-blue">40–55%</span></td>
-                <td>A/B test des sujets emails</td>
+                <td>A/B sujets D vs I vs C</td>
+                <td>Ajuster le sujet du profil DISC sous-performant</td>
               </tr>
               <tr>
                 <td>Taux de réponse global</td>
                 <td><span class="badge badge-blue">8–15%</span></td>
-                <td>Revoir personnalisation Touch 1</td>
+                <td>Identifier quel DISC répond le mieux</td>
+                <td>Refaire Touch 1 sur le profil DISC qui sous-performe</td>
               </tr>
               <tr>
                 <td>Meetings obtenus / 50 contacts</td>
                 <td><span class="badge badge-blue">2–5</span></td>
+                <td>Quel DISC a le meilleur ratio ?</td>
                 <td>Revoir angle ou qualifier davantage</td>
               </tr>
               <tr>
                 <td>Conversion meeting → démo</td>
                 <td><span class="badge badge-green">60%+</span></td>
-                <td>Préparer démo + cas chiffré</td>
+                <td>Adapter pitch selon DISC du prospect</td>
+                <td>Préparer démo + cas chiffré (3 × 168€/mois = 504€)</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <!-- PROCHAINES ÉTAPES -->
+      <!-- ═══════════ PROCHAINES ÉTAPES ═══════════ -->
       <div class="section-title" style="margin-top: 40px;">Plan de lancement — Cette semaine</div>
+
       <div class="action-step">
         <div class="action-num">1</div>
         <div>
-          <h3>Enrichir les 5 premiers prospects Priorité A</h3>
-          <p>Ouvrir le CSV · Chercher LinkedIn pour : Marwan Toufiq, Adem Boukhanoufa, Adil El Marradi, Olivier Malamou, Philippe Vaitilingam · Trouver leur email via Hunter.io · Remplir Google Sheets</p>
+          <h3>Chercher LinkedIn pour les 3 INDÉTERMINABLES score 6</h3>
+          <p>Adem Boukhanoufa (Lyon) · Olivier Malamou (Nantes) · Philippe Vaitilingam (Saint-Denis) — 5 min par profil avec la grille DISC ci-dessus · Mettre à jour le CSV v2 colonne DISC</p>
         </div>
       </div>
       <div class="action-step">
         <div class="action-num">2</div>
         <div>
-          <h3>Lancer les 5 premières séquences omnichannel</h3>
-          <p>J−3 : visiter les 5 profils LinkedIn · J+0 : envoyer les 5 demandes de connexion · J+1 : envoyer les 5 Touch 1 Email · Suivre dans Google Sheets</p>
+          <h3>Lancer les 5 premières séquences omnichannel avec DISC</h3>
+          <p>J−3 : visiter les profils · Détecter DISC · Choisir le template correspondant · J+0 : demande de connexion adaptée · J+1 : Email Touch 1 version DISC · Suivre dans Google Sheets avec colonne DISC</p>
         </div>
       </div>
       <div class="action-step">
         <div class="action-num">3</div>
         <div>
-          <h3>Créer le lead magnet pour activer Touch 2</h3>
-          <p>Idée : "Calculateur ROI Revendeur Uccello Hub" — table simple : nb clients × prix mensuel × marge = MRR. À déployer en Touch 2 LinkedIn et Email pour multiplier les réponses. Délai : 2h.</p>
+          <h3>Mesurer le taux de réponse par profil DISC</h3>
+          <p>Après 20 contacts (semaine 1–2) : identifier quel profil DISC répond le mieux · Ajuster en priorité les templates du profil sous-performant · La majorité (44%) est C → favoriser d'abord les sujets factuels et les ancres chiffrées</p>
+        </div>
+      </div>
+      <div class="action-step">
+        <div class="action-num amber">4</div>
+        <div>
+          <h3>Créer le lead magnet pour activer la réciprocité en Touch 2</h3>
+          <p>"Calculateur ROI Revendeur Uccello Hub" — table simple : nb clients × tier × marge = MRR · Déployer en Touch 2 LinkedIn et Email · Multiplier les réponses × 3 (biais réciprocité) · Délai : 2h · Idéal pour les profils I et S</p>
         </div>
       </div>
 
@@ -511,13 +982,35 @@
       <div class="footer-inner">
         <span class="footer-logo">◆ Uccello Hub</span>
         <span>Document interne — usage privé uniquement</span>
-        <span>v1.0 · 26 avril 2026 · Uccello Labs</span>
+        <span>v2.0 · 26 avril 2026 · Uccello Labs</span>
       </div>
     </div>
   </footer>
 
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script src="assets/js/app.js"></script>
-  <script>lucide.createIcons();</script>
+  <script>
+    lucide.createIcons();
+
+    // DISC Tab switching
+    document.querySelectorAll('.disc-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var group = this.closest('.touch-block-tabs');
+        var target = this.getAttribute('data-target');
+        var disc   = this.getAttribute('data-disc');
+
+        // Deactivate all tabs in this group
+        group.querySelectorAll('.disc-tab').forEach(function(t) { t.classList.remove('active'); });
+        // Activate clicked tab
+        this.classList.add('active');
+
+        // Deactivate all panels in this group
+        group.querySelectorAll('.disc-panel').forEach(function(p) { p.classList.remove('active'); });
+        // Activate target panel
+        var panel = document.getElementById(target + '-' + disc);
+        if (panel) panel.classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
