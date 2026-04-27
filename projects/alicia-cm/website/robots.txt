@@ -1,0 +1,3 @@
+# Archivage interne — ne pas indexer (meta noindex en complément)
+User-agent: *
+Disallow: /
