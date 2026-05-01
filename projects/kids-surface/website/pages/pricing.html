@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Pricing — Kids Surface</title>
+  <link rel="stylesheet" href="../assets/css/design-system.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <style>
+    .cost-row { display: flex; justify-content: space-between; align-items: center; padding: var(--space-3) 0; border-bottom: 1px solid var(--border-light); font-size: var(--text-sm); }
+    .cost-row:last-child { border-bottom: none; }
+    .cost-label { color: var(--text-muted); }
+    .cost-range { font-weight: 600; color: var(--ink); }
+    .cost-note { font-size: var(--text-xs); color: var(--amber); font-style: italic; }
+    .justify-block { background: var(--cream); border-left: 3px solid var(--terra); border-radius: 0 var(--radius-md) var(--radius-md) 0; padding: var(--space-5) var(--space-6); margin-bottom: var(--space-4); }
+    .justify-label { font-size: var(--text-xs); font-weight: 700; color: var(--terra); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: var(--space-2); }
+    .justify-text { font-size: var(--text-sm); color: var(--text); line-height: 1.6; font-style: italic; }
+    .obj-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); padding: var(--space-4) 0; border-bottom: 1px solid var(--border-light); font-size: var(--text-sm); }
+    .obj-row:last-child { border-bottom: none; }
+    .obj-q { color: #DC2626; font-style: italic; }
+    .obj-a { color: var(--sage); font-weight: 500; }
+    .reseller-row { display: grid; grid-template-columns: 1.5fr 80px 80px 80px 1fr; gap: var(--space-4); padding: var(--space-3) 0; border-bottom: 1px solid var(--border-light); font-size: var(--text-sm); align-items: center; }
+    .reseller-row:last-child { border-bottom: none; }
+  </style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <span class="nav-logo-name">Kids Surface</span>
+      <span class="nav-logo-label">Étude commerciale</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Accueil</a></li>
+      <li><a href="offre.html">Offre</a></li>
+      <li><a href="persona.html">Persona</a></li>
+      <li><a href="marche.html">Marché</a></li>
+      <li><a href="concurrence.html">Concurrence</a></li>
+      <li><a href="pricing.html" class="active">Pricing</a></li>
+      <li><a href="viabilite.html">Viabilité</a></li>
+    </ul>
+    <span class="nav-verdict">⚠️ Viable sous conditions</span>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="page-wrapper">
+  <header class="hero-sm">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Accueil</a>
+        <span class="breadcrumb-sep">›</span>
+        <span class="breadcrumb-current">Pricing</span>
+      </div>
+      <h1>Architecture tarifaire</h1>
+      <p class="subtitle">Type C — Produit physique one-shot · 64€ / 109€ / 149€ · Marge brute estimée 45–55%</p>
+    </div>
+  </header>
+
+  <main style="background: var(--cream-light); padding: var(--space-16) 0;">
+    <div class="container">
+
+      <div class="info-box warning" style="margin-bottom: var(--space-10);">
+        <strong class="info-box-title">⚠️ Données de coûts estimées</strong>
+        Les coûts de fabrication réels n'ont pas été communiqués. Toutes les estimations ci-dessous sont basées sur des benchmarks sectoriels. À valider impérativement avec le fabricant avant toute décision d'investissement marketing.
+      </div>
+
+      <!-- Tiers -->
+      <section class="section-sm">
+        <div class="section-header">
+          <div class="section-eyebrow">Architecture de prix</div>
+          <h2>3 niveaux — ancrage haut vers bas</h2>
+        </div>
+        <div class="pricing-grid fade-in">
+          <div class="pricing-tier">
+            <span class="pricing-emoji">🏴‍☠️</span>
+            <div class="pricing-name">Coffret 3 univers</div>
+            <div class="pricing-price"><span class="pricing-currency">€</span><span class="pricing-amount">149</span></div>
+            <p class="pricing-savings">vs 192€ à l'unité — économisez 43€</p>
+            <ul class="pricing-features">
+              <li>Pirates + Féérique + Dinosaures</li>
+              <li>3 housses de transport</li>
+              <li>Livraison offerte</li>
+              <li>Pour familles ou grand-parent</li>
+            </ul>
+          </div>
+          <div class="pricing-tier featured">
+            <div class="pricing-badge">Le plus populaire</div>
+            <span class="pricing-emoji">✨</span>
+            <div class="pricing-name">Pack 2 univers</div>
+            <div class="pricing-price"><span class="pricing-currency">€</span><span class="pricing-amount">109</span></div>
+            <p class="pricing-savings">vs 128€ à l'unité — économisez 19€</p>
+            <ul class="pricing-features">
+              <li>2 univers au choix</li>
+              <li>2 housses de transport</li>
+              <li>Livraison offerte</li>
+              <li>Panier moyen cible</li>
+            </ul>
+          </div>
+          <div class="pricing-tier">
+            <span class="pricing-emoji">🦕</span>
+            <div class="pricing-name">1 univers — Découverte</div>
+            <div class="pricing-price"><span class="pricing-currency">€</span><span class="pricing-amount">64</span></div>
+            <p class="pricing-savings" style="color: var(--text-muted);">Entrée de gamme</p>
+            <ul class="pricing-features">
+              <li>1 univers au choix</li>
+              <li>Housse de transport</li>
+              <li>Scénarios inclus</li>
+              <li>Livraison en sus</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="info-box neutral" style="margin-top: var(--space-8);">
+          <strong>Panier moyen cible : 85–95€</strong> — mix entre achats 1 univers et packs. Le Pack 2 univers est le cœur de l'architecture : il augmente le panier moyen sans dépasser le budget cadeau de Sylvie (grand-parent) et dilue le CAC sur 2 unités.
+        </div>
+      </section>
+
+      <!-- Coûts -->
+      <section class="section-sm">
+        <div class="section-header">
+          <div class="section-eyebrow">Économie unitaire</div>
+          <h2>Estimation des coûts</h2>
+        </div>
+        <div class="grid-2">
+          <div style="background: var(--surface); border: 1px solid var(--border-light); border-radius: var(--radius-xl); padding: var(--space-8);">
+            <h4 style="margin-bottom: var(--space-6);">Coûts directs par unité</h4>
+            <div class="cost-row"><span class="cost-label">Fabrication France (matière + MO)</span><span><span class="cost-range">18–28€</span><br><span class="cost-note">⚠ Estimé</span></span></div>
+            <div class="cost-row"><span class="cost-label">Packaging (boîte + housse)</span><span class="cost-range">3–6€</span></div>
+            <div class="cost-row"><span class="cost-label">Logistique / expédition</span><span class="cost-range">5–8€</span></div>
+            <div class="cost-row"><span class="cost-label">Frais plateforme + paiement</span><span class="cost-range">2–3€</span></div>
+            <div class="cost-row" style="font-weight: 700; font-size: var(--text-base);"><span>Total hors CAC</span><span style="color: var(--ink);">28–45€</span></div>
+            <div class="cost-row"><span class="cost-label">CAC estimé (Meta Ads)</span><span><span class="cost-range">15–30€</span><br><span class="cost-note">⚠ À tester</span></span></div>
+            <div class="cost-row" style="font-weight: 700; border-top: 2px solid var(--border); margin-top: var(--space-2); padding-top: var(--space-4);"><span>Total avec CAC</span><span style="color: var(--terra);">43–75€</span></div>
+          </div>
+
+          <div style="background: var(--surface); border: 1px solid var(--border-light); border-radius: var(--radius-xl); padding: var(--space-8);">
+            <h4 style="margin-bottom: var(--space-6);">Marges à 64€ DTC</h4>
+            <div class="cost-row"><span class="cost-label">Prix de vente</span><span class="cost-range">64€</span></div>
+            <div class="cost-row"><span class="cost-label">Coût direct (estimation basse)</span><span class="cost-range">28€</span></div>
+            <div class="cost-row" style="font-weight: 700;"><span>Marge brute (basse)</span><span style="color: var(--sage);">56% ✅</span></div>
+            <div class="cost-row"><span class="cost-label">Coût direct (estimation haute)</span><span class="cost-range">45€</span></div>
+            <div class="cost-row" style="font-weight: 700;"><span>Marge brute (haute)</span><span style="color: var(--amber);">30% ⚠</span></div>
+            <div class="cost-row"><span class="cost-label">CAC max viable</span><span class="cost-range" style="color: var(--terra);">≤ 25€</span></div>
+            <div class="info-box warning" style="margin-top: var(--space-4); font-size: var(--text-xs);">
+              Si coût fabrication réel > 30€ ET CAC > 25€ → marge nette négative à 64€. Condition GO dépend de ces deux chiffres.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Plancher -->
+      <section class="section-sm">
+        <div class="section-header">
+          <div class="section-eyebrow">Plancher</div>
+          <h2>Prix minimum viable (marge ≥ 40%)</h2>
+        </div>
+        <table class="data-table fade-in" style="background: var(--surface); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);">
+          <thead><tr><th>Coût direct estimé</th><th>Marge cible</th><th>Prix plancher</th><th>Statut</th></tr></thead>
+          <tbody>
+            <tr><td>28€ (basse)</td><td>40%</td><td><strong>47€</strong></td><td class="check-yes">✅ OK</td></tr>
+            <tr style="background: rgba(200,90,63,0.04); font-weight: 600;"><td>35€ (moyenne)</td><td>40%</td><td><strong>59€</strong></td><td class="check-yes">✅ OK à 64€</td></tr>
+            <tr><td>45€ (haute)</td><td>40%</td><td><strong>75€</strong></td><td class="check-part">⚠ Friction Camille</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Pricing revendeur -->
+      <section class="section-sm">
+        <div class="section-header">
+          <div class="section-eyebrow">Revendeurs</div>
+          <h2>Pricing boutiques physiques (phase 2)</h2>
+        </div>
+        <div style="background: var(--surface); border: 1px solid var(--border-light); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-sm);">
+          <table class="data-table">
+            <thead><tr><th>Type partenaire</th><th>Prix public</th><th>Remise</th><th>Prix revendeur</th><th>Note</th></tr></thead>
+            <tbody>
+              <tr><td>Boutique jouets indép. (active)</td><td>64€</td><td>35%</td><td>41,60€</td><td style="color: var(--text-muted);">Marge serrée, volume requis</td></tr>
+              <tr><td>Boutique premium</td><td>64€</td><td>30%</td><td>44,80€</td><td style="color: var(--sage);">Recommandé phase 2</td></tr>
+              <tr><td>Concept store / showroom</td><td>64€</td><td>25%</td><td>48€</td><td style="color: var(--sage);">Meilleure marge</td></tr>
+              <tr style="color: var(--text-muted);"><td>Grande surface spécialisée</td><td>64€</td><td>40–45%</td><td>35–38€</td><td style="color: #DC2626;">⚠ Très serré — éviter phase 1</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="info-box neutral" style="margin-top: var(--space-6);">
+          Avec une fabrication FR, une remise revendeur au-delà de 35% est difficile à tenir. Priorité au DTC pour construire la marge avant d'ouvrir la distribution physique.
+        </div>
+      </section>
+
+      <!-- Justifications -->
+      <section class="section-sm">
+        <div class="section-header">
+          <div class="section-eyebrow">Arguments</div>
+          <h2>Justifications prix prêtes à l'emploi</h2>
+        </div>
+        <div class="fade-in">
+          <div class="justify-block">
+            <div class="justify-label">ROI achat</div>
+            <p class="justify-text">« Un tapis Kids Surface à 64€ utilisé 1 an, c'est 0,18€/jour de jeu immersif. Le jouet plastique à 15€ qui tient 3 semaines revient à 0,71€/jour. Kids Surface coûte 4× moins cher à l'usage. »</p>
+          </div>
+          <div class="justify-block">
+            <div class="justify-label">Comparaison Haba</div>
+            <p class="justify-text">« Comparé à Haba (40–80€, fabriqué en Allemagne), Kids Surface est dans la même gamme de prix — avec en plus la fabrication française et des scénarios de jeu intégrés. Pour le même prix, vous avez plus. »</p>
+          </div>
+          <div class="justify-block">
+            <div class="justify-label">Comparaison IKEA</div>
+            <p class="justify-text">« Le tapis IKEA est à 20€. Il fait rouler des voitures en ligne droite. Le tapis Kids Surface est à 64€. Il fait inventer des histoires. Ce ne sont pas des concurrents — ce sont deux usages différents. »</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Objections -->
+      <section class="section-sm">
+        <div class="section-header">
+          <div class="section-eyebrow">Objections</div>
+          <h2>Questions/Réponses sur le prix</h2>
+        </div>
+        <div style="background: var(--surface); border: 1px solid var(--border-light); border-radius: var(--radius-xl); padding: var(--space-8);">
+          <div class="obj-row" style="font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;">
+            <span style="color: var(--text-muted);">Objection</span>
+            <span style="color: var(--text-muted);">Réponse</span>
+          </div>
+          <div class="obj-row">
+            <span class="obj-q">« C'est cher pour un tapis »</span>
+            <span class="obj-a">0,18€/jour sur un an. Fabriqué en France, lavable, pliable, durable.</span>
+          </div>
+          <div class="obj-row">
+            <span class="obj-q">« J'ai trouvé pareil moins cher »</span>
+            <span class="obj-a">Est-ce Made in France ? Avec scénarios de jeu ? Avec housse ? Non — alors ce n'est pas pareil.</span>
+          </div>
+          <div class="obj-row">
+            <span class="obj-q">« Le Haba coûte pareil »</span>
+            <span class="obj-a">Haba est allemand. Kids Surface est fabriqué en France. Et vous commandez directement, sans marge boutique.</span>
+          </div>
+          <div class="obj-row">
+            <span class="obj-q">« Pas de budget »</span>
+            <span class="obj-a">Entrée à 59€ sur Etsy. Retours acceptés sous 30 jours — sans risque.</span>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span class="footer-brand">Kids Surface</span>
+    <div class="footer-meta"><span>Étude générée le 30 avril 2026</span><span>Version 1.0 — Usage interne</span></div>
+  </div>
+</footer>
+<script src="../assets/js/interactions.js"></script>
+</body>
+</html>

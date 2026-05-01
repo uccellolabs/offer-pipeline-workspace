@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Analyse marché — Kids Surface</title>
+  <link rel="stylesheet" href="../assets/css/design-system.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <style>
+    .market-card { background: var(--surface); border: 1px solid var(--border-light); border-radius: var(--radius-xl); padding: var(--space-8); box-shadow: var(--shadow-sm); }
+    .tam-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border-radius: var(--radius-xl); overflow: hidden; }
+    .tam-item { background: var(--surface); padding: var(--space-8); }
+    .tam-label { font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: var(--space-2); }
+    .tam-acronym { font-family: var(--font-display); font-size: var(--text-4xl); font-weight: 300; line-height: 1; margin-bottom: var(--space-2); }
+    .tam-value { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 500; color: var(--ink); margin-bottom: var(--space-2); }
+    .tam-desc { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; }
+    .tam-method { font-size: var(--text-xs); color: var(--text-light); margin-top: var(--space-2); font-style: italic; }
+    .channel-score { display: flex; align-items: center; gap: var(--space-3); }
+    .channel-score-bar { flex: 1; height: 6px; background: var(--cream-dark); border-radius: var(--radius-full); overflow: hidden; }
+    .channel-score-fill { height: 100%; border-radius: var(--radius-full); background: var(--terra); }
+    .phase-timeline { display: flex; flex-direction: column; gap: 0; }
+    .phase-item { display: grid; grid-template-columns: 120px 1fr; }
+    .phase-time { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 500; color: var(--terra); padding: var(--space-5) var(--space-6) var(--space-5) 0; border-right: 2px solid var(--terra); text-align: right; }
+    .phase-content { padding: var(--space-5) 0 var(--space-5) var(--space-6); }
+    .phase-content h4 { font-size: var(--text-base); margin-bottom: var(--space-2); }
+    .phase-content p { font-size: var(--text-sm); color: var(--text-muted); margin: 0; }
+    .hyp-row { display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-3) 0; border-bottom: 1px solid var(--border-light); font-size: var(--text-sm); }
+    .hyp-row:last-child { border-bottom: none; }
+    .hyp-icon { flex-shrink: 0; font-size: var(--text-base); margin-top: 1px; }
+  </style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <span class="nav-logo-name">Kids Surface</span>
+      <span class="nav-logo-label">Étude commerciale</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Accueil</a></li>
+      <li><a href="offre.html">Offre</a></li>
+      <li><a href="persona.html">Persona</a></li>
+      <li><a href="marche.html" class="active">Marché</a></li>
+      <li><a href="concurrence.html">Concurrence</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="viabilite.html">Viabilité</a></li>
+    </ul>
+    <span class="nav-verdict">⚠️ Viable sous conditions</span>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="page-wrapper">
+  <header class="hero-sm">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Accueil</a>
+        <span class="breadcrumb-sep">›</span>
+        <span class="breadcrumb-current">Analyse marché</span>
+      </div>
+      <h1>Analyse de marché</h1>
+      <p class="subtitle">Canal Mixte — DTC prioritaire · SOM à 3 ans : 200k–600k€ · Signal ✅ Marché prêt</p>
+    </div>
+  </header>
+
+  <main style="background: var(--cream-light); padding: var(--space-16) 0;">
+    <div class="container">
+
+      <!-- TAM / SAM / SOM -->
+      <section class="section-sm">
+        <div class="section-header">
+          <div class="section-eyebrow">Taille de marché</div>
+          <h2>TAM · SAM · SOM</h2>
+          <p>Estimations basées sur les données sectorielles (Circana/NPD 2024, Syndicat des Industries de Jeux). <em>À affiner avec les vrais coûts et prix de vente.</em></p>
+        </div>
+        <div class="tam-grid fade-in">
+          <div class="tam-item">
+            <div class="tam-label">Marché total adressable</div>
+            <div class="tam-acronym" style="color: var(--cream-dark);">TAM</div>
+            <div class="tam-value">50–80 M€/an</div>
+            <div class="tam-desc">Marché tapis/surfaces de jeu pour enfants en France (~3% du marché jouet FR total de ~4 Md€)</div>
+            <div class="tam-method">⚠ Estimé — extrapolation segment Circana 2024</div>
+          </div>
+          <div class="tam-item">
+            <div class="tam-label">Marché adressable réaliste</div>
+            <div class="tam-acronym" style="color: var(--border);">SAM</div>
+            <div class="tam-value">10–20 M€/an</div>
+            <div class="tam-desc">Segment premium/narratif Made in France, cible CSP+. ~700k–800k foyers qualifiés × taux pénétration ~2–3% × panier 60€</div>
+            <div class="tam-method">⚠ Estimé — 20–25% du TAM sur critères qualité + FR</div>
+          </div>
+          <div class="tam-item">
+            <div class="tam-label">Part de marché cible 3 ans</div>
+            <div class="tam-acronym" style="color: var(--terra-muted);">SOM</div>
+            <div class="tam-value">200k–600k€ ARR</div>
+            <div class="tam-desc">3 000–10 000 unités/an × prix moyen estimé 60€. Soit 0,5–2% du SAM.</div>
+            <div class="tam-method">⚠ Estimé — à affiner dès prix de vente et coûts confirmés</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Canal -->
+      <section class="section-sm">
+        <div class="section-header">
+          <div class="section-eyebrow">Distribution</div>
+          <h2>Canal de distribution retenu</h2>
+          <p>Mode Mixte — DTC prioritaire en phase 1, marketplaces et boutiques en phase 2.</p>
+        </div>
+
+        <div class="grid-2" style="margin-bottom: var(--space-8);">
+          <div class="market-card fade-in">
+            <h3 style="font-size: var(--text-2xl); margin-bottom: var(--space-6);">Scores par canal</h3>
+            <table class="data-table">
+              <thead><tr><th>Canal</th><th>Vol.</th><th>Approche</th><th>Align.</th><th>Cycle</th><th>Total</th></tr></thead>
+              <tbody>
+                <tr style="font-weight: 700; background: rgba(200,90,63,0.06);">
+                  <td>DTC e-commerce ⭐</td><td>3/5</td><td>4/5</td><td>5/5</td><td>5/5</td><td style="color: var(--terra);">17/20</td>
+                </tr>
+                <tr>
+                  <td>Etsy</td><td>4/5</td><td>4/5</td><td>3/5</td><td>5/5</td><td>16/20</td>
+                </tr>
+                <tr>
+                  <td>Smallable / La Redoute</td><td>4/5</td><td>3/5</td><td>4/5</td><td>3/5</td><td>14/20</td>
+                </tr>
+                <tr>
+                  <td>Boutiques jouets indép.</td><td>3/5</td><td>3/5</td><td>4/5</td><td>3/5</td><td>13/20</td>
+                </tr>
+                <tr style="color: var(--text-muted);">
+                  <td>Amazon.fr ⚠</td><td>5/5</td><td>2/5</td><td>2/5</td><td>5/5</td><td>14/20</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="info-box warning" style="margin-top: var(--space-4);">
+              <strong>Amazon déconseillé en phase 1</strong> — guerre des prix, désalignement avec la cible Camille qui cherche une « marque », pas un « produit ».
+            </div>
+          </div>
+
+          <div class="market-card fade-in">
+            <h3 style="font-size: var(--text-2xl); margin-bottom: var(--space-6);">Plan par phase</h3>
+            <div class="phase-timeline">
+              <div class="phase-item">
+                <div class="phase-time">0–12 m</div>
+                <div class="phase-content">
+                  <h4>DTC + Etsy</h4>
+                  <p>Priorité absolue au DTC pour maximiser la marge et construire la base client. Etsy en parallèle pour découverte organique et crédibilité artisanale.</p>
+                </div>
+              </div>
+              <div class="phase-item">
+                <div class="phase-time">12–24 m</div>
+                <div class="phase-content">
+                  <h4>+ Marketplace premium + Boutiques</h4>
+                  <p>Smallable / La Redoute Enfant / Melijoe. 20–50 boutiques jouets indépendantes pour le segment grand-parent.</p>
+                </div>
+              </div>
+              <div class="phase-item">
+                <div class="phase-time">24–36 m</div>
+                <div class="phase-content">
+                  <h4>Export francophonie</h4>
+                  <p>Belgique, Suisse, Canada francophone si traction établie en France.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hypothèses -->
+      <section class="section-sm">
+        <div class="section-header">
+          <div class="section-eyebrow">Validation</div>
+          <h2>Hypothèses validées · invalidées · à confirmer</h2>
+        </div>
+        <div class="market-card fade-in">
+          <div style="display: flex; flex-direction: column; gap: 0;">
+            <div class="hyp-row"><span class="hyp-icon">✅</span><div><strong>Marché jouet stable</strong> — budget maintenu même en période de crise, non cyclique.</div></div>
+            <div class="hyp-row"><span class="hyp-icon">✅</span><div><strong>Segment « jouet créatif sans écran »</strong> en croissance structurelle (tendance 5–10 ans).</div></div>
+            <div class="hyp-row"><span class="hyp-icon">✅</span><div><strong>Made in France</strong> — argument commercial croissant, critère actif chez CSP+ (baromètre Ifop/FMF 2025).</div></div>
+            <div class="hyp-row"><span class="hyp-icon">✅</span><div><strong>Saisonnalité forte Q4</strong> — opportunité (budget cadeau augmenté) + risque (dépendance à une période).</div></div>
+            <div class="hyp-row"><span class="hyp-icon">⚠️</span><div><strong>CAC réel Meta Ads</strong> — estimé 15–30€ · à tester en campagne réelle (budget 500–1 000€).</div></div>
+            <div class="hyp-row"><span class="hyp-icon">⚠️</span><div><strong>Volume Etsy réel</strong> — dépend du SEO produit et des photos · à tester sur 3 mois.</div></div>
+            <div class="hyp-row"><span class="hyp-icon">⚠️</span><div><strong>Appétit boutiques indépendantes</strong> — à valider par 10–15 appels commerciaux directs.</div></div>
+            <div class="hyp-row"><span class="hyp-icon">❌</span><div><strong>Amazon comme canal prioritaire</strong> invalidé — désalignement de positionnement avec la cible Camille.</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Checkpoint viabilité 3 -->
+      <section class="section-sm">
+        <div class="section-header">
+          <div class="section-eyebrow">Checkpoint viabilité 3</div>
+          <h2>Budget · Maturité · Cycle</h2>
+        </div>
+        <div class="criteria-grid">
+          <div class="criteria-card fade-in">
+            <div class="criteria-card-header"><span class="criteria-number">01</span><span class="tag tag-success">✅ OK</span></div>
+            <div class="criteria-title">Budget dédié</div>
+            <div class="criteria-rows">
+              <div class="criteria-row"><span class="criteria-row-label">Budget alloué</span><span class="criteria-row-value">Oui — intégré budget jouets/cadeaux</span></div>
+              <div class="criteria-row"><span class="criteria-row-label">Montant moyen</span><span class="criteria-row-value">400–700€/enfant/an</span></div>
+              <div class="criteria-row"><span class="criteria-row-label">Par achat</span><span class="criteria-row-value">40–80€ par produit</span></div>
+            </div>
+          </div>
+          <div class="criteria-card fade-in">
+            <div class="criteria-card-header"><span class="criteria-number">02</span><span class="tag tag-warning">⚠ Conscient</span></div>
+            <div class="criteria-title">Maturité marché</div>
+            <div class="criteria-rows">
+              <div class="criteria-row"><span class="criteria-row-label">Marché jouet</span><span class="criteria-row-value">Éduqué ✅</span></div>
+              <div class="criteria-row"><span class="criteria-row-label">Tapis narratif FR</span><span class="criteria-row-value">Conscient ⚠ (peu connu)</span></div>
+              <div class="criteria-row"><span class="criteria-row-label">Implication</span><span class="criteria-row-value">Notoriété à construire</span></div>
+            </div>
+          </div>
+          <div class="criteria-card fade-in">
+            <div class="criteria-card-header"><span class="criteria-number">03</span><span class="tag tag-success">✅ Court</span></div>
+            <div class="criteria-title">Cycle de décision</div>
+            <div class="criteria-rows">
+              <div class="criteria-row"><span class="criteria-row-label">Décideurs</span><span class="criteria-row-value">1 personne (parent seul)</span></div>
+              <div class="criteria-row"><span class="criteria-row-label">Cycle closing</span><span class="criteria-row-value">1–7 jours</span></div>
+              <div class="criteria-row"><span class="criteria-row-label">Pic</span><span class="criteria-row-value">Octobre–Décembre</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="info-box success" style="margin-top: var(--space-8);">
+          <strong class="info-box-title">Signal global : ✅ Marché prêt</strong>
+          Budget alloué, cible accessible, canal identifié. Condition principale : notoriété à construire — sans trafic, pas de vente.
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span class="footer-brand">Kids Surface</span>
+    <div class="footer-meta"><span>Étude générée le 30 avril 2026</span><span>Version 1.0 — Usage interne</span></div>
+  </div>
+</footer>
+<script src="../assets/js/interactions.js"></script>
+</body>
+</html>

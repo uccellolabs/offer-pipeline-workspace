@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Offre finale — Kids Surface</title>
+  <link rel="stylesheet" href="../assets/css/design-system.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <style>
+    .offer-section {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      padding: var(--space-10) var(--space-12);
+      margin-bottom: var(--space-8);
+      box-shadow: var(--shadow-sm);
+    }
+    .offer-section-num {
+      font-family: var(--font-display);
+      font-size: var(--text-5xl);
+      font-weight: 300;
+      color: var(--cream-dark);
+      line-height: 1;
+      margin-bottom: var(--space-4);
+    }
+    .offer-section h3 {
+      color: var(--ink);
+      margin-bottom: var(--space-6);
+      font-size: var(--text-2xl);
+    }
+    .offer-title-block {
+      background: var(--ink);
+      border-radius: var(--radius-xl);
+      padding: var(--space-12) var(--space-12);
+      margin-bottom: var(--space-8);
+      position: relative;
+      overflow: hidden;
+    }
+    .offer-title-block::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 80% 50%, rgba(200,90,63,0.15) 0%, transparent 60%);
+    }
+    .offer-title-block * { position: relative; z-index: 1; }
+    .offer-main-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.2;
+      margin-bottom: var(--space-4);
+    }
+    .offer-main-title em {
+      color: var(--terra-light);
+      font-style: normal;
+    }
+    .offer-subtitle {
+      font-size: var(--text-lg);
+      color: rgba(247,243,235,0.6);
+      font-style: italic;
+      font-family: var(--font-display);
+    }
+
+    .benefit-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+      padding: var(--space-4);
+      background: var(--cream);
+      border-radius: var(--radius-md);
+    }
+    .benefit-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--terra-muted);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .benefit-text strong {
+      display: block;
+      font-size: var(--text-sm);
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: var(--space-1);
+    }
+    .benefit-text span {
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+    }
+
+    .before-after {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+    .before-col, .after-col {
+      padding: var(--space-6);
+      border-radius: var(--radius-lg);
+    }
+    .before-col {
+      background: #FEF2F2;
+      border: 1px solid #FCA5A5;
+    }
+    .after-col {
+      background: var(--sage-light);
+      border: 1px solid #6EE7B7;
+    }
+    .ba-label {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-4);
+    }
+    .before-col .ba-label { color: #DC2626; }
+    .after-col  .ba-label { color: var(--sage); }
+    .ba-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); }
+    .ba-list li { font-size: var(--text-sm); color: var(--text); }
+    .before-col .ba-list li::before { content: '✗ '; color: #DC2626; font-weight: 700; }
+    .after-col  .ba-list li::before { content: '✓ '; color: var(--sage); font-weight: 700; }
+
+    .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); }
+    .who-card { padding: var(--space-6); border-radius: var(--radius-lg); }
+    .who-for { background: var(--sage-light); border: 1px solid #6EE7B7; }
+    .who-not { background: #FEF2F2; border: 1px solid #FCA5A5; }
+    .who-label { font-weight: 700; font-size: var(--text-sm); margin-bottom: var(--space-3); }
+    .who-for .who-label { color: var(--sage); }
+    .who-not .who-label { color: #DC2626; }
+    .who-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); font-size: var(--text-sm); }
+    .who-for .who-list li::before { content: '✓ '; color: var(--sage); font-weight: 700; }
+    .who-not .who-list li::before { content: '✗ '; color: #DC2626; font-weight: 700; }
+
+    .diff-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+    .diff-card {
+      text-align: center;
+      padding: var(--space-8) var(--space-6);
+      background: var(--cream);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-light);
+    }
+    .diff-icon { font-size: 2.5rem; margin-bottom: var(--space-4); }
+    .diff-title { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 500; color: var(--ink); margin-bottom: var(--space-3); }
+    .diff-desc { font-size: var(--text-sm); color: var(--text-muted); line-height: 1.6; }
+
+    .objection-list { display: flex; flex-direction: column; gap: var(--space-6); }
+    .objection-item { border: 1px solid var(--border-light); border-radius: var(--radius-lg); overflow: hidden; }
+    .objection-q {
+      background: var(--cream);
+      padding: var(--space-5) var(--space-6);
+      font-weight: 600;
+      color: var(--ink);
+      font-style: italic;
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .objection-a {
+      padding: var(--space-5) var(--space-6);
+      font-size: var(--text-sm);
+      color: var(--text);
+      line-height: 1.7;
+      background: var(--surface);
+    }
+
+    .cta-block {
+      background: var(--terra);
+      border-radius: var(--radius-xl);
+      padding: var(--space-12);
+      text-align: center;
+      color: white;
+    }
+    .cta-block h3 {
+      color: white;
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-4);
+    }
+    .cta-block p { color: rgba(255,255,255,0.8); margin-bottom: var(--space-8); font-size: var(--text-lg); }
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-3);
+      background: white;
+      color: var(--terra);
+      font-weight: 700;
+      font-size: var(--text-base);
+      padding: var(--space-4) var(--space-8);
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      transition: transform var(--duration-fast), box-shadow var(--duration-fast);
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+    .cta-meta { margin-top: var(--space-4); font-size: var(--text-sm); color: rgba(255,255,255,0.6); }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <span class="nav-logo-name">Kids Surface</span>
+      <span class="nav-logo-label">Étude commerciale</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Accueil</a></li>
+      <li><a href="offre.html" class="active">Offre</a></li>
+      <li><a href="persona.html">Persona</a></li>
+      <li><a href="marche.html">Marché</a></li>
+      <li><a href="concurrence.html">Concurrence</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="viabilite.html">Viabilité</a></li>
+    </ul>
+    <span class="nav-verdict">⚠️ Viable sous conditions</span>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="page-wrapper">
+
+  <header class="hero-sm">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Accueil</a>
+        <span class="breadcrumb-sep">›</span>
+        <span class="breadcrumb-current">Offre finale</span>
+      </div>
+      <h1>Offre finale rédigée</h1>
+      <p class="subtitle">Format landing page · Client final (parent B2C) · Version 1.0</p>
+    </div>
+  </header>
+
+  <main style="background: var(--cream-light); padding: var(--space-16) 0;">
+    <div class="container-narrow">
+
+      <!-- 1. Titre principal -->
+      <div class="offer-title-block">
+        <div class="offer-main-title">
+          Votre enfant a tous les jouets.<br>
+          Il lui manque juste un endroit pour<br>
+          <em>inventer de vraies histoires.</em>
+        </div>
+        <p class="offer-subtitle">Kids Surface — Tapis de jeu narratif, fabriqué en France.</p>
+      </div>
+
+      <!-- 2. Problème -->
+      <div class="offer-section fade-in">
+        <div class="offer-section-num">02</div>
+        <h3>Le problème</h3>
+        <p>Vous avez acheté des jouets de qualité. Votre enfant les a utilisés deux semaines, puis a arrêté.</p>
+        <p>Pas parce que les jouets sont mauvais. Mais parce qu'il manque quelque chose : un décor. Un univers. Un point de départ pour que l'imagination prenne le relais.</p>
+        <p>Sans cadre narratif, les figurines restent sur l'étagère. Avec un tapis IKEA, ils roulent des voitures en ligne droite. Avec Kids Surface, ils jouent 30 à 45 minutes sans que vous ayez besoin d'être là.</p>
+        <div class="quote-block">
+          La différence ? Un espace immersif qui donne à l'enfant une scène, pas juste un sol.
+        </div>
+      </div>
+
+      <!-- 3. Limites des alternatives -->
+      <div class="offer-section fade-in">
+        <div class="offer-section-num">03</div>
+        <h3>Pourquoi les solutions actuelles ne suffisent pas</h3>
+        <div class="grid-3">
+          <div style="padding: var(--space-5); background: var(--cream); border-radius: var(--radius-lg); border: 1px solid var(--border-light);">
+            <strong style="font-family: var(--font-display); font-size: var(--text-lg); display: block; margin-bottom: var(--space-2);">IKEA</strong>
+            <p style="font-size: var(--text-sm); color: var(--text-muted);">Pratique. Mais il fait rouler des voitures, pas inventer des histoires. Passé les premiers jours, l'enfant ne l'utilise plus vraiment.</p>
+          </div>
+          <div style="padding: var(--space-5); background: var(--cream); border-radius: var(--radius-lg); border: 1px solid var(--border-light);">
+            <strong style="font-family: var(--font-display); font-size: var(--text-lg); display: block; margin-bottom: var(--space-2);">Amazon</strong>
+            <p style="font-size: var(--text-sm); color: var(--text-muted);">Ressemble à Kids Surface sur la photo. La matière, elle, ne ressemble à rien une fois reçue. Et ce n'est pas fabriqué en France.</p>
+          </div>
+          <div style="padding: var(--space-5); background: var(--cream); border-radius: var(--radius-lg); border: 1px solid var(--border-light);">
+            <strong style="font-family: var(--font-display); font-size: var(--text-lg); display: block; margin-bottom: var(--space-2);">Premium DE</strong>
+            <p style="font-size: var(--text-sm); color: var(--text-muted);">Haba, Sigikid : bonne qualité, mais sans scénarios, non pliables, et fabriqués hors de France.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Solution -->
+      <div class="offer-section fade-in">
+        <div class="offer-section-num">04</div>
+        <h3>La solution</h3>
+        <p style="font-size: var(--text-lg); color: var(--text-muted); margin-bottom: var(--space-8);">Un tapis de jeu thématique 120×90 cm, fabriqué en France, avec un univers narratif riche et des scénarios de jeu imprimés.</p>
+
+        <ul class="benefit-list">
+          <li class="benefit-item">
+            <div class="benefit-icon">⚡</div>
+            <div class="benefit-text">
+              <strong>Lance le jeu en 30 secondes</strong>
+              <span>Déroulez le tapis, posez les figurines, l'histoire commence. Aucune installation.</span>
+            </div>
+          </li>
+          <li class="benefit-item">
+            <div class="benefit-icon">🧠</div>
+            <div class="benefit-text">
+              <strong>Stimule l'imagination sans intervention parentale</strong>
+              <span>Les scénarios suggérés (chasse au trésor, sauvetage, mission magique…) donnent un point de départ, pas un script.</span>
+            </div>
+          </li>
+          <li class="benefit-item">
+            <div class="benefit-icon">🧸</div>
+            <div class="benefit-text">
+              <strong>Compatible avec tous les jouets déjà possédés</strong>
+              <span>Playmobil, LEGO Duplo, figurines Disney — tout fonctionne. Vous n'achetez pas un nouveau système.</span>
+            </div>
+          </li>
+          <li class="benefit-item">
+            <div class="benefit-icon">🛡️</div>
+            <div class="benefit-text">
+              <strong>Dure dans le temps</strong>
+              <span>Surface antidérapante, matériau résistant, lavable à 30°C ou à l'éponge.</span>
+            </div>
+          </li>
+          <li class="benefit-item">
+            <div class="benefit-icon">🎒</div>
+            <div class="benefit-text">
+              <strong>Voyage partout</strong>
+              <span>Pliable, housse de transport incluse. Chez les grands-parents, en vacances, en voiture — il suit.</span>
+            </div>
+          </li>
+        </ul>
+
+        <h4 style="margin-top: var(--space-10); margin-bottom: var(--space-6); font-size: var(--text-xl);">Avant / Après</h4>
+        <div class="before-after">
+          <div class="before-col">
+            <div class="ba-label">Sans Kids Surface</div>
+            <ul class="ba-list">
+              <li>Les figurines restent sur l'étagère</li>
+              <li>L'enfant réclame toutes les 5 minutes</li>
+              <li>Les cadeaux oubliés après 2 semaines</li>
+              <li>Stockage encombrant au sol</li>
+            </ul>
+          </div>
+          <div class="after-col">
+            <div class="ba-label">Avec Kids Surface</div>
+            <ul class="ba-list">
+              <li>Elles ont enfin un univers où vivre</li>
+              <li>Il joue seul 30–45 min d'affilée</li>
+              <li>Le tapis ressort à chaque visite</li>
+              <li>Plié dans sa housse en 30 secondes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Pour qui -->
+      <div class="offer-section fade-in">
+        <div class="offer-section-num">05</div>
+        <h3>Pour qui</h3>
+        <div class="who-grid">
+          <div class="who-card who-for">
+            <div class="who-label">✓ Kids Surface est fait pour vous si…</div>
+            <ul class="who-list">
+              <li>Votre enfant a entre 2 et 8 ans</li>
+              <li>Il joue aux figurines, LEGO ou personnages</li>
+              <li>Vous cherchez un jouet qui dure</li>
+              <li>Vous êtes sensible au Made in France</li>
+              <li>Vous voulez un cadeau original et pensé</li>
+            </ul>
+          </div>
+          <div class="who-card who-not">
+            <div class="who-label">✗ Pas fait pour vous si…</div>
+            <ul class="who-list">
+              <li>Votre enfant a moins de 2 ans</li>
+              <li>Vous cherchez un tapis anti-choc ou puzzle</li>
+              <li>Vous avez besoin d'un jouet en 24h</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Différenciation -->
+      <div class="offer-section fade-in">
+        <div class="offer-section-num">06</div>
+        <h3>3 arguments sans équivalent sur le marché</h3>
+        <div class="diff-cards">
+          <div class="diff-card">
+            <div class="diff-icon">🇫🇷</div>
+            <div class="diff-title">Fabriqué en France</div>
+            <p class="diff-desc">Conçu et fabriqué en France, conforme aux normes CE. Aucun autre tapis de jeu thématique du marché ne peut dire la même chose.</p>
+          </div>
+          <div class="diff-card">
+            <div class="diff-icon">📖</div>
+            <div class="diff-title">Scénarios de jeu intégrés</div>
+            <p class="diff-desc">Chasse au trésor, sauvetage, mission magique… Un point de départ narratif inclus. Aucun concurrent — IKEA, Melissa & Doug, Haba — ne propose ça.</p>
+          </div>
+          <div class="diff-card">
+            <div class="diff-icon">🎒</div>
+            <div class="diff-title">Pliable + housse incluse</div>
+            <p class="diff-desc">Le seul tapis de jeu thématique qui se range en 30 secondes et voyage partout. Pas d'encombrement, pas de stockage compliqué.</p>
+          </div>
+        </div>
+
+        <div class="info-box neutral" style="margin-top: var(--space-8);">
+          <strong class="info-box-title">Phrase de positionnement</strong>
+          « Contrairement aux tapis IKEA ou Melissa & Doug, Kids Surface est le seul tapis de jeu immersif fabriqué en France qui propose des scénarios pour aider les enfants à inventer de vraies histoires — sans plastique, sans figurines imposées, pliable partout. »
+        </div>
+      </div>
+
+      <!-- 7. Offre et prix (extrait, renvoi vers /pricing) -->
+      <div class="offer-section fade-in">
+        <div class="offer-section-num">07</div>
+        <h3>Offre et prix</h3>
+        <p style="color: var(--text-muted); margin-bottom: var(--space-8);">Architecture complète sur la page <a href="pricing.html" style="color: var(--terra); text-decoration: none; font-weight: 600;">Pricing →</a></p>
+        <div class="pricing-grid">
+          <div class="pricing-tier">
+            <span class="pricing-emoji">🦕</span>
+            <div class="pricing-name">1 univers — Découverte</div>
+            <div class="pricing-price"><span class="pricing-currency">€</span><span class="pricing-amount">64</span></div>
+            <ul class="pricing-features">
+              <li>1 univers au choix</li>
+              <li>Housse de transport</li>
+              <li>Scénarios de jeu inclus</li>
+            </ul>
+          </div>
+          <div class="pricing-tier featured">
+            <div class="pricing-badge">Le plus populaire</div>
+            <span class="pricing-emoji">✨</span>
+            <div class="pricing-name">Pack 2 univers</div>
+            <div class="pricing-price"><span class="pricing-currency">€</span><span class="pricing-amount">109</span></div>
+            <p class="pricing-savings">vs 128€ à l'unité — économisez 19€</p>
+            <ul class="pricing-features">
+              <li>2 univers au choix</li>
+              <li>2 housses de transport</li>
+              <li>Livraison offerte</li>
+            </ul>
+          </div>
+          <div class="pricing-tier">
+            <span class="pricing-emoji">🏴‍☠️</span>
+            <div class="pricing-name">Coffret 3 univers</div>
+            <div class="pricing-price"><span class="pricing-currency">€</span><span class="pricing-amount">149</span></div>
+            <p class="pricing-savings">vs 192€ à l'unité — économisez 43€</p>
+            <ul class="pricing-features">
+              <li>Collection complète</li>
+              <li>3 housses de transport</li>
+              <li>Livraison offerte</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. Objections -->
+      <div class="offer-section fade-in">
+        <div class="offer-section-num">09</div>
+        <h3>Objections anticipées</h3>
+        <div class="objection-list">
+          <div class="objection-item">
+            <div class="objection-q">« Les jouets ne sont pas inclus — je dois encore dépenser ? »</div>
+            <div class="objection-a">Non. Kids Surface est conçu pour valoriser les figurines et jouets que votre enfant possède déjà. Playmobil, LEGO, figurines Disney — ils fonctionnent tous. Vous n'achetez pas un nouveau système : vous donnez un univers à ce que vous avez déjà.</div>
+          </div>
+          <div class="objection-item">
+            <div class="objection-q">« Mon enfant va s'en lasser rapidement. »</div>
+            <div class="objection-a">Le tapis n'est pas un jouet avec une seule mécanique — c'est un espace de jeu ouvert. Les enfants y reviennent chaque fois qu'ils sortent leurs figurines. Et avec 3 univers disponibles, il y a toujours un nouveau décor pour relancer l'imagination.</div>
+          </div>
+          <div class="objection-item">
+            <div class="objection-q">« 64€ pour un tapis, c'est cher. »</div>
+            <div class="objection-a">Utilisé 300 jours dans l'année, Kids Surface revient à 0,21€ par jour. Le jouet plastique à 15€ que vous avez acheté le mois dernier a tenu combien de temps ? Et surtout : fabriqué en France, livré avec housse, lavable, durable.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. CTA -->
+      <div class="cta-block fade-in">
+        <h3>Choisissez votre univers et commandez</h3>
+        <p>Livraison 2–4 jours ouvrés · Retours 30 jours · Paiement sécurisé</p>
+        <a href="#" class="cta-btn">→ Je commande mon Kids Surface</a>
+        <div class="cta-meta">Made in France · Conforme normes CE · 3 univers disponibles</div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span class="footer-brand">Kids Surface</span>
+    <div class="footer-meta">
+      <span>Étude générée le 30 avril 2026</span>
+      <span>Version 1.0 — Usage interne</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/interactions.js"></script>
+</body>
+</html>
