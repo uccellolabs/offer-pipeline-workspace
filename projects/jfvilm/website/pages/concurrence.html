@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Concurrence — Jean-François VILM</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__brand">
+        <div class="nav__brand-mark">JV</div>
+        <div>
+          <div class="nav__brand-name">JF VILM</div>
+          <div class="nav__brand-sub">Étude d'opportunités</div>
+        </div>
+      </a>
+      <ul class="nav__links">
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="decouverte.html">Découverte</a></li>
+        <li><a href="offre.html">Offre</a></li>
+        <li><a href="persona.html">Persona</a></li>
+        <li><a href="marche.html">Marché</a></li>
+        <li><a href="concurrence.html" class="active">Concurrence</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="viabilite.html">Viabilité</a></li>
+      </ul>
+      <button class="nav__hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span class="nav__hamburger-bar"></span>
+        <span class="nav__hamburger-bar"></span>
+        <span class="nav__hamburger-bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="nav-mobile">
+    <a href="../index.html">Accueil</a>
+    <a href="decouverte.html">Découverte</a>
+    <a href="offre.html">Offre finale</a>
+    <a href="persona.html">Persona acheteur</a>
+    <a href="marche.html">Analyse marché</a>
+    <a href="concurrence.html" class="active">Concurrence</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="viabilite.html">Viabilité</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__eyebrow">
+        <span class="hero__eyebrow-dot"></span>
+        Concurrence · Agent /offer-competitive-intel · 3 mai 2026
+      </div>
+      <h1>Cartographie<br><em>concurrentielle</em></h1>
+      <p class="hero__desc">
+        Zone gagnée clairement : "expert technique côté client, mode crise, prix PME" — aucun concurrent ne couvre cet espace de façon organisée et visible.
+      </p>
+      <div class="hero__meta">
+        <div class="hero__meta-item">
+          <span class="hero__meta-label">Directs</span>
+          <span class="hero__meta-value">2 acteurs</span>
+        </div>
+        <div class="hero__meta-item">
+          <span class="hero__meta-label">Indirects</span>
+          <span class="hero__meta-value">3 acteurs</span>
+        </div>
+        <div class="hero__meta-item">
+          <span class="hero__meta-label">Battlecards</span>
+          <span class="hero__meta-value">4 fiches</span>
+        </div>
+        <div class="hero__meta-item">
+          <span class="hero__meta-label">Zone libre</span>
+          <span class="hero__meta-value">✅ Confirmée</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Phrase de positionnement -->
+  <div class="stats-bar">
+    <div class="container">
+      <div style="padding: var(--space-4) 0;">
+        <div class="journal" style="border-left-color: var(--color-accent);">
+          <p style="margin: 0; font-size: 1rem; line-height: 1.7; font-style: italic;">
+            « Contrairement aux consultants AMOA qui arrivent trop tôt, et aux avocats IT qui arrivent trop tard — JF VILM intervient exactement quand votre projet digital déraille, avec une expertise technique, dans votre camp, à un prix accessible. »
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cartographie -->
+  <section class="section">
+    <div class="container">
+      <div class="section-intro">
+        <h5>Cartographie</h5>
+        <h2>Qui est en jeu</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-6); max-width: 960px; margin-bottom: var(--space-10);">
+        <div>
+          <div style="font-weight: 700; color: var(--color-accent); margin-bottom: var(--space-4); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em;">Concurrents directs</div>
+          <div class="card" style="margin-bottom: var(--space-4);">
+            <div class="card__tag">Direct 1</div>
+            <div class="card__title">AMOA Freelances</div>
+            <div class="card__desc">Malt / LesBonsFreelances · 1 738 profils référencés · 500–900 €/j · Positionnés AMONT (avant-projet) — pas mode crise</div>
+          </div>
+          <div class="card">
+            <div class="card__tag">Direct 2</div>
+            <div class="card__title">Cabinets AMOA Web</div>
+            <div class="card__desc">Qodop, Edicit, CrazyEight · Conflit d'intérêt potentiel (partenaires prestataires)</div>
+          </div>
+        </div>
+        <div>
+          <div style="font-weight: 700; color: var(--color-text-muted); margin-bottom: var(--space-4); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em;">Concurrents indirects</div>
+          <div class="card" style="margin-bottom: var(--space-4);">
+            <div class="card__tag">Indirect 1</div>
+            <div class="card__title">Avocats IT</div>
+            <div class="card__desc">BAUMANN, Quantic, Deshoulières · 180–250 €/h · Expertise juridique uniquement — 0 technique</div>
+          </div>
+          <div class="card" style="margin-bottom: var(--space-4);">
+            <div class="card__tag">Indirect 2</div>
+            <div class="card__title">Nouvelle agence</div>
+            <div class="card__desc">Conflit d'intérêt structurel · Intérêt à déclarer le projet irrécupérable pour vendre une refonte</div>
+          </div>
+          <div class="card">
+            <div class="card__tag">Prescripteur (pas concurrent)</div>
+            <div class="card__title">Activateurs France Num</div>
+            <div class="card__desc">4 000+ experts · Positionnés AMONT uniquement · → Devenir Activateur = action prioritaire</div>
+          </div>
+        </div>
+        <div>
+          <div style="font-weight: 700; color: var(--color-text-muted); margin-bottom: var(--space-4); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em;">Ne rien faire</div>
+          <div class="card">
+            <div class="card__tag">Option par défaut</div>
+            <div class="card__title">Gérer seul</div>
+            <div class="card__desc">Emails de relance, réunions stériles, avis d'un ami. Coût = 0 € cash + coût d'opportunité massif (temps perdu, projet bloqué, clients mécontents).</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Matrice de positionnement -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-intro">
+        <h5>Matrice de positionnement</h5>
+        <h2>Critères basés sur les valeurs de Marc</h2>
+        <p style="margin-top: var(--space-4);">Clarté · Loyauté · Résultat concret · Protection investissement · Délai court</p>
+      </div>
+
+      <div class="matrix-wrap">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th>Critère</th>
+              <th>JF VILM</th>
+              <th>AMOA freelance</th>
+              <th>Avocat IT</th>
+              <th>Nouvelle agence</th>
+              <th>Ne rien faire</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Exclusivement côté client (0 conflit d'intérêt)</td>
+              <td><span class="matrix-check">✅</span></td>
+              <td><span class="matrix-partial">⚠️ Neutre</span></td>
+              <td><span class="matrix-check">✅</span></td>
+              <td><span class="matrix-cross">❌ Conflit structurel</span></td>
+              <td><span class="matrix-check">✅</span></td>
+            </tr>
+            <tr>
+              <td>Expertise technique réelle</td>
+              <td><span class="matrix-check">✅</span></td>
+              <td><span class="matrix-check">✅</span></td>
+              <td><span class="matrix-cross">❌</span></td>
+              <td><span class="matrix-check">✅</span></td>
+              <td><span class="matrix-cross">❌</span></td>
+            </tr>
+            <tr>
+              <td>Spécialisé mode crise / projet en cours</td>
+              <td><span class="matrix-check">✅</span></td>
+              <td><span class="matrix-cross">❌ Amont seulement</span></td>
+              <td><span class="matrix-partial">⚠️ Juridique</span></td>
+              <td><span class="matrix-partial">⚠️ Repart de zéro</span></td>
+              <td><span class="matrix-cross">❌</span></td>
+            </tr>
+            <tr>
+              <td>Ticket d'entrée accessible PME (&lt;1 500 €)</td>
+              <td><span class="matrix-check">✅ 1 200 €</span></td>
+              <td><span class="matrix-cross">❌ 500–900 €/j</span></td>
+              <td><span class="matrix-cross">❌ 180–250 €/h</span></td>
+              <td><span class="matrix-cross">❌ Devis complet</span></td>
+              <td><span class="matrix-check">✅ 0 €</span></td>
+            </tr>
+            <tr>
+              <td>Délai de résolution &lt;4 semaines</td>
+              <td><span class="matrix-check">✅</span></td>
+              <td><span class="matrix-partial">⚠️</span></td>
+              <td><span class="matrix-cross">❌ 12–36 mois</span></td>
+              <td><span class="matrix-partial">⚠️ Recommence</span></td>
+              <td><span class="matrix-cross">❌</span></td>
+            </tr>
+            <tr>
+              <td>Résultat = projet qui repart (pas compensation)</td>
+              <td><span class="matrix-check">✅</span></td>
+              <td><span class="matrix-partial">⚠️</span></td>
+              <td><span class="matrix-cross">❌</span></td>
+              <td><span class="matrix-partial">⚠️</span></td>
+              <td><span class="matrix-cross">❌</span></td>
+            </tr>
+            <tr>
+              <td>Visible quand Marc cherche</td>
+              <td><span class="matrix-cross">❌ À construire</span></td>
+              <td><span class="matrix-partial">⚠️ Malt (mauvais KW)</span></td>
+              <td><span class="matrix-check">✅ Google "avocat IT"</span></td>
+              <td><span class="matrix-check">✅ Google "agence"</span></td>
+              <td><span class="matrix-na">—</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="notice" style="max-width: 640px; margin-top: var(--space-8);">
+        <span class="notice__icon">🎯</span>
+        <div class="notice__body">
+          <strong>Zone gagnée clairement :</strong> JF VILM est le seul acteur à combiner expertise technique + loyauté côté client + intervention en mode crise + ticket d'entrée PME. Aucun concurrent n'occupe cet espace de façon organisée et visible. Le principal risque n'est pas la concurrence — c'est <strong>l'invisibilité</strong>.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Battlecards -->
+  <section class="section">
+    <div class="container">
+      <div class="section-intro">
+        <h5>Battlecards</h5>
+        <h2>Comment répondre en entretien</h2>
+        <p style="margin-top: var(--space-4);">Directement utilisables en pitch, démo ou conversation prospect.</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: var(--space-6); max-width: 840px;">
+
+        <div class="battlecard">
+          <div class="battlecard__header">
+            <div class="battlecard__name">AMOA Freelance (Malt)</div>
+            <div class="battlecard__type">Concurrent direct</div>
+          </div>
+          <div class="battlecard__body">
+            <div class="battlecard__row">
+              <div class="battlecard__label">Quand il apparaît</div>
+              <div class="battlecard__content">Marc cherche "consultant digital PME", "expert projet web"</div>
+            </div>
+            <div class="battlecard__row">
+              <div class="battlecard__label">Son messaging</div>
+              <div class="battlecard__content">« Je vous aide à cadrer votre projet, rédiger votre cahier des charges, choisir le bon prestataire »</div>
+            </div>
+            <div class="battlecard__row">
+              <div class="battlecard__label">Pourquoi Marc le considère</div>
+              <div class="battlecard__content">Profil reconnu, avis clients, expertise affichée sur Malt</div>
+            </div>
+            <div class="battlecard__row">
+              <div class="battlecard__label">Comment répondre</div>
+              <div class="battlecard__content">« Un consultant AMOA est précieux pour démarrer un projet — mais votre projet est déjà démarré et en difficulté. Mon rôle est différent : je n'ai pas besoin de cadrer, j'ai besoin de diagnostiquer ce qui s'est passé et de vous aider à en sortir. »</div>
+            </div>
+            <div class="battlecard__row">
+              <div class="battlecard__label">Question qui fait réfléchir</div>
+              <div class="battlecard__content">« Est-ce que le consultant AMOA que vous regardez a des missions spécifiques sur des projets déjà en crise — ou uniquement sur des projets à démarrer ? »</div>
+            </div>
+            <div class="battlecard__row">
+              <div class="battlecard__label">Argument décisif</div>
+              <div class="battlecard__content">Un AMOA en mode amont va vous demander de repartir de zéro (nouveau cahier des charges, nouveau prestataire) — vous perdez tout l'investissement déjà engagé. Je pars de ce qui existe et je cherche à le sauver.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="battlecard">
+          <div class="battlecard__header">
+            <div class="battlecard__name">Avocat IT (BAUMANN, Quantic…)</div>
+            <div class="battlecard__type">Concurrent indirect</div>
+          </div>
+          <div class="battlecard__body">
+            <div class="battlecard__row">
+              <div class="battlecard__label">Quand il apparaît</div>
+              <div class="battlecard__content">Marc cherche "recours prestataire web", "litige agence digital"</div>
+            </div>
+            <div class="battlecard__row">
+              <div class="battlecard__label">Son messaging</div>
+              <div class="battlecard__content">« Nous défendons vos droits face aux prestataires IT défaillants — mise en demeure, résiliation, réparation »</div>
+            </div>
+            <div class="battlecard__row">
+              <div class="battlecard__label">Comment répondre</div>
+              <div class="battlecard__content">« Un avocat est indispensable si vous voulez récupérer de l'argent après coup. Mon objectif est différent : éviter que ça aille au tribunal en débloquant le projet maintenant, techniquement — ce que l'avocat ne peut pas faire. »</div>
+            </div>
+            <div class="battlecard__row">
+              <div class="battlecard__label">Question qui fait réfléchir</div>
+              <div class="battlecard__content">« Si l'avocat gagne le litige dans 18 mois, votre projet digital sera livré et fonctionnel ? Ou vous aurez une compensation financière mais toujours pas d'outil ? »</div>
+            </div>
+            <div class="battlecard__row">
+              <div class="battlecard__label">Argument décisif</div>
+              <div class="battlecard__content">L'avocat résout le conflit légal. Pas le projet. Et il facture 180–250 €/h sans jamais regarder une ligne de code. Mon audit (1 200 €, 3 jours) vous dit exactement où en est le projet et ce qui est récupérable — information que même votre avocat n'aura pas sans moi.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="battlecard">
+          <div class="battlecard__header">
+            <div class="battlecard__name">Changer de prestataire</div>
+            <div class="battlecard__type">Concurrent indirect</div>
+          </div>
+          <div class="battlecard__body">
+            <div class="battlecard__row">
+              <div class="battlecard__label">Quand il apparaît</div>
+              <div class="battlecard__content">Marc contacte 2-3 nouvelles agences pour avoir un devis de reprise</div>
+            </div>
+            <div class="battlecard__row">
+              <div class="battlecard__label">Son messaging</div>
+              <div class="battlecard__content">« On peut reprendre votre projet, on a l'habitude de récupérer les travaux des autres » ou « Le code est irrécupérable, on repart de zéro »</div>
+            </div>
+            <div class="battlecard__row">
+              <div class="battlecard__label">Comment répondre</div>
+              <div class="battlecard__content">« Quand vous demandez à une nouvelle agence d'évaluer le travail d'une autre, elle a intérêt à vous dire que c'est irrécupérable pour vendre une refonte complète. Mon audit est neutre : je n'ai rien à vous vendre après, donc vous pouvez faire confiance au diagnostic. »</div>
+            </div>
+            <div class="battlecard__row">
+              <div class="battlecard__label">Question qui fait réfléchir</div>
+              <div class="battlecard__content">« Si la nouvelle agence vous dit que le code est irrécupérable, comment vous allez vérifier que c'est vrai et pas un argument commercial ? »</div>
+            </div>
+            <div class="battlecard__row">
+              <div class="battlecard__label">Argument décisif</div>
+              <div class="battlecard__content">Un diagnostic neutre avant de changer de prestataire peut vous faire économiser 10 000–30 000 € de refonte si le projet est partiellement récupérable. Et si la nouvelle agence a raison, vous partez avec les arguments techniques pour négocier ou attaquer l'ancienne.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="battlecard">
+          <div class="battlecard__header">
+            <div class="battlecard__name">Ne rien faire / Gérer seul</div>
+            <div class="battlecard__type">Option par défaut</div>
+          </div>
+          <div class="battlecard__body">
+            <div class="battlecard__row">
+              <div class="battlecard__label">Monologue interne de Marc</div>
+              <div class="battlecard__content">« Je vais encore essayer de leur parler », « Je vais attendre la prochaine livraison », « Ça va finir par s'arranger »</div>
+            </div>
+            <div class="battlecard__row">
+              <div class="battlecard__label">Comment répondre</div>
+              <div class="battlecard__content">« Gérer seul a du sens quand on comprend la situation et qu'on a les leviers pour agir. Ce que vous me décrivez, c'est une situation où vous manquez d'informations techniques pour savoir si ce qu'on vous dit est vrai. C'est ça le vrai problème — pas le prestataire. »</div>
+            </div>
+            <div class="battlecard__row">
+              <div class="battlecard__label">Question qui fait réfléchir</div>
+              <div class="battlecard__content">« Depuis combien de mois vous gérez cette situation seul ? Est-ce qu'elle s'est améliorée — ou elle empire ? »</div>
+            </div>
+            <div class="battlecard__row">
+              <div class="battlecard__label">Argument décisif</div>
+              <div class="battlecard__content">Chaque mois de gestion solo sans résultat coûte l'équivalent de plusieurs fois le prix de l'audit en temps perdu, clients mécontents, et investissement qui ne produit rien. L'audit express, c'est 3 jours pour arrêter de tâtonner.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Angles morts -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-intro">
+        <h5>Angles morts</h5>
+        <h2>Où les concurrents sont meilleurs</h2>
+        <p style="margin-top: var(--space-4);">Et comment reframer chaque faiblesse.</p>
+      </div>
+      <div class="table-wrap" style="max-width: 860px;">
+        <table class="comparison-table">
+          <thead>
+            <tr><th>Angle mort JF VILM</th><th>Qui est meilleur</th><th>Reframing</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>0 social proof au lancement</td>
+              <td>AMOA sur Malt (avis, portfolio)</td>
+              <td>Les 3 premiers cas = témoignages fondateurs. Proposer un tarif découverte réduit aux 3 premiers clients contre témoignage écrit.</td>
+            </tr>
+            <tr>
+              <td>Pas de label institutionnel</td>
+              <td>Activateurs France Num (label État)</td>
+              <td>Devenir Activateur France Num en priorité — labellisation gratuite, 4 000 experts dans le réseau, accès CCI.</td>
+            </tr>
+            <tr>
+              <td>Pas de notoriété SEO</td>
+              <td>Avocats IT bien référencés</td>
+              <td>Canal SEO = long terme. Court terme = LinkedIn + prescripteurs (où la notoriété de la plateforme n'est pas requise).</td>
+            </tr>
+            <tr>
+              <td>Capacité limitée (solo)</td>
+              <td>AMOA agences, grands cabinets</td>
+              <td>Positionné comme "directeur de projet senior" — la taille = gage de réactivité et d'implication personnelle.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__left"><strong>Jean-François VILM</strong> — Étude d'opportunités personnelle</div>
+      <div class="footer__right">Généré le 3 mai 2026 · Pipeline Offer · Usage privé</div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

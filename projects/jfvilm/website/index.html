@@ -25,7 +25,12 @@
       <ul class="nav__links">
         <li><a href="index.html" class="active">Accueil</a></li>
         <li><a href="pages/decouverte.html">Découverte</a></li>
-        <li><span class="nav__badge">+ pages à venir</span></li>
+        <li><a href="pages/offre.html">Offre</a></li>
+        <li><a href="pages/persona.html">Persona</a></li>
+        <li><a href="pages/marche.html">Marché</a></li>
+        <li><a href="pages/concurrence.html">Concurrence</a></li>
+        <li><a href="pages/pricing.html">Pricing</a></li>
+        <li><a href="pages/viabilite.html">Viabilité</a></li>
       </ul>
 
       <!-- Hamburger -->
@@ -41,7 +46,12 @@
   <div class="nav__mobile" id="nav-mobile">
     <a href="index.html" class="active">Accueil</a>
     <a href="pages/decouverte.html">Découverte d'opportunités</a>
-    <span class="nav__mobile-badge">D'autres pages seront ajoutées à mesure que le pipeline avance.</span>
+    <a href="pages/offre.html">Offre finale</a>
+    <a href="pages/persona.html">Persona acheteur</a>
+    <a href="pages/marche.html">Analyse marché</a>
+    <a href="pages/concurrence.html">Concurrence</a>
+    <a href="pages/pricing.html">Pricing</a>
+    <a href="pages/viabilite.html">Viabilité</a>
   </div>
 
   <!-- Hero -->
@@ -192,7 +202,6 @@
       </div>
 
       <div class="pipeline-tracker">
-        <!-- Étape 1 — Découverte ✓ -->
         <div class="pipeline-step pipeline-step--done">
           <div class="pipeline-step__dot">✓</div>
           <span class="pipeline-step__label">Découverte</span>
@@ -200,61 +209,93 @@
         </div>
         <div class="pipeline-connector pipeline-connector--done"></div>
 
-        <!-- Étape 2 -->
-        <div class="pipeline-step">
-          <div class="pipeline-step__dot">2</div>
+        <div class="pipeline-step pipeline-step--done">
+          <div class="pipeline-step__dot">✓</div>
           <span class="pipeline-step__label">Cadrage</span>
-          <span class="pipeline-step__status">À créer</span>
+          <span class="pipeline-step__status">Disponible</span>
         </div>
-        <div class="pipeline-connector"></div>
+        <div class="pipeline-connector pipeline-connector--done"></div>
 
-        <!-- Étape 3 -->
-        <div class="pipeline-step">
-          <div class="pipeline-step__dot">3</div>
+        <div class="pipeline-step pipeline-step--done">
+          <div class="pipeline-step__dot">✓</div>
           <span class="pipeline-step__label">Persona</span>
-          <span class="pipeline-step__status">À créer</span>
+          <span class="pipeline-step__status">Disponible</span>
         </div>
-        <div class="pipeline-connector"></div>
+        <div class="pipeline-connector pipeline-connector--done"></div>
 
-        <!-- Étape 4 -->
-        <div class="pipeline-step">
-          <div class="pipeline-step__dot">4</div>
+        <div class="pipeline-step pipeline-step--done">
+          <div class="pipeline-step__dot">✓</div>
           <span class="pipeline-step__label">Marché</span>
-          <span class="pipeline-step__status">À créer</span>
+          <span class="pipeline-step__status">Disponible</span>
         </div>
-        <div class="pipeline-connector"></div>
+        <div class="pipeline-connector pipeline-connector--done"></div>
 
-        <!-- Étape 5 -->
-        <div class="pipeline-step">
-          <div class="pipeline-step__dot">5</div>
+        <div class="pipeline-step pipeline-step--done">
+          <div class="pipeline-step__dot">✓</div>
           <span class="pipeline-step__label">Pricing</span>
-          <span class="pipeline-step__status">À créer</span>
+          <span class="pipeline-step__status">Disponible</span>
         </div>
-        <div class="pipeline-connector"></div>
+        <div class="pipeline-connector pipeline-connector--done"></div>
 
-        <!-- Étape 6 -->
-        <div class="pipeline-step">
-          <div class="pipeline-step__dot">6</div>
+        <div class="pipeline-step pipeline-step--done">
+          <div class="pipeline-step__dot">✓</div>
           <span class="pipeline-step__label">Offre finale</span>
-          <span class="pipeline-step__status">À créer</span>
+          <span class="pipeline-step__status">Disponible</span>
         </div>
       </div>
 
-      <!-- Lien vers la page disponible -->
-      <div style="margin-top: var(--space-10);">
-        <a href="pages/decouverte.html" class="card card--hover card--nav card--active" style="display: flex; align-items: flex-start; gap: var(--space-6); max-width: 640px;">
-          <div style="flex-shrink: 0; width: 48px; height: 48px; border-radius: 50%; background: var(--color-accent); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1rem;">✓</div>
-          <div style="flex: 1;">
-            <div class="card__tag" style="color: var(--color-accent);">Étape 1 · Disponible</div>
-            <div class="card__title">Découverte d'opportunités</div>
-            <div class="card__desc">
-              Ikigai détaillé, 4 idées scorées sur 30, 32 sources vérifiées et recommandation de l'idée prioritaire.
-            </div>
-            <div style="margin-top: var(--space-4); font-size: 0.8rem; font-weight: 700; color: var(--color-accent);">
-              Voir la page →
-            </div>
-          </div>
+      <!-- Grille de toutes les pages disponibles -->
+      <div style="margin-top: var(--space-10); display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-4);">
+
+        <a href="pages/decouverte.html" class="card card--hover card--nav card--active" style="display: flex; flex-direction: column; gap: var(--space-3);">
+          <div class="card__tag" style="color: var(--color-accent);">Étape 1</div>
+          <div class="card__title">Découverte d'opportunités</div>
+          <div class="card__desc">Ikigai, 4 idées scorées sur 30, 32 sources vérifiées, idée prioritaire.</div>
+          <div style="margin-top: auto; padding-top: var(--space-3); font-size: 0.8rem; font-weight: 700; color: var(--color-accent);">Voir →</div>
         </a>
+
+        <a href="pages/offre.html" class="card card--hover card--nav card--active" style="display: flex; flex-direction: column; gap: var(--space-3);">
+          <div class="card__tag" style="color: var(--color-accent);">Étape 2</div>
+          <div class="card__title">Offre finale</div>
+          <div class="card__desc">Document commercial complet — problème, solution, pricing, objections, CTA.</div>
+          <div style="margin-top: auto; padding-top: var(--space-3); font-size: 0.8rem; font-weight: 700; color: var(--color-accent);">Voir →</div>
+        </a>
+
+        <a href="pages/persona.html" class="card card--hover card--nav card--active" style="display: flex; flex-direction: column; gap: var(--space-3);">
+          <div class="card__tag" style="color: var(--color-accent);">Étape 3</div>
+          <div class="card__title">Persona acheteur</div>
+          <div class="card__desc">Marc Duval, 47 ans — journal intime, objections, canaux d'acquisition, score 8/10.</div>
+          <div style="margin-top: auto; padding-top: var(--space-3); font-size: 0.8rem; font-weight: 700; color: var(--color-accent);">Voir →</div>
+        </a>
+
+        <a href="pages/marche.html" class="card card--hover card--nav card--active" style="display: flex; flex-direction: column; gap: var(--space-3);">
+          <div class="card__tag" style="color: var(--color-accent);">Étape 4</div>
+          <div class="card__title">Analyse marché</div>
+          <div class="card__desc">TAM 350 M€ · SAM 45 000 PME/an · SOM 50–80k€ an 1. Trois canaux scorés.</div>
+          <div style="margin-top: auto; padding-top: var(--space-3); font-size: 0.8rem; font-weight: 700; color: var(--color-accent);">Voir →</div>
+        </a>
+
+        <a href="pages/concurrence.html" class="card card--hover card--nav card--active" style="display: flex; flex-direction: column; gap: var(--space-3);">
+          <div class="card__tag" style="color: var(--color-accent);">Étape 5</div>
+          <div class="card__title">Concurrence</div>
+          <div class="card__desc">Cartographie, matrice de positionnement, 4 battlecards — zone vide confirmée.</div>
+          <div style="margin-top: auto; padding-top: var(--space-3); font-size: 0.8rem; font-weight: 700; color: var(--color-accent);">Voir →</div>
+        </a>
+
+        <a href="pages/pricing.html" class="card card--hover card--nav card--active" style="display: flex; flex-direction: column; gap: var(--space-3);">
+          <div class="card__tag" style="color: var(--color-accent);">Étape 6</div>
+          <div class="card__title">Pricing</div>
+          <div class="card__desc">Valeur économique 23–53k€ · Audit 1 200 € · Mission 2 000 €/mois · Pack 4 500 €.</div>
+          <div style="margin-top: auto; padding-top: var(--space-3); font-size: 0.8rem; font-weight: 700; color: var(--color-accent);">Voir →</div>
+        </a>
+
+        <a href="pages/viabilite.html" class="card card--hover card--nav card--active" style="display: flex; flex-direction: column; gap: var(--space-3);">
+          <div class="card__tag" style="color: var(--color-accent);">Verdict final</div>
+          <div class="card__title">Viabilité</div>
+          <div class="card__desc">Score global · 3 critères · VIABLE SOUS CONDITIONS · 3 actions prioritaires.</div>
+          <div style="margin-top: auto; padding-top: var(--space-3); font-size: 0.8rem; font-weight: 700; color: var(--color-accent);">Voir →</div>
+        </a>
+
       </div>
     </div>
   </section>

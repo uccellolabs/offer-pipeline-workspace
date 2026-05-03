@@ -31,6 +31,26 @@ if (hamburger && nav && navMobile) {
   });
 }
 
+// Generic accordion (.accordion)
+document.querySelectorAll('.accordion__trigger').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const acc = btn.closest('.accordion');
+    const isOpen = acc.classList.contains('accordion--open');
+    acc.classList.toggle('accordion--open', !isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    const icon = btn.querySelector('.accordion__icon');
+    if (icon) icon.textContent = isOpen ? '+' : '−';
+  });
+});
+
+// Battlecard toggle
+document.querySelectorAll('.battlecard__header').forEach(header => {
+  header.style.cursor = 'pointer';
+  header.addEventListener('click', () => {
+    header.closest('.battlecard').classList.toggle('battlecard--open');
+  });
+});
+
 // Sources accordion
 document.querySelectorAll('.sources-accordion__trigger').forEach(btn => {
   btn.addEventListener('click', () => {
