@@ -104,4 +104,12 @@ Répartition DISC estimée : D=8 | D-C=3 | D-I=4 | C=11 | C-S=9 | C-D=2 | S=3 | 
 → Simulation marge Marc MSP (Growth 8 clients) : 61–63% marge brute vs 46% en SaaS — meilleure marge Marc mais -35% revenus Jonathan
 /pricing update : ✅ 2026-04-26
 
+2026-05-03 /offer-prospection-list — Coordonnées GMB + siège INSEE | Out : PROSPECTS_2026-04-26_consultants-IT-solopreneurs_v3.csv (49 lignes)
+→ Adresses + GPS : recherche-entreprises.api.gouv.fr | Téléphone + avis + URL Maps : Google Places API (New) via `skills/offer-prospection-list/enrich_prospects_places.py` (dépôt Offer-Pipeline ; install `~/.claude/skills/offer-prospection-list/`) — clé MCP ou env
+→ Complétude indicative : 48/49 fiches avec détail lieu | 36/49 téléphone | 35/49 site GMB | colonne Confiance_match_GMB pour trier les domiciliations / faux positifs
+/offer-prospection-list : ✅ 2026-05-03 (enrichissement coordonnées v3)
+
+2026-05-03 — Nettoyage projet local — `_tmp_ae.json` et `_prospects_siege_gouv.json` supprimés (cache / siège INSEE régénérable) | Patterns ajoutés au `.gitignore` racine | CSV v1 / v2 / v3 conservés (50 vs 49 lignes : v1 pas fusionnable à l’aveugle avec v2)
+2026-05-03 — Copie locale `scripts/enrich_prospects_places.py` supprimée — script maintenu dans le dépôt du skill `offer-prospection-list` (chemin SKILL.md § batch) ; entrée du 2026-05-03 ci-dessus mise à jour
+
 > Les agents notent ici ce qui nécessite une validation humaine avant de continuer.
