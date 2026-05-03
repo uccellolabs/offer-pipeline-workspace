@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "kids-surface",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8787", "--directory", "projects/kids-surface/website"],
+      "port": 8787
+    },
+    {
+      "name": "jfvilm-website",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8788", "--directory", "projects/jfvilm/website"],
+      "port": 8788
+    }
+  ]
+}
