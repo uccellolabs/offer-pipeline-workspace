@@ -10,22 +10,38 @@
 <body>
 
   <!-- Navigation -->
-  <nav class="nav">
+  <nav class="nav" id="nav">
     <div class="nav__inner">
       <a href="../index.html" class="nav__brand">
-        <div class="nav__brand-dot"></div>
+        <div class="nav__brand-mark">JV</div>
         <div>
           <div class="nav__brand-name">JF VILM</div>
           <div class="nav__brand-sub">Étude d'opportunités</div>
         </div>
       </a>
+
+      <!-- Desktop links -->
       <ul class="nav__links">
         <li><a href="../index.html">Accueil</a></li>
         <li><a href="decouverte.html" class="active">Découverte</a></li>
         <li><span class="nav__badge">+ pages à venir</span></li>
       </ul>
+
+      <!-- Hamburger -->
+      <button class="nav__hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span class="nav__hamburger-bar"></span>
+        <span class="nav__hamburger-bar"></span>
+        <span class="nav__hamburger-bar"></span>
+      </button>
     </div>
   </nav>
+
+  <!-- Mobile drawer — hors du nav pour éviter le containing block backdrop-filter -->
+  <div class="nav__mobile" id="nav-mobile">
+    <a href="../index.html">Accueil</a>
+    <a href="decouverte.html" class="active">Découverte d'opportunités</a>
+    <span class="nav__mobile-badge">D'autres pages seront ajoutées à mesure que le pipeline avance.</span>
+  </div>
 
   <!-- Page header -->
   <div class="page-header">
@@ -45,24 +61,24 @@
   </div>
 
   <!-- Méthode -->
-  <div style="background: var(--color-bg-alt); border-bottom: 1px solid var(--color-border); padding: var(--space-5) 0;">
+  <div class="methode-bar">
     <div class="container">
-      <div style="display: flex; flex-wrap: wrap; gap: var(--space-8); align-items: center;">
+      <div class="methode-bar__inner">
         <div>
-          <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--color-text-muted);">Méthode</span>
-          <div style="font-size: 0.875rem; margin-top: 2px; color: var(--color-text);">Customer Discovery → Problem Stack Ranking</div>
+          <div class="methode-item__label">Méthode</div>
+          <div class="methode-item__value">Customer Discovery → Problem Stack Ranking</div>
         </div>
         <div>
-          <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--color-text-muted);">Signaux analysés</span>
-          <div style="font-size: 0.875rem; margin-top: 2px; color: var(--color-text);">~90 plaintes · 4 domaines</div>
+          <div class="methode-item__label">Signaux analysés</div>
+          <div class="methode-item__value">~90 plaintes · 4 domaines</div>
         </div>
         <div>
-          <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--color-text-muted);">Sources</span>
-          <div style="font-size: 0.875rem; margin-top: 2px; color: var(--color-text);">32 URLs vérifiées · triangulation ≥ 3 sources</div>
+          <div class="methode-item__label">Sources</div>
+          <div class="methode-item__value">32 URLs vérifiées · triangulation ≥ 3 sources</div>
         </div>
         <div>
-          <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--color-text-muted);">MCP SIRENE</span>
-          <div style="font-size: 0.875rem; margin-top: 2px; color: var(--color-text);">Non installé → estimations documentées</div>
+          <div class="methode-item__label">MCP SIRENE</div>
+          <div class="methode-item__value">Non installé → estimations documentées</div>
         </div>
       </div>
     </div>

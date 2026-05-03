@@ -1,3 +1,36 @@
+// Hamburger menu
+const nav = document.getElementById('nav');
+const navMobile = document.getElementById('nav-mobile');
+const hamburger = document.getElementById('hamburger');
+
+function openMenu() {
+  nav.classList.add('nav--open');
+  navMobile.classList.add('nav--open');
+  hamburger.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMenu() {
+  nav.classList.remove('nav--open');
+  navMobile.classList.remove('nav--open');
+  hamburger.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+
+if (hamburger && nav && navMobile) {
+  hamburger.addEventListener('click', () => {
+    nav.classList.contains('nav--open') ? closeMenu() : openMenu();
+  });
+
+  document.querySelectorAll('.nav__mobile a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeMenu();
+  });
+}
+
 // Sources accordion
 document.querySelectorAll('.sources-accordion__trigger').forEach(btn => {
   btn.addEventListener('click', () => {

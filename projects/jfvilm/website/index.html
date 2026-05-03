@@ -5,40 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
   <title>Étude d'opportunités — Jean-François VILM</title>
-  <meta name="description" content="Étude de marché et exploration d'idées business basées sur l'ikigai de Jean-François VILM.">
+  <meta name="description" content="Exploration méthodique des opportunités business à partir de l'ikigai de Jean-François VILM. 4 idées scorées, 32 sources documentées.">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
   <!-- Navigation -->
-  <nav class="nav">
+  <nav class="nav" id="nav">
     <div class="nav__inner">
       <a href="index.html" class="nav__brand">
-        <div class="nav__brand-dot"></div>
+        <div class="nav__brand-mark">JV</div>
         <div>
           <div class="nav__brand-name">JF VILM</div>
           <div class="nav__brand-sub">Étude d'opportunités</div>
         </div>
       </a>
+
+      <!-- Desktop links -->
       <ul class="nav__links">
         <li><a href="index.html" class="active">Accueil</a></li>
         <li><a href="pages/decouverte.html">Découverte</a></li>
         <li><span class="nav__badge">+ pages à venir</span></li>
       </ul>
+
+      <!-- Hamburger -->
+      <button class="nav__hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span class="nav__hamburger-bar"></span>
+        <span class="nav__hamburger-bar"></span>
+        <span class="nav__hamburger-bar"></span>
+      </button>
     </div>
   </nav>
+
+  <!-- Mobile drawer — hors du nav pour éviter le containing block backdrop-filter -->
+  <div class="nav__mobile" id="nav-mobile">
+    <a href="index.html" class="active">Accueil</a>
+    <a href="pages/decouverte.html">Découverte d'opportunités</a>
+    <span class="nav__mobile-badge">D'autres pages seront ajoutées à mesure que le pipeline avance.</span>
+  </div>
 
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <div class="hero__tag">
-        <div class="hero__tag-dot"></div>
+      <div class="hero__eyebrow">
+        <span class="hero__eyebrow-dot"></span>
         Pipeline Offer · Étude personnelle · 2026
       </div>
       <h1>Trouver l'offre juste<br><em>pour Jean-François VILM</em></h1>
       <p class="hero__desc">
         Exploration méthodique des opportunités business à partir de l'ikigai,
-        croisée avec 90+ signaux de marché et 30+ sources documentées.
+        croisée avec 90+ signaux de marché et 32 sources documentées.
         Quatre idées. Un verdict clair.
       </p>
       <div class="hero__meta">
@@ -68,7 +84,7 @@
       <div class="stats-bar__inner">
         <div class="stat-item">
           <div class="stat-item__number">4</div>
-          <div class="stat-item__label">Domaines explorés</div>
+          <div class="stat-item__label">Idées scorées</div>
         </div>
         <div class="stat-item">
           <div class="stat-item__number">27</div>
@@ -76,7 +92,7 @@
         </div>
         <div class="stat-item">
           <div class="stat-item__number">32</div>
-          <div class="stat-item__label">Sources avec URLs</div>
+          <div class="stat-item__label">Sources vérifiées</div>
         </div>
         <div class="stat-item">
           <div class="stat-item__number">1</div>
@@ -86,19 +102,29 @@
     </div>
   </div>
 
-  <!-- Ikigai synthèse -->
+  <!-- Ikigai -->
   <section class="section">
     <div class="container">
-      <div style="max-width: 720px; margin-bottom: var(--space-10);">
-        <h5 style="margin-bottom: var(--space-3);">Ikigai</h5>
+      <div class="section-intro">
+        <h5>Ikigai</h5>
         <h2>L'intersection de quatre zones</h2>
         <p style="margin-top: var(--space-4);">
-          L'ikigai est construit à partir du questionnaire personnel de JF VILM.
-          Il croise ce qu'il aime faire, ce en quoi il excelle, ce dont le monde a besoin,
-          et ce pour quoi il peut être rémunéré.
+          Construit à partir du questionnaire personnel de JF VILM.
+          Croise passion, compétences, utilité sociale et potentiel de rémunération.
         </p>
       </div>
 
+      <!-- Centre en premier (zone de convergence) -->
+      <div class="ikigai-center">
+        <div class="ikigai-center__label">Zone de convergence — Ikigai</div>
+        <p class="ikigai-center__text">
+          « Aider les entrepreneurs et PME à exploiter l'IA et le digital
+          pour gagner en efficacité — en créant des outils sur mesure
+          et en accompagnant la transformation de leurs méthodes de travail. »
+        </p>
+      </div>
+
+      <!-- 4 quadrants -->
       <div class="ikigai-grid">
         <div class="ikigai-quadrant ikigai-quadrant--passion">
           <div class="ikigai-quadrant__title">Ce qu'il aime</div>
@@ -139,144 +165,109 @@
             <li>Accompagnement IA</li>
           </ul>
         </div>
-
-        <div class="ikigai-center">
-          <div class="ikigai-center__label">Ikigai — zone de convergence</div>
-          <p class="ikigai-center__text">
-            « Aider les entrepreneurs et PME à exploiter l'IA et le digital<br>
-            pour gagner en efficacité — en créant des outils sur mesure<br>
-            et en accompagnant la transformation de leurs méthodes de travail. »
-          </p>
-        </div>
       </div>
 
       <!-- Point de vigilance -->
-      <div style="
-        margin-top: var(--space-6);
-        padding: var(--space-5) var(--space-6);
-        background: var(--color-warning-light);
-        border: 1px solid #fcd34d;
-        border-radius: var(--radius-md);
-        display: flex;
-        gap: var(--space-4);
-        align-items: flex-start;
-      ">
-        <span style="font-size: 1.1rem; flex-shrink: 0;">⚠️</span>
-        <div>
-          <strong style="font-size: 0.875rem;">Point de vigilance identifié dans le questionnaire</strong>
-          <p style="font-size: 0.875rem; margin-top: var(--space-1);">
-            JF VILM tend à ne pas facturer les extras et à s'impliquer au-delà du périmètre.
-            Toute offre construite sur ce profil devra avoir des <strong>livrables bornés</strong>
-            et des <strong>contrats précis</strong> dès le départ.
-          </p>
+      <div class="notice notice--warning" style="margin-top: var(--space-6);">
+        <span class="notice__icon">⚠️</span>
+        <div class="notice__body">
+          <strong>Point de vigilance identifié dans le questionnaire</strong><br>
+          JF VILM tend à ne pas facturer les extras et à s'impliquer au-delà du périmètre.
+          Toute offre devra avoir des <strong>livrables bornés</strong> et des <strong>contrats précis</strong> dès le départ.
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Navigation cards -->
+  <!-- Pipeline de progression -->
   <section class="section section--alt">
     <div class="container">
-      <div style="margin-bottom: var(--space-10);">
-        <h5 style="margin-bottom: var(--space-3);">Contenu du dossier</h5>
-        <h2>Pages disponibles</h2>
+      <div class="section-intro">
+        <h5>Avancement du dossier</h5>
+        <h2>Pipeline en cours</h2>
+        <p style="margin-top: var(--space-4);">
+          Le dossier s'enrichit étape par étape. Chaque page ci-dessous correspond
+          à une analyse distincte du pipeline.
+        </p>
       </div>
 
-      <div class="grid grid-3">
+      <div class="pipeline-tracker">
+        <!-- Étape 1 — Découverte ✓ -->
+        <div class="pipeline-step pipeline-step--done">
+          <div class="pipeline-step__dot">✓</div>
+          <span class="pipeline-step__label">Découverte</span>
+          <span class="pipeline-step__status">Disponible</span>
+        </div>
+        <div class="pipeline-connector pipeline-connector--done"></div>
 
-        <!-- Découverte — disponible -->
-        <a href="pages/decouverte.html" class="card card--hover card--nav card--active">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-4);">
-            <div class="card__tag">Étape 1</div>
-            <span class="score-badge score-badge--top">✓ Disponible</span>
-          </div>
-          <div class="card__title">Découverte d'opportunités</div>
-          <div class="card__desc">
-            Ikigai détaillé, 4 idées scorées sur 30, 32 sources vérifiées,
-            recommandation + prochaine étape.
-          </div>
-          <div style="margin-top: var(--space-4); font-size: 0.8rem; color: var(--color-accent); font-weight: 600;">
-            Voir la page →
+        <!-- Étape 2 -->
+        <div class="pipeline-step">
+          <div class="pipeline-step__dot">2</div>
+          <span class="pipeline-step__label">Cadrage</span>
+          <span class="pipeline-step__status">À créer</span>
+        </div>
+        <div class="pipeline-connector"></div>
+
+        <!-- Étape 3 -->
+        <div class="pipeline-step">
+          <div class="pipeline-step__dot">3</div>
+          <span class="pipeline-step__label">Persona</span>
+          <span class="pipeline-step__status">À créer</span>
+        </div>
+        <div class="pipeline-connector"></div>
+
+        <!-- Étape 4 -->
+        <div class="pipeline-step">
+          <div class="pipeline-step__dot">4</div>
+          <span class="pipeline-step__label">Marché</span>
+          <span class="pipeline-step__status">À créer</span>
+        </div>
+        <div class="pipeline-connector"></div>
+
+        <!-- Étape 5 -->
+        <div class="pipeline-step">
+          <div class="pipeline-step__dot">5</div>
+          <span class="pipeline-step__label">Pricing</span>
+          <span class="pipeline-step__status">À créer</span>
+        </div>
+        <div class="pipeline-connector"></div>
+
+        <!-- Étape 6 -->
+        <div class="pipeline-step">
+          <div class="pipeline-step__dot">6</div>
+          <span class="pipeline-step__label">Offre finale</span>
+          <span class="pipeline-step__status">À créer</span>
+        </div>
+      </div>
+
+      <!-- Lien vers la page disponible -->
+      <div style="margin-top: var(--space-10);">
+        <a href="pages/decouverte.html" class="card card--hover card--nav card--active" style="display: flex; align-items: flex-start; gap: var(--space-6); max-width: 640px;">
+          <div style="flex-shrink: 0; width: 48px; height: 48px; border-radius: 50%; background: var(--color-accent); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1rem;">✓</div>
+          <div style="flex: 1;">
+            <div class="card__tag" style="color: var(--color-accent);">Étape 1 · Disponible</div>
+            <div class="card__title">Découverte d'opportunités</div>
+            <div class="card__desc">
+              Ikigai détaillé, 4 idées scorées sur 30, 32 sources vérifiées et recommandation de l'idée prioritaire.
+            </div>
+            <div style="margin-top: var(--space-4); font-size: 0.8rem; font-weight: 700; color: var(--color-accent);">
+              Voir la page →
+            </div>
           </div>
         </a>
-
-        <!-- Cadrage — à venir -->
-        <div class="card" style="opacity: 0.55;">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-4);">
-            <div class="card__tag">Étape 2</div>
-            <span class="score-badge score-badge--low">À créer</span>
-          </div>
-          <div class="card__title">Cadrage de l'offre</div>
-          <div class="card__desc">
-            Challenge de l'idée retenue. Verdict GO / NO-GO.
-            Périmètre, positionnement, proposition de valeur.
-          </div>
-        </div>
-
-        <!-- Persona — à venir -->
-        <div class="card" style="opacity: 0.55;">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-4);">
-            <div class="card__tag">Étape 3</div>
-            <span class="score-badge score-badge--low">À créer</span>
-          </div>
-          <div class="card__title">Persona client</div>
-          <div class="card__desc">
-            Avatar acheteur ultra-détaillé. Motivations profondes,
-            douleurs, canaux, langage.
-          </div>
-        </div>
-
-        <!-- Marché — à venir -->
-        <div class="card" style="opacity: 0.55;">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-4);">
-            <div class="card__tag">Étape 4</div>
-            <span class="score-badge score-badge--low">À créer</span>
-          </div>
-          <div class="card__title">Analyse de marché</div>
-          <div class="card__desc">
-            TAM / SAM / SOM. Canal de distribution. Checkpoint viabilité.
-          </div>
-        </div>
-
-        <!-- Pricing — à venir -->
-        <div class="card" style="opacity: 0.55;">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-4);">
-            <div class="card__tag">Étape 5</div>
-            <span class="score-badge score-badge--low">À créer</span>
-          </div>
-          <div class="card__title">Architecture tarifaire</div>
-          <div class="card__desc">
-            Value-based pricing. Architecture 3 tiers.
-            Justifications prêtes à l'emploi.
-          </div>
-        </div>
-
-        <!-- Offre finale — à venir -->
-        <div class="card" style="opacity: 0.55;">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-4);">
-            <div class="card__tag">Étape 6</div>
-            <span class="score-badge score-badge--low">À créer</span>
-          </div>
-          <div class="card__title">Offre finale</div>
-          <div class="card__desc">
-            Offre rédigée, score de viabilité global,
-            fiche prête à pitcher.
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
 
-  <!-- Résumé des idées -->
+  <!-- Résumé des 4 idées -->
   <section class="section">
     <div class="container">
-      <div style="margin-bottom: var(--space-10);">
-        <h5 style="margin-bottom: var(--space-3);">Shortlist</h5>
+      <div class="section-intro">
+        <h5>Shortlist</h5>
         <h2>Les 4 idées en un coup d'œil</h2>
       </div>
 
-      <div style="border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden;">
+      <div class="table-wrap">
         <table class="comparison-table">
           <thead>
             <tr>
@@ -330,10 +321,10 @@
           color: white;
           border-radius: var(--radius-md);
           font-weight: 600;
-          font-size: 0.9rem;
+          font-size: 0.875rem;
           text-decoration: none;
-          transition: background 0.15s;
-        ">
+          transition: opacity 0.15s;
+        " onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
           Voir l'analyse complète →
         </a>
       </div>
