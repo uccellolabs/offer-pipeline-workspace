@@ -2,7 +2,7 @@
 
 Ce dépôt est un **template d’espace de travail** : tu y versions uniquement **tes livrables** (briefs, personas, pitch decks, listes de prospects, etc.).
 
-Les **agents IA** du pipeline (commandes `/idea-finder`, `/offer-cadrage`, etc.) ne sont **pas** dans ce dépôt. Ils sont fournis par un **autre dépôt**, à cloner à part et à installer une fois sur ta machine.
+Les **agents IA** du pipeline (commandes `/offer-idea-finder`, `/offer-cadrage`, etc.) ne sont **pas** dans ce dépôt. Ils sont fournis par un **autre dépôt**, à cloner à part et à installer une fois sur ta machine.
 
 ---
 
@@ -26,7 +26,7 @@ En résumé : **ouvre ton workspace dans l’IDE** (ce repo-ci) ; **installe les
 
 ### 1. Utiliser ce template
 
-Sur la page GitHub de **ce** dépôt, clique sur **« Use this template »** → **« Create a new repository »**,  
+Sur la page GitHub de **ce** dépôt, clique sur **« Use this template »** → **« Create a new repository »**,
 puis clone **ton** nouveau dépôt :
 
 ```bash
@@ -60,7 +60,7 @@ Si tu utilises **un fork** d’Offer-Pipeline, remplace l’URL par celle de ton
 ### 4. Lancer le pipeline
 
 ```
-/project-manager new mon-projet
+/offer-project-manager new mon-projet
 ```
 
 Remplis `projects/mon-projet/PROJECT_CONTEXT.md` puis suis le pipeline (voir le README d’Offer-Pipeline pour l’ordre des étapes).
@@ -87,7 +87,7 @@ workspace/
 │   │   ├── OFFER_FINAL.md
 │   │   ├── PROSPECTION_PLAYBOOK.md
 │   │   ├── PROSPECTS_*.csv
-│   │   ├── DISCOVERY_CALL_PLAN.md   ← /discovery-call (plan d’entretien)
+│   │   ├── DISCOVERY_CALL_PLAN.md   ← /offer-discovery-call (plan d’entretien)
 │   │   ├── CALL_RECAP_*.md          ← compte-rendu post-call (rempli après le RDV)
 │   │   ├── pitch-deck/
 │   │   └── website/
@@ -101,22 +101,22 @@ workspace/
 
 | Commande | Output | Description |
 |---|---|---|
-| `/project-manager new <nom>` | dossier projet | Initialise un projet |
-| `/idea-finder` | `IDEA_BRIEF.md` | Trouve des opportunités réelles |
+| `/offer-project-manager new <nom>` | dossier projet | Initialise un projet |
+| `/offer-idea-finder` | `IDEA_BRIEF.md` | Trouve des opportunités réelles |
 | `/offer-cadrage` | `OFFER_BRIEF.md` | Cadrage + verdict GO/NO-GO |
-| `/persona` | `PERSONA_*.md` | Avatar client détaillé |
-| `/market-research` | enrichit OFFER_BRIEF | Marché + canal de distribution |
-| `/competitive-intel` | `COMPETITIVE_BRIEF.md` | Analyse concurrentielle |
-| `/pricing` | `PRICING_BRIEF.md` | Architecture tarifaire |
+| `/offer-persona` | `PERSONA_*.md` | Avatar client détaillé |
+| `/offer-market-research` | enrichit OFFER_BRIEF | Marché + canal de distribution |
+| `/offer-competitive-intel` | `COMPETITIVE_BRIEF.md` | Analyse concurrentielle |
+| `/offer-pricing` | `PRICING_BRIEF.md` | Architecture tarifaire |
 | `/offer-final` | `OFFER_FINAL.md` | Offre rédigée + score viabilité |
-| `/pitch-deck` | `pitch-deck/` | Pitch deck HTML 12 slides |
-| `/prospection-strategy` | `PROSPECTION_PLAYBOOK.md` | Stratégie outbound + templates |
-| `/prospection-list` | `PROSPECTS_*.csv` | Liste de prospects qualifiés |
-| `/discovery-call` | `DISCOVERY_CALL_PLAN.md` + `CALL_RECAP_YYYY-MM-DD_<prospect>.md` | Plan d’entretien commercial (SPICED, MEDDIC, adaptation DISC) + modèle de compte-rendu après le call |
-| `/study-website` | `website/` | Site web multi-pages |
-| `/orchestrator` | tout | Pipeline complet automatique |
+| `/offer-pitch-deck` | `pitch-deck/` | Pitch deck HTML 12 slides |
+| `/offer-prospection-strategy` | `PROSPECTION_PLAYBOOK.md` | Stratégie outbound + templates |
+| `/offer-prospection-list` | `PROSPECTS_*.csv` | Liste de prospects qualifiés |
+| `/offer-discovery-call` | `DISCOVERY_CALL_PLAN.md` + `CALL_RECAP_YYYY-MM-DD_<prospect>.md` | Plan d’entretien commercial (SPICED, MEDDIC, adaptation DISC) + modèle de compte-rendu après le call |
+| `/offer-study-website` | `website/` | Site web multi-pages |
+| `/offer-orchestrator` | tout | Pipeline complet automatique |
 
-**`/discovery-call`** — à lancer quand l’offre est figée : il exige en général `OFFER_FINAL.md`, `PERSONA_ACHETEUR.md`, `PRICING_BRIEF.md` (et idéalement `COMPETITIVE_BRIEF.md`). Il produit d’abord **`DISCOVERY_CALL_PLAN.md`** (trame du call), puis tu utilises le gabarit **`CALL_RECAP_…`** pour noter ce qui s’est passé après l’entretien.
+**`/offer-discovery-call`** — à lancer quand l’offre est figée : il exige en général `OFFER_FINAL.md`, `PERSONA_ACHETEUR.md`, `PRICING_BRIEF.md` (et idéalement `COMPETITIVE_BRIEF.md`). Il produit d’abord **`DISCOVERY_CALL_PLAN.md`** (trame du call), puis tu utilises le gabarit **`CALL_RECAP_…`** pour noter ce qui s’est passé après l’entretien.
 
 ---
 

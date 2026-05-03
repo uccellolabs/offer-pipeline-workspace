@@ -1,6 +1,6 @@
 # AGENT.md — Pipeline Création d'Offre
 
-> **Cursor :** instructions projet à la racine de **ce workspace** (template). Le corps est **aligné sur `CLAUDE.md`** — synchronise les deux fichiers quand tu changes les règles. Les `SKILL.md` viennent du clone **Offer-Pipeline** + `install-skills.sh` (voir `README.md`).
+> **Cursor** utilise en général **`AGENT.md`** à la racine du workspace comme **instructions projet** pour l’IA. Le corps de ce fichier est **aligné sur `CLAUDE.md`** (mêmes règles). Quand tu modifies les règles dans le dépôt *Offer-Pipeline* ou dans ton workspace template, mets à jour **les deux** fichiers de la même façon.
 
 Pipeline d'agents IA spécialisés dans la création et la validation d'offres commerciales.
 Architecture multi-projets avec rétrocompatibilité single-projet.
@@ -10,27 +10,27 @@ Architecture multi-projets avec rétrocompatibilité single-projet.
 ## Pipeline (ordre logique)
 
 ```
-/project-manager      → Gère les projets (new/list/switch/archive) → .active-project
-/idea-finder          → Trouve idées basées sur douleurs réelles    → IDEA_BRIEF.md
+/offer-project-manager      → Gère les projets (new/list/switch/archive) → .active-project
+/offer-idea-finder          → Trouve idées basées sur douleurs réelles    → IDEA_BRIEF.md
 /offer-cadrage        → Cadrage + challenge                         → OFFER_BRIEF.md
-/persona              → Avatar(s) client détaillé(s)                → PERSONA_*.md
-/market-research      → Analyse marché + canal                      → enrichit OFFER_BRIEF
-/competitive-intel    → Concurrence + battlecards                   → COMPETITIVE_BRIEF.md
-/pricing              → Architecture tarifaire                      → PRICING_BRIEF.md
+/offer-persona              → Avatar(s) client détaillé(s)                → PERSONA_*.md
+/offer-market-research      → Analyse marché + canal                      → enrichit OFFER_BRIEF
+/offer-competitive-intel    → Concurrence + battlecards                   → COMPETITIVE_BRIEF.md
+/offer-pricing              → Architecture tarifaire                      → PRICING_BRIEF.md
 /offer-final          → Offre rédigée + faisabilité                 → OFFER_FINAL.md
-/pitch-deck           → Pitch deck HTML (12 slides)                 → pitch-deck/
-/prospection-strategy → Stratégie + templates LinkedIn + Email      → PROSPECTION_PLAYBOOK.md
-/prospection-list     → Liste de prospects qualifiés (CSV)          → PROSPECTS_*.csv
-/discovery-call       → Plan d'entretien commercial + recap         → DISCOVERY_CALL_PLAN.md + CALL_RECAP_*.md
-/study-website        → Site web multi-pages (étude complète)       → website/
-/orchestrator         → Enchaîne tout le pipeline automatiquement   → rapport d'orchestration
+/offer-pitch-deck           → Pitch deck HTML (12 slides)                 → pitch-deck/
+/offer-prospection-strategy → Stratégie + templates LinkedIn + Email      → PROSPECTION_PLAYBOOK.md
+/offer-prospection-list     → Liste de prospects qualifiés (CSV)          → PROSPECTS_*.csv
+/offer-discovery-call       → Plan d'entretien commercial + recap         → DISCOVERY_CALL_PLAN.md + CALL_RECAP_*.md
+/offer-study-website        → Site web multi-pages (étude complète)       → website/
+/offer-orchestrator         → Enchaîne tout le pipeline automatiquement   → rapport d'orchestration
 ```
 
 **Parcours standard :**
-1. `/project-manager new <nom>` (ou ignorer pour mode single-projet)
+1. `/offer-project-manager new <nom>` (ou ignorer pour mode single-projet)
 2. Remplir `PROJECT_CONTEXT.md`
-3. `/idea-finder` (si pas d'idée) ou `/offer-cadrage` directement
-4. Suivre le pipeline jusqu'à `/pitch-deck`
+3. `/offer-idea-finder` (si pas d'idée) ou `/offer-cadrage` directement
+4. Suivre le pipeline jusqu'à `/offer-pitch-deck`
 
 ---
 
@@ -41,7 +41,7 @@ Si aucun dossier `projects/<nom>/` n'existe et aucun fichier `.active-project` :
 → tous les fichiers sont à la racine du pipeline.
 → comportement simple, un seul projet en cours.
 
-### Mode multi-projets (activé par /project-manager)
+### Mode multi-projets (activé par /offer-project-manager)
 Si `.active-project` existe et contient un nom de projet :
 → tous les fichiers sont dans `projects/<nom>/`
 → plusieurs offres peuvent être développées en parallèle
@@ -62,19 +62,19 @@ Si `.active-project` existe et contient un nom de projet :
 |---------|------|----------|
 | `PROJECT_CONTEXT.md` | Contexte entreprise + charte visuelle | Utilisateur |
 | `SESSION_LOG.md` | Décisions + apprentissages + versions | Tous |
-| `IDEA_BRIEF.md` | Shortlist d'opportunités | /idea-finder |
+| `IDEA_BRIEF.md` | Shortlist + tableau **Sources utilisées** (liens exacts) | /offer-idea-finder |
 | `OFFER_BRIEF.md` | Document central | /offer-cadrage |
-| `PERSONA_ACHETEUR.md` | Avatar décideur/acheteur | /persona |
-| `PERSONA_UTILISATEUR.md` | Avatar utilisateur final (si ≠ acheteur) | /persona |
-| `COMPETITIVE_BRIEF.md` | Concurrence + battlecards | /competitive-intel |
-| `PRICING_BRIEF.md` | Architecture tarifaire | /pricing |
+| `PERSONA_ACHETEUR.md` | Avatar décideur/acheteur | /offer-persona |
+| `PERSONA_UTILISATEUR.md` | Avatar utilisateur final (si ≠ acheteur) | /offer-persona |
+| `COMPETITIVE_BRIEF.md` | Concurrence + battlecards | /offer-competitive-intel |
+| `PRICING_BRIEF.md` | Architecture tarifaire | /offer-pricing |
 | `OFFER_FINAL.md` | Offre finale rédigée | /offer-final |
-| `pitch-deck/` | Pitch deck HTML (index.html + style.css + script.js) | /pitch-deck |
-| `PROSPECTION_PLAYBOOK.md` | Stratégie + templates outbound | /prospection-strategy |
-| `PROSPECTS_YYYY-MM-DD_segment.csv` | Liste de prospects par vague | /prospection-list |
-| `DISCOVERY_CALL_PLAN.md` | Plan d'entretien commercial structuré | /discovery-call |
+| `pitch-deck/` | Pitch deck HTML (index.html + style.css + script.js) | /offer-pitch-deck |
+| `PROSPECTION_PLAYBOOK.md` | Stratégie + templates outbound | /offer-prospection-strategy |
+| `PROSPECTS_YYYY-MM-DD_segment.csv` | Liste de prospects par vague | /offer-prospection-list |
+| `DISCOVERY_CALL_PLAN.md` | Plan d'entretien commercial structuré | /offer-discovery-call |
 | `CALL_RECAP_YYYY-MM-DD_<Prospect>.md` | Compte-rendu post-call | Toi (template fourni) |
-| `website/` | Site web multi-pages (étude complète) | /study-website |
+| `website/` | Site multi-pages (étude) ; **interne** : `/decouverte` si `IDEA_BRIEF*.md` | /offer-study-website |
 
 ---
 
@@ -141,8 +141,8 @@ Avis tranchés basés sur des faits. Factuel, concret, actionnable.
 Accès au répertoire entreprises françaises (10M+ structures).
 
 **Utilisé par :**
-- `/market-research` — pour TAM/SAM/SOM avec données réelles
-- `/prospection-list` — pour générer les listes d'entreprises ciblées par vague
+- `/offer-market-research` — pour TAM/SAM/SOM avec données réelles
+- `/offer-prospection-list` — pour générer les listes d'entreprises ciblées par vague
 
 **Installation Claude Code :**
 ```bash
@@ -165,30 +165,42 @@ Utile pour analyse géographique de la distribution.
 
 ---
 
-## Structure de ce dépôt (workspace)
+## Structure des dossiers
 
 ```
-ton-workspace/
+Offer-Pipeline/                  ← dépôt des skills (source de vérité des agents)
 ├── README.md
 ├── CLAUDE.md
-├── AGENT.md                     ← ce fichier
+├── AGENT.md                     ← miroir de CLAUDE.md pour Cursor (même règles)
 ├── .gitignore
-├── .active-project
+├── install-skills.sh
 ├── templates/
 │   ├── PROJECT_CONTEXT.template.md
 │   └── SESSION_LOG.template.md
-└── projects/
-    ├── <projet-1>/
-    └── archive/
+├── projects/                    ← optionnel (travail local, souvent gitignored)
+└── skills/                      ← les agents (installés en symlinks)
+    ├── offer-project-manager/SKILL.md
+    ├── offer-orchestrator/SKILL.md
+    ├── offer-idea-finder/SKILL.md
+    ├── offer-cadrage/SKILL.md
+    ├── offer-persona/SKILL.md
+    ├── offer-market-research/SKILL.md
+    ├── offer-competitive-intel/SKILL.md
+    ├── offer-pricing/SKILL.md
+    ├── offer-final/SKILL.md
+    ├── offer-pitch-deck/SKILL.md
+    ├── offer-prospection-strategy/SKILL.md
+    ├── offer-prospection-list/SKILL.md
+    ├── offer-discovery-call/SKILL.md
+    ├── offer-study-website/SKILL.md
+    └── …
 ```
-
-**Dépôt des agents (à part)** : `skills/` dans ton clone **Offer-Pipeline**, via `~/.cursor/skills/` et/ou `~/.claude/skills/`.
 
 ---
 
 ## Compatibilité
 
 - **Cursor** : instructions projet via **`AGENT.md`** ou **`CLAUDE.md`** à la racine du workspace ouvert (template) ; les skills dans `~/.cursor/skills/`.
-- **Claude Code** : `/nom-agent` ou `@agent-nom` ; skills dans `~/.claude/skills/`.
+- **Claude Code** : `/offer-…` (nom du skill) ou `@offer-…` ; skills dans `~/.claude/skills/`.
 - **Claude Desktop** : charger CLAUDE.md + PROJECT_CONTEXT.md + SESSION_LOG.md +
   SKILL.md de l'agent souhaité au début de chaque session
