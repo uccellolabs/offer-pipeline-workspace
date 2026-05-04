@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Contact — Offer Clarity | Étude Pipeline</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__brand">Offer <span>Clarity</span></a>
+    <button class="nav__toggle" aria-label="Menu">☰</button>
+    <ul class="nav__links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="offre.html">Offre</a></li>
+      <li><a href="persona.html">Persona</a></li>
+      <li><a href="marche.html">Marché</a></li>
+      <li><a href="concurrence.html">Concurrence</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="viabilite.html">Viabilité</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero__eyebrow">📬 Contact</div>
+    <h1 class="hero__title">Jonathan <em>SARDO</em></h1>
+    <p class="hero__sub">Uccello Labs — Fondateur. 21 ans d'expérience en conception logicielle, spécialiste Laravel + IA.</p>
+    <div class="hero__meta">
+      <div class="hero__meta-item">🌐 <a href="https://uccellolabs.com" style="color:var(--blue-700)">uccellolabs.com</a></div>
+      <div class="hero__meta-item">💼 <a href="https://linkedin.com/in/jonathansardo" style="color:var(--blue-700)">linkedin.com/in/jonathansardo</a></div>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="grid-2" style="align-items:start;gap:3rem">
+
+      <!-- Infos -->
+      <div data-animate>
+        <p class="label mb-md">À propos</p>
+        <h2 style="margin-bottom:1.5rem">Qui est derrière Offer Clarity</h2>
+        <div class="card mb-xl">
+          <div style="display:flex;align-items:center;gap:1.25rem;margin-bottom:1.25rem">
+            <div style="width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--blue-700),var(--teal));display:flex;align-items:center;justify-content:center;color:white;font-family:var(--font-display);font-size:1.5rem;flex-shrink:0">JS</div>
+            <div>
+              <div style="font-weight:700;font-size:1.125rem">Jonathan SARDO</div>
+              <div class="text-muted" style="font-size:.9375rem">Fondateur — Uccello Labs</div>
+            </div>
+          </div>
+          <p class="text-muted" style="font-size:.9375rem;line-height:1.7">Ingénieur logiciel depuis 21 ans, spécialiste Laravel + IA. Fondateur d'Uccello Labs, éditeur d'outils B2B. A développé le pipeline <em>offer-pipeline</em> pour ses propres besoins commerciaux. Explore la monétisation de ce pipeline sous forme de service.</p>
+        </div>
+
+        <p class="label mb-md">La session de cadrage</p>
+        <div style="display:flex;flex-direction:column;gap:.75rem">
+          <div class="card" style="padding:1.25rem">
+            <div style="display:flex;align-items:center;gap:.75rem">
+              <span style="font-size:1.25rem">⏱️</span>
+              <div>
+                <div style="font-weight:600;font-size:.9375rem">30 minutes — Gratuit</div>
+                <div class="text-muted" style="font-size:.875rem">Sans engagement. On voit si ton profil correspond.</div>
+              </div>
+            </div>
+          </div>
+          <div class="card" style="padding:1.25rem">
+            <div style="display:flex;align-items:center;gap:.75rem">
+              <span style="font-size:1.25rem">📋</span>
+              <div>
+                <div style="font-weight:600;font-size:.9375rem">Ce qu'on fait ensemble</div>
+                <div class="text-muted" style="font-size:.875rem">Ton profil, ta cible actuelle, ce qui bloque — verdict immédiat.</div>
+              </div>
+            </div>
+          </div>
+          <div class="card" style="padding:1.25rem">
+            <div style="display:flex;align-items:center;gap:.75rem">
+              <span style="font-size:1.25rem">📦</span>
+              <div>
+                <div style="font-weight:600;font-size:.9375rem">Si ça colle</div>
+                <div class="text-muted" style="font-size:.875rem">On démarre. Livraison 48-72h. Clarity 890€ ou Clarity Pro 1 490€.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulaire -->
+      <div data-animate>
+        <p class="label mb-md">Formulaire de contact</p>
+        <div class="card" style="padding:2rem">
+          <form onsubmit="handleForm(event)">
+            <div class="form-group">
+              <label for="name">Prénom et nom</label>
+              <input type="text" id="name" name="name" placeholder="Julien Martin" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="julien@conseil.fr" required>
+            </div>
+            <div class="form-group">
+              <label for="linkedin">Profil LinkedIn (optionnel)</label>
+              <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/...">
+            </div>
+            <div class="form-group">
+              <label for="activity">Ton activité de consultant (3 mots)</label>
+              <input type="text" id="activity" name="activity" placeholder="Conseil ops & transformation" required>
+            </div>
+            <div class="form-group">
+              <label for="anciennete">Ancienneté en freelance</label>
+              <select id="anciennete" name="anciennete">
+                <option value="">Sélectionner...</option>
+                <option value="<6mois">Moins de 6 mois</option>
+                <option value="6-18mois">6 à 18 mois</option>
+                <option value="18-36mois">18 à 36 mois (profil cible)</option>
+                <option value=">36mois">Plus de 36 mois</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Ce qui te bloque en ce moment</label>
+              <textarea id="message" name="message" placeholder="Mon offre est trop large, je ne sais pas comment la présenter à l'écrit..."></textarea>
+            </div>
+            <div class="form-group">
+              <label for="formule">Formule qui t'intéresse</label>
+              <select id="formule" name="formule">
+                <option value="cadrage">D'abord la session gratuite de 30 min</option>
+                <option value="clarity">Clarity — 890€ HT</option>
+                <option value="clarity-pro">Clarity Pro — 1 490€ HT</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn--primary w-full" style="justify-content:center;margin-top:.5rem">Envoyer la demande →</button>
+          </form>
+          <div id="form-success" style="display:none;background:var(--green-bg);border:1px solid #a7f3d0;border-radius:var(--radius);padding:1.25rem;margin-top:1rem;text-align:center">
+            <div style="font-size:2rem;margin-bottom:.5rem">✅</div>
+            <div style="font-weight:600;margin-bottom:.25rem">Demande envoyée !</div>
+            <div class="text-muted" style="font-size:.875rem">Jonathan reviendra vers toi dans les 24h ouvrées.</div>
+          </div>
+        </div>
+        <p class="mt-md text-muted" style="font-size:.8125rem;text-align:center">
+          Ce formulaire est interne — version pilote. Pas de traitement automatique.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RESSOURCES INTERNES -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-header" data-animate>
+      <p class="label">Ressources de l'étude</p>
+      <h2>Documents pipeline disponibles</h2>
+    </div>
+    <div class="grid-4">
+      <a href="offre.html" class="nav-card" data-animate>
+        <div class="nav-card__icon">📄</div>
+        <div class="nav-card__title">Offre finale</div>
+        <div class="nav-card__desc">OFFER_FINAL.md — one-pager commercial</div>
+      </a>
+      <a href="persona.html" class="nav-card" data-animate>
+        <div class="nav-card__icon">👤</div>
+        <div class="nav-card__title">Persona Julien</div>
+        <div class="nav-card__desc">PERSONA_ACHETEUR.md</div>
+      </a>
+      <a href="concurrence.html" class="nav-card" data-animate>
+        <div class="nav-card__icon">🥊</div>
+        <div class="nav-card__title">Battlecards</div>
+        <div class="nav-card__desc">COMPETITIVE_BRIEF.md</div>
+      </a>
+      <a href="viabilite.html" class="nav-card" data-animate>
+        <div class="nav-card__icon">🎯</div>
+        <div class="nav-card__title">Viabilité</div>
+        <div class="nav-card__desc">OFFER_FINAL.md — checklist</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">Offer Clarity — Étude interne</div>
+    <div class="footer__meta">Pipeline offer-pipeline · 27 avril 2026 · v1.0 · Uccello Labs</div>
+    <div class="footer__links">
+      <a href="viabilite.html">← Viabilité</a>
+      <a href="index.html">Accueil</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/app.js"></script>
+<script>
+function handleForm(e) {
+  e.preventDefault();
+  document.getElementById('form-success').style.display = 'block';
+  e.target.style.display = 'none';
+}
+</script>
+</body>
+</html>
