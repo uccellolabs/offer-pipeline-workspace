@@ -15,7 +15,7 @@
 | /offer-final | ✅ 2026-05-04 | OFFER_FINAL.md v1.0 | Verdict : VIABLE |
 | /offer-pitch-deck | ⬜ | — | — |
 | /offer-prospection-strategy | ⬜ | — | — |
-| /offer-study-website | ⬜ | — | — |
+| /offer-study-website | ✅ 2026-05-04 | `projects/ennovateur/website/` | Publié Forge (DNS SSL à finaliser) |
 
 ---
 
@@ -59,6 +59,11 @@
 → Verdict viabilité : ✅ VIABLE
 → Condition : messaging symptôme (pas catégorie)
 → Point vigilance : contrat collectif à structurer avant premier client
+
+**2026-05-04** Publication Forge — Site `e-novateur.offer.uccellolabs.com`
+→ Serveur `uccello-projects2` (217.182.253.44), site Forge ID 3171382, repo `uccellolabs/offer-pipeline-workspace` branche `main`, web root `/projects/ennovateur/website`, quick deploy activé
+→ Commit poussé : `7192e6f`
+→ **DNS** : enregistrement A manquant pour `e-novateur.offer` (zone `uccellolabs.com`) → cible **217.182.253.44** (TTL 300), puis rafraîchir la zone ; ensuite relancer le certificat Let's Encrypt dans Forge (première demande en échec sans DNS)
 
 ---
 
