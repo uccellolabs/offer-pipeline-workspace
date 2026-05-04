@@ -169,7 +169,7 @@ Uccello Hub est une plateforme qui repose sur trois piliers :
 - **Formation initiale incluse** — vous êtes opérationnel en moins d'une journée
 - **Sandbox dédié** — testez tout avant de présenter à vos clients
 - **Updates produit incluses** — nouveaux connecteurs, nouvelles fonctionnalités IA
-- **Vous n'êtes jamais en contact direct avec vos clients finaux** — la relation est 100% la vôtre
+- **Nous ne sommes jamais en contact direct avec vos clients finaux** — la relation est 100% la vôtre
 
 ---
 
