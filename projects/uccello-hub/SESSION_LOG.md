@@ -57,6 +57,12 @@
 >
 > Exemple : `2026-05-12 — Interview ESN X — Budget max 500€/mois, pas 2000€ — /pricing à revoir`
 
+2026-05-04 — Cold calls vague 1 (3 appels) — Taux RDV : 2/3 (67%) — /offer-cold-call validé sur petit échantillon
+2026-05-04 — RDV obtenu : Adem Boukhanoufa (Adem IA Automatisation, Lyon, Sociaty.io = formation/conseil IA) — score 6 CSV v3
+2026-05-04 — RDV obtenu : Olivier Malamou (IA Automatisation, Nantes, Loup Digital = agence formation IA & automatisation) — score 6 CSV v3
+2026-05-04 — Disqualifié : Implementation Consulting Automatisation (Adil El Marradi, Roubaix) — éditeur logiciel propriétaire (AmbiSmart.io) avec solutions IA internes — pas un revendeur potentiel — /offer-prospection-list à durcir
+2026-05-04 — Apprentissage filtre — NAF 62.02A inclut consultants ET éditeurs ; discriminant = SaaS propriétaire (login/pricing/app) vs formation/conseil/agence ; les 2 RDV ont aussi un site "produit" mais c'est de la formation/agence (compatible persona Marc) — /offer-prospection-list : ajouter heuristique "détection SaaS propriétaire" (signaux : pricing page, login, free trial, mots-clés "platform/app/launch") plutôt que présence d'un site marketing
+
 ---
 
 2026-04-25 /study-website — Deux sites générés complets | website-public (5 pages, hub.uccello.io) + website-internal (8 pages, usage local) | HTML/CSS/JS pur, Lucide icons, Bricolage Grotesque + DM Sans → website-public/ + website-internal/ créés

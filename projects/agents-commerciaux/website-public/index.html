@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suite IA Commerciale · Uccello Labs</title>
+  <meta name="description" content="Une suite d'agents IA qui structure les offres, génère les pitchs et construit les listes de prospects. Livrée et opérationnelle en 1 jour.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%231D4ED8'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-weight='700' font-size='14' fill='white'>U</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       DESIGN SYSTEM · Trust & Calm · Uccello Labs
+       ============================================================ */
+    :root {
+      --blue:        #1D4ED8;
+      --blue-dark:   #1e40af;
+      --blue-light:  #EFF6FF;
+      --blue-mid:    #DBEAFE;
+      --sky:         #0EA5E9;
+      --text:        #1a1a1a;
+      --muted:       #6b7280;
+      --bg:          #FFFFFF;
+      --bg-alt:      #F8FAFC;
+      --border:      #E5E7EB;
+      --green:       #10B981;
+      --green-light: #ECFDF5;
+      --green-border:#A7F3D0;
+
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+      --radius:       4px;
+      --radius-lg:    8px;
+      --max-w:        1200px;
+      --max-w-narrow: 760px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+    a   { color: inherit; text-decoration: none; }
+
+    .container         { max-width: var(--max-w);        margin: 0 auto; padding: 0 20px; }
+    .container--narrow { max-width: var(--max-w-narrow); margin: 0 auto; padding: 0 20px; }
+
+    section { padding: 64px 0; }
+    @media (min-width: 1024px) { section { padding: 96px 0; } }
+
+    .kicker {
+      display: inline-block;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 16px;
+      font-family: var(--font-body);
+    }
+
+    h1, h2, h3 { font-family: var(--font-display); line-height: 1.2; }
+
+    .section-title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; margin-bottom: 16px; }
+    .section-sub   { font-size: 1.0625rem; color: var(--muted); line-height: 1.7; max-width: 600px; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      font-family: var(--font-display);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn--primary { background: var(--blue); color: #fff; }
+    .btn--primary:hover { background: var(--blue-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(29,78,216,.28); }
+
+    .btn--outline { background: transparent; color: var(--blue); border: 1.5px solid var(--blue); }
+    .btn--outline:hover { background: var(--blue-light); }
+
+    .btn--white { background: #fff; color: var(--blue); }
+    .btn--white:hover { background: var(--blue-light); box-shadow: 0 4px 16px rgba(0,0,0,.12); }
+
+    .btn--lg   { padding: 18px 36px; font-size: 1rem; }
+    .btn--full { width: 100%; justify-content: center; }
+
+    /* ============================================================
+       NAV
+       ============================================================ */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav__logo { display: flex; align-items: center; gap: 10px; }
+
+    .nav__mark {
+      width: 36px; height: 36px;
+      border-radius: 6px;
+      background: var(--blue);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700; font-size: 1rem; color: #fff;
+      flex-shrink: 0;
+    }
+
+    .nav__name { font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: var(--text); line-height: 1.2; }
+    .nav__sub  { font-size: 0.6875rem; color: var(--muted); font-family: var(--font-body); }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero {
+      background: linear-gradient(135deg, #1D4ED8 0%, #1e40af 55%, #0369a1 100%);
+      color: #fff;
+      padding: 80px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -20%; right: -10%;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero__kicker { display: inline-block; font-size: .8125rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.65); margin-bottom: 20px; }
+    .hero__title  { font-size: clamp(2rem, 5vw, 3.375rem); font-weight: 700; line-height: 1.15; margin-bottom: 24px; max-width: 820px; }
+    .hero__sub    { font-size: clamp(.9375rem, 2vw, 1.125rem); color: rgba(255,255,255,.82); line-height: 1.75; max-width: 620px; margin-bottom: 40px; }
+
+    .hero__cta-group {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 60px;
+    }
+
+    @media (min-width: 640px) { .hero__cta-group { flex-direction: row; align-items: center; } }
+
+    .hero__cta-hint { font-size: .8125rem; color: rgba(255,255,255,.55); }
+
+    .hero__stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 36px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,.15);
+    }
+
+    .hero__stat-num   { font-family: var(--font-display); font-size: 1.875rem; font-weight: 700; line-height: 1; }
+    .hero__stat-label { font-size: .8125rem; color: rgba(255,255,255,.6); margin-top: 5px; }
+
+    /* ============================================================
+       PROBLEM
+       ============================================================ */
+    .pain-grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: 1fr;
+      margin-bottom: 40px;
+    }
+
+    @media (min-width: 640px)  { .pain-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .pain-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .pain-card { padding: 28px 24px; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--bg-alt); }
+    .pain-card__icon  { font-size: 1.625rem; margin-bottom: 14px; }
+    .pain-card__title { font-family: var(--font-display); font-size: .9375rem; font-weight: 600; margin-bottom: 8px; }
+    .pain-card__body  { font-size: .875rem; color: var(--muted); line-height: 1.65; }
+
+    /* ============================================================
+       HOW IT WORKS
+       ============================================================ */
+    .how { background: var(--bg-alt); }
+
+    .steps {
+      display: grid;
+      gap: 0;
+      grid-template-columns: 1fr;
+      counter-reset: steps;
+    }
+
+    @media (min-width: 768px) {
+      .steps {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        position: relative;
+      }
+      .steps::before {
+        content: '';
+        position: absolute;
+        top: 28px;
+        left: calc(12.5% + 8px);
+        right: calc(12.5% + 8px);
+        height: 1px;
+        background: var(--blue-mid);
+      }
+    }
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0 0 32px;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      .step { padding: 0 20px 0; align-items: center; text-align: center; }
+    }
+
+    .step__num {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step__title { font-family: var(--font-display); font-size: .9375rem; font-weight: 700; margin-bottom: 8px; }
+    .step__body  { font-size: .875rem; color: var(--muted); line-height: 1.65; }
+
+    /* ============================================================
+       AGENTS LIST
+       ============================================================ */
+    .agents-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 640px)  { .agents-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .agents-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .agent-card {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px 20px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .agent-card__icon {
+      width: 36px; height: 36px;
+      border-radius: var(--radius);
+      background: var(--blue-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .agent-card__label { font-family: var(--font-display); font-size: .875rem; font-weight: 600; margin-bottom: 4px; }
+    .agent-card__desc  { font-size: .8125rem; color: var(--muted); line-height: 1.55; }
+
+    /* ============================================================
+       FOR WHO
+       ============================================================ */
+    .fw-grid { display: grid; gap: 24px; grid-template-columns: 1fr; }
+    @media (min-width: 768px) { .fw-grid { grid-template-columns: 1fr 1fr; } }
+
+    .fw-box { border-radius: var(--radius-lg); padding: 30px 26px; }
+    .fw-box--yes { background: var(--green-light); border: 1px solid var(--green-border); }
+    .fw-box--no  { background: var(--bg); border: 1px solid var(--border); }
+
+    .fw-box__title { font-family: var(--font-display); font-size: .9375rem; font-weight: 700; margin-bottom: 18px; }
+    .fw-box--yes .fw-box__title { color: #065F46; }
+    .fw-box--no  .fw-box__title { color: var(--muted); }
+
+    .fw-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .fw-list li { display: flex; gap: 10px; font-size: .9rem; line-height: 1.55; }
+    .fw-bullet--yes { color: var(--green); flex-shrink: 0; }
+    .fw-bullet--no  { color: var(--border); flex-shrink: 0; }
+    .fw-box--no .fw-list li { color: var(--muted); }
+
+    /* ============================================================
+       PRICING
+       ============================================================ */
+    .pricing-grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: 1fr;
+      margin-bottom: 28px;
+    }
+
+    @media (min-width: 768px) { .pricing-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .pc {
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 30px 26px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pc--featured { border-color: var(--blue); box-shadow: 0 8px 32px rgba(29,78,216,.12); }
+
+    .pc__badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--blue); color: #fff;
+      font-family: var(--font-display); font-size: .6875rem; font-weight: 700;
+      padding: 4px 18px; border-radius: 99px;
+      letter-spacing: .04em; text-transform: uppercase; white-space: nowrap;
+    }
+
+    .pc__name  { font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; margin-bottom: 4px; }
+    .pc__desc  { font-size: .8438rem; color: var(--muted); margin-bottom: 22px; line-height: 1.55; }
+    .pc__price { font-family: var(--font-display); font-size: 2.25rem; font-weight: 700; line-height: 1; margin-bottom: 3px; }
+    .pc__tax   { font-size: .8125rem; color: var(--muted); font-weight: 400; font-family: var(--font-body); }
+    .pc__note  { font-size: .8125rem; color: var(--sky); font-weight: 500; margin-bottom: 0; }
+
+    .pc__divider { height: 1px; background: var(--border); margin: 22px 0; }
+
+    .pc__features { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 28px; flex: 1; }
+    .pc__feat { display: flex; gap: 9px; font-size: .875rem; line-height: 1.5; align-items: flex-start; }
+    .pc__feat--off { color: var(--muted); }
+
+    .f-check { color: var(--green); flex-shrink: 0; font-size: .8125rem; margin-top: 2px; }
+    .f-dash  { color: #D1D5DB;     flex-shrink: 0; font-size: .8125rem; margin-top: 2px; }
+
+    .evolution-box {
+      background: var(--blue-light);
+      border: 1px solid var(--blue-mid);
+      border-radius: var(--radius-lg);
+      padding: 28px 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 28px;
+    }
+
+    .evolution-box__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--green-light);
+      border: 1px solid var(--green-border);
+      color: #065F46;
+      font-family: var(--font-display);
+      font-size: .75rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 99px;
+      margin-bottom: 10px;
+    }
+
+    .evolution-box__title { font-family: var(--font-display); font-size: 1.0625rem; font-weight: 700; margin-bottom: 6px; }
+    .evolution-box__desc  { font-size: .9rem; color: var(--muted); line-height: 1.65; max-width: 520px; }
+    .evolution-box__price { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; white-space: nowrap; flex-shrink: 0; }
+    .evolution-box__price span { font-size: .8125rem; color: var(--muted); font-weight: 400; font-family: var(--font-body); }
+
+    .roi-box {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      padding: 18px 22px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .roi-box__icon { font-size: 1.125rem; flex-shrink: 0; }
+    .roi-box__text { font-size: .9rem; color: var(--muted); line-height: 1.6; }
+
+    /* ============================================================
+       CTA FINAL
+       ============================================================ */
+    .cta-final {
+      background: linear-gradient(135deg, #1D4ED8 0%, #1e40af 55%, #0369a1 100%);
+      color: #fff;
+      text-align: center;
+    }
+
+    .cta-final__title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; margin-bottom: 16px; }
+    .cta-final__sub   { font-size: 1.0625rem; color: rgba(255,255,255,.8); margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+    .cta-final__hint  { margin-top: 18px; font-size: .8125rem; color: rgba(255,255,255,.55); }
+
+    /* ============================================================
+       ABOUT
+       ============================================================ */
+    .about { background: var(--bg-alt); }
+
+    .about__grid { display: grid; gap: 48px; grid-template-columns: 1fr; align-items: start; }
+    @media (min-width: 768px) { .about__grid { grid-template-columns: 1fr 1fr; } }
+
+    .about__tag  { font-size: .75rem; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+    .about__name { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+    .about__role { font-size: .9375rem; color: var(--sky); font-weight: 500; margin-bottom: 20px; }
+    .about__bio  { font-size: .9375rem; color: var(--muted); line-height: 1.75; margin-bottom: 14px; }
+
+    .pilot-box { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; }
+    .pilot-box__title { font-family: var(--font-display); font-size: .9375rem; font-weight: 600; margin-bottom: 8px; }
+    .pilot-box__body  { font-size: .875rem; color: var(--muted); line-height: 1.65; }
+    .pilot-box__price { font-family: var(--font-display); font-weight: 700; color: var(--blue); }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .footer { background: var(--text); color: rgba(255,255,255,.5); padding: 36px 0; }
+    .footer__inner { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: center; }
+    .footer__brand { font-family: var(--font-display); font-size: .9375rem; font-weight: 700; color: #fff; }
+    .footer__copy  { font-size: .8125rem; }
+    .footer__link  { color: rgba(255,255,255,.5); font-size: .8125rem; text-decoration: underline; text-underline-offset: 3px; }
+    .footer__link:hover { color: #fff; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="container">
+    <div class="nav__inner">
+      <div class="nav__logo">
+        <div class="nav__mark">U</div>
+        <div>
+          <div class="nav__name">Uccello Labs</div>
+          <div class="nav__sub">Suite IA Commerciale</div>
+        </div>
+      </div>
+      <a href="https://calendar.app.google/SuqHzLZ9sNQvdGtP6" target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="font-size:.875rem; padding: 10px 20px;">
+        Démo gratuite →
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <p class="hero__kicker">Suite d'agents IA pour équipes commerciales</p>
+    <h1 class="hero__title">Tes commerciaux ont du temps pour vendre.<br>Pas pour préparer.</h1>
+    <p class="hero__sub">Une suite d'agents IA qui structure les offres, génère les pitchs et construit les listes de prospects. Livrée à ton équipe avec une formation pour être opérationnel en 1 jour.</p>
+    <div class="hero__cta-group">
+      <a href="https://calendar.app.google/SuqHzLZ9sNQvdGtP6" target="_blank" rel="noopener noreferrer" class="btn btn--white btn--lg">
+        Voir une démo · 30 min →
+      </a>
+      <span class="hero__cta-hint">Gratuit · Sans engagement · En visio</span>
+    </div>
+    <div class="hero__stats">
+      <div>
+        <div class="hero__stat-num">1h</div>
+        <div class="hero__stat-label">Pour produire une offre complète</div>
+      </div>
+      <div>
+        <div class="hero__stat-num">15</div>
+        <div class="hero__stat-label">Agents spécialisés inclus</div>
+      </div>
+      <div>
+        <div class="hero__stat-num">1 jour</div>
+        <div class="hero__stat-label">Pour être opérationnel</div>
+      </div>
+      <div>
+        <div class="hero__stat-num">2 500€</div>
+        <div class="hero__stat-label">Pack Équipe tout inclus</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section style="background: var(--bg);">
+  <div class="container">
+    <div style="margin-bottom: 40px;">
+      <span class="kicker">Le problème</span>
+      <h2 class="section-title">Tes commerciaux préparent trop.<br>Ils vendent trop peu.</h2>
+      <p class="section-sub">Un commercial qui passe 3h à préparer une offre, c'est 3h de moins à prospecter, à relancer, à closer. Multiplié par toute l'équipe, c'est du CA perdu chaque semaine.</p>
+    </div>
+
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-card__icon">🔀</div>
+        <div class="pain-card__title">Chaque commercial présente l'offre différemment</div>
+        <div class="pain-card__body">Pas de message unifié. Les prospects reçoivent des pitchs qui varient selon le commercial qu'ils ont en face. Et ça se voit.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-card__icon">⏱</div>
+        <div class="pain-card__title">La prospection prend 2h par commercial, par jour</div>
+        <div class="pain-card__body">Trouver des leads, rédiger les messages, personnaliser. Tout ça à la main. Résultat : 10-15 contacts par semaine au lieu de 50.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-card__icon">📉</div>
+        <div class="pain-card__title">Les supports commerciaux sont toujours en retard sur le marché</div>
+        <div class="pain-card__body">Le marché change, les concurrents évoluent. Mais le pitch deck a 18 mois. Et personne n'a le temps de le refaire.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="container">
+    <div style="max-width: var(--max-w-narrow); margin-bottom: 56px;">
+      <span class="kicker">Comment ça marche</span>
+      <h2 class="section-title">Opérationnel en 1 journée</h2>
+      <p class="section-sub">On adapte la suite à ton contexte, on installe les agents dans Claude, on forme ton équipe. Le lendemain, ils produisent en autonomie.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step__num">1</div>
+        <div class="step__title">Session découverte (2h)</div>
+        <div class="step__body">On comprend ton offre, ta cible, ta concurrence et tes processus commerciaux actuels.</div>
+      </div>
+      <div class="step">
+        <div class="step__num">2</div>
+        <div class="step__title">Configuration des agents</div>
+        <div class="step__body">On installe et paramètre la suite dans Claude avec le contexte de ton entreprise. Chaque agent connaît ton offre.</div>
+      </div>
+      <div class="step">
+        <div class="step__num">3</div>
+        <div class="step__title">Formation de l'équipe</div>
+        <div class="step__body">Tes commerciaux apprennent à utiliser chaque agent en autonomie. En 2h, ils produisent leurs premiers livrables.</div>
+      </div>
+      <div class="step">
+        <div class="step__num">4</div>
+        <div class="step__title">Production en autonomie</div>
+        <div class="step__body">Offres, pitchs, listes de prospects, scripts de cold call générés en autonomie, sans dépendre de personne.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENTS -->
+<section style="background: var(--bg);">
+  <div class="container">
+    <div style="margin-bottom: 44px;">
+      <span class="kicker">La suite</span>
+      <h2 class="section-title">15 agents spécialisés<br>+ 1 orchestrateur</h2>
+      <p class="section-sub">Chaque agent couvre une étape du cycle commercial. L'orchestrateur les enchaîne automatiquement. Ensemble, ils forment un pipeline complet de la création d'offre au closing.</p>
+    </div>
+
+    <div class="agents-grid">
+      <div class="agent-card">
+        <div class="agent-card__icon">🎯</div>
+        <div>
+          <div class="agent-card__label">Cadrage d'offre</div>
+          <div class="agent-card__desc">Structure et formule l'offre pour qu'elle soit immédiatement compréhensible à froid.</div>
+        </div>
+      </div>
+      <div class="agent-card">
+        <div class="agent-card__icon">👤</div>
+        <div>
+          <div class="agent-card__label">Persona acheteur</div>
+          <div class="agent-card__desc">Construit le profil précis du client idéal : douleurs, objections, déclencheurs d'achat.</div>
+        </div>
+      </div>
+      <div class="agent-card">
+        <div class="agent-card__icon">📊</div>
+        <div>
+          <div class="agent-card__label">Analyse marché</div>
+          <div class="agent-card__desc">Évalue le potentiel commercial et identifie les canaux de distribution prioritaires.</div>
+        </div>
+      </div>
+      <div class="agent-card">
+        <div class="agent-card__icon">⚔️</div>
+        <div>
+          <div class="agent-card__label">Veille concurrentielle</div>
+          <div class="agent-card__desc">Produit les battlecards et la phrase de positionnement différenciant en quelques minutes.</div>
+        </div>
+      </div>
+      <div class="agent-card">
+        <div class="agent-card__icon">💰</div>
+        <div>
+          <div class="agent-card__label">Stratégie de pricing</div>
+          <div class="agent-card__desc">Architecture de tiers avec ancrage psychologique et justifications prêtes à l'emploi.</div>
+        </div>
+      </div>
+      <div class="agent-card">
+        <div class="agent-card__icon">📝</div>
+        <div>
+          <div class="agent-card__label">Offre finale rédigée</div>
+          <div class="agent-card__desc">One-pager commercial complet dans le langage du persona, avec score de viabilité.</div>
+        </div>
+      </div>
+      <div class="agent-card">
+        <div class="agent-card__icon">🎨</div>
+        <div>
+          <div class="agent-card__label">Pitch deck (12 slides)</div>
+          <div class="agent-card__desc">Support HTML professionnel, ouvert dans n'importe quel navigateur, sans PowerPoint.</div>
+        </div>
+      </div>
+      <div class="agent-card">
+        <div class="agent-card__icon">📬</div>
+        <div>
+          <div class="agent-card__label">Stratégie de prospection</div>
+          <div class="agent-card__desc">Templates LinkedIn et email adaptés aux 4 profils DISC, séquence multicanale 14 jours.</div>
+        </div>
+      </div>
+      <div class="agent-card">
+        <div class="agent-card__icon">📋</div>
+        <div>
+          <div class="agent-card__label">Listes de prospects (CSV)</div>
+          <div class="agent-card__desc">30 à 80 profils qualifiés générés par segment : nom, entreprise, LinkedIn, email estimé.</div>
+        </div>
+      </div>
+      <div class="agent-card">
+        <div class="agent-card__icon">📞</div>
+        <div>
+          <div class="agent-card__label">Script cold call</div>
+          <div class="agent-card__desc">Script verbatim en 5 blocs, avec variantes par profil DISC et gestion des objections.</div>
+        </div>
+      </div>
+      <div class="agent-card">
+        <div class="agent-card__icon">🤝</div>
+        <div>
+          <div class="agent-card__label">Plan discovery call</div>
+          <div class="agent-card__desc">Structure SPICED, questions qualifiantes par phase, adaptation DISC en temps réel.</div>
+        </div>
+      </div>
+      <div class="agent-card">
+        <div class="agent-card__icon">🌐</div>
+        <div>
+          <div class="agent-card__label">Site de présentation</div>
+          <div class="agent-card__desc">Génère un site multi-pages de l'étude (interne ou public) à partir de tous les livrables.</div>
+        </div>
+      </div>
+      <div class="agent-card">
+        <div class="agent-card__icon">💡</div>
+        <div>
+          <div class="agent-card__label">Exploration d'idées</div>
+          <div class="agent-card__desc">Analyse les plaintes réelles du marché pour générer une shortlist d'idées d'offres à fort potentiel.</div>
+        </div>
+      </div>
+      <div class="agent-card">
+        <div class="agent-card__icon">📁</div>
+        <div>
+          <div class="agent-card__label">Gestion multi-projets</div>
+          <div class="agent-card__desc">Travaille sur plusieurs offres en parallèle sans qu'elles s'écrasent, chaque projet dans dans son espace dédié.</div>
+        </div>
+      </div>
+      <div class="agent-card">
+        <div class="agent-card__icon">📄</div>
+        <div>
+          <div class="agent-card__label">Proposition commerciale</div>
+          <div class="agent-card__desc">Génère une proposition personnalisée pour un prospect précis : page web soignée, prête à envoyer après un discovery call.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Orchestrateur -->
+    <div style="background: var(--blue-light); border: 1.5px solid var(--blue-mid); border-radius: var(--radius-lg); padding: 24px 28px; display: flex; gap: 16px; align-items: flex-start; margin-top: 8px;">
+      <div style="width:40px; height:40px; border-radius:var(--radius); background:var(--blue); display:flex; align-items:center; justify-content:center; font-size:1.125rem; flex-shrink:0;">🎛️</div>
+      <div>
+        <div style="font-family:var(--font-display); font-size:.9375rem; font-weight:700; margin-bottom:5px; color:var(--blue-dark);">Orchestrateur · Pipeline automatisé</div>
+        <div style="font-size:.875rem; color:var(--blue-dark); opacity:.8; line-height:1.6;">Enchaîne automatiquement tous les agents du pipeline, de l'idée à l'offre finale, avec les points de validation aux étapes clés. Mode interactif, semi-autonome ou autonome.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHO -->
+<section style="background: var(--bg-alt);">
+  <div class="container">
+    <span class="kicker">Pour qui</span>
+    <h2 class="section-title" style="margin-bottom: 36px;">Fait pour ton équipe si…</h2>
+    <div class="fw-grid">
+      <div class="fw-box fw-box--yes">
+        <div class="fw-box__title">La suite est faite pour vous si…</div>
+        <ul class="fw-list">
+          <li><span class="fw-bullet--yes">→</span><span>Vous avez une équipe commerciale de 2 à 20 personnes en B2B</span></li>
+          <li><span class="fw-bullet--yes">→</span><span>Vos commerciaux passent plus de 2h/jour à préparer (offres, emails, prospection)</span></li>
+          <li><span class="fw-bullet--yes">→</span><span>Votre pitch varie selon le commercial en face (et ce n'est pas volontaire)</span></li>
+          <li><span class="fw-bullet--yes">→</span><span>Vous utilisez déjà Claude ou souhaitez commencer avec un cas d'usage concret</span></li>
+          <li><span class="fw-bullet--yes">→</span><span>Vous voulez un outil qui évolue avec votre offre, pas une formation qui s'oublie</span></li>
+        </ul>
+      </div>
+      <div class="fw-box fw-box--no">
+        <div class="fw-box__title">Ce n'est pas pour vous si…</div>
+        <ul class="fw-list">
+          <li><span class="fw-bullet--no">×</span><span>Vous cherchez un SaaS clé en main sans formation ni configuration</span></li>
+          <li><span class="fw-bullet--no">×</span><span>Votre équipe n'est pas prête à adopter un outil IA dans son quotidien</span></li>
+          <li><span class="fw-bullet--no">×</span><span>Vous vendez du B2C avec des cycles de vente très courts et sans pitch</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section style="background: var(--bg);">
+  <div class="container">
+    <div style="margin-bottom: 44px;">
+      <span class="kicker">Tarifs</span>
+      <h2 class="section-title">Livraison one-shot.<br>Mises à jour en option.</h2>
+      <p class="section-sub">Pas d'abonnement forcé. Tu choisis le pack qui correspond à la taille de ton équipe, et tu décides ensuite si tu veux les mises à jour.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- Pack Équipe -->
+      <div class="pc">
+        <div class="pc__name">Pack Équipe</div>
+        <div class="pc__desc">L'essentiel pour équiper ton équipe et être opérationnel en 1 jour</div>
+        <div class="pc__price">2 500€ <span class="pc__tax">HT</span></div>
+        <div class="pc__divider"></div>
+        <ul class="pc__features">
+          <li class="pc__feat"><span class="f-check">✓</span><span>Suite complète · 15 agents</span></li>
+          <li class="pc__feat"><span class="f-check">✓</span><span>Session découverte <strong>2h</strong></span></li>
+          <li class="pc__feat"><span class="f-check">✓</span><span>Configuration adaptée à ton contexte</span></li>
+          <li class="pc__feat"><span class="f-check">✓</span><span>Formation équipe <strong>1 session (2h)</strong></span></li>
+          <li class="pc__feat"><span class="f-check">✓</span><span>Documentation d'utilisation</span></li>
+          <li class="pc__feat pc__feat--off"><span class="f-dash">–</span><span>Session de formation supplémentaire</span></li>
+          <li class="pc__feat pc__feat--off"><span class="f-dash">–</span><span>Support prioritaire 30 jours</span></li>
+        </ul>
+        <a href="https://calendar.app.google/SuqHzLZ9sNQvdGtP6" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--full">
+          Choisir Pack Équipe
+        </a>
+      </div>
+
+      <!-- Pack Équipe+ -->
+      <div class="pc pc--featured">
+        <div class="pc__badge">Recommandé</div>
+        <div class="pc__name">Pack Équipe+</div>
+        <div class="pc__desc">Pour les équipes qui veulent une adoption solide et un support les 30 premiers jours</div>
+        <div class="pc__price">4 500€ <span class="pc__tax">HT</span></div>
+        <div class="pc__divider"></div>
+        <ul class="pc__features">
+          <li class="pc__feat"><span class="f-check">✓</span><span>Suite complète · 15 agents</span></li>
+          <li class="pc__feat"><span class="f-check">✓</span><span>Session découverte <strong>2h</strong></span></li>
+          <li class="pc__feat"><span class="f-check">✓</span><span>Configuration adaptée à ton contexte</span></li>
+          <li class="pc__feat"><span class="f-check">✓</span><span>Formation équipe <strong>2 sessions (2h chacune)</strong></span></li>
+          <li class="pc__feat"><span class="f-check">✓</span><span>Documentation d'utilisation</span></li>
+          <li class="pc__feat"><span class="f-check">✓</span><span>Support prioritaire <strong>30 jours</strong></span></li>
+        </ul>
+        <a href="https://calendar.app.google/SuqHzLZ9sNQvdGtP6" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--full">
+          Choisir Pack Équipe+
+        </a>
+      </div>
+
+      <!-- Plan Évolution -->
+      <div class="pc">
+        <div class="pc__name">Plan Évolution</div>
+        <div class="pc__desc">Les mises à jour des agents + 1h de call annuel pour garder la suite en phase avec ton marché</div>
+        <div class="pc__price">490€ <span class="pc__tax">HT / an</span></div>
+        <p class="pc__note" style="margin-bottom: 22px;">1ère année offerte avec tout pack</p>
+        <div class="pc__divider"></div>
+        <ul class="pc__features">
+          <li class="pc__feat"><span class="f-check">✓</span><span>Mises à jour de tous les agents</span></li>
+          <li class="pc__feat"><span class="f-check">✓</span><span>Accès aux nouveaux agents ajoutés</span></li>
+          <li class="pc__feat"><span class="f-check">✓</span><span>1h de call annuel : revue stratégique</span></li>
+          <li class="pc__feat"><span class="f-check">✓</span><span>Résiliation libre, sans engagement</span></li>
+          <li class="pc__feat" style="color: var(--muted); font-style: italic;"><span style="font-size:.8rem; margin-top:2px;">ℹ</span><span>Sans Plan Évolution : la suite reste fonctionnelle mais ne reçoit plus les mises à jour</span></li>
+        </ul>
+        <a href="https://calendar.app.google/SuqHzLZ9sNQvdGtP6" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--full">
+          En savoir plus
+        </a>
+      </div>
+    </div>
+
+    <!-- ROI -->
+    <div class="roi-box">
+      <div class="roi-box__icon">💡</div>
+      <div class="roi-box__text">
+        <strong>ROI en 1 deal.</strong> Si tes commerciaux closent 1 opportunité de plus par mois grâce à un pitch structuré et une prospection plus dense, le Pack Équipe est remboursé dès la première semaine.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <div class="container" style="text-align: center;">
+    <h2 class="cta-final__title">Vois ce que la suite peut faire<br>pour ton équipe en 30 min</h2>
+    <p class="cta-final__sub">Je te montre comment tes commerciaux produisent une offre complète en 1h, en direct, sur ton propre contexte. Pas de slides génériques.</p>
+    <a href="https://calendar.app.google/SuqHzLZ9sNQvdGtP6" target="_blank" rel="noopener noreferrer" class="btn btn--white btn--lg">
+      Réserver la démo →
+    </a>
+    <p class="cta-final__hint">Visio 30 min · Gratuit · Sans engagement</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="container">
+    <div class="about__grid">
+      <div>
+        <div class="about__tag">À propos</div>
+        <div class="about__name">Jonathan SARDO</div>
+        <div class="about__role">Fondateur · Uccello Labs</div>
+        <p class="about__bio">21 ans de conception logicielle et architecture B2B. J'ai développé le pipeline offer-pipeline : un système de 15 agents IA propriétaires pour structurer des offres commerciales B2B, que j'utilise en production depuis 2 ans.</p>
+        <p class="about__bio">La suite commerciale, c'est ce pipeline packagé pour que tes équipes l'utilisent directement dans Claude, sans dépendre de moi pour chaque livrable.</p>
+      </div>
+      <div class="pilot-box">
+        <div class="pilot-box__title">Premiers déploiements</div>
+        <p class="pilot-box__body">Je déploie actuellement la suite dans les premières équipes pilotes à un tarif préférentiel de <span class="pilot-box__price">1 500€</span> (Pack Équipe) en échange d'un retour terrain détaillé sur l'adoption et les résultats. Si tu veux intégrer ton équipe parmi les premiers, c'est le bon moment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <span class="footer__brand">Uccello Labs · Suite IA Commerciale</span>
+      <span class="footer__copy">© 2026 · France · Agents IA pour équipes commerciales B2B</span>
+      <a href="mailto:jonathan@uccellolabs.com" class="footer__link">jonathan@uccellolabs.com</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

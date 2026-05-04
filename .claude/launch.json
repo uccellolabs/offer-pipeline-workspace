@@ -36,6 +36,18 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "8792", "--directory", "projects/uccello-proposal-yatoo/website"],
       "port": 8792
+    },
+    {
+      "name": "market-study-public",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8793", "--directory", "projects/market-study/website-public"],
+      "port": 8793
+    },
+    {
+      "name": "agents-commerciaux",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8794", "--directory", "projects/agents-commerciaux/website-public"],
+      "port": 8794
     }
   ]
 }
