@@ -112,4 +112,13 @@ Répartition DISC estimée : D=8 | D-C=3 | D-I=4 | C=11 | C-S=9 | C-D=2 | S=3 | 
 2026-05-03 — Nettoyage projet local — `_tmp_ae.json` et `_prospects_siege_gouv.json` supprimés (cache / siège INSEE régénérable) | Patterns ajoutés au `.gitignore` racine | CSV v1 / v2 / v3 conservés (50 vs 49 lignes : v1 pas fusionnable à l’aveugle avec v2)
 2026-05-03 — Copie locale `scripts/enrich_prospects_places.py` supprimée — script maintenu dans le dépôt du skill `offer-prospection-list` (chemin SKILL.md § batch) ; entrée du 2026-05-03 ci-dessus mise à jour
 
+2026-05-03 /offer-cold-call — Cible : Consultant transformation digitale indépendant (Marc) | DISC : 4 variantes | Contexte : Froid | Volume : 5–20 calls/sem
+→ COLD_CALL_SCRIPT.md créé | Script principal C (dominant dans CSV ~44%) + variantes D/I/S | Portier + boîte vocale + 9 objections DISC | Métriques calibrées
+/offer-cold-call : ✅ 2026-05-03
+
+2026-05-03 /offer-study-website (itération) — Ajout page /cold-call au site interne
+→ cold-call.html créé (5 blocs verbatim, 4 onglets DISC, scripts portier + VM, tableau 9 objections, 6 métriques)
+→ Lien "Cold Call" ajouté dans le nav de 10 pages HTML + carte dans nav-grid index.html + pipeline step
+/offer-study-website update cold-call : ✅ 2026-05-03
+
 > Les agents notent ici ce qui nécessite une validation humaine avant de continuer.

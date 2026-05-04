@@ -7,18 +7,38 @@
 ```
 /idea-finder       : ✅ 2026-05-03
 /study-website     : ✅ 2026-05-03 (partiel — accueil + découverte)
-/offer-cadrage     : ⬜ Non lancé
-/persona           : ⬜ Non lancé
-/market-research   : ⬜ Non lancé
-/competitive-intel : ⬜ Non lancé
-/pricing           : ⬜ Non lancé
-/offer-final       : ⬜ Non lancé
+/offer-cadrage     : ✅ 2026-05-03
+/persona           : ✅ 2026-05-03
+/market-research   : ✅ 2026-05-03
+/competitive-intel : ✅ 2026-05-03
+/pricing           : ✅ 2026-05-03
+/offer-final       : ✅ 2026-05-03
 /pitch-deck        : ⬜ Non lancé
 ```
 
 ---
 
 ## Décisions clés
+
+**[2026-05-03] /offer-final** — Destinataire : Client final | Format : Landing page/support commercial | Viabilité : ✅ VIABLE SOUS CONDITIONS (3 conditions)
+→ OFFER_FINAL.md v1.0 créé
+
+**[2026-05-03] /offer-pricing** — Modèle Hybride | Audit Express 1 200 € | Mission 2 000 €/mois | Pack 4 500 € | Valeur économique : 23–53k€ → prix sous le plafond | Appel gratuit 30 min → ticket payant
+→ PRICING_BRIEF.md v1.0 créé
+
+**[2026-05-03] /offer-competitive-intel** — Concurrent principal : AMOA freelances (amont) + Avocats IT (juridique) | Différenciation : zone vide confirmée "expert technique côté client mode crise prix PME" | Action : devenir Activateur France Num
+→ COMPETITIVE_BRIEF.md v1.0 créé
+
+**[2026-05-03] /offer-market-research** — Canal : Mixte (Direct LinkedIn 90j prioritaire, Prescripteurs EC moyen terme, SEO long terme) | SAM : ~45 000 PME/an | SOM an 1 : 50–80k€ | Viabilité 3 : ⚠️ À travailler (discoverabilité = défi #1)
+→ OFFER_BRIEF enrichi section MARKET RESEARCH
+
+**[2026-05-03] /offer-persona** — Avatar : Marc Duval, 47 ans, gérant PME services B2B | Budget max audit : 1 200–1 500 € | Prospectabilité : 8/10 | Canal prioritaire : prescripteurs (expert-comptable) + SEO intention forte
+→ PERSONA_ACHETEUR.md v1.0 créé
+
+**[2026-05-03] /offer-cadrage** — Verdict GO — Offre reframée "Audit & Recadrage de Projet Digital" (ICP urgence). Architecture tarifaire 2 niveaux : audit express 800–1 500 € + mission stabilisation 1 500–2 500 €/mois.
+→ OFFER_BRIEF.md v1.0 créé
+
+
 
 **[2026-05-03] /idea-finder** — Ikigai + shortlist construits à partir du questionnaire personnel de JF VILM + 2 agents de recherche en parallèle (30+ sources, ~90 signaux).
 

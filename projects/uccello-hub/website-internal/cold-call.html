@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Script Cold Call — Uccello Hub Étude Interne</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    /* ─── DISC Color System (shared with prospection) ─── */
+    :root {
+      --disc-d:    #DC2626; --disc-d-bg: rgba(220,38,38,.08); --disc-d-br: rgba(220,38,38,.25);
+      --disc-i:    #D97706; --disc-i-bg: rgba(217,119,6,.08);  --disc-i-br: rgba(217,119,6,.25);
+      --disc-s:    #059669; --disc-s-bg: rgba(5,150,105,.08);  --disc-s-br: rgba(5,150,105,.25);
+      --disc-c:    #1D4ED8; --disc-c-bg: rgba(29,78,216,.08);  --disc-c-br: rgba(29,78,216,.25);
+    }
+
+    /* ─── DISC Tabs ─── */
+    .disc-tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+    .disc-tab {
+      padding: 7px 16px; border-radius: 20px; font: 600 .75rem/1 var(--fb);
+      cursor: pointer; border: 1.5px solid transparent;
+      background: var(--bg-alt); color: var(--text-muted);
+      transition: all .12s; user-select: none;
+    }
+    .disc-tab[data-disc="D"].active { background: var(--disc-d-bg); border-color: var(--disc-d-br); color: var(--disc-d); }
+    .disc-tab[data-disc="I"].active { background: var(--disc-i-bg); border-color: var(--disc-i-br); color: var(--disc-i); }
+    .disc-tab[data-disc="S"].active { background: var(--disc-s-bg); border-color: var(--disc-s-br); color: var(--disc-s); }
+    .disc-tab[data-disc="C"].active { background: var(--disc-c-bg); border-color: var(--disc-c-br); color: var(--disc-c); }
+    .disc-panel { display: none; }
+    .disc-panel.active { display: block; }
+    .disc-tag {
+      display: inline-flex; align-items: center;
+      font: 700 .5625rem/1 var(--fb); letter-spacing: .1em; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 20px; margin-bottom: 8px;
+    }
+    .disc-tag.D { background: var(--disc-d-bg); border: 1px solid var(--disc-d-br); color: var(--disc-d); }
+    .disc-tag.I { background: var(--disc-i-bg); border: 1px solid var(--disc-i-br); color: var(--disc-i); }
+    .disc-tag.S { background: var(--disc-s-bg); border: 1px solid var(--disc-s-br); color: var(--disc-s); }
+    .disc-tag.C { background: var(--disc-c-bg); border: 1px solid var(--disc-c-br); color: var(--disc-c); }
+
+    /* ─── Pitch phrase ─── */
+    .pitch-box {
+      background: var(--primary); color: #fff;
+      border-radius: var(--r); padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+    .pitch-box .pitch-label {
+      font: 600 .5625rem/1 var(--fb); letter-spacing: .12em; text-transform: uppercase;
+      opacity: .7; margin-bottom: 8px;
+    }
+    .pitch-box .pitch-text {
+      font: 700 1.0625rem/1.4 var(--fh); color: #fff;
+    }
+
+    /* ─── Call context bar ─── */
+    .call-meta-bar {
+      display: flex; gap: 16px; flex-wrap: wrap;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 14px 20px;
+      margin-bottom: 28px;
+    }
+    .call-meta-item { display: flex; flex-direction: column; gap: 3px; }
+    .call-meta-label { font: 600 .5625rem/1 var(--fb); letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); }
+    .call-meta-val { font: 600 .875rem/1 var(--fb); color: var(--text); }
+
+    /* ─── Blocs script ─── */
+    .blocs-grid { display: flex; flex-direction: column; gap: 12px; margin-bottom: 8px; }
+    .bloc-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--r); box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .bloc-header {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 20px; border-bottom: 1px solid var(--border);
+      background: var(--bg-alt);
+    }
+    .bloc-num {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--primary); color: #fff;
+      font: 700 .75rem/1 var(--fb); display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .bloc-title { font: 700 .9375rem/1 var(--fh); color: var(--text); flex: 1; }
+    .bloc-timing {
+      font: 600 .5625rem/1 var(--fb); letter-spacing: .1em; text-transform: uppercase;
+      background: var(--primary-light); color: var(--primary); border-radius: 20px; padding: 3px 10px;
+      flex-shrink: 0;
+    }
+    .bloc-body { padding: 18px 20px; }
+    .bloc-body .script-text {
+      font: 400 .9375rem/1.7 var(--fb); color: var(--text);
+      background: var(--bg-alt); border-left: 3px solid var(--primary);
+      padding: 14px 16px; border-radius: 0 4px 4px 0;
+      white-space: pre-line;
+    }
+    .bloc-body .script-note {
+      font: 400 .8125rem/1.55 var(--fb); color: var(--text-muted);
+      margin-top: 10px;
+    }
+    .bloc-body .script-note strong { color: var(--text); }
+    .branch-row { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
+    .branch {
+      display: flex; gap: 10px; align-items: flex-start;
+      font: 400 .8125rem/1.5 var(--fb);
+    }
+    .branch-tag {
+      flex-shrink: 0; font: 700 .625rem/1 var(--fb); letter-spacing: .08em; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 3px; margin-top: 1px;
+    }
+    .branch-tag.yes { background: rgba(16,185,129,.12); color: #065f46; }
+    .branch-tag.no  { background: rgba(239,68,68,.08);  color: #991b1b; }
+    .branch-tag.maybe { background: rgba(245,158,11,.1); color: #92400e; }
+
+    /* ─── DISC variant blocks ─── */
+    .disc-variant-block {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--r); box-shadow: var(--shadow); overflow: hidden;
+    }
+    .disc-variant-header {
+      padding: 16px 20px 0; border-bottom: 1px solid var(--border); background: var(--bg-alt);
+    }
+    .disc-variant-signals {
+      font: 400 .8125rem/1.55 var(--fb); color: var(--text-muted);
+      margin: 8px 0 12px;
+    }
+    .disc-variant-rule {
+      font: 600 .8125rem/1 var(--fb); padding: 8px 12px 14px;
+      border-top: 1px solid var(--border);
+    }
+    .disc-variant-body { padding: 20px; }
+    .disc-variant-body .script-text {
+      font: 400 .9375rem/1.7 var(--fb); color: var(--text);
+      background: var(--bg-alt); border-left: 3px solid var(--border);
+      padding: 14px 16px; border-radius: 0 4px 4px 0;
+      white-space: pre-line; margin-bottom: 14px;
+    }
+    .disc-variant-body.D .script-text { border-color: var(--disc-d); }
+    .disc-variant-body.I .script-text { border-color: var(--disc-i); }
+    .disc-variant-body.S .script-text { border-color: var(--disc-s); }
+    .disc-variant-body.C .script-text { border-color: var(--disc-c); }
+    .objection-mini { display: flex; flex-direction: column; gap: 8px; }
+    .obj-mini-row {
+      background: var(--bg-alt); border: 1px solid var(--border);
+      border-radius: 4px; padding: 12px 14px;
+    }
+    .obj-mini-trigger {
+      font: 600 .8125rem/1 var(--fb); color: var(--text); margin-bottom: 6px;
+    }
+    .obj-mini-trigger::before { content: '"'; }
+    .obj-mini-trigger::after  { content: '"'; }
+    .obj-mini-reply { font: 400 .8125rem/1.55 var(--fb); color: var(--text-muted); }
+    .obj-mini-reply::before { content: '→ '; font-weight: 700; color: var(--primary); }
+
+    /* ─── Annexes (portier + boîte vocale) ─── */
+    .annexe-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 640px) { .annexe-grid { grid-template-columns: 1fr; } }
+    .annexe-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--r); box-shadow: var(--shadow); overflow: hidden;
+    }
+    .annexe-header {
+      background: var(--bg-alt); border-bottom: 1px solid var(--border);
+      padding: 12px 18px; display: flex; align-items: center; gap: 10px;
+    }
+    .annexe-icon {
+      width: 32px; height: 32px; border-radius: 6px;
+      background: var(--primary-light); color: var(--primary);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .annexe-title { font: 700 .875rem/1 var(--fh); color: var(--text); }
+    .annexe-body { padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; }
+    .annexe-option {
+      background: var(--bg-alt); border-radius: 4px; padding: 10px 12px;
+    }
+    .annexe-option .opt-label {
+      font: 700 .5625rem/1 var(--fb); letter-spacing: .1em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 6px;
+    }
+    .annexe-option .script-text {
+      font: 400 .875rem/1.65 var(--fb); color: var(--text);
+      border-left: 2px solid var(--primary); padding: 8px 12px;
+      background: var(--bg); border-radius: 0 3px 3px 0;
+      white-space: pre-line;
+    }
+    .annexe-timing { font: 700 1.25rem/1 var(--fh); color: var(--primary); margin-bottom: 4px; }
+    .annexe-timing-label { font: 400 .75rem/1 var(--fb); color: var(--text-muted); }
+
+    /* ─── Objections table ─── */
+    .obj-table-wrap { overflow-x: auto; border-radius: var(--r); border: 1px solid var(--border); box-shadow: var(--shadow); }
+    .obj-table { width: 100%; border-collapse: collapse; font: 400 .8125rem/1.45 var(--fb); min-width: 640px; }
+    .obj-table thead th {
+      background: var(--bg-alt); border-bottom: 2px solid var(--border);
+      font: 700 .5625rem/1 var(--fb); letter-spacing: .08em; text-transform: uppercase;
+      color: var(--text-muted); padding: 10px 14px; text-align: left;
+    }
+    .obj-table tbody td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .obj-table tbody tr:last-child td { border-bottom: none; }
+    .obj-table tbody tr:hover td { background: var(--bg-alt); }
+    .obj-table .obj-trigger { font-weight: 600; color: var(--text); }
+    .obj-table .obj-reply { color: var(--text-muted); }
+    .obj-table .obj-timing {
+      font: 600 .75rem/1 var(--fb); color: var(--primary);
+      white-space: nowrap;
+    }
+    .obj-table .disc-chips { display: flex; gap: 4px; flex-wrap: wrap; }
+    .disc-chip {
+      font: 700 .5rem/1 var(--fb); letter-spacing: .08em; text-transform: uppercase;
+      padding: 2px 6px; border-radius: 20px;
+    }
+    .disc-chip.D { background: var(--disc-d-bg); color: var(--disc-d); }
+    .disc-chip.I { background: var(--disc-i-bg); color: var(--disc-i); }
+    .disc-chip.S { background: var(--disc-s-bg); color: var(--disc-s); }
+    .disc-chip.C { background: var(--disc-c-bg); color: var(--disc-c); }
+
+    /* ─── Métriques ─── */
+    .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+    .metric-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 16px 18px; box-shadow: var(--shadow);
+    }
+    .metric-value { font: 800 1.5rem/1 var(--fh); color: var(--primary); margin-bottom: 4px; }
+    .metric-label { font: 600 .5625rem/1 var(--fb); letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+    .metric-def { font: 400 .75rem/1.4 var(--fb); color: var(--text-muted); }
+
+    /* ─── Summary comparison table ─── */
+    .compare-wrap { overflow-x: auto; border-radius: var(--r); border: 1px solid var(--border); box-shadow: var(--shadow); }
+    .compare-table { width: 100%; border-collapse: collapse; min-width: 520px; }
+    .compare-table thead th {
+      background: var(--bg-alt); border-bottom: 2px solid var(--border);
+      font: 700 .5625rem/1 var(--fb); letter-spacing: .08em; text-transform: uppercase;
+      color: var(--text-muted); padding: 10px 14px; text-align: left;
+    }
+    .compare-table thead th:not(:first-child) { text-align: center; }
+    .compare-table tbody td { padding: 11px 14px; border-bottom: 1px solid var(--border); font: 400 .8125rem/1.4 var(--fb); }
+    .compare-table tbody td:first-child { font-weight: 600; color: var(--text); }
+    .compare-table tbody td:not(:first-child) { text-align: center; color: var(--text-muted); }
+    .compare-table tbody tr:last-child td { border-bottom: none; }
+    .compare-table tbody tr:hover td { background: var(--bg-alt); }
+    .th-d { color: var(--disc-d) !important; }
+    .th-i { color: var(--disc-i) !important; }
+    .th-s { color: var(--disc-s) !important; }
+    .th-c { color: var(--disc-c) !important; }
+
+    /* ─── Page-level breadcrumb ─── */
+    .breadcrumb {
+      padding: 12px 0; font: 400 .8125rem/1 var(--fb); color: var(--text-muted);
+      display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--primary); }
+    .breadcrumb span { opacity: .4; }
+
+    /* ─── Section label ─── */
+    .section-label {
+      font: 700 .5625rem/1 var(--fb); letter-spacing: .12em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 16px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ─── Page header ─── */
+    .page-header {
+      background: var(--bg); border-bottom: 1px solid var(--border);
+      border-left: 4px solid var(--primary); padding: 32px 0;
+    }
+    .page-header-inner {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: 24px; flex-wrap: wrap;
+    }
+    .page-eyebrow {
+      font: 700 .5625rem/1 var(--fb); letter-spacing: .12em; text-transform: uppercase;
+      color: var(--primary); margin-bottom: 8px;
+    }
+    .page-title { font: 800 1.75rem/1.15 var(--fh); color: var(--text); margin-bottom: 6px; }
+    .page-subtitle { font: 400 .9375rem/1.6 var(--fb); color: var(--text-muted); }
+    .page-meta { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; flex-shrink: 0; }
+
+    /* ─── Content layout ─── */
+    .content { padding: 36px 0 64px; }
+    .content-section { margin-bottom: 44px; }
+
+    /* ─── Callout ─── */
+    .callout {
+      display: flex; gap: 12px; align-items: flex-start;
+      background: rgba(245,158,11,.06); border: 1px solid rgba(245,158,11,.25);
+      border-radius: var(--r); padding: 14px 16px; margin-bottom: 20px;
+    }
+    .callout-icon { color: var(--amber); flex-shrink: 0; margin-top: 1px; }
+    .callout-text { font: 400 .875rem/1.55 var(--fb); color: var(--text); }
+    .callout-text strong { color: var(--text); }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════════════════ -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          ◆ Uccello Hub
+          <span class="nav-badge">Étude Interne</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="offre.html">Offre</a></li>
+          <li><a href="persona.html">Personas</a></li>
+          <li><a href="marche.html">Marché</a></li>
+          <li><a href="concurrence.html">Concurrence</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="viabilite.html">Viabilité</a></li>
+          <li><a href="prospection.html">Prospection</a></li>
+          <li><a href="cold-call.html">Cold Call</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════════
+       EN-TÊTE DE PAGE
+  ══════════════════════════════════════════════════ -->
+  <header class="page-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Accueil</a>
+        <span>›</span>
+        <span>Script Cold Call</span>
+      </div>
+      <div class="page-header-inner">
+        <div>
+          <div class="page-eyebrow">Agent /offer-cold-call — 2026-05-03</div>
+          <h1 class="page-title">Script Cold Call</h1>
+          <p class="page-subtitle">Verbatim × 4 profils DISC · Consultant transformation digitale · Appel à froid</p>
+        </div>
+        <div class="page-meta">
+          <div class="call-meta-item">
+            <span class="call-meta-label">Cible</span>
+            <span class="call-meta-val">Consultant indépendant (Marc)</span>
+          </div>
+          <div class="call-meta-item">
+            <span class="call-meta-label">Contexte</span>
+            <span class="call-meta-val">Appel froid</span>
+          </div>
+          <div class="call-meta-item">
+            <span class="call-meta-label">Volume</span>
+            <span class="call-meta-val">5–20 calls / semaine</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════════════════
+       CONTENU
+  ══════════════════════════════════════════════════ -->
+  <div class="content">
+    <div class="container">
+
+      <!-- 0. Callout confidentiel -->
+      <div class="callout">
+        <i class="callout-icon" data-lucide="lock" style="width:16px;height:16px;"></i>
+        <p class="callout-text"><strong>Ressource opérationnelle confidentielle</strong> — cette page est réservée à l'usage interne. Ne pas partager publiquement.</p>
+      </div>
+
+      <!-- 1. Pitch en 1 phrase -->
+      <div class="pitch-box">
+        <div class="pitch-label">Brief interne — à intérioriser, pas à lire</div>
+        <div class="pitch-text">Hub IA souverain déployé en 1 journée chez leurs clients PME — 168€ de marge nette par client par mois, le support N2 reste chez nous.</div>
+      </div>
+
+      <!-- 2. Contexte de l'appel -->
+      <div class="content-section">
+        <div class="section-label">Contexte de l'appel</div>
+        <div class="call-meta-bar">
+          <div class="call-meta-item">
+            <span class="call-meta-label">Profil cible</span>
+            <span class="call-meta-val">Consultant transformation digitale indépendant</span>
+          </div>
+          <div class="call-meta-item">
+            <span class="call-meta-label">Douleur principale</span>
+            <span class="call-meta-val">Pas de MRR — tout en TJM</span>
+          </div>
+          <div class="call-meta-item">
+            <span class="call-meta-label">Objection principale</span>
+            <span class="call-meta-val">"Je ne suis pas assez tech"</span>
+          </div>
+          <div class="call-meta-item">
+            <span class="call-meta-label">DISC dominant (CSV)</span>
+            <span class="call-meta-val"><span class="disc-tag C" style="margin:0;">C</span> 44% · <span class="disc-tag D" style="margin:0;">D</span> 30%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Script principal (C) — 5 blocs -->
+      <div class="content-section">
+        <div class="section-label">Script principal — Profil C (Conformité) · Le plus fréquent dans votre liste</div>
+
+        <div class="blocs-grid">
+
+          <!-- Bloc 1 -->
+          <div class="bloc-card">
+            <div class="bloc-header">
+              <div class="bloc-num">1</div>
+              <div class="bloc-title">Crochet — Pattern interrupt</div>
+              <span class="bloc-timing">5 sec</span>
+            </div>
+            <div class="bloc-body">
+              <div class="script-text">"Bonjour [Prénom], c'est Jonathan de Uccello Labs —
+j'espère que je ne vous interromps pas au mauvais moment ?"</div>
+              <p class="script-note">La question finale rompt le schéma attendu d'un appel commercial. Elle désarme l'instinct de défense et donne la permission de continuer.</p>
+            </div>
+          </div>
+
+          <!-- Bloc 2 -->
+          <div class="bloc-card">
+            <div class="bloc-header">
+              <div class="bloc-num">2</div>
+              <div class="bloc-title">Raison + légitimité</div>
+              <span class="bloc-timing">15 sec</span>
+            </div>
+            <div class="bloc-body">
+              <div class="script-text">"Je vais être précis. Je travaille avec des consultants en transformation digitale indépendants — profil Make ou intégration SaaS, qui accompagnent des PME sur leurs outils.
+
+On constate que la plupart n'ont pas de réponse structurée quand leurs clients PME demandent de l'IA en garantissant que les données restent chez eux."</div>
+              <p class="script-note"><strong>Nommer le profil exact</strong> signal que l'appel est ciblé. <strong>Douleur avant solution</strong> — jamais l'inverse.</p>
+            </div>
+          </div>
+
+          <!-- Bloc 3 -->
+          <div class="bloc-card">
+            <div class="bloc-header">
+              <div class="bloc-num">3</div>
+              <div class="bloc-title">Question qualifiante</div>
+              <span class="bloc-timing">15 sec</span>
+            </div>
+            <div class="bloc-body">
+              <div class="script-text">"Est-ce que la souveraineté des données IA chez vos clients — et ce que vous leur proposez concrètement — c'est un angle sur lequel vous avez une réponse aujourd'hui ?"</div>
+              <div class="branch-row">
+                <div class="branch">
+                  <span class="branch-tag yes">Oui</span>
+                  <span>Continuer vers le Bloc 4</span>
+                </div>
+                <div class="branch">
+                  <span class="branch-tag no">Non</span>
+                  <span>"Qu'est-ce qui se passe de votre côté sur ce sujet ?"</span>
+                </div>
+                <div class="branch">
+                  <span class="branch-tag maybe">Hors sujet</span>
+                  <span>"La question du revenu récurrent — sortir du tout-TJM — c'est un sujet sur lequel vous réfléchissez ?"</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bloc 4 -->
+          <div class="bloc-card">
+            <div class="bloc-header">
+              <div class="bloc-num">4</div>
+              <div class="bloc-title">Proposition de valeur condensée</div>
+              <span class="bloc-timing">10 sec · si intérêt signalé</span>
+            </div>
+            <div class="bloc-body">
+              <div class="script-text">"On est éditeur d'une plateforme hub IA — les consultants la revendent à leurs clients PME. L'IA tourne sur l'infrastructure du client, modèles open source, aucune donnée ne sort.
+
+Les consultants qu'on accompagne constatent en moyenne 3 clients en 60 jours sur un cycle de 2 à 4 semaines, avec une marge nette documentée de 46 à 48%.
+
+Je ne sais pas si ces chiffres correspondent à ce que vous cherchez — c'est pour ça que je voulais en parler directement."</div>
+              <p class="script-note">La phrase "je ne sais pas si c'est pertinent" réduit la résistance. Signal que vous ne cherchez pas à vendre à tout prix.</p>
+            </div>
+          </div>
+
+          <!-- Bloc 5 -->
+          <div class="bloc-card">
+            <div class="bloc-header">
+              <div class="bloc-num">5</div>
+              <div class="bloc-title">Closing pour RDV</div>
+              <span class="bloc-timing">20 sec</span>
+            </div>
+            <div class="bloc-body">
+              <div class="script-text">"Est-ce qu'on pourrait planifier 20 minutes pour que je vous montre la méthodologie et qu'on vérifie si elle s'applique à votre profil de clients — mardi ou jeudi ?"</div>
+              <p class="script-note" style="margin-bottom:10px;"><strong>Si hésitation :</strong></p>
+              <div class="script-text">"Pas d'engagement — on vérifie juste si c'est pertinent pour vous. Si en 20 minutes ce n'est pas le cas, je ne vous recontacte pas."</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 4. Vue d'ensemble DISC -->
+      <div class="content-section">
+        <div class="section-label">Comparatif des 4 variantes DISC</div>
+        <div class="compare-wrap">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>Critère</th>
+                <th class="th-d">D — Dominance</th>
+                <th class="th-i">I — Influence</th>
+                <th class="th-s">S — Stabilité</th>
+                <th class="th-c">C — Conformité</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Fréquence (CSV)</td>
+                <td>~30%</td>
+                <td>~10%</td>
+                <td>~16%</td>
+                <td>~44%</td>
+              </tr>
+              <tr>
+                <td>Ton</td>
+                <td>Direct, chiffres, rapide</td>
+                <td>Chaleureux, vision</td>
+                <td>Calme, sans pression</td>
+                <td>Précis, factuel</td>
+              </tr>
+              <tr>
+                <td>Ouverture</td>
+                <td>"Je serai bref."</td>
+                <td>Référence post récent</td>
+                <td>"Je vais être bref."</td>
+                <td>"Je vais être précis."</td>
+              </tr>
+              <tr>
+                <td>Question qualifiante</td>
+                <td>ROI / pression ce trimestre</td>
+                <td>Productiser / liberté</td>
+                <td>Ressentez-vous ça ?</td>
+                <td>Réponse souveraine ?</td>
+              </tr>
+              <tr>
+                <td>Argument déclencheur</td>
+                <td>Chiffre + délai</td>
+                <td>Transformation + MRR</td>
+                <td>Accompagnement sans charge</td>
+                <td>Métriques documentées</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 5. Scripts DISC complets -->
+      <div class="content-section">
+        <div class="section-label">Scripts verbatim par profil DISC</div>
+
+        <div class="disc-tabs" id="disc-main-tabs" style="margin-bottom: 16px;">
+          <button class="disc-tab active" data-disc="D" data-target="disc-main">Dominance D</button>
+          <button class="disc-tab" data-disc="I" data-target="disc-main">Influence I</button>
+          <button class="disc-tab" data-disc="S" data-target="disc-main">Stabilité S</button>
+          <button class="disc-tab" data-disc="C" data-target="disc-main">Conformité C ★</button>
+        </div>
+
+        <!-- D -->
+        <div class="disc-panel active disc-variant-block" id="disc-main-D">
+          <div class="disc-variant-header">
+            <span class="disc-tag D">Dominance · D</span>
+            <p class="disc-variant-signals">Signaux : bio orientée résultats, ROI/KPI dans le vocabulaire, peu de posts personnels, ton direct, décisions rapides.</p>
+            <div class="disc-variant-rule" style="color: var(--disc-d);">Règle d'or : aller vite, chiffres, résultats — chaque phrase doit compter.</div>
+          </div>
+          <div class="disc-variant-body D">
+            <div class="script-text">"[Prénom], c'est Jonathan de Uccello Labs — je vous dérange ?"
+
+[Réponse]
+
+"Je serai bref. Je travaille avec des consultants transformation digitale indépendants qui n'ont pas de MRR stable entre deux missions.
+
+On leur donne un produit à revendre — 168€ de marge nette par client par mois. Pas de support technique de leur côté.
+
+Sortir du tout-TJM — c'est un sujet sur lequel vous avez mis la pression cette année ?"
+
+[Oui] →
+"On est éditeur d'un hub IA souverain — hébergé chez le client, données qui ne sortent pas. D'autres consultants ont signé 3 premiers clients en 60 jours.
+
+Vous avez 20 minutes jeudi ou vendredi pour voir si ça colle avec votre profil de clients ?"
+
+[Non / Pas intéressé] →
+"D'accord. Le MRR c'est résolu chez vous, ou ça n'entre pas dans votre modèle ?"</div>
+            <div class="section-label" style="margin-top: 16px; margin-bottom: 10px;">Objections spécifiques D</div>
+            <div class="objection-mini">
+              <div class="obj-mini-row">
+                <div class="obj-mini-trigger">Envoyez un email</div>
+                <div class="obj-mini-reply">Je vais le faire. Avant : sortir du TJM, c'est votre priorité ce trimestre ou plutôt H2 ?</div>
+              </div>
+              <div class="obj-mini-row">
+                <div class="obj-mini-trigger">Pas le temps</div>
+                <div class="obj-mini-reply">Je comprends. 20 minutes — mardi ou jeudi, lequel vous convient ?</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- I -->
+        <div class="disc-panel disc-variant-block" id="disc-main-I">
+          <div class="disc-variant-header">
+            <span class="disc-tag I">Influence · I</span>
+            <p class="disc-variant-signals">Signaux : beaucoup de posts, emojis, partages fréquents, commentaires chaleureux, photo souriante, réseau large, contenu inspirationnel.</p>
+            <div class="disc-variant-rule" style="color: var(--disc-i);">Règle d'or : chaleur, vision commune — personnaliser si un post récent est visible. Jamais de sécheresse.</div>
+          </div>
+          <div class="disc-variant-body I">
+            <div class="script-text">"Bonjour [Prénom] ! C'est Jonathan de Uccello Labs — je ne vous dérange pas trop ?"
+
+[Réponse]
+
+[Si post récent visible] "J'ai vu votre post sur [sujet récent] — vraiment juste ce que vous disiez."
+
+"Je travaille avec des consultants en transformation digitale comme vous — des gens qui ont vraiment la confiance de leurs clients mais qui galèrent à transformer ça en quelque chose de récurrent.
+
+On les aide à proposer une vraie offre IA souveraine à leurs clients PME — quelque chose qui tourne sans eux et génère du MRR.
+
+Est-ce que la question de productiser votre expertise — avoir quelque chose qui rentre même quand vous êtes en vacances — c'est un sujet qui vous parle en ce moment ?"
+
+[Oui] →
+"On est éditeur d'un hub IA — les données restent chez le client, aucune fuite, le DSI signe. Vous revendez, on gère le support.
+
+Ça change vraiment la dynamique pour les consultants avec qui on travaille — certains ont ajouté 2 000€ de MRR en quelques mois sans changer leur façon de bosser.
+
+Je propose qu'on prenne 20 minutes pour vous montrer concrètement — vous seriez plutôt dispo mardi ou jeudi ?"</div>
+            <div class="section-label" style="margin-top: 16px; margin-bottom: 10px;">Objections spécifiques I</div>
+            <div class="objection-mini">
+              <div class="obj-mini-row">
+                <div class="obj-mini-trigger">Pas le bon moment</div>
+                <div class="obj-mini-reply">Je comprends les agendas. Juste pour voir si ça vaut de se recontacter : la question du MRR, c'est quelque chose sur lequel vous voulez avancer ce semestre ?</div>
+              </div>
+              <div class="obj-mini-row">
+                <div class="obj-mini-trigger">Envoyez un email</div>
+                <div class="obj-mini-reply">Bien sûr ! Pour personnaliser : vous avez déjà essayé de productiser quelque chose — diagnostic, formation — ou vous n'avez pas encore sauté le pas ?</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- S -->
+        <div class="disc-panel disc-variant-block" id="disc-main-S">
+          <div class="disc-variant-header">
+            <span class="disc-tag S">Stabilité · S</span>
+            <p class="disc-variant-signals">Signaux : profil LinkedIn discret, peu de posts publics, rôle stable depuis longtemps, réponses courtes, prudent face aux nouvelles propositions.</p>
+            <div class="disc-variant-rule" style="color: var(--disc-s);">Règle d'or : pas de pression, étapes claires, accompagnement visible. Ne jamais brusquer.</div>
+          </div>
+          <div class="disc-variant-body S">
+            <div class="script-text">"Bonjour [Prénom], c'est Jonathan de Uccello Labs — je ne vous dérange pas trop ?"
+
+[Réponse]
+
+"Merci. Je vais être bref — je travaille avec des consultants en transformation digitale indépendants, et souvent on entend la même chose : les missions se renouvellent, les clients font confiance, mais si une mission se décale ou s'arrête, le mois est tendu.
+
+Ce n'est pas simple à résoudre parce que ça demande d'avoir un produit à proposer — pas juste du conseil.
+
+Est-ce que c'est quelque chose que vous ressentez de votre côté ?"
+
+[Oui] →
+"On aide des consultants à revendre un hub IA souverain à leurs clients PME — un produit clé en main, le support technique reste chez nous. Ça crée du MRR sans changer leur façon de travailler.
+
+Je ne sais pas si c'est pertinent pour vous — c'est pour ça que je voulais vous poser la question.
+
+Est-ce que vous auriez 20 minutes la semaine prochaine pour qu'on échange tranquillement ? Pas d'offre commerciale — juste voir si on peut vous être utile. Mardi matin ou jeudi après-midi ?"</div>
+            <div class="section-label" style="margin-top: 16px; margin-bottom: 10px;">Objections spécifiques S</div>
+            <div class="objection-mini">
+              <div class="obj-mini-row">
+                <div class="obj-mini-trigger">Je dois en parler à quelqu'un d'abord</div>
+                <div class="obj-mini-reply">Bien sûr. Pour préparer cet échange : qu'est-ce qui vous a amené à réfléchir à la question du MRR récemment ?</div>
+              </div>
+              <div class="obj-mini-row">
+                <div class="obj-mini-trigger">Pas le bon moment</div>
+                <div class="obj-mini-reply">Aucun problème. C'est quand que ça aurait du sens pour vous — ce trimestre ou plutôt après l'été ? Je peux vous rappeler à ce moment-là si vous préférez.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- C -->
+        <div class="disc-panel disc-variant-block" id="disc-main-C">
+          <div class="disc-variant-header">
+            <span class="disc-tag C">Conformité · C ★ Principal</span>
+            <p class="disc-variant-signals">Signaux : profil LinkedIn détaillé avec certifications, posts techniques ou méthodologiques, questions précises, méfiance des superlatifs, ancienneté dans le même rôle.</p>
+            <div class="disc-variant-rule" style="color: var(--disc-c);">Règle d'or : données, méthodologie, pas de promesses non sourcées. Chaque affirmation doit être documentée.</div>
+          </div>
+          <div class="disc-variant-body C">
+            <div class="script-text">"Bonjour [Prénom], c'est Jonathan de Uccello Labs — j'espère que je ne vous interromps pas au mauvais moment ?"
+
+[Réponse]
+
+"Je vais être précis. Je travaille avec des consultants en transformation digitale indépendants — profil Make ou intégration SaaS, qui accompagnent des PME sur leurs outils.
+
+On constate que la plupart n'ont pas de réponse structurée quand leurs clients PME demandent de l'IA en garantissant que les données restent chez eux.
+
+Est-ce que la souveraineté des données IA chez vos clients — et ce que vous leur proposez concrètement — c'est un angle sur lequel vous avez une réponse aujourd'hui ?"
+
+[Oui] →
+"On est éditeur d'une plateforme hub IA — les consultants la revendent à leurs clients PME. L'IA tourne sur l'infrastructure du client, modèles open source, aucune donnée ne sort.
+
+Les consultants qu'on accompagne constatent en moyenne 3 clients en 60 jours sur un cycle de 2 à 4 semaines, avec une marge nette documentée de 46 à 48%.
+
+Je ne sais pas si ces chiffres correspondent à ce que vous cherchez — c'est pour ça que je voulais en parler directement.
+
+Est-ce qu'on pourrait planifier 20 minutes pour que je vous montre la méthodologie et qu'on vérifie si elle s'applique à votre profil de clients — mardi ou jeudi ?"</div>
+            <div class="section-label" style="margin-top: 16px; margin-bottom: 10px;">Objections spécifiques C</div>
+            <div class="objection-mini">
+              <div class="obj-mini-row">
+                <div class="obj-mini-trigger">Envoyez un email avec des références</div>
+                <div class="obj-mini-reply">Tout à fait. Je vous envoie 2 cas avec les métriques précises. Pour que ce soit pertinent : vous avez combien de clients PME actifs en ce moment sur lesquels vous intervenez régulièrement ?</div>
+              </div>
+              <div class="obj-mini-row">
+                <div class="obj-mini-trigger">On fait déjà avec Make / on a déjà quelqu'un</div>
+                <div class="obj-mini-reply">Je comprends. Notre différence par rapport à Make : l'IA tourne sur l'infrastructure du client, vos clients posent leurs questions en chat — ils n'ont rien à configurer. Est-ce que la souveraineté des données c'est un critère important pour vos clients en ce moment ?</div>
+              </div>
+              <div class="obj-mini-row">
+                <div class="obj-mini-trigger">Vous avez des références ?</div>
+                <div class="obj-mini-reply">Oui — je vous envoie les cas avec les chiffres. Et si vous voulez, je peux vous donner accès à un sandbox pour tester avant qu'on se reparle. Mardi ou jeudi, lequel vous convient ?</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 6. Scripts annexes -->
+      <div class="content-section">
+        <div class="section-label">Scripts annexes</div>
+        <div class="annexe-grid">
+
+          <!-- Portier -->
+          <div class="annexe-card">
+            <div class="annexe-header">
+              <div class="annexe-icon"><i data-lucide="shield" style="width:16px;height:16px;"></i></div>
+              <div class="annexe-title">Script portier / secrétaire</div>
+            </div>
+            <div class="annexe-body">
+              <div class="annexe-option">
+                <div class="opt-label">Option A — Ton naturel (à privilégier)</div>
+                <div class="script-text">"Bonjour, c'est Jonathan — je cherche à parler à [Prénom Prospect], il/elle est disponible ?"</div>
+              </div>
+              <div class="annexe-option">
+                <div class="opt-label">Option B — Raison claire</div>
+                <div class="script-text">"Bonjour, Jonathan de Uccello Labs. J'essaie de joindre [Prénom] au sujet d'un programme revendeur pour consultants. Vous pouvez me le/la passer ?"</div>
+              </div>
+              <div class="annexe-option">
+                <div class="opt-label">Objection — "C'est à quel sujet ?"</div>
+                <div class="script-text">"Je travaille avec des consultants indépendants sur un sujet de revenus récurrents. Je dois voir avec lui/elle directement si c'est pertinent pour son activité. Il/elle est disponible dans la journée ?"</div>
+              </div>
+              <div class="annexe-option">
+                <div class="opt-label">Objection — "Envoyez un email"</div>
+                <div class="script-text">"Je vais le faire. Vous avez son adresse email directe ? Et il/elle rentre quand ?"</div>
+              </div>
+              <p style="font: 400 .75rem/1.5 var(--fb); color: var(--text-muted); margin-top: 4px;">→ Toujours repartir avec une info (email direct, planning, prénom assistant).</p>
+            </div>
+          </div>
+
+          <!-- Boîte vocale -->
+          <div class="annexe-card">
+            <div class="annexe-header">
+              <div class="annexe-icon"><i data-lucide="voicemail" style="width:16px;height:16px;"></i></div>
+              <div class="annexe-title">Script boîte vocale</div>
+            </div>
+            <div class="annexe-body">
+              <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px;">
+                <span class="annexe-timing">20 sec</span>
+                <span class="annexe-timing-label">maximum — jamais plus</span>
+              </div>
+              <div class="annexe-option">
+                <div class="opt-label">Verbatim</div>
+                <div class="script-text">"Bonjour [Prénom], c'est Jonathan de Uccello Labs — [numéro].
+
+Je travaille avec des consultants digitaux indépendants qui cherchent à ajouter du MRR à leurs missions.
+
+Je vous rappelle [jour et créneau précis] — ou vous pouvez me rappeler au [numéro]."</div>
+              </div>
+              <ul style="font: 400 .75rem/1.6 var(--fb); color: var(--text-muted); padding-left: 16px; margin-top: 8px;">
+                <li>Répéter le numéro clairement</li>
+                <li>Énoncer QUAND vous rappellerez</li>
+                <li>Ton calme, confiant, pas pressé</li>
+                <li>Jamais plus de 2 messages par prospect</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 7. Tableau objections -->
+      <div class="content-section">
+        <div class="section-label">Objections fréquentes — Réponses DISC adaptées</div>
+        <div class="obj-table-wrap">
+          <table class="obj-table">
+            <thead>
+              <tr>
+                <th>Objection</th>
+                <th>Réponse verbatim</th>
+                <th>Durée</th>
+                <th>Profils</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="obj-trigger">"Pas intéressé"</td>
+                <td class="obj-reply">Je comprends. Le MRR — c'est résolu chez vous ou ça ne rentre pas dans votre modèle ?</td>
+                <td class="obj-timing">10 sec</td>
+                <td><div class="disc-chips"><span class="disc-chip D">D</span><span class="disc-chip C">C</span></div></td>
+              </tr>
+              <tr>
+                <td class="obj-trigger">"Envoyez un email"</td>
+                <td class="obj-reply">Je vais le faire. Juste pour personnaliser : sortir du TJM, c'est votre priorité ce trimestre ?</td>
+                <td class="obj-timing">15 sec</td>
+                <td><div class="disc-chips"><span class="disc-chip D">D</span><span class="disc-chip I">I</span><span class="disc-chip S">S</span><span class="disc-chip C">C</span></div></td>
+              </tr>
+              <tr>
+                <td class="obj-trigger">"Pas le bon moment"</td>
+                <td class="obj-reply">Quand ce serait le bon moment — ce trimestre ou plutôt après [date] ?</td>
+                <td class="obj-timing">15 sec</td>
+                <td><div class="disc-chips"><span class="disc-chip S">S</span><span class="disc-chip I">I</span></div></td>
+              </tr>
+              <tr>
+                <td class="obj-trigger">"On fait déjà avec Make/n8n"</td>
+                <td class="obj-reply">Je comprends. Notre différence : l'IA tourne chez le client, vos clients posent leurs questions en chat — ils n'ont rien à configurer, pas besoin d'un technicien. La souveraineté, c'est un sujet pour vos clients ?</td>
+                <td class="obj-timing">20 sec</td>
+                <td><div class="disc-chips"><span class="disc-chip C">C</span><span class="disc-chip D">D</span></div></td>
+              </tr>
+              <tr>
+                <td class="obj-trigger">"Je ne suis pas assez tech"</td>
+                <td class="obj-reply">C'est exactement ce que disent nos meilleurs revendeurs avant de commencer. Vous connaissez Make — vous êtes déjà dans le top 10% des profils. Votre rôle : comprendre le problème client, pas debugger du code. Le support N2 reste chez nous.</td>
+                <td class="obj-timing">25 sec</td>
+                <td><div class="disc-chips"><span class="disc-chip S">S</span><span class="disc-chip C">C</span></div></td>
+              </tr>
+              <tr>
+                <td class="obj-trigger">"Je suis en réunion"</td>
+                <td class="obj-reply">Aucun problème. Quand est-ce que je peux vous rappeler — aujourd'hui ou demain ?</td>
+                <td class="obj-timing">5 sec</td>
+                <td><div class="disc-chips"><span class="disc-chip D">D</span><span class="disc-chip I">I</span><span class="disc-chip S">S</span><span class="disc-chip C">C</span></div></td>
+              </tr>
+              <tr>
+                <td class="obj-trigger">"Rappelez dans 3 mois"</td>
+                <td class="obj-reply">Je note. Pour que mon rappel soit utile : qu'est-ce qui se passera dans 3 mois ?</td>
+                <td class="obj-timing">15 sec</td>
+                <td><div class="disc-chips"><span class="disc-chip D">D</span><span class="disc-chip C">C</span></div></td>
+              </tr>
+              <tr>
+                <td class="obj-trigger">"Et si vous disparaissez ?"</td>
+                <td class="obj-reply">Le contrat revendeur intègre des clauses de continuité. Et en mode on-premise, l'infrastructure appartient à votre client — il ne dépend pas de nous pour fonctionner.</td>
+                <td class="obj-timing">20 sec</td>
+                <td><div class="disc-chips"><span class="disc-chip C">C</span></div></td>
+              </tr>
+              <tr>
+                <td class="obj-trigger">"Comment vous avez eu mon numéro ?"</td>
+                <td class="obj-reply">LinkedIn — votre profil correspondait exactement à ce que je cherche : consultant transformation digitale, à l'aise avec les outils SaaS.</td>
+                <td class="obj-timing">10 sec</td>
+                <td><div class="disc-chips"><span class="disc-chip C">C</span></div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 8. Métriques -->
+      <div class="content-section">
+        <div class="section-label">Métriques de suivi — Volume 5–20 calls / semaine</div>
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-label">Taux de décroché</div>
+            <div class="metric-value">35–45%</div>
+            <div class="metric-def">Appels décrochés / tentatives</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Taux d'engagement</div>
+            <div class="metric-value">55–65%</div>
+            <div class="metric-def">Prospects qui restent &gt; 30 sec</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Conversion RDV</div>
+            <div class="metric-value">8–15%</div>
+            <div class="metric-def">RDV pris / appels décrochés</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Durée moyenne</div>
+            <div class="metric-value">2–3 min</div>
+            <div class="metric-def">Si décroché</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Calls pour 1 RDV</div>
+            <div class="metric-value">15–25</div>
+            <div class="metric-def">Tentatives nécessaires</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Boîtes vocales max</div>
+            <div class="metric-value">2</div>
+            <div class="metric-def">Par prospect — ne pas dépasser</div>
+          </div>
+        </div>
+        <p style="font: 400 .8125rem/1.55 var(--fb); color: var(--text-muted); margin-top: 14px;">
+          Repère : sur 10 appels décrochés → 1 à 1,5 RDV avec un script calibré DISC. Dès la semaine 2, noter quelle objection revient le plus — ajuster le Bloc 3 en priorité.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">◆ Uccello Hub</span>
+        <span>Document interne — usage privé uniquement</span>
+        <span>v1.0 · 3 mai 2026 · Uccello Labs</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    lucide.createIcons();
+
+    // DISC tabs — script principal
+    document.querySelectorAll('.disc-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var disc = this.dataset.disc;
+        var target = this.dataset.target;
+        var tabGroup = this.closest('.disc-tabs');
+        // Deactivate all tabs in this group
+        tabGroup.querySelectorAll('.disc-tab').forEach(function(t) { t.classList.remove('active'); });
+        this.classList.add('active');
+        // Hide all panels for this group
+        document.querySelectorAll('#disc-main-D, #disc-main-I, #disc-main-S, #disc-main-C').forEach(function(p) {
+          p.classList.remove('active');
+        });
+        // Show selected panel
+        var panel = document.getElementById('disc-main-' + disc);
+        if (panel) panel.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

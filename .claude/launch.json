@@ -12,6 +12,12 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "8788", "--directory", "projects/jfvilm/website"],
       "port": 8788
+    },
+    {
+      "name": "ennovateur-website",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8789", "--directory", "projects/ennovateur/website"],
+      "port": 8789
     }
   ]
 }

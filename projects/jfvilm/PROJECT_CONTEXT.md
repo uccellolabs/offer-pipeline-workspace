@@ -1,140 +1,121 @@
-# PROJECT_CONTEXT.md — Contexte du projet
+# PROJECT_CONTEXT.md — Jean-François VILM
 
-> Remplis ce fichier AVANT de lancer les agents du pipeline.
-> Sans contexte précis, les agents travaillent dans l'abstrait.
+> Pré-rempli par /offer-orchestrator (2026-05-03) depuis IDEA_BRIEF + questionnaire.
+> À affiner par JF VILM si des éléments sont inexacts.
 
 ---
 
 ## L'entreprise
 
-**Nom** — [ex : Acme SAS]
-**Secteur** — [ex : Édition SaaS B2B]
-**Description (2 phrases)** — [ce que fait l'entreprise, pour qui, depuis quand]
-**Stade** — [ ] Idée  [ ] MVP  [ ] Traction  [ ] Croissance établie
+**Nom** — Jean-François VILM (indépendant / freelance)
+**Secteur** — Conseil digital & gestion de projet
+**Description** — Jean-François VILM accompagne les entreprises dans leurs projets digitaux en jouant le rôle de pont entre la stratégie métier et les prestataires techniques. Il travaille actuellement chez e-novateur en tant qu'intermédiaire clients ↔ équipes de développement.
+**Stade** — [x] Idée
 
 ---
 
 ## Ressources disponibles
 
-**Équipe commerciale** — [ex : Solo fondateur / 1 commercial / équipe de 3]
-**Budget acquisition** — [ ] Bootstrapped  [ ] <2k€/mois  [ ] 2-10k€  [ ] >10k€
-**Temps vente** — [ex : 2 j/semaine / temps plein / externalisé]
-**Compétences vente** — [ex : Technique fort, vente faible / Ex-commercial]
+**Équipe commerciale** — Solo fondateur
+**Budget acquisition** — [x] Bootstrapped
+**Temps vente** — À définir (activité complémentaire en démarrage)
+**Compétences vente** — Technique fort, vente en développement
 
 ---
 
 ## Compétences + Orientations
 
-> Utilisé par `/idea-finder` pour filtrer les opportunités business.
-
 **Compétences techniques fortes** (ordre décroissant)
-- [ex : Développement web full-stack — 10 ans d'expérience]
-- [ex : Architecture SaaS B2B — 5 ans]
-- [ex : Intégrations API & automatisation]
+- Gestion de projet digital — pratique quotidienne chez e-novateur
+- Prompt engineering IA — niveau expert, au-dessus de la moyenne du marché
+- Vision produit (pont tech ↔ business) — force différenciante rare chez les dev
+- Création d'applications et sites web rapide (grâce à l'IA)
+- Structuration d'offres et cahiers des charges
+- Diagnostic de projets en difficulté ("creuse pour comprendre ce qui bloque vraiment")
 
 **Type de projet préféré**
-[ ] SaaS B2B récurrent
-[ ] Service / prestation haut de gamme
-[ ] Produit digital one-shot
-[ ] Hybride
+[x] Service / prestation haut de gamme
 
-**Marché cible préféré** (par ordre de priorité)
-1. [ex : PME françaises 5-50 salariés]
-2. [ex : TPE / indépendants]
-3. [ex : Cabinets conseil / experts-comptables]
+**Marché cible**
+1. PME françaises 5–50 salariés avec un projet digital en cours ou en crise prestataire
+2. TPE / artisans ayant subi une arnaque ou livraison défaillante
+3. Dirigeants sans DSI interne face à un prestataire qui les prend en otage
 
-**Ce que vous REFUSEZ de construire** (même si rentable)
-- [ex : Surveillance employés]
-- [ex : Crypto / gambling]
-- [ex : SaaS avec obligations RGPD santé]
+**Ce que JF VILM REFUSE de construire**
+- Prestation sans périmètre défini (scope creep identifié comme pattern Ikigai)
+- Missions de sous-traitance technique pure (développement)
+- Relation client sans contrat clair et livrables bornés
 
-**Complexité technique acceptable** — [X/10]
-*(1 = ultra-simple, livrer vite / 10 = R&D sur 2 ans)*
+**Complexité technique acceptable** — 6/10
+*(Accompagnement et coordination, pas R&D longue durée)*
 
 ---
 
 ## Contraintes
 
-**Géographiques** — [France / Francophonie / International]
-**Sectorielles** — [Focus PME / Éviter public / Exclure retail]
-**Légales / RGPD** — [RGPD critique / Données santé / Aucune]
-**Ce que vous ne voulez PAS faire** — [Pas de vente directe / Pas de freemium]
+**Géographiques** — France (priorité Île-de-France + distanciel national)
+**Sectorielles** — PME tous secteurs, éviter grands groupes (DSI internes)
+**Légales / RGPD** — Standard (pas de données sensibles santé ou finances)
+**Ce que JF ne veut PAS faire** — Exécution technique pure, sous-traitance dev
 
 ---
 
 ## Stack technique / outils
 
-**Outils utilisés en interne** — [CRM, ERP, analytics, code...]
-**Intégrations possibles avec l'offre** — [APIs, connecteurs disponibles]
-**Dépendances tierces critiques** — [ex : hébergeur cloud, prestataire paiement]
+**Outils utilisés en interne** — IA (Claude, ChatGPT niveau expert), outils de gestion projet, création rapide d'apps/sites
+**Intégrations possibles** — Tout ce qui aide à livrer vite (no-code, IA générative)
 
 ---
 
 ## Design System
 
-> Utilisé par `/pitch-deck` (HTML) et `/study-website`.
-> Si absent, les agents proposent 3 thèmes prédéfinis.
+> À remplir par JF VILM si identité visuelle existante.
+> Par défaut : thème "Trust & Calm" (bleu marine + blanc + accent vert confiance)
 
 **Identité visuelle**
-- Nom de marque : [ex : MarqueProduit]
-- Logo : [chemin vers logo.svg ou logo.png — relatif au projet]
-- Tagline : [ex : "Slogan orienté bénéfice client"]
+- Nom de marque : Jean-François VILM (ou nom commercial à définir)
+- Logo : non défini
+- Tagline : "Votre directeur de projet digital — côté client, toujours."
 
 **Palette de couleurs (HEX)**
-- Primaire : [#1E2761]
-- Secondaire : [#CADCFC]
-- Accent : [#FFFFFF]
-- Texte principal : [#1a1a1a]
-- Texte muted : [#6b7280]
-- Background : [#ffffff]
-- Background alternatif : [#f9fafb]
+- Primaire : #1B3A5C
+- Secondaire : #E8F0FE
+- Accent : #2563EB
+- Texte principal : #1a1a1a
+- Texte muted : #6b7280
+- Background : #ffffff
+- Background alternatif : #f8fafc
 
-**Typographies (Google Fonts recommandées)**
-- Header : [ex : Inter, Space Grotesk, DM Serif Display, Georgia]
-- Body : [ex : Inter, DM Sans, Source Sans Pro]
-- Poids utilisés : [ex : 400, 500, 600, 700]
+**Typographies**
+- Header : Inter
+- Body : Inter
+- Poids : 400, 500, 600, 700
 
-**Motif visuel signature**
-[ex : icônes en cercles colorés / coins arrondis 8px / trait d'accent latéral 4px]
-
-**Ton visuel**
-[Executive / Bold Modern / Trust & Calm / Editorial / Tech Premium / Custom]
-
-**Conventions de design**
-- Style des boutons : [arrondis / carrés / outline]
-- Style des cards : [shadow / border / flat]
-- Largeur max contenu : [ex : 1200px]
-- Espacement de base : [ex : 8px / 16px / 24px / 32px / 48px / 64px]
+**Ton visuel** — Trust & Calm (senior, sobre, crédible)
 
 ---
 
 ## Existant commercial
 
-**Clients actuels** — [Nombre, profil, secteur]
-**Canaux déjà testés** — [Ce qui a été essayé, résultats]
-**Réseau existant** — [Contacts LinkedIn, partenaires potentiels]
+**Clients actuels** — 0 en propre (expérience via e-novateur)
+**Canaux testés** — Aucun en propre (démarrage)
+**Réseau existant** — Réseau professionnel e-novateur, LinkedIn à activer
 
 ---
 
-## Offres existantes
-
-> Remplir si tu as déjà une offre en production sur ce projet.
+## Offre cible (issue de IDEA_BRIEF)
 
 **Offre principale**
-- Nom — [ex : Offre coaching + outil]
-- Description (2 phrases) — [...]
-- Prix actuel — [ex : 299€/mois + 500€ setup]
-- Clients actuels — [nombre, profil]
-- Ce qui fonctionne — [retours positifs]
-- Ce qui frotte — [objections fréquentes, friction]
+- Nom : Direction de Projet Digital Externalisée (fractional DPD)
+- Description : Accompagnement des PME en tant que directeur de projet côté client — cadrage besoin, rédaction cahier des charges, challenge prestataire, validation livrables, protection des intérêts du client.
+- Prix cible : 1 500–3 000 €/mois selon charge | Mission type : 3–6 mois
+- Clients actuels : 0 (lancement)
+
+**ICP retenu (décision orchestrateur) :** PME en crise avec prestataire actuel (urgence) — douleur déjà ressentie, cycle de vente court, WTP immédiat.
 
 ---
 
 ## Ambition
 
-**Objectif 12 mois** — [ex : 10 partenaires / 50 clients / 100k€ ARR]
-**Objectif 3 ans** — [ex : Sortir de l'exécution solo / Équipe 5 / leader sur un segment]
-
----
-
-> Une fois rempli, lance `/idea-finder` ou `/offer-cadrage` pour démarrer.
+**Objectif 12 mois** — 2–3 clients récurrents, MRR 4 000–6 000 €, sortir de la dépendance e-novateur
+**Objectif 3 ans** — Positionnement expert reconnu, offre scalée (formation ou groupe de suivi), réseau de prescripteurs actif
