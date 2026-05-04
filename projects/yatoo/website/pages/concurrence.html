@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Concurrence — YATOO Étude</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231E2761'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-weight='700' font-size='14' fill='white'>Y</text></svg>">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="/index.html" class="nav__logo">
+        <div class="nav__logo-mark"><span>Y</span></div>
+        <span class="nav__logo-text">YATOO</span>
+        <span class="nav__badge">Étude interne</span>
+      </a>
+      <div class="nav__links">
+        <a href="/index.html" class="nav__link">Accueil</a>
+        <a href="/pages/offre.html" class="nav__link">Offre</a>
+        <a href="/pages/persona.html" class="nav__link">Persona</a>
+        <a href="/pages/marche.html" class="nav__link">Marché</a>
+        <a href="/pages/concurrence.html" class="nav__link nav__link--active">Concurrence</a>
+        <a href="/pages/pricing.html" class="nav__link">Pricing</a>
+        <a href="/pages/viabilite.html" class="nav__link">Viabilité</a>
+        <a href="/pages/contact.html" class="nav__link">Contact</a>
+      </div>
+      <button class="nav__hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav__mobile">
+  <a href="/index.html" class="nav__link">Accueil</a>
+  <a href="/pages/offre.html" class="nav__link">Offre</a>
+  <a href="/pages/persona.html" class="nav__link">Persona</a>
+  <a href="/pages/marche.html" class="nav__link">Marché</a>
+  <a href="/pages/concurrence.html" class="nav__link">Concurrence</a>
+  <a href="/pages/pricing.html" class="nav__link">Pricing</a>
+  <a href="/pages/viabilite.html" class="nav__link">Viabilité</a>
+  <a href="/pages/contact.html" class="nav__link">Contact</a>
+</div>
+
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">Sources : optisigns.com, yodeck.com, cenareo.com, Capterra 2026</p>
+    <h1>Cartographie concurrentielle</h1>
+    <p class="hero__desc">Zone différenciante YATOO : bundle hardware + SaaS + service français. Aucun concurrent ne couvre les 3 simultanément.</p>
+    <div style="margin-top:var(--sp-6)"><span class="badge badge--success">Zone différenciante : GO solide</span></div>
+  </div>
+</section>
+
+<!-- Positionnement -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">Zone gagnée clairement</p>
+      <h2>Le positionnement différenciant</h2>
+    </div>
+    <div class="quote quote--amber" style="max-width:860px;font-size:1.05rem">
+      <p>"Contrairement à OptiSigns ou Yodeck qui vous demandent de choisir votre propre matériel et de le configurer vous-même, YATOO est la seule solution tout-en-un qui livre votre panneau LED pré-configuré, opérationnel en 5 minutes sans technicien, avec une mise à jour de contenu en 90 secondes depuis votre téléphone et un support français dédié."</p>
+    </div>
+    <div class="grid grid-3 mt-8" style="max-width:900px">
+      <div class="card card--highlight fade-in">
+        <div style="font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--amber);margin-bottom:var(--sp-3)">①</div>
+        <h4>Zéro friction à l'installation</h4>
+        <p style="font-size:0.875rem">QR code → panneau opérationnel en 5 min. Aucun concurrent ne peut en dire autant car ils ne maîtrisent pas le hardware.</p>
+      </div>
+      <div class="card card--highlight fade-in">
+        <div style="font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--amber);margin-bottom:var(--sp-3)">②</div>
+        <h4>Un seul interlocuteur</h4>
+        <p style="font-size:0.875rem">Panneau en panne ? Logiciel qui bug ? Un seul numéro, une seule facture. Avec Yodeck/OptiSigns, deux problèmes séparés à gérer.</p>
+      </div>
+      <div class="card card--highlight fade-in">
+        <div style="font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--amber);margin-bottom:var(--sp-3)">③</div>
+        <h4>Non-technicien en français</h4>
+        <p style="font-size:0.875rem">Flow Typeform une question à la fois, en français, support France. Yodeck et OptiSigns sont conçus par des anglophones pour un marché mondial.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Matrice -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">Matrice de positionnement</p>
+      <h2>YATOO vs concurrents</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Critère (valeurs persona)</th>
+            <th style="background:var(--amber);color:#1a1a1a">YATOO</th>
+            <th>OptiSigns</th>
+            <th>Yodeck</th>
+            <th>Cenareo</th>
+            <th>Ne rien faire</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Bundle hardware + SaaS (1 vendeur)</td>
+            <td><span class="check">✓ Unique</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="partial">CMS natif</span></td>
+          </tr>
+          <tr>
+            <td>UX mobile-first &lt; 90 secondes</td>
+            <td><span class="check">✓ Objectif</span></td>
+            <td><span class="partial">⚠ Correct</span></td>
+            <td><span class="partial">⚠ Correct</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+          </tr>
+          <tr>
+            <td>Setup &lt; 5 min sans technicien</td>
+            <td><span class="check">✓ QR code</span></td>
+            <td><span class="partial">⚠ 15–30 min</span></td>
+            <td><span class="partial">⚠ 15–30 min</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+          </tr>
+          <tr>
+            <td>IA génération image brandée</td>
+            <td><span class="check">✓ Prévu</span></td>
+            <td><span class="check">✓ Fort</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="partial">⚠ Partiel</span></td>
+            <td><span class="cross">✗</span></td>
+          </tr>
+          <tr>
+            <td>Templates métiers FR (resto, pharma, immo)</td>
+            <td><span class="check">✓ Prévu</span></td>
+            <td><span class="check">✓ Fort (1000+)</span></td>
+            <td><span class="partial">⚠ Partiel</span></td>
+            <td><span class="partial">⚠ Partiel</span></td>
+            <td><span class="cross">✗</span></td>
+          </tr>
+          <tr>
+            <td>Prix d'entrée</td>
+            <td>19 €/mois</td>
+            <td>~9 €/mois</td>
+            <td><span class="check">0 € (1 écran)</span></td>
+            <td>Sur devis</td>
+            <td>0 €</td>
+          </tr>
+          <tr>
+            <td>Support français / données UE</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="check">✓</span></td>
+            <td>N/A</td>
+          </tr>
+          <tr>
+            <td>Hardware agnostic</td>
+            <td><span class="cross">✗ Coworker only</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Notoriété / reviews</td>
+            <td><span class="cross">⬜ Zéro</span></td>
+            <td><span class="check">✓ Forte</span></td>
+            <td><span class="check">✓ 7 000+ avis</span></td>
+            <td><span class="check">✓ FR</span></td>
+            <td>N/A</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Battlecards -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">Ressources terrain</p>
+      <h2>Battlecards</h2>
+      <p>Cliquer sur un concurrent pour déplier la battlecard.</p>
+    </div>
+    <div style="max-width:860px">
+
+      <!-- OptiSigns -->
+      <div class="battlecard">
+        <div class="battlecard__header">
+          <h4>OptiSigns — 10 $/mois — USA — Leader volume TPE</h4>
+          <svg class="battlecard__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+        </div>
+        <div class="battlecard__body">
+          <div class="battlecard__grid">
+            <div class="battlecard__section">
+              <h5>Forces réelles</h5>
+              <ul>
+                <li>1 000+ templates gratuits (resto, retail, pharma, immo)</li>
+                <li>AI Designer : génération d'image depuis prompt texte</li>
+                <li>Multi-écrans, scheduling, 150+ apps intégrées</li>
+                <li>Prix agressif à 10 $/mois</li>
+              </ul>
+            </div>
+            <div class="battlecard__section">
+              <h5>Faiblesses documentées</h5>
+              <ul>
+                <li>Hardware agnostic = client doit choisir, acheter et configurer son écran</li>
+                <li>Support principalement anglophone</li>
+                <li>Interface riche = courbe d'apprentissage non nulle</li>
+                <li>Données hébergées aux USA (RGPD)</li>
+                <li>Double interlocuteur (hardware + software)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="battlecard__response">
+            <p><strong>Comment répondre :</strong> "OptiSigns est un excellent logiciel — mais c'est uniquement du logiciel. Vous devez acheter votre écran séparément, le configurer, gérer les mises à jour Android vous-même, et appeler le support en anglais si ça plante. Avec YATOO, votre panneau arrive prêt à l'emploi. Un QR code, 5 minutes, vous êtes live. Et si quelque chose ne va pas, vous appelez en France."</p>
+          </div>
+          <p class="battlecard__question">Question qui fait réfléchir : "Quand votre écran ne s'allumera pas un matin, vous appellerez qui en premier — OptiSigns (software) ou le fabricant de votre TV (hardware) ?"</p>
+          <div class="battlecard__decisive">Argument décisif : YATOO = un seul vendeur, une seule facture, un seul support. OptiSigns = deux problèmes séparés à gérer vous-même.</div>
+        </div>
+      </div>
+
+      <!-- Yodeck -->
+      <div class="battlecard">
+        <div class="battlecard__header">
+          <h4>Yodeck — 0 $ (1 écran) / 10 $/mois — Grèce — Leader notoriété</h4>
+          <svg class="battlecard__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+        </div>
+        <div class="battlecard__body">
+          <div class="battlecard__grid">
+            <div class="battlecard__section">
+              <h5>Forces réelles</h5>
+              <ul>
+                <li>Plan gratuit permanent pour 1 écran (barrière à zéro)</li>
+                <li>7 000+ avis Google Play — crédibilité massive</li>
+                <li>Compatibilité maximale (Android, Windows, Fire Stick, smart TV…)</li>
+                <li>Hardware offert avec abonnement annuel (Raspberry Pi)</li>
+              </ul>
+            </div>
+            <div class="battlecard__section">
+              <h5>Faiblesses documentées</h5>
+              <ul>
+                <li>Pas d'IA de génération d'image native</li>
+                <li>Interface web — pas de flow simplifié mobile-first</li>
+                <li>Support principalement anglais</li>
+                <li>Données hors UE par défaut</li>
+                <li>Plan gratuit limité à 1 écran</li>
+              </ul>
+            </div>
+          </div>
+          <div class="battlecard__response">
+            <p><strong>Comment répondre :</strong> "Le plan gratuit Yodeck, c'est 1 écran, fonctionnalités de base, pas d'IA, support anglais. Vous passez à 10 $/mois au 2e écran. L'interface est conçue pour des techniciens — pas pour mettre à jour le plat du jour en 60 secondes depuis un téléphone. Chez YATOO, l'essai est gratuit 14 jours sur notre vrai produit, et l'IA est incluse dès le départ."</p>
+          </div>
+          <p class="battlecard__question">Question qui fait réfléchir : "Vous avez essayé de configurer Yodeck sur votre écran vous-même ? Combien de temps ça vous a pris ?"</p>
+          <div class="battlecard__decisive">Argument décisif : Yodeck n'a pas d'IA de génération d'image native. YATOO génère un visuel brandé en &lt; 30s depuis une photo de plat. Pour un restaurateur qui change le menu chaque matin, c'est la différence entre 2 minutes et 20 minutes.</div>
+        </div>
+      </div>
+
+      <!-- Cenareo -->
+      <div class="battlecard">
+        <div class="battlecard__header">
+          <h4>Cenareo — Sur devis — France (Toulouse) — Référence enterprise FR</h4>
+          <svg class="battlecard__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+        </div>
+        <div class="battlecard__body">
+          <div class="battlecard__grid">
+            <div class="battlecard__section">
+              <h5>Forces réelles</h5>
+              <ul>
+                <li>Éditeur français — RGPD natif, support français, données UE</li>
+                <li>4.9/5 Capterra — satisfaction client exceptionnelle</li>
+                <li>Clients : SNCF, E.Leclerc, Leroy Merlin, AXA, Accor, EDF</li>
+                <li>Fonctionnalités enterprise : scheduling, multi-équipes, workflows</li>
+              </ul>
+            </div>
+            <div class="battlecard__section">
+              <h5>Faiblesses documentées</h5>
+              <ul>
+                <li>Pricing sur devis = prix enterprise hors budget TPE</li>
+                <li>Positionné PME/Entreprise, pas TPE commerçant</li>
+                <li>Pas de bundle hardware</li>
+                <li>Interface complexe pour non-technicien</li>
+                <li>Peu orienté mobile-first</li>
+              </ul>
+            </div>
+          </div>
+          <div class="battlecard__response">
+            <p><strong>Comment répondre :</strong> "Cenareo est excellent pour gérer 50 écrans dans 20 agences d'une grande enseigne. Pour une pharmacie avec 1–3 panneaux, c'est sur-dimensionné et probablement hors budget. YATOO est dimensionné pour vous : de 1 à 20 panneaux, interface simple, tarif lisible, même niveau de conformité RGPD."</p>
+          </div>
+          <p class="battlecard__question">Question qui fait réfléchir : "Combien vous propose Cenareo par mois pour 2 panneaux ? Et est-ce que vous avez eu un prix sans appeler un commercial ?"</p>
+          <div class="battlecard__decisive">Argument décisif : Cenareo ne publie pas ses tarifs — signal de pricing enterprise. YATOO affiche un tarif clair, un essai sans CB, et un setup autonome.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Angles morts -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">Honnêteté stratégique</p>
+      <h2>Où les concurrents sont meilleurs</h2>
+    </div>
+    <div class="table-wrap" style="max-width:860px">
+      <table>
+        <thead>
+          <tr><th>Faiblesse YATOO</th><th>Concurrent plus fort</th><th>Reframing</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Plan gratuit inexistant</td>
+            <td>Yodeck (gratuit 1 écran)</td>
+            <td>"L'essai 14 jours sans CB vous permet de tout tester. Après, vous payez un service qui marche."</td>
+          </tr>
+          <tr>
+            <td>Hardware Coworker only</td>
+            <td>Tous (agnostic)</td>
+            <td>"Vous choisissez n'importe quel écran avec nos concurrents. Avec nous, vous choisissez une solution."</td>
+          </tr>
+          <tr>
+            <td>Notoriété zéro</td>
+            <td>Tous</td>
+            <td>"YATOO existe depuis 2001. Nous gérons des projets pour Airbus et Dassault. Nous ne sommes pas une startup."</td>
+          </tr>
+          <tr>
+            <td>Peu de templates au lancement</td>
+            <td>OptiSigns (1000+)</td>
+            <td>"Nos templates sont conçus par des experts de votre secteur (restauration, pharmacie, immobilier) — pas des génériques."</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <span class="footer__logo">YATOO</span>
+      <span>Étude générée le 2026-05-04 — Pipeline offer-pipeline v1.0</span>
+      <a href="/login.html" onclick="sessionStorage.removeItem('yatoo_auth')">Se déconnecter</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
