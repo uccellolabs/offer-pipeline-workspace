@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Cahier des charges MVP | Uccello Labs × YATOO</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23F59E0B'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-weight='700' font-size='14' fill='%230F172A'>U</text></svg>">
+  <style>
+    .cdc-section {
+      padding: var(--sp-12) 0;
+      border-bottom: 1px solid var(--slate-200);
+    }
+    .cdc-section:last-child { border-bottom: none; }
+
+    .cdc-section h2 {
+      font-size: 1.25rem;
+      margin-bottom: var(--sp-6);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+    }
+
+    .cdc-section h2 .section-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--amber);
+      color: var(--slate-900);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: var(--sp-4) var(--sp-6);
+      align-items: baseline;
+      padding: var(--sp-3) 0;
+      border-bottom: 1px solid var(--slate-100);
+      font-size: 0.9375rem;
+    }
+
+    .field-row:last-child { border-bottom: none; }
+
+    .field-label {
+      font-weight: 600;
+      color: var(--slate-500);
+      font-size: 0.8125rem;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .field-value { color: var(--slate-800); }
+
+    .flow-step {
+      display: flex;
+      gap: var(--sp-4);
+      align-items: flex-start;
+      padding: var(--sp-4) 0;
+      border-bottom: 1px solid var(--slate-100);
+    }
+    .flow-step:last-child { border-bottom: none; }
+
+    .flow-step__num {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--amber-dark);
+      min-width: 28px;
+    }
+
+    .flow-step__content h4 { margin-bottom: var(--sp-2); font-size: 0.9375rem; }
+    .flow-step__content p  { font-size: 0.875rem; color: var(--slate-500); }
+
+    .module-row {
+      display: grid;
+      grid-template-columns: 36px 200px 1fr auto;
+      gap: var(--sp-3) var(--sp-5);
+      align-items: center;
+      padding: var(--sp-4) 0;
+      border-bottom: 1px solid var(--slate-100);
+      font-size: 0.9375rem;
+    }
+
+    .module-row:last-child { border-bottom: none; }
+    .module-row__num { font-weight: 700; color: var(--slate-400); font-size: 0.8125rem; }
+    .module-row__name { font-weight: 600; }
+    .module-row__desc { color: var(--slate-500); font-size: 0.875rem; }
+
+    .status-pill {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .status-pill--a   { background: #DBEAFE; color: #1E40AF; }
+    .status-pill--ab  { background: var(--green-light); color: #065F46; }
+    .status-pill--out { background: var(--slate-100); color: var(--slate-400); }
+
+    .decision-row {
+      display: flex;
+      gap: var(--sp-4);
+      align-items: flex-start;
+      padding: var(--sp-4) 0;
+      border-bottom: 1px solid var(--slate-100);
+      font-size: 0.9375rem;
+    }
+    .decision-row:last-child { border-bottom: none; }
+    .decision-row__icon { font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+    .decision-row__label { font-weight: 600; margin-bottom: var(--sp-1); }
+    .decision-row__val { font-size: 0.875rem; color: var(--slate-500); }
+
+    @media (max-width: 768px) {
+      .field-row      { grid-template-columns: 1fr; gap: var(--sp-1); }
+      .module-row     { grid-template-columns: 28px 1fr; }
+      .module-row__desc, .module-row__name + .status-pill { grid-column: 2; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="/index.html" class="nav__logo">
+        <div class="nav__logo-mark">U</div>
+        <span>Uccello Labs</span>
+        <span class="nav__badge">Proposition commerciale</span>
+      </a>
+      <div class="nav__links">
+        <a href="/index.html#lecture" class="nav__link">Compréhension</a>
+        <a href="/index.html#perimetre" class="nav__link">Périmètre</a>
+        <a href="/index.html#planning" class="nav__link">Planning</a>
+        <a href="/index.html#budget" class="nav__link">Budget</a>
+        <a href="/cdc.html" class="nav__link" style="color:var(--slate-900);font-weight:600">CdC</a>
+      </div>
+      <a href="https://calendar.app.google/SuqHzLZ9sNQvdGtP6" target="_blank" rel="noopener noreferrer" class="nav__cta">Démarrer →</a>
+      <button class="nav__hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav__mobile">
+  <a href="/index.html#lecture" class="nav__link">Compréhension</a>
+  <a href="/index.html#perimetre" class="nav__link">Périmètre</a>
+  <a href="/index.html#planning" class="nav__link">Planning</a>
+  <a href="/index.html#budget" class="nav__link">Budget</a>
+  <a href="/cdc.html" class="nav__link">CdC</a>
+</div>
+
+<!-- Hero -->
+<section class="hero" style="padding-bottom:var(--sp-12)">
+  <div class="container">
+    <div class="hero__tag">✦ Cahier des charges · MVP · Mai 2026</div>
+    <h1>Cahier des charges <em>mis à jour</em></h1>
+    <p class="hero__desc">Spécifications fonctionnelles et techniques du MVP YATOO. Document de référence Uccello Labs × YATOO, v1.1.</p>
+    <div class="tag-row mt-6">
+      <span class="badge badge--amber">Basé sur CdC v1.0, Avril 2026</span>
+      <span class="badge badge--green">Mis à jour, Mai 2026</span>
+      <span class="badge badge--slate">Confidentiel</span>
+    </div>
+  </div>
+</section>
+
+<div class="container" style="max-width:900px;padding-top:var(--sp-12);padding-bottom:var(--sp-20)">
+
+  <!-- 1. Contexte -->
+  <div class="cdc-section">
+    <h2><span class="section-num">1</span> Contexte du projet</h2>
+    <div>
+      <div class="field-row">
+        <span class="field-label">Client</span>
+        <span class="field-value">YATOO SAS, éditeur qui commercialisera la solution auprès des TPE</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Développeur</span>
+        <span class="field-value">Uccello Labs, conception et développement de la plateforme SaaS</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Stade</span>
+        <span class="field-value">MVP : départ à zéro (aucun client, aucune base installée)</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Marché cible</span>
+        <span class="field-value">TPE commerçants français : restaurateurs (priorité 1), pharmaciens (priorité 2), agents immobiliers (priorité 3)</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Objectif MVP</span>
+        <span class="field-value">Livrable, testable terrain, générateur de revenus. Valider l'usage, le WTP et le churn à M3 sur 5 clients pilotes avant lancement grand public.</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Livraison</span>
+        <span class="field-value">J+14 après signature : environnement staging opérationnel + APK Android</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Stack technique -->
+  <div class="cdc-section">
+    <h2><span class="section-num">2</span> Stack technique retenue</h2>
+    <div>
+      <div class="field-row">
+        <span class="field-label">Backend</span>
+        <span class="field-value">Laravel 13 · API REST + WebSocket (Laravel Reverb)</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Frontend web</span>
+        <span class="field-value">React 19 via Inertia.js · interface responsive mobile-first</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">App panneau</span>
+        <span class="field-value">Flutter / Dart · Android 9/11, mode kiosque plein écran. Distribution via APK (installation manuelle, sans Play Store).</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Base de données</span>
+        <span class="field-value">PostgreSQL (relationnel) + Redis (WebSocket, cache, files d'attente)</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Stockage fichiers</span>
+        <span class="field-value">S3-compatible (Scaleway Object Storage) : visuels, vidéos, assets branding</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">IA génération image</span>
+        <span class="field-value">API Nano Banana : texte → image brandée. <strong>Option A :</strong> 2 templates fixes. <strong>Option B :</strong> formulaire adaptatif avec champs auto par template.</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Authentification</span>
+        <span class="field-value">Laravel Sanctum · tokens API + session web</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Infrastructure</span>
+        <span class="field-value">Cloud souverain UE (conformité RGPD) : Scaleway ou OVHcloud</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Périmètre MVP -->
+  <div class="cdc-section">
+    <h2><span class="section-num">3</span> Périmètre MVP · 6 modules</h2>
+
+    <div style="display:flex;gap:var(--sp-3);flex-wrap:wrap;margin-bottom:var(--sp-6)">
+      <span style="display:inline-flex;align-items:center;gap:var(--sp-2);font-size:0.8125rem;font-weight:600"><span class="status-pill status-pill--a">Option A</span> inclus dans le périmètre 1 semaine</span>
+      <span style="display:inline-flex;align-items:center;gap:var(--sp-2);font-size:0.8125rem;font-weight:600"><span class="status-pill status-pill--ab">Option A+B</span> inclus dans le périmètre 2 semaines</span>
+      <span style="display:inline-flex;align-items:center;gap:var(--sp-2);font-size:0.8125rem;font-weight:600"><span class="status-pill status-pill--out">Hors MVP</span> phase 2</span>
+    </div>
+
+    <div>
+      <div class="module-row">
+        <span class="module-row__num">M1</span>
+        <span class="module-row__name">Auth multi-tenant</span>
+        <span class="module-row__desc">Compte par établissement. Login sécurisé (Sanctum). Invitation collaborateur. Gestion des droits (admin / éditeur).</span>
+        <span class="status-pill status-pill--a">Option A</span>
+      </div>
+      <div class="module-row">
+        <span class="module-row__num">M2</span>
+        <span class="module-row__name">Création de contenu</span>
+        <span class="module-row__desc">Flux Typeform (une étape à la fois). Types : image, carrousel, vidéo. Upload S3. Templates métiers restaurant (Option A), pharmacie et immo (Option B).</span>
+        <span class="status-pill status-pill--ab">Option A+B</span>
+      </div>
+      <div class="module-row">
+        <span class="module-row__num">M3</span>
+        <span class="module-row__name">Génération IA</span>
+        <span class="module-row__desc"><strong>Option A :</strong> intégration Nano Banana avec 2 templates fixes (visuels générés en &lt; 30s). <strong>Option B :</strong> formulaire adaptatif avec champs automatiques selon le template choisi.</span>
+        <span class="status-pill status-pill--ab">Option A+B</span>
+      </div>
+      <div class="module-row">
+        <span class="module-row__num">M4</span>
+        <span class="module-row__name">Connexion panneau</span>
+        <span class="module-row__desc">Setup via QR code (auto-configuration). Diffusion WebSocket temps réel (Laravel Reverb). Multi-panneaux jusqu'à 5 en Pro. Fallback offline : dernier contenu reçu affiché.</span>
+        <span class="status-pill status-pill--a">Option A</span>
+      </div>
+      <div class="module-row">
+        <span class="module-row__num">M5</span>
+        <span class="module-row__name">Dashboard web</span>
+        <span class="module-row__desc">Interface React responsive mobile-first. Historique des diffusions. Gestion des panneaux. Base multi-tenant prête pour la facturation (Stripe) en phase 2.</span>
+        <span class="status-pill status-pill--ab">Option A+B</span>
+      </div>
+      <div class="module-row">
+        <span class="module-row__num">M6</span>
+        <span class="module-row__name">App Flutter Android</span>
+        <span class="module-row__desc">Application Android native. Mode kiosque plein écran (Screen Pinning / Device Owner). Connexion backend via API REST. Reconnexion automatique (backoff exponentiel). Distribution APK manuelle.</span>
+        <span class="status-pill status-pill--ab">Option A+B</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Flux création de contenu -->
+  <div class="cdc-section">
+    <h2><span class="section-num">4</span> Flux de création de contenu</h2>
+    <p style="font-size:0.9375rem;color:var(--slate-500);margin-bottom:var(--sp-8)">Style Typeform, une question à la fois. Mobile-first. Durée cible : moins de 90 secondes de l'idée à la diffusion.</p>
+
+    <div>
+      <div class="flow-step">
+        <span class="flow-step__num">1</span>
+        <div class="flow-step__content">
+          <h4>Type de contenu</h4>
+          <p>Image statique · Carrousel d'images · Vidéo</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <span class="flow-step__num">2</span>
+        <div class="flow-step__content">
+          <h4>Source (si image ou carrousel)</h4>
+          <p>Upload depuis la galerie · Générer par IA (Nano Banana)</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <span class="flow-step__num">3</span>
+        <div class="flow-step__content">
+          <h4>Template (si génération IA)</h4>
+          <p><strong>Option A :</strong> 2 templates fixes disponibles (ex. Plat du jour, Promotion).<br>
+          <strong>Option B :</strong> bibliothèque de templates métiers (restaurant, pharmacie, immo) avec sélection par catégorie.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <span class="flow-step__num">4</span>
+        <div class="flow-step__content">
+          <h4>Saisie des champs</h4>
+          <p><strong>Option A :</strong> champs fixes selon le template (ex. Plat du jour : titre, tarif). Pas de formulaire adaptatif.<br>
+          <strong>Option B :</strong> formulaire adaptatif (les champs varient selon le template sélectionné).</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <span class="flow-step__num">5</span>
+        <div class="flow-step__content">
+          <h4>Prévisualisation</h4>
+          <p>Aperçu du visuel généré avant diffusion. Possibilité de régénérer.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <span class="flow-step__num">6</span>
+        <div class="flow-step__content">
+          <h4>Diffusion</h4>
+          <p>Envoi immédiat sur le ou les panneaux sélectionnés. Confirmation visuelle. Historique mis à jour.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mt-8" style="background:var(--slate-50)">
+      <p class="card__tag">Règles métier arrêtées</p>
+      <div class="feature-list">
+        <div class="feature-item" style="font-size:0.875rem">
+          <span class="feature-item__icon">✓</span>
+          <span><strong>Vidéo :</strong> upload S3 uniquement. Pas de génération IA. Pas de limite de taille ni de durée pour le MVP.</span>
+        </div>
+        <div class="feature-item" style="font-size:0.875rem">
+          <span class="feature-item__icon">✓</span>
+          <span><strong>Carrousel :</strong> durée d'affichage configurable par image. Durée par défaut appliquée (valeur à définir, ex. 5s). Boucle automatique.</span>
+        </div>
+        <div class="feature-item" style="font-size:0.875rem">
+          <span class="feature-item__icon">✓</span>
+          <span><strong>Diffusion :</strong> immédiate après validation, pas d'étape de programmation au MVP.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Contraintes techniques -->
+  <div class="cdc-section">
+    <h2><span class="section-num">5</span> Contraintes techniques</h2>
+    <div>
+      <div class="field-row">
+        <span class="field-label">Devices Android</span>
+        <span class="field-value">Android 9 et Android 11. App Flutter légère (RAM/stockage potentiellement limités). Mode kiosque : Screen Pinning ou Device Owner selon version.</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Distribution app</span>
+        <span class="field-value">APK Android : installation manuelle sur les panneaux. Pas de Play Store au MVP. Mise à jour par redistribution APK.</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Réseau</span>
+        <span class="field-value">Fonctionnement hybride obligatoire. Online : webview live via WebSocket. Offline : fallback sur le dernier contenu reçu. Reconnexion automatique avec backoff exponentiel.</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">CMS natif panneaux</span>
+        <span class="field-value">Boîte noire à explorer avant développement. L'app Flutter pourra se substituer entièrement au CMS natif. Exploration technique préalable requise.</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">RGPD</span>
+        <span class="field-value">Données personnelles stockées et traitées en UE. Consentement explicite pour analytics comportementaux. Logs d'accès conservés 12 mois minimum.</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Infrastructure</span>
+        <span class="field-value">Cloud souverain UE uniquement (Scaleway ou OVHcloud). Uptime cible : 99,5%.</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">IA Nano Banana</span>
+        <span class="field-value">Risque de dépendance fournisseur à monitorer. Qualité et latence à valider sur des cas réels (plat du jour, promo pharmacie, bien immobilier) avant promesse commerciale.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. KPIs MVP -->
+  <div class="cdc-section">
+    <h2><span class="section-num">6</span> KPIs de succès</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Indicateur</th><th>Cible</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Temps de mise à jour (idée → diffusion)</td><td><strong>&lt; 90 secondes</strong></td></tr>
+          <tr><td>Délai installation panneau</td><td><strong>&lt; 5 min</strong> sans assistance technique</td></tr>
+          <tr><td>Génération IA</td><td><strong>&lt; 30 secondes</strong> par visuel</td></tr>
+          <tr><td>Taux d'adoption hebdomadaire (M1)</td><td><strong>&gt; 70%</strong> des utilisateurs actifs</td></tr>
+          <tr><td>Taux de churn SaaS (M3)</td><td><strong>&lt; 10%</strong></td></tr>
+          <tr><td>Disponibilité plateforme</td><td><strong>&gt; 99,5%</strong> uptime</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 7. Hors périmètre MVP -->
+  <div class="cdc-section">
+    <h2><span class="section-num">7</span> Hors périmètre MVP (phase 2)</h2>
+    <div class="grid grid-2" style="gap:var(--sp-4)">
+      <div class="card" style="padding:var(--sp-5)">
+        <div class="feature-list">
+          <div class="feature-item" style="font-size:0.875rem">
+            <span class="feature-item__icon feature-item__icon--no">✕</span>
+            <span>Facturation Stripe + portail abonnement</span>
+          </div>
+          <div class="feature-item" style="font-size:0.875rem">
+            <span class="feature-item__icon feature-item__icon--no">✕</span>
+            <span>Portail revendeur + gestion réseau partenaires</span>
+          </div>
+          <div class="feature-item" style="font-size:0.875rem">
+            <span class="feature-item__icon feature-item__icon--no">✕</span>
+            <span>Compatibilité multi-marques de panneaux</span>
+          </div>
+          <div class="feature-item" style="font-size:0.875rem">
+            <span class="feature-item__icon feature-item__icon--no">✕</span>
+            <span>Publication sur le Play Store (iOS ou Android)</span>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="padding:var(--sp-5)">
+        <div class="feature-list">
+          <div class="feature-item" style="font-size:0.875rem">
+            <span class="feature-item__icon feature-item__icon--no">✕</span>
+            <span>Programmation de diffusions (planification horaire)</span>
+          </div>
+          <div class="feature-item" style="font-size:0.875rem">
+            <span class="feature-item__icon feature-item__icon--no">✕</span>
+            <span>Analytics comportementaux des clients finaux</span>
+          </div>
+          <div class="feature-item" style="font-size:0.875rem">
+            <span class="feature-item__icon feature-item__icon--no">✕</span>
+            <span>Intégrations tierces (Lightspeed, logiciels pharma…)</span>
+          </div>
+          <div class="feature-item" style="font-size:0.875rem">
+            <span class="feature-item__icon feature-item__icon--no">✕</span>
+            <span>Multi-établissements avec rôles et délégation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. Points ouverts -->
+  <div class="cdc-section">
+    <h2><span class="section-num">8</span> Points ouverts · décisions à prendre</h2>
+    <div>
+      <div class="decision-row">
+        <span class="decision-row__icon">⚠️</span>
+        <div>
+          <div class="decision-row__label">Périmètre hardware</div>
+          <div class="decision-row__val">Panneaux Coworker/YATOO uniquement, ou ouvert à d'autres marques ? Ce choix conditionne l'architecture Flutter et l'adressable marché. Décision requise avant développement.</div>
+        </div>
+      </div>
+      <div class="decision-row">
+        <span class="decision-row__icon">⚠️</span>
+        <div>
+          <div class="decision-row__label">Durée par défaut du carrousel</div>
+          <div class="decision-row__val">Valeur à définir : 5 secondes ou 10 secondes par image. À valider avec les premiers utilisateurs pilotes.</div>
+        </div>
+      </div>
+      <div class="decision-row">
+        <span class="decision-row__icon">⚠️</span>
+        <div>
+          <div class="decision-row__label">2 templates fixes IA (Option A)</div>
+          <div class="decision-row__val">Quels sont les 2 templates retenus ? Proposition : "Plat du jour" + "Promotion". À confirmer selon les personas pilotes ciblés.</div>
+        </div>
+      </div>
+      <div class="decision-row">
+        <span class="decision-row__icon">⚠️</span>
+        <div>
+          <div class="decision-row__label">Validation Nano Banana</div>
+          <div class="decision-row__val">Tester la qualité des visuels générés sur des cas réels avant de valider l'intégration comme feature principale. Accès API (clé) requis côté YATOO.</div>
+        </div>
+      </div>
+      <div class="decision-row">
+        <span class="decision-row__icon">⚠️</span>
+        <div>
+          <div class="decision-row__label">Exploration CMS natif panneaux</div>
+          <div class="decision-row__val">Session technique d'exploration requise avant démarrage du sprint. L'app Flutter devra peut-être se substituer entièrement au CMS natif, avec impact sur l'architecture.</div>
+        </div>
+      </div>
+      <div class="decision-row">
+        <span class="decision-row__icon">⚠️</span>
+        <div>
+          <div class="decision-row__label">Objectifs pilotes</div>
+          <div class="decision-row__val">Nombre de clients pilotes visés à M3, ARR cible à 12 mois, conditions tarifaires préférentielles pilotes. Non encore définis.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA retour -->
+  <div style="padding-top:var(--sp-12);display:flex;gap:var(--sp-4);flex-wrap:wrap">
+    <a href="/index.html" class="btn btn--primary">Voir la proposition complète →</a>
+    <a href="https://calendar.app.google/SuqHzLZ9sNQvdGtP6" target="_blank" rel="noopener noreferrer" class="btn btn--secondary">Réserver un créneau</a>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <span class="footer__logo">Uccello Labs</span>
+      <span>CdC MVP v1.1 · Mai 2026 · Confidentiel YATOO</span>
+      <a href="mailto:jonathan@uccellolabs.com" style="color:var(--amber)">jonathan@uccellolabs.com</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
