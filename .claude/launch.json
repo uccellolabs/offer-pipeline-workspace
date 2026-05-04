@@ -30,6 +30,12 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "8791", "--directory", "projects/yatoo/website"],
       "port": 8791
+    },
+    {
+      "name": "uccello-proposal-yatoo",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8792", "--directory", "projects/uccello-proposal-yatoo/website"],
+      "port": 8792
     }
   ]
 }
