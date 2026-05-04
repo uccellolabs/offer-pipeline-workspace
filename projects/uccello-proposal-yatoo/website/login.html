@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Accès sécurisé | Uccello Labs × YATOO</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23F59E0B'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-weight='700' font-size='14' fill='%230F172A'>U</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --amber: #F59E0B;
+      --amber-dark: #D97706;
+      --slate-900: #0F172A;
+      --slate-700: #334155;
+      --slate-500: #64748B;
+      --slate-200: #E2E8F0;
+      --slate-100: #F1F5F9;
+      --white: #FFFFFF;
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--slate-100);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .login-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.08);
+    }
+
+    .login-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .login-logo__mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: var(--amber);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.125rem;
+      color: var(--slate-900);
+      flex-shrink: 0;
+    }
+
+    .login-logo__text {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--slate-900);
+      line-height: 1.2;
+    }
+
+    .login-logo__sub {
+      font-size: 0.75rem;
+      color: var(--slate-500);
+      font-weight: 400;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      font-weight: 700;
+      color: var(--slate-900);
+      margin-bottom: 0.5rem;
+    }
+
+    .login-desc {
+      font-size: 0.875rem;
+      color: var(--slate-500);
+      margin-bottom: 1.75rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--slate-700);
+      margin-bottom: 0.5rem;
+    }
+
+    .input-wrap {
+      position: relative;
+      margin-bottom: 1.25rem;
+    }
+
+    input[type="password"] {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--slate-200);
+      border-radius: 10px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--slate-900);
+      background: var(--white);
+      outline: none;
+      transition: border-color .15s;
+    }
+
+    input[type="password"]:focus {
+      border-color: var(--amber);
+    }
+
+    input[type="password"].is-error {
+      border-color: #EF4444;
+    }
+
+    .error-msg {
+      font-size: 0.8125rem;
+      color: #EF4444;
+      margin-top: 0.375rem;
+      display: none;
+    }
+
+    .error-msg.is-visible { display: block; }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 0.8125rem 1rem;
+      background: var(--amber);
+      color: var(--slate-900);
+      font-family: var(--font-display);
+      font-size: 0.9375rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background .15s, transform .1s;
+    }
+
+    button[type="submit"]:hover { background: var(--amber-dark); }
+    button[type="submit"]:active { transform: scale(.98); }
+
+    .login-footer {
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+      color: var(--slate-500);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-card">
+  <div class="login-logo">
+    <div class="login-logo__mark">U</div>
+    <div>
+      <div class="login-logo__text">Uccello Labs</div>
+      <div class="login-logo__sub">Proposition commerciale · YATOO</div>
+    </div>
+  </div>
+
+  <h1>Accès sécurisé</h1>
+  <p class="login-desc">Ce document est confidentiel. Saisissez le mot de passe pour accéder à la proposition.</p>
+
+  <form id="loginForm" autocomplete="off">
+    <label for="password">Mot de passe</label>
+    <div class="input-wrap">
+      <input type="password" id="password" name="password" placeholder="••••••••" autofocus>
+      <div class="error-msg" id="errorMsg">Mot de passe incorrect.</div>
+    </div>
+    <button type="submit">Accéder à la proposition →</button>
+  </form>
+
+  <p class="login-footer">Document confidentiel · Uccello Labs × YATOO · Mai 2026</p>
+</div>
+
+<script>
+  const HASH = 'b37ec53b51e84407fdfb31f859b3d1fcae149bea5190f64fccb66d9b81b0210d';
+
+  async function sha256(str) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+
+  document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const input = document.getElementById('password');
+    const err = document.getElementById('errorMsg');
+    const hash = await sha256(input.value);
+    if (hash === HASH) {
+      sessionStorage.setItem('ul_auth', '1');
+      const dest = new URLSearchParams(location.search).get('next') || 'index.html';
+      location.href = dest;
+    } else {
+      input.classList.add('is-error');
+      err.classList.add('is-visible');
+      input.value = '';
+      input.focus();
+    }
+  });
+
+  document.getElementById('password').addEventListener('input', () => {
+    document.getElementById('password').classList.remove('is-error');
+    document.getElementById('errorMsg').classList.remove('is-visible');
+  });
+</script>
+</body>
+</html>
