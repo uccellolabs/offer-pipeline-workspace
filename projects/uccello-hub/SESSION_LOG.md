@@ -121,4 +121,14 @@ Répartition DISC estimée : D=8 | D-C=3 | D-I=4 | C=11 | C-S=9 | C-D=2 | S=3 | 
 → Lien "Cold Call" ajouté dans le nav de 10 pages HTML + carte dans nav-grid index.html + pipeline step
 /offer-study-website update cold-call : ✅ 2026-05-03
 
+2026-05-04 /offer-study-website — Site public PARTENAIRES REVENDEURS (mode B custom)
+→ Dossier projects/uccello-hub/website-revendeurs/ — distinct de website-public/ (clients finaux Claire) et website-internal/
+→ 5 pages : index, programme, produit, pour-qui, contact
+→ Audience : Marc (consultant indépendant, persona acheteur du programme partenaire)
+→ Contrainte : aucun tarif affiché — toutes mentions tarifaires renvoyées au RDV de qualification
+→ CTA unique : https://calendar.app.google/SuqHzLZ9sNQvdGtP6 (4 occurrences principales + nav, lien Google Calendar)
+→ Design system : harmonisé avec pitch-deck-revendeur (Bricolage Grotesque + DM Sans, #1D4ED8 + #0EA5E9, radius 4px, Trust & Calm)
+→ Mobile-first vérifié 320px / 1280px (no horizontal scroll, hamburger fonctionnel, tableau scrollable)
+/offer-study-website public revendeurs : ✅ 2026-05-04
+
 > Les agents notent ici ce qui nécessite une validation humaine avant de continuer.
