@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Viabilité — YATOO Étude</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231E2761'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-weight='700' font-size='14' fill='white'>Y</text></svg>">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="/index.html" class="nav__logo">
+        <div class="nav__logo-mark"><span>Y</span></div>
+        <span class="nav__logo-text">YATOO</span>
+        <span class="nav__badge">Étude interne</span>
+      </a>
+      <div class="nav__links">
+        <a href="/index.html" class="nav__link">Accueil</a>
+        <a href="/pages/offre.html" class="nav__link">Offre</a>
+        <a href="/pages/persona.html" class="nav__link">Persona</a>
+        <a href="/pages/marche.html" class="nav__link">Marché</a>
+        <a href="/pages/concurrence.html" class="nav__link">Concurrence</a>
+        <a href="/pages/pricing.html" class="nav__link">Pricing</a>
+        <a href="/pages/viabilite.html" class="nav__link nav__link--active">Viabilité</a>
+        <a href="/pages/contact.html" class="nav__link">Contact</a>
+      </div>
+      <button class="nav__hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav__mobile">
+  <a href="/index.html" class="nav__link">Accueil</a>
+  <a href="/pages/offre.html" class="nav__link">Offre</a>
+  <a href="/pages/persona.html" class="nav__link">Persona</a>
+  <a href="/pages/marche.html" class="nav__link">Marché</a>
+  <a href="/pages/concurrence.html" class="nav__link">Concurrence</a>
+  <a href="/pages/pricing.html" class="nav__link">Pricing</a>
+  <a href="/pages/viabilite.html" class="nav__link">Viabilité</a>
+  <a href="/pages/contact.html" class="nav__link">Contact</a>
+</div>
+
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">Synthèse pipeline — 3 critères</p>
+    <h1>Score de viabilité</h1>
+    <p class="hero__desc">Verdict global issu du pipeline complet. 3 critères indépendants — chacun peut bloquer le lancement.</p>
+    <div class="stats-bar">
+      <div class="stat">
+        <div class="stat__num" style="color:var(--amber)">⚠</div>
+        <div class="stat__label">VIABLE<br>SOUS CONDITIONS</div>
+      </div>
+      <div class="stat"><div class="stat__num">7/10</div><div class="stat__label">Score douleur<br>restaurateur</div></div>
+      <div class="stat"><div class="stat__num">8/10</div><div class="stat__label">Score<br>prospectabilité</div></div>
+      <div class="stat"><div class="stat__num">4</div><div class="stat__label">Conditions<br>non-négociables</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Verdict global -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">Verdict</p>
+      <h2>⚠ Viable sous conditions</h2>
+    </div>
+
+    <div class="alert alert--warning" style="max-width:780px">
+      <div class="alert__icon">⚠</div>
+      <div class="alert__text">
+        <strong>3 validations terrain obligatoires avant lancement commercial.</strong>
+        L'offre est techniquement viable et le marché existe. Mais les hypothèses clés n'ont pas encore été confirmées par des clients réels. Ne pas lancer grand public sans ces validations.
+      </div>
+    </div>
+
+    <!-- 3 critères en score rings -->
+    <div class="grid grid-3 mt-10" style="max-width:900px">
+
+      <!-- Critère 1 — Douleur -->
+      <div class="card" style="text-align:center">
+        <p class="card__tag">Critère 1</p>
+        <div class="score-ring" style="margin:var(--sp-6) auto">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="score-ring__bg" cx="60" cy="60" r="50"/>
+            <circle class="score-ring__fill score-ring__fill--amber" cx="60" cy="60" r="50" data-score="7" data-max="10"/>
+          </svg>
+          <div class="score-ring__label">
+            <span class="score-ring__num">7</span>
+            <span class="score-ring__den">/10</span>
+          </div>
+        </div>
+        <h3>Douleur</h3>
+        <p style="font-size:0.875rem;color:var(--text-muted)">Intense chez les restaurateurs. Modérée chez pharmaciens et agents immobiliers.</p>
+        <div class="mt-4"><span class="badge badge--warning">⚠ À confirmer terrain</span></div>
+      </div>
+
+      <!-- Critère 2 — Prospectabilité -->
+      <div class="card" style="text-align:center">
+        <p class="card__tag">Critère 2</p>
+        <div class="score-ring" style="margin:var(--sp-6) auto">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="score-ring__bg" cx="60" cy="60" r="50"/>
+            <circle class="score-ring__fill" cx="60" cy="60" r="50" data-score="8" data-max="10"/>
+          </svg>
+          <div class="score-ring__label">
+            <span class="score-ring__num">8</span>
+            <span class="score-ring__den">/10</span>
+          </div>
+        </div>
+        <h3>Prospectabilité</h3>
+        <p style="font-size:0.875rem;color:var(--text-muted)">Restaurateurs identifiables facilement. Canaux terrain, UMIH/GNI, CHR distributeurs.</p>
+        <div class="mt-4"><span class="badge badge--success">✅ Prospectable</span></div>
+      </div>
+
+      <!-- Critère 3 — Marché -->
+      <div class="card" style="text-align:center">
+        <p class="card__tag">Critère 3</p>
+        <div class="score-ring" style="margin:var(--sp-6) auto">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="score-ring__bg" cx="60" cy="60" r="50"/>
+            <circle class="score-ring__fill score-ring__fill--amber" cx="60" cy="60" r="50" data-score="5" data-max="10"/>
+          </svg>
+          <div class="score-ring__label">
+            <span class="score-ring__num">5</span>
+            <span class="score-ring__den">/10</span>
+          </div>
+        </div>
+        <h3>Marché</h3>
+        <p style="font-size:0.875rem;color:var(--text-muted)">Budget disponible mais non alloué. Maturité "conscient". Effort d'éducation requis.</p>
+        <div class="mt-4"><span class="badge badge--warning">⚠ À travailler</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Critère 1 — Douleur détail -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">Critère 1 — Douleur</p>
+      <h2>Douleur intense et prioritaire</h2>
+    </div>
+    <div class="grid grid-2" style="max-width:860px">
+      <div class="card">
+        <p class="card__tag">Signal</p>
+        <div style="display:flex;align-items:center;gap:var(--sp-3);margin-bottom:var(--sp-4)">
+          <span class="badge badge--warning" style="font-size:1rem;padding:var(--sp-2) var(--sp-4)">⚠ 7/10 — À confirmer terrain</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:var(--sp-3)">
+          <div style="display:flex;gap:var(--sp-2);align-items:flex-start">
+            <span class="badge badge--success" style="min-width:fit-content">✓</span>
+            <span style="font-size:0.875rem">La douleur est documentée : le CMS natif des panneaux LED est universellement critiqué sur les forums et avis utilisateurs</span>
+          </div>
+          <div style="display:flex;gap:var(--sp-2);align-items:flex-start">
+            <span class="badge badge--success" style="min-width:fit-content">✓</span>
+            <span style="font-size:0.875rem">Le persona Marc (restaurateur) valide l'intensité : le panneau n'est jamais à jour, la douleur quotidienne est réelle</span>
+          </div>
+          <div style="display:flex;gap:var(--sp-2);align-items:flex-start">
+            <span class="badge badge--warning" style="min-width:fit-content">⚠</span>
+            <span style="font-size:0.875rem">Zéro client YATOO à ce jour — la douleur est estimée, pas encore validée en vente réelle</span>
+          </div>
+          <div style="display:flex;gap:var(--sp-2);align-items:flex-start">
+            <span class="badge badge--warning" style="min-width:fit-content">⚠</span>
+            <span style="font-size:0.875rem">Le restaurateur a-t-il déjà dépensé pour résoudre ça ? La réponse conditionne le WTP réel</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <p class="card__tag">Valeur économique estimée</p>
+        <div style="font-family:var(--font-display);font-size:2.5rem;font-weight:700;color:var(--amber);margin-bottom:var(--sp-2)">~2 700 €/an</div>
+        <p style="font-size:0.875rem;color:var(--text-muted);margin-bottom:var(--sp-4)">Valeur créée par établissement restaurateur</p>
+        <div style="display:flex;flex-direction:column;gap:var(--sp-2)">
+          <div style="display:flex;justify-content:space-between;font-size:0.875rem;padding:var(--sp-2) 0;border-bottom:1px solid var(--border)">
+            <span>60h/an économisées</span>
+            <span style="font-weight:600">× 35€/h = 2 100€</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:0.875rem;padding:var(--sp-2) 0;border-bottom:1px solid var(--border)">
+            <span>1 client/jour supplémentaire</span>
+            <span style="font-weight:600">× 365j × 1,5€ = 600€</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:0.875rem;padding:var(--sp-2) 0">
+            <strong>ROI Pro 29€/mois</strong>
+            <strong style="color:var(--success)">7 semaines</strong>
+          </div>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text-muted);margin-top:var(--sp-4)">Hypothèses à valider terrain — méthode : interviews + observation directe</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Critère 2 — Prospectabilité détail -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">Critère 2 — Prospectabilité</p>
+      <h2>Cible concrètement prospectable</h2>
+    </div>
+
+    <div class="card" style="max-width:860px">
+      <div style="display:flex;align-items:center;gap:var(--sp-3);margin-bottom:var(--sp-6)">
+        <span class="badge badge--success" style="font-size:1rem;padding:var(--sp-2) var(--sp-4)">✅ 8/10 — Prospectable</span>
+      </div>
+      <div class="grid grid-2">
+        <div>
+          <h5 style="margin-bottom:var(--sp-4)">Canaux directs identifiés</h5>
+          <div style="display:flex;flex-direction:column;gap:var(--sp-3)">
+            <div style="padding:var(--sp-3);background:var(--navy-light);border-radius:var(--radius-sm)">
+              <div style="font-weight:600;font-size:0.875rem;margin-bottom:var(--sp-1)">Terrain direct</div>
+              <div style="font-size:0.8rem;color:var(--text-muted)">Quartiers commerçants, zones CHR — volume : illimité en France, filtrables par zone géo</div>
+            </div>
+            <div style="padding:var(--sp-3);background:var(--navy-light);border-radius:var(--radius-sm)">
+              <div style="font-weight:600;font-size:0.875rem;margin-bottom:var(--sp-1)">LinkedIn Sales Navigator</div>
+              <div style="font-size:0.8rem;color:var(--text-muted)">Filtres : Gérant / Restaurateur / TPE / France — volume estimé : 40 000+ profils</div>
+            </div>
+            <div style="padding:var(--sp-3);background:var(--navy-light);border-radius:var(--radius-sm)">
+              <div style="font-weight:600;font-size:0.875rem;margin-bottom:var(--sp-1)">Google Maps / Datagouv</div>
+              <div style="font-size:0.8rem;color:var(--text-muted)">NAF 5610A — 180 000 restaurants en France avec adresse</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h5 style="margin-bottom:var(--sp-4)">Prescripteurs &amp; intermédiaires</h5>
+          <div style="display:flex;flex-direction:column;gap:var(--sp-3)">
+            <div style="padding:var(--sp-3);background:var(--navy-light);border-radius:var(--radius-sm)">
+              <div style="font-weight:600;font-size:0.875rem;margin-bottom:var(--sp-1)">UMIH / GNI</div>
+              <div style="font-size:0.8rem;color:var(--text-muted)">Syndicats hôtellerie-restauration — accès direct à la cible via partenariats</div>
+            </div>
+            <div style="padding:var(--sp-3);background:var(--navy-light);border-radius:var(--radius-sm)">
+              <div style="font-weight:600;font-size:0.875rem;margin-bottom:var(--sp-1)">Distributeurs CHR</div>
+              <div style="font-size:0.8rem;color:var(--text-muted)">Metro France, Brake — réseau national avec force de vente dédiée restauration</div>
+            </div>
+            <div style="padding:var(--sp-3);background:var(--navy-light);border-radius:var(--radius-sm)">
+              <div style="font-weight:600;font-size:0.875rem;margin-bottom:var(--sp-1)">Bouche-à-oreille</div>
+              <div style="font-size:0.8rem;color:var(--text-muted)">Les restaurateurs se connaissent par quartier — 1 client pilote peut générer 5 référencements</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert alert--success mt-6" style="max-width:860px">
+      <div class="alert__icon">✅</div>
+      <div class="alert__text">
+        <strong>Canal validé :</strong> D — Mixte. Direct terrain J1–J90 pour valider l'usage et le WTP, puis activation revendeurs CHR/pharmacies à partir de M4 si preuve concept établie.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Critère 3 — Marché détail -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">Critère 3 — Marché</p>
+      <h2>Budget + maturité + cycle</h2>
+    </div>
+
+    <div class="grid grid-3" style="max-width:900px">
+      <div class="card" style="text-align:center">
+        <p class="card__tag">Budget</p>
+        <div style="font-size:2rem;margin:var(--sp-4) 0">💸</div>
+        <span class="badge badge--warning" style="margin-bottom:var(--sp-4)">⚠ Dépense nouvelle</span>
+        <p style="font-size:0.8rem;color:var(--text-muted)">Pas de ligne "panneau LED + SaaS" préexistante chez la cible TPE. Budget com disponible (~11 Mrd€/an en pub locale), mais non alloué à ce type de solution.</p>
+      </div>
+      <div class="card" style="text-align:center">
+        <p class="card__tag">Maturité</p>
+        <div style="font-size:2rem;margin:var(--sp-4) 0">🧠</div>
+        <span class="badge badge--warning" style="margin-bottom:var(--sp-4)">⚠ Conscient</span>
+        <p style="font-size:0.8rem;color:var(--text-muted)">Connaît l'affichage dynamique. Ne connaît pas YATOO. La catégorie SaaS de gestion de panneaux LED est peu connue des TPE indépendants.</p>
+      </div>
+      <div class="card" style="text-align:center">
+        <p class="card__tag">Cycle closing</p>
+        <div style="font-size:2rem;margin:var(--sp-4) 0">⏱</div>
+        <span class="badge badge--success" style="margin-bottom:var(--sp-4)">✅ 1–4 semaines</span>
+        <p style="font-size:0.8rem;color:var(--text-muted)">Décideur solo (le gérant). Cycle court si démonstration terrain convaincante. Pas de comité d'achat, pas de DSI.</p>
+      </div>
+    </div>
+
+    <div class="card mt-8" style="max-width:900px">
+      <p class="card__tag">Budget annuel estimé par établissement</p>
+      <div class="grid grid-2">
+        <div>
+          <div style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--blue);margin-bottom:var(--sp-2)">1 300–1 800 €/an</div>
+          <p style="font-size:0.875rem;color:var(--text-muted)">Budget combiné leasing panneau (~80€/mois) + SaaS Pro (~30–40€/mois)</p>
+        </div>
+        <div>
+          <div style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--success);margin-bottom:var(--sp-2)">99 €/mois</div>
+          <p style="font-size:0.875rem;color:var(--text-muted)">Bundle tout inclus — positionné pour simplifier la décision d'achat (1 seule ligne de dépense)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Conditions non-négociables -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">Avant le lancement</p>
+      <h2>4 conditions non-négociables</h2>
+    </div>
+
+    <div style="max-width:780px;display:flex;flex-direction:column;gap:var(--sp-4)">
+
+      <div class="card" style="border-left:3px solid var(--amber)">
+        <div style="display:flex;align-items:flex-start;gap:var(--sp-4)">
+          <div style="font-family:var(--font-display);font-size:1.75rem;font-weight:700;color:var(--amber);min-width:2.5rem">01</div>
+          <div>
+            <h4 style="margin-bottom:var(--sp-2)">Valider la douleur terrain</h4>
+            <p style="font-size:0.875rem;color:var(--text-muted)">Interviewer 10 gérants de restaurants avec un panneau LED (pas forcément YATOO) sur leur usage réel du CMS natif. Objectif : confirmer que la douleur justifie 29€/mois.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="border-left:3px solid var(--amber)">
+        <div style="display:flex;align-items:flex-start;gap:var(--sp-4)">
+          <div style="font-family:var(--font-display);font-size:1.75rem;font-weight:700;color:var(--amber);min-width:2.5rem">02</div>
+          <div>
+            <h4 style="margin-bottom:var(--sp-2)">Acquérir 5 clients pilotes</h4>
+            <p style="font-size:0.875rem;color:var(--text-muted)">Via démarchage direct avant tout lancement grand public. Valider l'usage réel, le WTP et le churn M3. Pas de lancement grand public sans cette validation.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="border-left:3px solid var(--amber)">
+        <div style="display:flex;align-items:flex-start;gap:var(--sp-4)">
+          <div style="font-family:var(--font-display);font-size:1.75rem;font-weight:700;color:var(--amber);min-width:2.5rem">03</div>
+          <div>
+            <h4 style="margin-bottom:var(--sp-2)">Trancher le périmètre hardware</h4>
+            <p style="font-size:0.875rem;color:var(--text-muted)">Panneaux Coworker/YATOO uniquement — ou multi-marques ? Ce choix conditionne l'adressable marché et l'architecture Flutter. Décision stratégique à prendre avant développement.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="border-left:3px solid var(--amber)">
+        <div style="display:flex;align-items:flex-start;gap:var(--sp-4)">
+          <div style="font-family:var(--font-display);font-size:1.75rem;font-weight:700;color:var(--amber);min-width:2.5rem">04</div>
+          <div>
+            <h4 style="margin-bottom:var(--sp-2)">Valider Nano Banana (IA)</h4>
+            <p style="font-size:0.875rem;color:var(--text-muted)">Tester la qualité des visuels générés sur des cas réels (plat du jour, promo pharmacie, bien immobilier) avant de l'intégrer comme feature principale dans l'offre commerciale.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Points de vigilance exécution -->
+<section class="section section--dark">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow" style="color:rgba(255,255,255,0.5)">Faisabilité</p>
+      <h2 style="color:#fff">Points de vigilance exécution</h2>
+    </div>
+
+    <div class="table-wrap" style="max-width:960px">
+      <table>
+        <thead>
+          <tr><th>Point</th><th>Risque</th><th>Action requise</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Zéro commerciaux TPE</strong></td>
+            <td>CAC élevé sans force de vente adaptée</td>
+            <td>Recruter/former 1 commercial terrain dédié TPE ou activer un apporteur d'affaires</td>
+          </tr>
+          <tr>
+            <td><strong>CAC vs LTV</strong></td>
+            <td>LTV SaaS Pro ~350€/an — CAC terrain estimé 200–500€ → marge faible</td>
+            <td>Prioriser le leasing/bundle (LTV 36 mois = ~1 050€) + revente hardware pour améliorer l'équation</td>
+          </tr>
+          <tr>
+            <td><strong>Nano Banana opaque</strong></td>
+            <td>Si l'IA déçoit, la feature star tombe avec elle</td>
+            <td>Test qualité obligatoire avant toute promesse commerciale sur la génération IA</td>
+          </tr>
+          <tr>
+            <td><strong>CMS natif = boîte noire</strong></td>
+            <td>L'app Flutter devra peut-être se substituer au CMS, pas seulement s'y superposer</td>
+            <td>Phase d'exploration technique avant devis Uccello Labs — ne pas chiffrer sans ce diagnostic</td>
+          </tr>
+          <tr>
+            <td><strong>Double vente cold start</strong></td>
+            <td>Hardware + SaaS simultanément à froid = effort commercial × 2</td>
+            <td>Privilégier le bundle all-inclusive 99€/mois pour simplifier le closing</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Recommandations -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">Suite recommandée</p>
+      <h2>Prochaines étapes</h2>
+    </div>
+
+    <div class="grid grid-2" style="max-width:860px">
+      <div class="card card--highlight">
+        <p class="card__tag">Immédiat — J1 à J90</p>
+        <h3>Validation terrain</h3>
+        <div style="display:flex;flex-direction:column;gap:var(--sp-2);margin-top:var(--sp-4)">
+          <div style="display:flex;gap:var(--sp-2);align-items:flex-start;font-size:0.875rem">
+            <span style="color:var(--amber);font-weight:700;min-width:1.5rem">1.</span>
+            <span>Tester le titre sur 5 gérants — lequel génère "c'est exactement mon problème ?"</span>
+          </div>
+          <div style="display:flex;gap:var(--sp-2);align-items:flex-start;font-size:0.875rem">
+            <span style="color:var(--amber);font-weight:700;min-width:1.5rem">2.</span>
+            <span>Valider le WTP : présenter les 3 tiers à 10 prospects (réaction live)</span>
+          </div>
+          <div style="display:flex;gap:var(--sp-2);align-items:flex-start;font-size:0.875rem">
+            <span style="color:var(--amber);font-weight:700;min-width:1.5rem">3.</span>
+            <span>Recruter 5 clients pilotes aux conditions préférentielles avant tout lancement</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <p class="card__tag">Pipeline — Supports commerciaux</p>
+        <h3>Supports à générer</h3>
+        <div style="display:flex;flex-direction:column;gap:var(--sp-2);margin-top:var(--sp-4)">
+          <div style="display:flex;gap:var(--sp-2);align-items:center;font-size:0.875rem">
+            <span class="badge badge--warning" style="min-width:fit-content">⬜</span>
+            <span>/offer-pitch-deck — Support visuel commercial 12 slides</span>
+          </div>
+          <div style="display:flex;gap:var(--sp-2);align-items:center;font-size:0.875rem">
+            <span class="badge badge--warning" style="min-width:fit-content">⬜</span>
+            <span>/offer-prospection-strategy — Templates LinkedIn + Email</span>
+          </div>
+          <div style="display:flex;gap:var(--sp-2);align-items:center;font-size:0.875rem">
+            <span class="badge badge--warning" style="min-width:fit-content">⬜</span>
+            <span>/offer-cold-call — Script appel froid (4 profils DISC)</span>
+          </div>
+          <div style="display:flex;gap:var(--sp-2);align-items:center;font-size:0.875rem">
+            <span class="badge badge--warning" style="min-width:fit-content">⬜</span>
+            <span>/offer-discovery-call — Plan entretien commercial</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <span class="footer__logo">YATOO</span>
+      <span>Étude générée le 2026-05-04 — Pipeline offer-pipeline v1.0</span>
+      <a href="/login.html" onclick="sessionStorage.removeItem('yatoo_auth')">Se déconnecter</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

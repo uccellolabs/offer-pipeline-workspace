@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Page introuvable — YATOO Étude</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231E2761'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-weight='700' font-size='14' fill='white'>Y</text></svg>">
+  <style>
+    .error-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--sp-8) var(--sp-4);
+    }
+    .error-page__code {
+      font-family: var(--font-display);
+      font-size: clamp(5rem, 20vw, 10rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: var(--sp-4);
+      background: linear-gradient(135deg, var(--blue), var(--amber));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .error-page__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: var(--sp-4);
+    }
+    .error-page__desc {
+      color: var(--text-muted);
+      max-width: 400px;
+      margin-bottom: var(--sp-8);
+    }
+    .error-page__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-3);
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="/index.html" class="nav__logo">
+        <div class="nav__logo-mark"><span>Y</span></div>
+        <span class="nav__logo-text">YATOO</span>
+        <span class="nav__badge">Étude interne</span>
+      </a>
+      <div class="nav__links">
+        <a href="/index.html" class="nav__link">Accueil</a>
+        <a href="/pages/offre.html" class="nav__link">Offre</a>
+        <a href="/pages/persona.html" class="nav__link">Persona</a>
+        <a href="/pages/marche.html" class="nav__link">Marché</a>
+        <a href="/pages/concurrence.html" class="nav__link">Concurrence</a>
+        <a href="/pages/pricing.html" class="nav__link">Pricing</a>
+        <a href="/pages/viabilite.html" class="nav__link">Viabilité</a>
+        <a href="/pages/contact.html" class="nav__link">Contact</a>
+      </div>
+      <button class="nav__hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav__mobile">
+  <a href="/index.html" class="nav__link">Accueil</a>
+  <a href="/pages/offre.html" class="nav__link">Offre</a>
+  <a href="/pages/persona.html" class="nav__link">Persona</a>
+  <a href="/pages/marche.html" class="nav__link">Marché</a>
+  <a href="/pages/concurrence.html" class="nav__link">Concurrence</a>
+  <a href="/pages/pricing.html" class="nav__link">Pricing</a>
+  <a href="/pages/viabilite.html" class="nav__link">Viabilité</a>
+  <a href="/pages/contact.html" class="nav__link">Contact</a>
+</div>
+
+<div class="error-page">
+  <div class="error-page__code">404</div>
+  <h1 class="error-page__title">Page introuvable</h1>
+  <p class="error-page__desc">La page que vous cherchez n'existe pas ou a été déplacée. Revenez à l'accueil pour naviguer dans l'étude.</p>
+  <div class="error-page__links">
+    <a href="/index.html" class="btn btn--primary">Retour à l'accueil</a>
+    <a href="/pages/offre.html" class="btn btn--secondary">Voir l'offre</a>
+  </div>
+</div>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

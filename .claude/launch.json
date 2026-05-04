@@ -24,6 +24,12 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "8790", "--directory", "projects/uccello-hub/website-revendeurs"],
       "port": 8790
+    },
+    {
+      "name": "yatoo-website",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8791", "--directory", "projects/yatoo/website"],
+      "port": 8791
     }
   ]
 }
