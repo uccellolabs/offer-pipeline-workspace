@@ -18,6 +18,12 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "8789", "--directory", "projects/ennovateur/website"],
       "port": 8789
+    },
+    {
+      "name": "uccello-hub-revendeurs",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8790", "--directory", "projects/uccello-hub/website-revendeurs"],
+      "port": 8790
     }
   ]
 }
