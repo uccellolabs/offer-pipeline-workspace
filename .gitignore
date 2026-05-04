@@ -10,6 +10,9 @@ Thumbs.db
 # Curseur - ne pas versionner l'état interne
 .cursor/
 
+# Worktrees Claude (répertoires imbriqués ; gitlink casse Forge / clone)
+.claude/worktrees/
+
 # Fichier projet actif (état local, pas à versionner)
 .active-project
 
