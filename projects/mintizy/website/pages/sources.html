@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <style id="auth-guard-style">html{visibility:hidden}</style>
+  <script>(function(){if(sessionStorage.getItem('mintizy_auth')==='ok'){document.documentElement.style.visibility='visible';}else{var prefix=window.location.pathname.indexOf('/pages/')!==-1?'../':'';window.location.replace(prefix+'login.html');}})();</script>
+  <title>Sources et méthodologie : Mintizy / étude</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+  <nav class="nav" aria-label="Navigation principale">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__brand"><span class="nav__brand-mark">M</span><span>Mintizy : étude</span></a>
+      <div class="nav__links">
+        <a href="../index.html" class="nav__link">Accueil</a>
+        <a href="offre.html" class="nav__link">Offre</a>
+        <a href="persona.html" class="nav__link">Personas</a>
+        <a href="marche.html" class="nav__link">Marché</a>
+        <a href="concurrence.html" class="nav__link">Concurrence</a>
+        <a href="pricing.html" class="nav__link">Pricing</a>
+        <a href="viabilite.html" class="nav__link">Viabilité</a>
+        <a href="sources.html" class="nav__link nav__link--active">Sources</a>
+      </div>
+      <span class="badge badge--neutral" style="margin-left: var(--space-3);">Doc interne</span>
+      <button class="nav__hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="nav__mobile-menu">
+        <a href="../index.html" class="nav__link">Accueil</a>
+        <a href="offre.html" class="nav__link">Offre</a>
+        <a href="persona.html" class="nav__link">Personas</a>
+        <a href="marche.html" class="nav__link">Marché</a>
+        <a href="concurrence.html" class="nav__link">Concurrence</a>
+        <a href="pricing.html" class="nav__link">Pricing</a>
+        <a href="viabilite.html" class="nav__link">Viabilité</a>
+        <a href="sources.html" class="nav__link">Sources</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" style="padding: var(--space-16) 0;">
+    <div class="container">
+      <p class="eyebrow">Annexe : sources et méthodologie</p>
+      <h1>Comment cette étude a été produite, et où trouver les fichiers source.</h1>
+      <p class="hero__desc">Le site agrège 7 fichiers Markdown générés par la chaîne d'agents commerciaux du pipeline `offer-pipeline`. Chaque section du dossier est traçable à un fichier source consultable directement dans le dépôt projet.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Méthodologie</p>
+      <h2 class="mb-6">Chaîne d'agents exécutée</h2>
+
+      <p class="lead text-muted mb-8">Pipeline `/offer-orchestrator` lancé en mode autonome (mode C) le 5 mai 2026, périmètre core + study-website. 7 agents enchaînés, 1 skip volontaire (offer-idea-finder), 1 correction utilisateur intégrée à mi-parcours (positionnement Praxedo non imposé en bundle).</p>
+
+      <div class="timeline">
+        <div class="timeline__item">
+          <div class="timeline__marker">1</div>
+          <div class="timeline__content">
+            <p class="timeline__title">/offer-cadrage</p>
+            <p class="timeline__text">Challenge de l'idée par Devil's Advocate. Verdict GO conditionnel, score douleur 7/10. Validation empirique forte (4 facturés OCI + 15 pipeline).</p>
+          </div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__marker">2</div>
+          <div class="timeline__content">
+            <p class="timeline__title">/offer-persona</p>
+            <p class="timeline__text">2 personas en 14 parties chacun. Stéphane Maréchal (acheteur intégrateur ERP) + Pascal Dubreuil (utilisateur final, frigoriste cuisine pro).</p>
+          </div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__marker">3</div>
+          <div class="timeline__content">
+            <p class="timeline__title">/offer-market-research</p>
+            <p class="timeline__text">Volumétrie SIRENE via API recherche-entreprises.api.gouv.fr (data.gouv.fr). 3 156 ESN totales NAF 62.02A 10-249 sal., filtrées à 50-100 cibles prioritaires année 1. Aval : 3 550 PME maintenance technique adressables.</p>
+          </div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__marker">4</div>
+          <div class="timeline__content">
+            <p class="timeline__title">/offer-competitive-intel</p>
+            <p class="timeline__text">5 battlecards rédigées (Praxedo, Microsoft D365 FS, Sage X3 SAV, Synchroteam, Excel/maison). Frontière fonctionnelle Mintizy / Praxedo cristallisée. Différenciation moyenne-forte, pas de pivot.</p>
+          </div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__marker">5</div>
+          <div class="timeline__content">
+            <p class="timeline__title">/offer-pricing</p>
+            <p class="timeline__text">Architecture hybride (récurrent palier client + setup fee 990€ + Quick-Start Passerelle 14 900€ + white-label optionnel). LTV/CAC revendeur 5,97x. Setup fee identifié comme critique pour ROI revendeur hors OCI.</p>
+          </div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__marker">6</div>
+          <div class="timeline__content">
+            <p class="timeline__title">/offer-final</p>
+            <p class="timeline__text">Synthèse rédigée. Verdict global VIABLE SOUS CONDITIONS. 4 conditions à activer pour passer à VIABLE FERME. Plan 12 mois en 4 trimestres.</p>
+          </div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__marker">7</div>
+          <div class="timeline__content">
+            <p class="timeline__title">/offer-study-website</p>
+            <p class="timeline__text">Génération du présent site (8 pages, charte Mintizy, mobile-first, protégé par mot de passe). Référentiel interne consultable.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <p class="eyebrow">Fichiers source</p>
+      <h2 class="mb-6">Markdown du pipeline (dépôt projet)</h2>
+      <p class="text-muted mb-8">Les fichiers ci-dessous sont les sources de vérité. Le site web n'en est qu'une mise en forme. En cas de divergence, ce sont les fichiers Markdown qui font foi.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Fichier</th><th>Section du site alimentée</th><th>Agent producteur</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>PROJECT_CONTEXT.md</code></td><td>Charte visuelle, ressources, ambition</td><td>Utilisateur (initial)</td></tr>
+            <tr><td><code>OFFER_BRIEF.md</code></td><td>Pitch summary, verdict cumulé</td><td>/offer-cadrage (enrichi par tous les autres)</td></tr>
+            <tr><td><code>PERSONA_ACHETEUR.md</code></td><td>Page Personas, onglet Stéphane</td><td>/offer-persona</td></tr>
+            <tr><td><code>PERSONA_UTILISATEUR.md</code></td><td>Page Personas, onglet Pascal</td><td>/offer-persona</td></tr>
+            <tr><td><code>MARKET_RESEARCH.md</code></td><td>Page Marché (volumétrie SIRENE, TAM/SAM/SOM, priorisation ERP)</td><td>/offer-market-research</td></tr>
+            <tr><td><code>COMPETITIVE_BRIEF.md</code></td><td>Page Concurrence (cartographie, matrice, 5 battlecards)</td><td>/offer-competitive-intel</td></tr>
+            <tr><td><code>PRICING_BRIEF.md</code></td><td>Page Pricing (grille, options, économie unitaire)</td><td>/offer-pricing</td></tr>
+            <tr><td><code>OFFER_FINAL.md</code></td><td>Pages Offre + Viabilité (synthèse, conditions, plan 12 mois)</td><td>/offer-final</td></tr>
+            <tr><td><code>SESSION_LOG.md</code></td><td>Décisions et apprentissages tracés au fil du pipeline</td><td>Tous les agents</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-small text-muted mt-6">Chemin local : <code>projects/mintizy/</code> dans le dépôt UCCELLO LABS / offer-pipeline.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Sources externes consultées</p>
+      <h2 class="mb-6">Références utilisées par le pipeline</h2>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <h3 class="card__title">Volumétrie d'entreprises</h3>
+          <ul class="simple-list">
+            <li><a href="https://recherche-entreprises.api.gouv.fr" target="_blank" rel="noopener">API Recherche d'Entreprises (data.gouv.fr)</a> : SIRENE INSEE, comptages NAF + tranches d'effectifs salariés</li>
+            <li>data.gouv.fr (catalogue MCP Datagouv) : recherche datasets et dataservices</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="card__title">Annuaires partenaires éditeurs ERP</h3>
+          <ul class="simple-list">
+            <li><a href="https://www.cegid.com/fr/partenaires-integrateurs/" target="_blank" rel="noopener">Cegid Partenaires intégrateurs</a></li>
+            <li><a href="https://www.sage.com/fr-fr/partenaires/trouver-un-partenaire/" target="_blank" rel="noopener">Sage Trouver un partenaire</a></li>
+            <li><a href="https://www.microsoft.com/fr-fr/dynamics-365/partners/find-a-partner" target="_blank" rel="noopener">Microsoft Dynamics 365 partenaires</a></li>
+            <li><a href="https://www.divalto.com/partenaires-integrateurs/" target="_blank" rel="noopener">Divalto partenaires intégrateurs</a></li>
+            <li><a href="https://www.sap.com/france/partners.html" target="_blank" rel="noopener">SAP partenaires France</a></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="card__title">Concurrence (sites officiels)</h3>
+          <ul class="simple-list">
+            <li><a href="https://www.praxedo.com/product-tour/work-order-followup/" target="_blank" rel="noopener">Praxedo Portail donneur d'ordres</a></li>
+            <li><a href="https://learn.microsoft.com/en-us/dynamics365/field-service/customer-portal-overview" target="_blank" rel="noopener">Dynamics 365 Field Service Customer Portal</a></li>
+            <li><a href="https://www.adsi-group.com/portail-web-B2B-client-webLinks.html" target="_blank" rel="noopener">ADSI Weblinks (portail B2B Sage X3)</a></li>
+            <li><a href="https://www.synchroteam.com/product-tour-jobs.php" target="_blank" rel="noopener">Synchroteam Customer Portal</a></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="card__title">Produit Mintizy</h3>
+          <ul class="simple-list">
+            <li><a href="https://mintizy.com" target="_blank" rel="noopener">mintizy.com</a> (site éditeur, charte visuelle, packs Mintizy direct)</li>
+            <li><a href="https://mintizy.com/fonctionnalites" target="_blank" rel="noopener">mintizy.com/fonctionnalites</a></li>
+            <li><a href="https://mintizy.com/partenaires" target="_blank" rel="noopener">mintizy.com/partenaires</a> (programme partenaire Mintizy direct existant)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <p class="eyebrow">Statut du document</p>
+      <h2 class="mb-6">Versionning et confidentialité</h2>
+
+      <div class="grid grid-2">
+        <div>
+          <h4 class="mb-2">Version actuelle</h4>
+          <p class="text-muted mb-4">v1.0, générée le 5 mai 2026. Site protégé par mot de passe (SHA-256 côté client).</p>
+
+          <h4 class="mb-2">Auteur</h4>
+          <p class="text-muted mb-4">Jonathan Sardo, fondateur UCCELLO LABS. Contact <a href="mailto:jonathan@uccellolabs.com">jonathan@uccellolabs.com</a> pour toute question méthodologique.</p>
+
+          <h4 class="mb-2">Périmètre</h4>
+          <p class="text-muted">Référentiel interne UCCELLO LABS. Usage : préparation des RDV revendeurs, alignement COMEX, communication interne. À ne pas diffuser publiquement (battlecards, économie unitaire, hypothèses commerciales).</p>
+        </div>
+
+        <div>
+          <h4 class="mb-2">Mises à jour prévues</h4>
+          <ul class="simple-list">
+            <li>Ajout d'un cas client OCI publié (témoignage chiffré) après accord formel</li>
+            <li>Itération du persona Stéphane sur retours terrain des 3 premiers calls</li>
+            <li>Ajout d'une section "Plan partenariat type" si modèle stabilisé</li>
+            <li>Versionning v2 prévu fin Q3 2026 sur retours pipeline réel</li>
+          </ul>
+
+          <h4 class="mt-6 mb-2">Limites connues</h4>
+          <ul class="simple-list">
+            <li>Volumétrie partenaires ERP par éditeur : estimations (annuaires officiels partiels), à confirmer terrain</li>
+            <li>Taux d'adoption portail client final 65-75% : extrapolé du cas cuisinistes pro Mintizy direct, à valider sur cohort revendeurs</li>
+            <li>LTV revendeur calculée sur durée moyenne 36 mois : hypothèse, pas d'historique long</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <span>Document interne UCCELLO LABS · v1.0 · 2026-05-05</span>
+        <span><a href="../index.html">Retour à l'accueil</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

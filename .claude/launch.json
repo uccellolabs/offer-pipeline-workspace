@@ -14,9 +14,9 @@
       "port": 8788
     },
     {
-      "name": "ennovateur-website",
+      "name": "e-novateur-website",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8789", "--directory", "projects/ennovateur/website"],
+      "runtimeArgs": ["-m", "http.server", "8789", "--directory", "projects/e-novateur/website"],
       "port": 8789
     },
     {
@@ -48,6 +48,24 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "8794", "--directory", "projects/agents-commerciaux/website-public"],
       "port": 8794
+    },
+    {
+      "name": "mintizy-study",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8795", "--directory", "projects/mintizy/website"],
+      "port": 8795
+    },
+    {
+      "name": "e-novateur-pitch-deck",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8796", "--directory", "projects/e-novateur/pitch-deck"],
+      "port": 8796
+    },
+    {
+      "name": "e-novateur-landing",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8797", "--directory", "projects/e-novateur/website-public"],
+      "port": 8797
     }
   ]
 }

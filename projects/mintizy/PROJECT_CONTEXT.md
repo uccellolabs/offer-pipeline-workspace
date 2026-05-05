@@ -1,151 +1,164 @@
-# PROJECT_CONTEXT.md — Contexte du projet
+# PROJECT_CONTEXT.md — Mintizy / Portail revendeurs ERP
 
-> Remplis ce fichier AVANT de lancer les agents du pipeline.
-> Sans contexte précis, les agents travaillent dans l'abstrait.
+> Projet ciblé : **packager et distribuer le portail client Mintizy comme produit autonome auprès d'intégrateurs ERP français orientés SAV/maintenance**.
+> Le revendeur intègre le portail à son ERP via API (intégration à sa charge) et le commercialise à ses clients finaux (entreprises de SAV/maintenance), qui l'utilisent pour leurs propres clients (les destinataires des interventions).
 
 ---
 
 ## L'entreprise
 
-**Nom** — Uccello Labs
-**Secteur** — Édition SaaS et outils métiers B2B
-**Description (2 phrases)** — Uccello Labs analyse les processus métiers des organisations et conçoit des outils sur mesure, en s’appuyant sur l’IA pour automatiser tout ou partie de ces processus. L’offre s’adresse aux entreprises B2B qui veulent industrialiser des flux sans se contenter de logiciels génériques.
-**Stade** — [ ] Idée  [ ] MVP  [x] Traction  [ ] Croissance établie
+**Nom** — UCCELLO LABS
+**Secteur** — Édition SaaS B2B — gestion de maintenance
+**Description** — UCCELLO LABS édite **Mintizy**, plateforme SaaS de gestion de maintenance composée de 3 briques connectées : appli mobile technicien (offline), ERP web responsable, portail client. 1200+ utilisateurs revendiqués. Siège : Montpellier. Hébergement France, RGPD. Site : mintizy.com.
+**Stade** — [ ] Idée  [ ] MVP  [X] **Traction**  [ ] Croissance établie
+*(Traction : produit en marché, premier contrat de distribution signé avec Groupe OCI, 4 clients finaux facturés via OCI + ~15 en pipeline)*
 
 ---
 
 ## Ressources disponibles
 
-**Équipe commerciale** — Pas de commercial dédié : le gérant porte vision produit + prospection/closing. Exécution : COO (administratif, conseil de gestion), 2 développeurs focalisés produit.
-**Budget acquisition** — [x] Bootstrapped  [ ] <2k€/mois  [ ] 2-10k€  [ ] >10k€
-**Temps vente** — ~1,5 jour / semaine (prospection, devis, suivi commercial)
-**Compétences vente** — Fort côté produit / technique et vision ; marketing opérationnel limité ; relation commerciale assumée par le gérant (pas de profil « pur commercial » en interne).
+**Équipe commerciale** — Solo fondateur (Jonathan) aujourd'hui. COO Jonadabe pourra prendre le relais à terme.
+**Budget acquisition** — [X] Bootstrapped  [ ] <2k€/mois  [ ] 2-10k€  [ ] >10k€  *(à confirmer)*
+**Temps vente** — 1,5 jour/semaine
+**Compétences vente** — Technique fort (édition produit Mintizy en prod). Vente B2B partenaires : à structurer (premier deal OCI signé sans process formalisé, pas de réseau intégrateurs ERP préexistant).
 
 ---
 
 ## Compétences + Orientations
 
-> Utilisé par `/idea-finder` pour filtrer les opportunités business.
-
-**Compétences techniques fortes** (ordre décroissant)
-- Développement full-stack
-- Résilience
-- Capital sympathie (facile de créer du réseau) — moins à l’aise sur les réseaux sociaux
+**Compétences techniques fortes**
+- Édition SaaS B2B maintenance — Mintizy en production (3 ans+)
+- API REST exposée et documentée pour intégrateurs tiers
+- Hébergement cloud, RGPD, sécurité (chiffrement, sauvegardes, contrôle accès)
+- Intégrations : Yousign (signature), Stripe (paiement)
 
 **Type de projet préféré**
-[ ] SaaS B2B récurrent
+[X] SaaS B2B récurrent
 [ ] Service / prestation haut de gamme
 [ ] Produit digital one-shot
-[x] Hybride (SaaS + sur-mesure)
+[ ] Hybride
 
 **Marché cible préféré** (par ordre de priorité)
-1. **TPE et PME** B2B (organisations qui veulent industrialiser des flux / outils métiers, sans être limitées à un secteur précis pour l’instant)
-2. **Francophonie élargie** (priorité géographique)
-3. **Canal** : **vente indirecte** d’abord (partenaires, distributeurs, intégrateurs) ; **vente directe** possible en complément au cas par cas
+1. **Intégrateurs ERP français** ayant un portefeuille de clients SAV/maintenance (Cegid XRP Flex, Sage X3, Divalto, Dynamics 365 BC, Odoo Enterprise, SAP B1, Akuiteo… à prioriser en `/offer-market-research`)
+2. Groupements professionnels du SAV (type Groupe Gasel) — accessibles via les revendeurs
+3. (Hors scope) Vente directe aux entreprises de SAV — déjà couverte par l'offre Mintizy SaaS standard
 
-**Ce que vous REFUSEZ de construire** (même si rentable)
-- Armée / défense
-- Jeux d’argent
-- Sexe et relation amoureuse (produits / marchés)
-- Alcool
-- Religion
-- Occultisme
-- Hypnose (y compris ericksonienne)
+**Ce que vous REFUSEZ de construire** — Aucune red line déclarée.
 
 **Complexité technique acceptable** — **3/10**
-*(1 = ultra-simple, livrer vite / 10 = R&D sur 2 ans)* — objectif : **démarrer vite**, avec une base **pérenne** et des **lots / commandes spécifiques** successifs (lot 1, 2, 3…).
+*Pas de R&D produit lourde sur ce projet : le portail existe, le revendeur fait son propre connecteur ERP. Les seuls dev acceptables sont : amélioration de la doc API, options white-label, petits ajustements UX réclamés par plusieurs revendeurs.*
 
 ---
 
 ## Contraintes
 
-**Géographiques** — Francophonie élargie (priorité actuelle)
-**Sectorielles** — Exclusions listées dans « Refus » ci-dessus. **Pas de secteur positif prioritaire** renseigné pour le moment (à affiner au fil des projets / idées).
-**Légales / RGPD** — RGPD dans le cadre habituel B2B ; pas de positionnement « données santé / biométrie » comme cœur d’offre pour l’instant
-**Ce que vous ne voulez PAS faire** — Pas de ligne rouge GTM stricte sur le modèle économique (freemium, forfait, etc.) : **priorité à la vente indirecte** ; vente directe possible en complément
+**Géographiques** — France (alignement avec hébergement France et RGPD).
+**Sectorielles** — Cibler les ERP/intégrateurs avec exposition SAV/maintenance.
+**Légales / RGPD** — Critique (données interventions, signatures, données personnelles techniciens et clients finaux).
+**Ce que vous ne voulez PAS faire** — Pas de connecteur ERP custom dev par UCCELLO (chaque revendeur fait le sien). Pas de R&D produit majeure pour ce projet.
 
 ---
 
 ## Stack technique / outils
 
-**Outils utilisés en interne** — CRM : peu structuré aujourd’hui ; passage prévu sur **Axell** (produit maison — suivi de prospection). Gestion de projet : **Linear**. Facturation : **Pennylane**. Compta : **cabinet d’expertise comptable** (externalisé). Support client : surtout **e-mail** pour le moment ; **outil de support** (helpdesk / ticketing) à mettre en place.
-**Intégrations possibles avec l'offre** — ERP et CRM du client ; écosystèmes **Google** et **Microsoft** ; **webhooks** ; toute stack exposant une **API** (intégration au cas par cas selon la doc et les contraintes client).
-**Dépendances tierces critiques** — **IA** : modèles **open source**, inférence privilégiée via **Scaleway** (API IA) — le choix exact peut s’ajuster avec le client selon contraintes et besoins. **Auth** : développement **sur mesure** sur les projets livrés.
+**Outils utilisés en interne** — Mintizy lui-même (plateforme + appli mobile + portail), API REST, infra cloud France.
+**Intégrations possibles avec l'offre** — Le portail consomme une API REST documentée. Le revendeur construit la passerelle ERP→portail (réplication des données ; les champs absents restent vides côté portail). Modèle confirmé sur Cegid XRP Flex via OCI.
+**Dépendances tierces critiques** — Hébergeur cloud France, Stripe, Yousign.
 
 ---
 
-## Charte visuelle / Design system
+## Design System
 
-> **Source canonique** : répertoire `design-system/` à la racine du pipeline.
-> Fichiers clés : `design-system/README.md` (règles complètes), `design-system/colors_and_type.css` (tokens CSS), `design-system/SKILL.md` (usage agents), previews HTML sous `design-system/preview/`, prototype `design-system/ui_kits/website/`.
+**Identité visuelle**
+- Nom de marque : **Mintizy** (par défaut). White-label possible si pertinent commercialement.
+- Logo : à pointer (logo Mintizy depuis mintizy.com)
+- Tagline actuelle : *"La tour de contrôle de votre maintenance"*
 
-**Couleurs** (extraits — voir CSS pour l’échelle complète)
-- **Primaire (marque)** : `#79d374` (vert — accent, CTA, focus glow)
-- **Charcoal (texte / logo foncé)** : `#40434c`
-- **Gris soutenu** : `#707279`
-- **Navy (surfaces sombres / hero)** : `#1a1d2e` (et `#0f1120` plus profond)
-- **Fonds clairs** : `#ffffff`, off-white `#f5f6f8`
-- **Sémantique** : succès = vert marque ; warning / error / info = conventions standard (voir CSS)
+**Palette de couleurs (HEX)** — extraite de mintizy.com
+- Primaire : `#2FB293` (sarcelle/turquoise — `hsl(166 58% 44%)`)
+- Primaire foncé : `#228470` (`hsl(166 58% 35%)`)
+- Accent : `#00F0E0` (cyan vif — `hsl(176 100% 47%)`)
+- Texte principal : `#1F2937` (`hsl(215 28% 17%)`)
+- Texte muted : `#65758B` (`hsl(215 16% 47%)`)
+- Background : `#FFFFFF`
+- Background alternatif : `#F8FAFC`
+- Border : `#E5E7EB`
+- Succès : `#16A34A`
 
 **Typographies**
-- **Titres & UI** : **Plus Jakarta Sans** (Google Fonts — proche du wordmark ; remplaçable si fichiers officiels dans `fonts/`)
-- **Code / technique** : **JetBrains Mono**
-- **Poids** : display 700–800 ; sous-titres 600 ; corps 400–500 ; tracking serré sur gros titres, caps espacées pour labels catégorie
-
-**Logo**
-- Fond clair : `design-system/assets/logo-uccello-labs.png`
-- Fond sombre : `design-system/assets/logo-uccello-labs-white.png`
-- Source fournie : `design-system/uploads/Logo Uccello Labs.png`, `design-system/uploads/Logo Blanc Uccello.png`
+- Header : Inter
+- Body : Inter
+- Poids utilisés : 400, 500, 600, 700
 
 **Motif visuel signature**
-- Géométrique arrondi (aligné logo), **vert vif** + **navy premium**, ombres douces (`shadow-md` …), rayons 4 / 8 / 12–16 / pill
-- Pas d’illustrations « main dessinée », pas de dégradés agressifs ; option grille / texture très légère sur fonds navy
-- **Icônes** : [Lucide](https://lucide.dev) recommandé (stroke 1.5px, cohérent avec le wordmark)
+- Gradients sarcelle (`linear-gradient(135deg, #2FB293, #228470)`)
+- Cards à coins arrondis 12px (`--radius: 0.75rem`)
+- Shadows douces (sm/md/lg/xl)
+- Glow turquoise sur éléments interactifs
 
-**Voix & ton** (pour copy / slides)
-- Expert mais humain, **nous** institutionnel, phrases courtes, voix active
-- Marque en **minuscules** dans le texte : *uccello.* selon README ; pas d’emoji en contexte pro
-- UI produit : clair et efficace ; marketing : confiant, légèrement visionnaire
+**Ton visuel** — Tech moderne SaaS, clair et accessible (pas executive lourd, pas brutaliste). Mode sombre disponible.
 
-**Ton visuel** — Premium tech **accessible** (capacité haut de gamme sans rigidité « corporate » classique)
+**Conventions de design**
+- Boutons : arrondis (radius 0.75rem), filled primary + outline secondary
+- Cards : shadow douce, fond blanc, border subtile
+- Largeur max contenu : ~1200px
+- Espacement de base : 8/16/24/32/48/64px
 
 ---
 
 ## Existant commercial
 
-**Clients actuels** — Cœur de cible habituel : **PME ~5–10 collaborateurs**. Référence : un **groupe ~300 collaborateurs** (plus gros compte). **Mintizy (portail)** : **12** clients, **~2,7 k€ MRR** (détail sous Offre 1). Missions **sur-mesure** : non agrégées ici.
-**Canaux déjà testés** — **Historique** : réseau personnel + **bouche-à-oreille** (principal levier). **Réseaux sociaux** : peu exploités / peu à l’aise pour l’instant — pas le canal d’acquisition prioritaire aujourd’hui.
-**Réseau existant** — **OCI** — intégrateur **Cegid XRP Flex** ; **distributeur partenaire** du SaaS **Mintizy**. (Autres partenaires / LinkedIn : à compléter si besoin.)
+**Clients actuels (canal revendeur)** — 4 clients finaux facturés via Groupe OCI + ~15 en pipeline (perspectives à 3-6 mois).
+**Canaux déjà testés** — Un seul : signature contrat de distribution avec Groupe OCI (intégrateur Cegid XRP Flex). OCI bundle Flex + Praxedo + portail Mintizy à ses clients ; OCI signe aussi des groupements professionnels (ex. Groupe Gasel = effet de levier multi-membres).
+**Réseau existant** — Aucun contact établi chez d'autres intégrateurs ERP. **Cold outreach pur** à structurer.
 
 ---
 
-## Offres existantes
+## Offres existantes (à ne pas confondre avec ce projet)
 
-> Les agents utilisent cette base pour les projets **idea** / offre groupe. Les briefs dédiés restent dans `projects/mintizy/`, `projects/axell/`, etc.
+> Mintizy a déjà 2 offres en marché. Ce projet en crée une **troisième**, ciblant un canal et un segment distincts.
 
-**Offre 1 — Mintizy**
-- Nom — **Mintizy** (portail client — voir [mintizy.com](https://www.mintizy.com))
-- Description (2 phrases) — Portail client **spécialisé dans le suivi de l’entretien des équipements** sur sites. **Canal OCI** : déploiement du **portail uniquement** ; **OCI ne commercialise pas** le reste de l’écosystème Mintizy (**app web** et **mobile**) — celui-ci reste hors périmètre distributeur.
-- Prix actuel — **Portail client** : **120 € à 300 € / mois** selon **tranches d’utilisateurs** — **120 € / mois** jusqu’à **10 utilisateurs** ; **300 € / mois** pour **utilisateurs illimités**. **OCI** revend **+40 %** vs grille de référence.
-- Clients actuels — **Vente directe** : **8** clients, **~1 882 € MRR**. **Via OCI** : **4** clients, **~840 € MRR** (autres dossiers OCI attendus). **Total indicatif** : **12** clients portail, **~2 722 € MRR** sur cette ligne.
-- Ce qui fonctionne — **UX** : application **intuitive**, **prise en main rapide** **sans formation** structurée.
-- Ce qui frotte — **Données incomplètes** à l’usage : parfois des **données manquantes** — origine **variable** (côté **Uccello Labs** ou **OCI** qui **n’expose pas / n’envoie pas** tout le flux nécessaire).
+**Offre 1 — Mintizy SaaS direct** (existante, non couverte par ce projet)
+- 3 packs : Starter 392€ / Business 792€ / Scale 1520€ HT/mois (promo -20% en cours)
+- Vente directe aux entreprises de SAV/maintenance
 
-**Offre 2 — Axell**
-- Nom — **Axell** (suivi de prospection — usage interne prévu, évolution produit possible)
-- Description — Outil de **suivi de prospection** ; **utilisateurs illimités**. Facturation **par canal** connecté (**19 € HT / canal / mois**). Canaux typiques : **Instagram**, **LinkedIn**, **WhatsApp**, etc.
-- Prix actuel — **19 € HT / canal / mois** (utilisateurs illimités)
-- Clients actuels — [interne / pilotes / revenus : à préciser]
-- Ce qui fonctionne — [à compléter]
-- Ce qui frotte — [à compléter]
+**Offre 2 — Programme partenaires Mintizy direct** (existante, non couverte par ce projet)
+- Apporteurs d'affaires / revendeurs vendant la plateforme **complète** Mintizy
+- Commissions récurrentes 15-20-25% selon pack
+
+**Offre 3 — Portail Mintizy revendu via intégrateurs ERP** (objet de ce projet)
+- Le revendeur intègre uniquement le **portail client** à son propre ERP
+- Tarification UCCELLO au palier (HT/mois par client final) :
+  - 1-10 utilisateurs finaux : 120€
+  - 11-50 : 180€
+  - 51-100 : 240€
+  - 100+ : 300€
+- Le revendeur applique sa marge (≈40% chez OCI)
+- Support N1 = revendeur (accompagnement utilisation, anomalies fonctionnelles)
+- Support N2 = UCCELLO (bugs produit Mintizy)
+- Pas d'exclusivité OCI — UCCELLO peut signer d'autres intégrateurs Cegid XRP Flex et tous autres ERP
+- Marque par défaut : Mintizy. White-label envisageable si pertinent commercialement.
 
 ---
 
 ## Ambition
 
-**Objectif 12 mois** — **Plancher** : **~20 k€ MRR** avec **3 partenaires**. **Cible plutôt visée** : **~50 k€ MRR** avec **5 partenaires**.
-**Objectif 3 ans** — Rester une **petite équipe**, **100 % remote**. **COO** aujourd’hui freelance : **possibilité d’embauche**. **Rôle du gérant** : moins l’**opérationnel**, plus le **réseau**, la **vision produit** et la **vente**. **Mix revenus visé** : **~80 % récurrent** (produits) / **~20 % sur-mesure**.
+**Objectif 12 mois** — 5–7 revendeurs intégrateurs ERP signés (incluant OCI), 25–50 clients finaux actifs, **60–120k€ ARR additionnel** sur ce canal.
+*(Hypothèses : 1 revendeur signé = 6-9 mois de ramp-up avant premier client facturé ; OCI sert de proof point empirique avec 4 facturés + 15 pipeline.)*
+
+**Objectif 3 ans** — 15–20 revendeurs actifs, 200–300 clients finaux, **500k€–1M€ ARR** sur ce canal. Sortir de l'exécution solo via Jonadabe (COO) puis recrutement commercial dédié.
 
 ---
 
-> Une fois rempli, lance `/idea-finder` ou `/offer-cadrage` pour démarrer.
+## Points en suspens à arbitrer dans le pipeline
+
+- [ ] Liste priorisée des ERP cibles à attaquer en année 1 → `/offer-market-research`
+- [ ] Volumétrie réelle d'intégrateurs ERP français adressables → `/offer-market-research`
+- [ ] Persona décideur côté intégrateur ERP (qui décide d'ajouter une brique au bundle ?) → `/offer-persona`
+- [ ] Concurrents directs sur le créneau "portail client SAV pour intégrateurs ERP" → `/offer-competitive-intel`
+- [ ] Décision marque vs white-label (par défaut Mintizy ; basculer si demande forte) → `/offer-final`
+- [ ] Structure tarifaire : conserver le grid OCI ou refondre ? → `/offer-pricing`
+
+---
+
+> Lance `/offer-cadrage` pour cadrer l'idée, challenger la viabilité et obtenir un verdict GO/NO-GO/PIVOT.

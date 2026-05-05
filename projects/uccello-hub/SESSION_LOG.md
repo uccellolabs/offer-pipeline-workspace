@@ -18,6 +18,7 @@
 /offer-final       : ✅ 2026-04-25
 /pitch-deck        : ✅ 2026-04-25
 /study-website     : ✅ 2026-04-25
+/offer-vsl-script  : ✅ 2026-05-05
 ```
 
 ---
@@ -136,5 +137,44 @@ Répartition DISC estimée : D=8 | D-C=3 | D-I=4 | C=11 | C-S=9 | C-D=2 | S=3 | 
 → Design system : harmonisé avec pitch-deck-revendeur (Bricolage Grotesque + DM Sans, #1D4ED8 + #0EA5E9, radius 4px, Trust & Calm)
 → Mobile-first vérifié 320px / 1280px (no horizontal scroll, hamburger fonctionnel, tableau scrollable)
 /offer-study-website public revendeurs : ✅ 2026-05-04
+
+2026-05-05 /offer-vsl-script — Cible : Marc (revendeur partenaire) | Format : Mixte (face cam + B-roll/slides) | Durée : 10 min standard + cutdown 90 sec | Trafic : Tiède + Chaud (Product-aware → Most-aware) | CTA : RDV qualifié 30 min calendar.app.google/SuqHzLZ9sNQvdGtP6
+→ VSL_SCRIPT.md créé (12 actes long + 6 actes cutdown 90 sec + brief interne + 7 hooks)
+→ Big Promise retenue : "Ajoutez 1 700€ de MRR à votre cabinet sans embaucher ni développer" (12 mots, sourcée simulation 10 clients Team)
+→ Hook longue : #2 (promesse chiffrée + spécificité, optimal DISC C) | Hook cutdown : #5 (disqualification/réactance)
+→ One Big Domino : "Pour productiser, il faut développer ou recruter" → faux
+→ Mécanisme : Le Hub Souverain (3 piliers : Centralisation / Interconnexion / IA contextuelle souveraine)
+→ Origin story : déclic vidéo cheffe d'entreprise B2B (IA tuant SaaS classiques) + 14 ans construction SaaS B2B
+→ Risk reversal : 1er mois offert + sandbox + 0€ entrée + garantie 90 jours premier client (désinscription sans frais sinon)
+→ Acte 10 (urgence/rareté) : SUPPRIMÉ (pas de Reason Why crédible, conformément Hormozi). Conservé : coût inaction + pivot temporel marché
+→ Stack ratio : ~5,9× (valeur ancrée 6 400€ / coût première année ~1 089€)
+→ Zones d'alerte assumées : 0 client payant à ce jour (cas Claire utilisé en projection ROI sourcée, 2 RDV cold call vague 1 utilisés en signal marché récent, pas en cas client)
+/offer-vsl-script : ✅ 2026-05-05
+
+2026-05-05 /offer-study-website (itération) — Ajout page /vsl au site interne (website-internal/)
+→ vsl.html créé : brief interne (12 fiches), mécanisme 3 piliers, 3 niveaux de douleur, tableau 7 hooks, 12 actes verbatim avec annotations scéniques (visuel/ton/débit/pauses) + open loops + bucket brigades + yes ladders + future pacing, cutdown 90 sec (6 actes), notes de production, checklist tournage interactive (localStorage), tableau diagnostic post-publication
+→ Mode lecture téléprompteur (toggle) qui masque les annotations et agrandit le verbatim
+→ Nav mise à jour sur 10 pages existantes + nav-grid + pipeline-steps + footer index.html
+→ Design system harmonisé avec cold-call.html (Bricolage Grotesque + DM Sans, palette #1D4ED8, classes existantes)
+/offer-study-website update VSL : ✅ 2026-05-05
+
+2026-05-05 /ui-ux-pro-max — Refonte design site interne (website-internal/) pour matcher l'offre revendeur (Trust & Authority, institutionnel)
+→ Design system généré : pattern Enterprise Gateway, style Trust & Authority. Palette existante #1D4ED8 + #0EA5E9 et fonts Bricolage Grotesque + DM Sans conservées (cohérence cross-supports pitch decks + autres sites)
+→ main.css étendu (calque additif, ~280 lignes) : layer Trust & Authority (variables slate-deep #0F172A, ease-smooth, shadow-card/elevated), focus rings accessibles, prefers-reduced-motion, hero sombre avec radial gradients, btn-primary/ghost/outline, trust-strip avec 4 badges (souveraineté, open source, RGPD, déploiement 1j), pillars-row, stat-feature, section-header (eyebrow + h2 + lead), nav-toggle hamburger mobile, nav-grid--polished (icônes 40x40 avec hover scale), cta-band, action-list, reveal-on-scroll
+→ index.html refondu : hero institutionnel sombre (eyebrow + title avec em gradient + subtitle + 2 CTAs + 4 hero-stats), trust strip, section "Pourquoi Uccello Hub" avec 4 piliers (souveraineté/hub centralisé/IA contextuelle/modèle clé en main), synthèse exécutive (existant) reformatée avec section-header, pipeline progress 11 étapes (ajout VSL), nav-grid--polished avec 12 cards (ajout VSL + contact), action-list 2 prochaines étapes, CTA band en bas
+→ 10 pages existantes : ajout du nav-toggle hamburger pour menu mobile fonctionnel
+→ app.js étendu : mobile toggle + reveal-on-scroll IntersectionObserver
+→ Pré-delivery checklist appliquée : SVG icons (Lucide), cursor pointer, hover smooth 200ms, focus visible, light mode contrast 4.5:1, responsive 320px/768px/1024px, no emoji icons
+/ui-ux-pro-max : ✅ 2026-05-05
+
+2026-05-05 /offer-vsl-script update v1.1 — Naturalisation du verbatim (oral parlé, pas lu)
+→ Problème identifié : style Hormozi-punchy avec phrases ultra-courtes ne passait pas en français parlé. Ex : "Dix clients. 168€ net par mois et par client. 1 680€..." sonnait robotique
+→ Approche : ajout connecteurs ("et", "parce que", "alors", "et c'est là que"), phrases plus longues et liées, "vous voyez", "hein", "en fait" autorisés, mots gras réduits à 1-2 par phrase max
+→ Spécificité préservée : tous les chiffres conservés (168€, 1 680€, 4 800€, 14 ans, 90 jours, etc.), Big Promise, mécanisme 3 piliers, stack 7 livrables avec valeurs ancrées, garantie 90 jours, 5 étapes du CTA
+→ 12 actes longue + 6 cutdown + 7 hooks tableau + open loops + bucket brigade + future pacing + disqualification + P.S. tous réécrits
+→ VSL_SCRIPT.md v1.1 (v1.0 conservé en historique git)
+→ vsl.html dans website-internal/ mis à jour avec verbatim naturalisé
+→ Notes de production : ajout du tic "tics de langage Jonathan à intégrer en lecture" (tu peux remplacer "donc" par "alors", inverser, ajouter des 'vous voyez' selon ton parler naturel)
+/offer-vsl-script v1.1 : ✅ 2026-05-05
 
 > Les agents notent ici ce qui nécessite une validation humaine avant de continuer.

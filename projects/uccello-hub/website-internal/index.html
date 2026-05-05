@@ -4,16 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Uccello Hub — Étude Interne</title>
+  <title>Uccello Hub — Étude interne du programme partenaire</title>
+  <meta name="description" content="Étude complète du programme partenaire revendeur Uccello Hub. Hub IA souverain, distribution indirecte, France et Francophonie.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 
   <!-- ══════════════════════════════════════════════════
-       NAVIGATION INTERNE
+       NAVIGATION
   ══════════════════════════════════════════════════ -->
   <nav class="nav">
     <div class="container">
@@ -22,7 +23,10 @@
           ◆ Uccello Hub
           <span class="nav-badge">Étude Interne</span>
         </a>
-        <ul class="nav-links">
+        <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-controls="nav-links" aria-expanded="false">
+          <span class="nav-toggle-bar"></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
           <li><a href="offre.html">Offre</a></li>
           <li><a href="persona.html">Personas</a></li>
           <li><a href="marche.html">Marché</a></li>
@@ -30,232 +34,366 @@
           <li><a href="pricing.html">Pricing</a></li>
           <li><a href="viabilite.html">Viabilité</a></li>
           <li><a href="prospection.html">Prospection</a></li>
+          <li><a href="cold-call.html">Cold Call</a></li>
+          <li><a href="vsl.html">VSL</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
   <!-- ══════════════════════════════════════════════════
-       EN-TÊTE DE L'ÉTUDE
+       HERO INSTITUTIONNEL
   ══════════════════════════════════════════════════ -->
-  <header class="study-header">
+  <header class="hero">
     <div class="container">
-      <div class="study-header-inner">
+      <div class="hero-eyebrow reveal visible">Programme partenaire revendeur · v1.0 · 25 avril 2026</div>
+      <h1 class="hero-title reveal visible" data-delay="1">Le hub IA souverain que vos clients PME peuvent <em>enfin adopter sans peur</em>.</h1>
+      <p class="hero-subtitle reveal visible" data-delay="2">Étude complète du programme partenaire Uccello Hub : positionnement, persona, marché, concurrence, pricing à deux niveaux, prospection terrain et scripts opérationnels. Pour consultants en transformation digitale qui veulent ajouter du MRR sans embaucher ni développer.</p>
+      <div class="hero-cta-row reveal visible" data-delay="3">
+        <a href="offre.html" class="btn btn-primary">
+          Voir l'offre finale
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="vsl.html" class="btn btn-ghost-light">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z" fill="currentColor" stroke="none"/></svg>
+          Lire le script VSL
+        </a>
+      </div>
+      <div class="hero-stats reveal visible" data-delay="4">
         <div>
-          <span class="study-badge">✓ Dossier Complet</span>
-          <h1 class="study-title">Étude de l'offre — Uccello Hub</h1>
-          <p class="study-subtitle">Hub IA souverain · Distribution indirecte via revendeurs · France &amp; Francophonie</p>
+          <span class="hero-stat-num go">VIABLE</span>
+          <span class="hero-stat-lbl">Verdict global · 3 critères validés</span>
         </div>
-        <div class="study-meta">
-          <div class="meta-item">
-            <span class="meta-label">Date</span>
-            <span class="meta-value">25 avril 2026</span>
-          </div>
-          <div class="meta-item">
-            <span class="meta-label">Version</span>
-            <span class="meta-value">1.0</span>
-          </div>
-          <div class="meta-item">
-            <span class="meta-label">Verdict</span>
-            <span class="meta-value go">VIABLE</span>
-          </div>
+        <div>
+          <span class="hero-stat-num">9/10</span>
+          <span class="hero-stat-lbl">Score prospectabilité revendeur</span>
+        </div>
+        <div>
+          <span class="hero-stat-num accent">10 k€</span>
+          <span class="hero-stat-lbl">Objectif MRR Uccello Labs · 12 mois</span>
+        </div>
+        <div>
+          <span class="hero-stat-num">48 %</span>
+          <span class="hero-stat-lbl">Marge nette revendeur · tier Team</span>
         </div>
       </div>
     </div>
   </header>
 
   <!-- ══════════════════════════════════════════════════
-       STATS CLÉS
+       TRUST STRIP
   ══════════════════════════════════════════════════ -->
-  <div class="stats-section">
+  <div class="trust-strip">
     <div class="container">
-      <div class="stats-row">
-        <div class="stat-item">
-          <span class="stat-num green">VIABLE</span>
-          <span class="stat-lbl">Verdict global</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num">18/20</span>
-          <span class="stat-lbl">Score marché estimé</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num">9/10</span>
-          <span class="stat-lbl">Prospectabilité revendeur</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num">10 k€</span>
-          <span class="stat-lbl">Objectif MRR 12 mois</span>
-        </div>
+      <div class="trust-strip-inner">
+        <span class="trust-strip-label">Souveraineté par design</span>
+        <span class="trust-badge">
+          <svg viewBox="0 0 24 24"><path d="M12 2L4 6v6c0 5 3.4 9.4 8 10 4.6-.6 8-5 8-10V6l-8-4z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Données on-premise
+        </span>
+        <span class="trust-badge">
+          <svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8M3 12a9 9 0 1018 0 9 9 0 00-18 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Modèles open source
+        </span>
+        <span class="trust-badge">
+          <svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          RGPD natif, hors CLOUD Act
+        </span>
+        <span class="trust-badge">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Déploiement 1 journée
+        </span>
       </div>
     </div>
   </div>
 
   <!-- ══════════════════════════════════════════════════
-       PIPELINE PROGRESS
+       SECTION : POURQUOI UCCELLO HUB
   ══════════════════════════════════════════════════ -->
-  <div class="pipeline-section">
+  <section class="section">
     <div class="container">
-      <div class="pipeline-label">Statut du pipeline</div>
-      <div class="pipeline-steps">
-        <div class="pstep done">
-          <div class="pstep-dot">✓</div>Cadrage
-        </div>
-        <span class="pstep-arrow">→</span>
-        <div class="pstep done">
-          <div class="pstep-dot">✓</div>Persona
-        </div>
-        <span class="pstep-arrow">→</span>
-        <div class="pstep done">
-          <div class="pstep-dot">✓</div>Marché
-        </div>
-        <span class="pstep-arrow">→</span>
-        <div class="pstep done">
-          <div class="pstep-dot">✓</div>Concurrence
-        </div>
-        <span class="pstep-arrow">→</span>
-        <div class="pstep done">
-          <div class="pstep-dot">✓</div>Pricing
-        </div>
-        <span class="pstep-arrow">→</span>
-        <div class="pstep done">
-          <div class="pstep-dot">✓</div>Final
-        </div>
-        <span class="pstep-arrow">→</span>
-        <div class="pstep done">
-          <div class="pstep-dot">✓</div>Deck HTML
-        </div>
-        <span class="pstep-arrow">→</span>
-        <div class="pstep done">
-          <div class="pstep-dot">✓</div>Website
-        </div>
-        <span class="pstep-arrow">→</span>
-        <div class="pstep done">
-          <div class="pstep-dot">✓</div>Prospection
-        </div>
-        <span class="pstep-arrow">→</span>
-        <div class="pstep done">
-          <div class="pstep-dot">✓</div>Cold Call
-        </div>
+      <div class="section-header">
+        <div class="section-eyebrow">Le programme partenaire</div>
+        <h2 class="section-h2">Quatre piliers qui rendent l'offre vendable et défendable.</h2>
+        <p class="section-lead">Construit pour des consultants indépendants qui maîtrisent Make et l'intégration SaaS, qui ont la confiance de leurs clients PME, et qui veulent ajouter une ligne de revenus récurrents sans monter une équipe technique.</p>
+      </div>
+
+      <div class="pillars-row">
+
+        <article class="pillar-block">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L4 6v6c0 5 3.4 9.4 8 10 4.6-.6 8-5 8-10V6l-8-4z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Souveraineté par design</h3>
+          <p>Modèles IA open source hébergés sur l'infrastructure du client. Aucune donnée ne quitte l'entreprise. Le DSI signe sans broncher.</p>
+          <span class="pillar-meta">vs Microsoft Copilot · CLOUD Act</span>
+        </article>
+
+        <article class="pillar-block">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09a1.65 1.65 0 001.51-1 1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33h.01a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51h.01a1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82v.01a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Hub centralisé, pas une intégration ponctuelle</h3>
+          <p>Centralisation des données + interconnexion des outils que vos clients utilisent déjà (HubSpot, Notion, Monday, Pipedrive). Pas de migration, pas de formation utilisateur.</p>
+          <span class="pillar-meta">vs Make / n8n · flux isolés</span>
+        </article>
+
+        <article class="pillar-block">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>IA contextuelle souveraine</h3>
+          <p>Chaque collaborateur du client a un assistant IA dans un chat, avec accès uniquement à ce qu'il a le droit de voir. Tableau de bord en un clic. Mail rédigé en 10 secondes.</p>
+          <span class="pillar-meta">RBAC natif · audit trail</span>
+        </article>
+
+        <article class="pillar-block">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Modèle revendeur clé en main</h3>
+          <p>Zéro frais d'entrée. Sandbox dédiée avant signature. Premier mois offert. Garantie 90 jours premier client. Support N2 illimité par Uccello Labs.</p>
+          <span class="pillar-meta">Marge 48% · setup 800€</span>
+        </article>
+
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- ══════════════════════════════════════════════════
-       CONTENU PRINCIPAL
+       SECTION : SYNTHÈSE EXÉCUTIVE (tint)
   ══════════════════════════════════════════════════ -->
-  <div class="content">
+  <section class="section tint">
     <div class="container">
-
-      <!-- Résumé 4 blocs -->
-      <div class="section-title">Synthèse exécutive</div>
+      <div class="section-header">
+        <div class="section-eyebrow">Synthèse exécutive · 4 angles</div>
+        <h2 class="section-h2">Ce que dit l'étude, en quatre paragraphes.</h2>
+      </div>
 
       <div class="summary-grid">
         <div class="summary-card">
           <span class="summary-lbl">Problème</span>
-          <h3 class="summary-title">Données éparpillées + peur IA</h3>
-          <p>Les données d'entreprise sont dispersées sur 5 à 20 outils SaaS. Temps perdu en double saisie et recherche d'infos. Les IA grand public sont perçues comme un risque de fuite — et ils n'ont pas tort.</p>
+          <h3 class="summary-title">Données éparpillées + peur de l'IA</h3>
+          <p>Les données d'entreprise sont dispersées sur 5 à 20 outils SaaS. Temps perdu en double saisie et recherche d'infos. Les IA grand public sont perçues comme un risque de fuite, et les dirigeants ont raison : Microsoft Copilot transite par les serveurs US, ChatGPT n'a aucune garantie de souveraineté.</p>
         </div>
         <div class="summary-card">
           <span class="summary-lbl">Solution</span>
           <h3 class="summary-title">Hub IA souverain clé en main</h3>
-          <p>Centralisation des données + interconnexion de tous les outils + IA contextuelle depuis un chat. Modèles open source hébergés on-premise ou cloud FR. Déployable en 1 journée par un consultant.</p>
+          <p>Centralisation des données, interconnexion de tous les outils, IA contextuelle dans un chat unifié. Modèles open source hébergés on-premise ou cloud souverain (Scaleway). Déployable en une journée par un consultant qui maîtrise déjà les intégrations SaaS.</p>
         </div>
         <div class="summary-card">
-          <span class="summary-lbl">Cible revendeur (Persona A)</span>
-          <h3 class="summary-title">Marc, consultant indépendant</h3>
-          <p>42 ans, TJM 500–700€, accompagne des PME en transformation digitale. Veut du MRR récurrent pour sortir du cycle mission/creux. Maîtrise Make, comprend les intégrations SaaS. Score prospectabilité : 9/10.</p>
+          <span class="summary-lbl">Cible revendeur · persona acheteur</span>
+          <h3 class="summary-title">Marc, consultant indépendant 42 ans</h3>
+          <p>TJM 500 à 700€, accompagne des PME 20 à 80 salariés en transformation digitale. Veut du MRR récurrent pour sortir du cycle mission/creux. Maîtrise Make, comprend les intégrations SaaS. Score prospectabilité 9/10. DISC dominant C (analytique, ROI chiffré).</p>
         </div>
         <div class="summary-card">
-          <span class="summary-lbl">Modèle de prix</span>
-          <h3 class="summary-title">Deux niveaux — Jonathan → Marc → Claire</h3>
-          <p>Jonathan → Marc : 99–399€/mois selon tier utilisateurs. Marc → Claire : 199–799€/mois. Marge Marc : 46–48%. Setup assuré par Marc. Rentable dès le 1er client signé.</p>
+          <span class="summary-lbl">Modèle de prix · deux niveaux</span>
+          <h3 class="summary-title">Jonathan → Marc → Claire</h3>
+          <p>Jonathan facture Marc 99 à 399€/mois selon le tier d'utilisateurs. Marc facture Claire 199 à 799€/mois. Marge brute Marc : 46 à 48%. Setup 100% pour Marc. Premier client rentabilise immédiatement l'accès plateforme.</p>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Navigation vers les sections -->
-      <div class="section-title">Explorer l'étude complète</div>
-      <span class="nav-sections-label">Chaque section correspond à un agent du pipeline</span>
+  <!-- ══════════════════════════════════════════════════
+       PIPELINE PROGRESS (compact)
+  ══════════════════════════════════════════════════ -->
+  <div class="pipeline-section">
+    <div class="container">
+      <div class="pipeline-label">Statut du pipeline · 11 étapes</div>
+      <div class="pipeline-steps">
+        <div class="pstep done"><div class="pstep-dot">✓</div>Cadrage</div>
+        <span class="pstep-arrow">→</span>
+        <div class="pstep done"><div class="pstep-dot">✓</div>Persona</div>
+        <span class="pstep-arrow">→</span>
+        <div class="pstep done"><div class="pstep-dot">✓</div>Marché</div>
+        <span class="pstep-arrow">→</span>
+        <div class="pstep done"><div class="pstep-dot">✓</div>Concurrence</div>
+        <span class="pstep-arrow">→</span>
+        <div class="pstep done"><div class="pstep-dot">✓</div>Pricing</div>
+        <span class="pstep-arrow">→</span>
+        <div class="pstep done"><div class="pstep-dot">✓</div>Final</div>
+        <span class="pstep-arrow">→</span>
+        <div class="pstep done"><div class="pstep-dot">✓</div>Deck HTML</div>
+        <span class="pstep-arrow">→</span>
+        <div class="pstep done"><div class="pstep-dot">✓</div>Website</div>
+        <span class="pstep-arrow">→</span>
+        <div class="pstep done"><div class="pstep-dot">✓</div>Prospection</div>
+        <span class="pstep-arrow">→</span>
+        <div class="pstep done"><div class="pstep-dot">✓</div>Cold Call</div>
+        <span class="pstep-arrow">→</span>
+        <div class="pstep done"><div class="pstep-dot">✓</div>VSL</div>
+      </div>
+    </div>
+  </div>
 
-      <div class="nav-grid">
+  <!-- ══════════════════════════════════════════════════
+       SECTION : NAVIGATION VERS LES SECTIONS
+  ══════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Explorer l'étude</div>
+        <h2 class="section-h2">Chaque section correspond à un agent du pipeline.</h2>
+        <p class="section-lead">Naviguez section par section. Chaque page contient le détail brut de l'agent qui l'a produite, avec les sources, les chiffres et les arbitrages.</p>
+      </div>
+
+      <div class="nav-grid nav-grid--polished">
         <a href="offre.html" class="nav-card">
-          <div class="nc-icon"><i data-lucide="file-text"></i></div>
+          <div class="nc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+          </div>
           <div class="nc-title">L'offre finale</div>
-          <div class="nc-sub">One-pager partenaire revendeur + score viabilité</div>
+          <div class="nc-sub">One-pager partenaire revendeur · score viabilité · faisabilité</div>
           <div class="nc-status">✓ Complet</div>
         </a>
         <a href="persona.html" class="nav-card">
-          <div class="nc-icon"><i data-lucide="users"></i></div>
+          <div class="nc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
           <div class="nc-title">Personas</div>
-          <div class="nc-sub">Marc (acheteur revendeur) + Claire (utilisateur final)</div>
+          <div class="nc-sub">Marc (acheteur revendeur) + Claire (utilisateur final agence)</div>
           <div class="nc-status">✓ Complet</div>
         </a>
         <a href="marche.html" class="nav-card">
-          <div class="nc-icon"><i data-lucide="trending-up"></i></div>
+          <div class="nc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
           <div class="nc-title">Analyse de marché</div>
-          <div class="nc-sub">TAM/SAM/SOM · Canal B · Maturité · Budget</div>
+          <div class="nc-sub">TAM SAM SOM · Canal B revendeurs · maturité Conscient → Éduqué</div>
           <div class="nc-status">✓ Complet</div>
         </a>
         <a href="concurrence.html" class="nav-card">
-          <div class="nc-icon"><i data-lucide="crosshair"></i></div>
+          <div class="nc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
           <div class="nc-title">Concurrence</div>
-          <div class="nc-sub">4 concurrents analysés + battlecards + positionnement</div>
+          <div class="nc-sub">ProSuite, Microsoft Copilot, Make, n8n · battlecards · matrice</div>
           <div class="nc-status">✓ Complet</div>
         </a>
         <a href="pricing.html" class="nav-card">
-          <div class="nc-icon"><i data-lucide="bar-chart-2"></i></div>
+          <div class="nc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
           <div class="nc-title">Pricing</div>
-          <div class="nc-sub">Architecture 2 niveaux + tiers + simulations MRR</div>
+          <div class="nc-sub">Architecture 2 niveaux · 5 tiers · simulations MRR · MSP capacitaire</div>
           <div class="nc-status">✓ Complet</div>
         </a>
         <a href="viabilite.html" class="nav-card">
-          <div class="nc-icon"><i data-lucide="target"></i></div>
+          <div class="nc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
           <div class="nc-title">Viabilité</div>
-          <div class="nc-sub">Score sur 3 critères + check-list faisabilité</div>
+          <div class="nc-sub">Score sur 3 critères · check-list faisabilité · 2 actions à clore</div>
           <div class="nc-status">✓ Complet</div>
         </a>
         <a href="../pitch-deck-revendeur/index.html" class="nav-card">
-          <div class="nc-icon"><i data-lucide="briefcase"></i></div>
+          <div class="nc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+          </div>
           <div class="nc-title">Pitch Deck Revendeur</div>
-          <div class="nc-sub">12 slides HTML pour Marc · Démo live 15 min</div>
+          <div class="nc-sub">12 slides HTML pour Marc · démo live 15 min · pricing détaillé</div>
           <div class="nc-status">✓ Complet</div>
         </a>
         <a href="../pitch-deck-client/index.html" class="nav-card">
-          <div class="nc-icon"><i data-lucide="monitor"></i></div>
+          <div class="nc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
           <div class="nc-title">Pitch Deck Client</div>
-          <div class="nc-sub">12 slides HTML pour Claire · Présentation finale</div>
+          <div class="nc-sub">12 slides HTML pour Claire · présentation finale · 3 piliers</div>
           <div class="nc-status">✓ Complet</div>
         </a>
         <a href="prospection.html" class="nav-card">
-          <div class="nc-icon"><i data-lucide="send"></i></div>
+          <div class="nc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </div>
           <div class="nc-title">Prospection</div>
-          <div class="nc-sub">50 prospects SIRENE · LinkedIn + Email 8 touches · Omnichannel J−3→J+14</div>
+          <div class="nc-sub">50 prospects SIRENE · LinkedIn 3 + Email 5 touches · DISC × biais</div>
           <div class="nc-status">✓ Complet</div>
         </a>
         <a href="cold-call.html" class="nav-card">
-          <div class="nc-icon"><i data-lucide="phone-call"></i></div>
+          <div class="nc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
           <div class="nc-title">Script Cold Call</div>
-          <div class="nc-sub">Verbatim × 4 profils DISC · Portier + boîte vocale · 9 objections</div>
+          <div class="nc-sub">Verbatim × 4 profils DISC · portier · boîte vocale · 9 objections</div>
           <div class="nc-status">✓ Complet</div>
         </a>
+        <a href="vsl.html" class="nav-card">
+          <div class="nc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+          </div>
+          <div class="nc-title">Script VSL</div>
+          <div class="nc-sub">Video Sales Letter 12 actes (10 min) + cutdown 90 sec · 7 hooks</div>
+          <div class="nc-status">✓ Complet</div>
+        </a>
+        <a href="contact.html" class="nav-card">
+          <div class="nc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="nc-title">Contact</div>
+          <div class="nc-sub">Coordonnées · Calendly RDV qualifié 30 min · email direct</div>
+          <div class="nc-status">✓ Disponible</div>
+        </a>
       </div>
-
-      <!-- Prochaines étapes -->
-      <div class="section-title" style="margin-top: 40px;">Prochaines étapes</div>
-      <div class="summary-grid">
-        <div class="summary-card" style="border-left: 3px solid var(--amber);">
-          <span class="summary-lbl" style="color: var(--amber);"><i data-lucide="alert-triangle"></i> Action 1</span>
-          <h3 class="summary-title">Finaliser les conditions particulières</h3>
-          <p>Contrat cadre de 25 pages existant (avocate). Rédiger les conditions particulières Uccello Hub à partir du modèle SaaS précédent. Délai estimé : 1–2h.</p>
-        </div>
-        <div class="summary-card" style="border-left: 3px solid var(--primary);">
-          <span class="summary-lbl" style="color: var(--primary);"><i data-lucide="send"></i> Action 2</span>
-          <h3 class="summary-title">Lancer la prospection pilote</h3>
-          <p>50 prospects identifiés via SIRENE. Enrichir les 5 premiers (LinkedIn + Hunter.io), lancer les séquences omnichannel dès lundi. <a href="prospection.html" style="color:var(--primary); font-weight:600;">Voir le playbook →</a></p>
-        </div>
-      </div>
-
     </div>
-  </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════
+       SECTION : PROCHAINES ÉTAPES
+  ══════════════════════════════════════════════════ -->
+  <section class="section tint">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Prochaines étapes opérationnelles</div>
+        <h2 class="section-h2">Deux actions à clore avant le premier RDV signé.</h2>
+        <p class="section-lead">L'étude est complète, la plateforme est prête, les scripts sont rédigés. Il reste deux dépendances stratégiques à finaliser pour transformer un prospect chaud en partenaire signé.</p>
+      </div>
+
+      <div class="action-list">
+        <article class="action-block">
+          <div class="action-num amber">1</div>
+          <div>
+            <h3>Finaliser les conditions particulières du contrat partenaire</h3>
+            <p>Le contrat cadre de 25 pages existe (rédigé par avocate). Il reste à adapter les conditions particulières Uccello Hub depuis un modèle SaaS précédent. Délai estimé : 1 à 2 heures de travail.</p>
+            <span class="action-meta">Bloquant signature · délai 1-2h</span>
+          </div>
+        </article>
+        <article class="action-block">
+          <div class="action-num">2</div>
+          <div>
+            <h3>Lancer la prospection pilote sur 50 prospects</h3>
+            <p>Liste qualifiée disponible (SIRENE, NAF 62.02A/62.01Z, solopreneurs grandes métropoles). Enrichir les 5 premiers (LinkedIn + Hunter.io), lancer les séquences omnichannel dès lundi.</p>
+            <span class="action-meta"><a href="prospection.html">Voir le playbook</a> · 50 prospects prêts</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════
+       CTA BAND
+  ══════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <div class="section-eyebrow">Étape suivante</div>
+        <h2>Vous voulez voir la plateforme avant d'engager 30 minutes ?</h2>
+        <p>L'offre finale détaille la sandbox dédiée, le programme partenaire complet et la garantie 90 jours premier client. Le script VSL contient le pitch verbatim que vous lisez face caméra ou en démo.</p>
+        <div class="cta-band-row">
+          <a href="offre.html" class="btn btn-primary">
+            Lire l'offre finale
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="vsl.html" class="btn btn-ghost-light">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Lire le script VSL
+          </a>
+          <span class="cta-band-meta">12 min de lecture · 2 documents</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ══════════════════════════════════════════════════
        FOOTER
@@ -264,8 +402,8 @@
     <div class="container">
       <div class="footer-inner">
         <span class="footer-logo">◆ Uccello Hub</span>
-        <span>Document interne — usage privé uniquement</span>
-        <span>v1.0 · 25 avril 2026 · Uccello Labs</span>
+        <span>Document interne · usage privé uniquement</span>
+        <span>v1.0 · 5 mai 2026 · Uccello Labs</span>
       </div>
     </div>
   </footer>

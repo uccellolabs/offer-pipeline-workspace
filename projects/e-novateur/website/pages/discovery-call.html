@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Discovery Call : e-novateur · Plan d'entretien commercial</title>
+  <meta name="description" content="Plan de discovery call cold téléphone, multi-DISC, SPICED + MEDDIC. Verbatim, objections, 4 scénarios next step, scoring, cheat sheet 1 page.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    /* Page-specific styles */
+    .timeline {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+      counter-reset: phase;
+    }
+    @media (min-width: 768px) {
+      .timeline { grid-template-columns: repeat(5, 1fr); }
+    }
+    .timeline__phase {
+      counter-increment: phase;
+      padding: var(--space-5);
+      background: var(--color-bg-alt);
+      border-radius: var(--radius-md);
+      border-top: 3px solid var(--color-accent);
+      position: relative;
+    }
+    .timeline__phase::before {
+      content: counter(phase);
+      position: absolute;
+      top: -14px;
+      left: var(--space-4);
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      color: var(--color-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .timeline__phase-name {
+      font-weight: 700;
+      font-size: 0.875rem;
+      margin: var(--space-3) 0 var(--space-2);
+      color: var(--color-text);
+    }
+    .timeline__phase-time {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+    .timeline__phase-desc {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    .verbatim {
+      background: var(--color-bg-dark);
+      color: rgba(255,255,255,0.92);
+      padding: var(--space-6) var(--space-8);
+      border-radius: var(--radius-md);
+      border-left: 4px solid var(--color-accent);
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      line-height: 1.75;
+      margin: var(--space-4) 0;
+    }
+    .verbatim em {
+      color: var(--color-accent);
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    .disc-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+    @media (min-width: 768px) {
+      .disc-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .disc-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .disc-card {
+      padding: var(--space-6);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      border-top: 4px solid var(--color-accent);
+      background: var(--color-bg);
+    }
+    .disc-card--D { border-top-color: #dc2626; }
+    .disc-card--I { border-top-color: #f59e0b; }
+    .disc-card--S { border-top-color: #059669; }
+    .disc-card--C { border-top-color: #6366f1; }
+    .disc-card__letter {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      line-height: 1;
+      margin-bottom: var(--space-2);
+      color: var(--color-primary);
+    }
+    .disc-card--D .disc-card__letter { color: #dc2626; }
+    .disc-card--I .disc-card__letter { color: #f59e0b; }
+    .disc-card--S .disc-card__letter { color: #059669; }
+    .disc-card--C .disc-card__letter { color: #6366f1; }
+    .disc-card__name {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: var(--space-3);
+    }
+    .disc-card__detail {
+      font-size: 0.8rem;
+      color: var(--color-text-mid);
+      line-height: 1.6;
+      margin-bottom: var(--space-3);
+    }
+    .disc-card__detail strong { color: var(--color-text); display: block; margin-bottom: 2px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); font-weight: 700; }
+
+    .scenario-card {
+      padding: var(--space-6);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      background: var(--color-bg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .scenario-card--hot { border-left: 4px solid var(--color-success); }
+    .scenario-card--warm { border-left: 4px solid var(--color-accent); }
+    .scenario-card--cold { border-left: 4px solid var(--color-warning); }
+    .scenario-card--disq { border-left: 4px solid var(--color-text-faint); }
+    .scenario-card__header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+    .scenario-card__title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-text);
+      font-family: var(--font-body);
+    }
+    .scenario-card__criteria {
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+      padding: var(--space-2) var(--space-3);
+      background: var(--color-bg-alt);
+      border-radius: var(--radius-sm);
+    }
+    .scenario-card__verbatim {
+      padding: var(--space-4);
+      background: var(--color-bg-alt);
+      border-radius: var(--radius-md);
+      font-style: italic;
+      font-size: 0.875rem;
+      color: var(--color-text-mid);
+      line-height: 1.6;
+    }
+    .scenario-card__commit {
+      font-size: 0.8rem;
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+
+    .meddic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: var(--space-3);
+    }
+    .meddic-cell {
+      padding: var(--space-4);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-bg);
+    }
+    .meddic-cell__letter {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--color-accent);
+      line-height: 1;
+    }
+    .meddic-cell__name {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin: var(--space-2) 0;
+    }
+    .meddic-cell__points {
+      font-size: 0.72rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 700;
+    }
+    .meddic-cell__desc {
+      font-size: 0.8rem;
+      color: var(--color-text-mid);
+      margin-top: var(--space-2);
+      line-height: 1.5;
+    }
+
+    .verdict-bar {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-2);
+      margin-top: var(--space-6);
+    }
+    @media (min-width: 768px) {
+      .verdict-bar { grid-template-columns: repeat(4, 1fr); }
+    }
+    .verdict-bar__cell {
+      padding: var(--space-4);
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+    .verdict-bar__cell--hot  { background: var(--color-success-light); color: var(--color-success); }
+    .verdict-bar__cell--warm { background: var(--color-accent-light); color: var(--color-warning); }
+    .verdict-bar__cell--cold { background: var(--color-warning-light); color: var(--color-warning); }
+    .verdict-bar__cell--disq { background: var(--color-bg-alt); color: var(--color-text-muted); }
+    .verdict-bar__score {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      line-height: 1;
+      margin-bottom: var(--space-1);
+    }
+    .verdict-bar__label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .verdict-bar__action {
+      font-size: 0.72rem;
+      margin-top: var(--space-1);
+      opacity: 0.85;
+    }
+
+    .cheatsheet {
+      background: var(--color-bg-dark);
+      color: rgba(255,255,255,0.88);
+      padding: var(--space-8);
+      border-radius: var(--radius-xl);
+      font-size: 0.875rem;
+      line-height: 1.7;
+    }
+    .cheatsheet h3, .cheatsheet h4 {
+      color: white;
+      font-family: var(--font-body);
+      font-weight: 700;
+    }
+    .cheatsheet h4 {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--color-accent);
+      margin-bottom: var(--space-3);
+      margin-top: var(--space-6);
+    }
+    .cheatsheet h4:first-child { margin-top: 0; }
+    .cheatsheet ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      margin-bottom: var(--space-3);
+    }
+    .cheatsheet ul li {
+      padding-left: var(--space-5);
+      position: relative;
+      color: rgba(255,255,255,0.75);
+    }
+    .cheatsheet ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+    }
+    .cheatsheet strong { color: white; }
+    .cheatsheet em { color: var(--color-accent); font-style: normal; font-weight: 600; }
+
+    .empty-state {
+      padding: var(--space-10);
+      background: var(--color-bg-alt);
+      border: 1px dashed var(--color-border-mid);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    .empty-state__icon { font-size: 2rem; margin-bottom: var(--space-3); opacity: 0.4; }
+    .empty-state__title { font-weight: 700; margin-bottom: var(--space-2); color: var(--color-text); }
+    .empty-state__desc { font-size: 0.875rem; color: var(--color-text-muted); max-width: 50ch; margin: 0 auto; }
+
+    .anti-pattern-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    .anti-pattern-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      font-size: 0.875rem;
+      color: var(--color-text-mid);
+      padding: var(--space-3) var(--space-4);
+      background: var(--color-danger-light);
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--color-danger);
+    }
+    .anti-pattern-list li::before {
+      content: '✗';
+      color: var(--color-danger);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__brand">
+        <div class="nav__brand-mark">EN</div>
+        <div>
+          <div class="nav__brand-name">e-novateur</div>
+          <div class="nav__brand-sub">Étude : Direction Projet Digital</div>
+        </div>
+      </a>
+      <ul class="nav__links">
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="offre.html">Offre</a></li>
+        <li><a href="persona.html">Persona</a></li>
+        <li><a href="marche.html">Marché</a></li>
+        <li><a href="concurrence.html">Concurrence</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="viabilite.html">Viabilité</a></li>
+        <li><a href="discovery-call.html" class="active">Discovery Call</a></li>
+      </ul>
+      <button class="nav__hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span class="nav__hamburger-bar"></span>
+        <span class="nav__hamburger-bar"></span>
+        <span class="nav__hamburger-bar"></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav__mobile" id="nav-mobile">
+    <a href="../index.html">Accueil</a>
+    <a href="offre.html">Offre finale</a>
+    <a href="persona.html">Persona acheteur</a>
+    <a href="marche.html">Analyse marché</a>
+    <a href="concurrence.html">Concurrence</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="viabilite.html">Viabilité</a>
+    <a href="discovery-call.html" class="active">Discovery Call</a>
+  </div>
+
+  <!-- Page header -->
+  <div class="page-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Accueil</a>
+        <span class="breadcrumb__sep">›</span>
+        <span>Discovery Call</span>
+      </div>
+      <div class="page-header__tag">Plan d'entretien commercial · Version 1.0 · 5 mai 2026</div>
+      <h1>Discovery call : transformer un<br><em>cold téléphone en deal qualifié</em></h1>
+      <p class="page-header__desc">
+        Plan d'entretien structuré pour les premiers calls commerciaux. Cold call téléphone, 30 à 45 minutes, multi-DISC avec détection à chaud. Méthodologie SPICED + scoring MEDDIC. Conçu pour un rythme de 5 calls par semaine et plus.
+      </p>
+    </div>
+  </div>
+
+  <!-- Méta bar -->
+  <div class="methode-bar">
+    <div class="container">
+      <div class="methode-bar__inner">
+        <div>
+          <div class="methode-item__label">Type</div>
+          <div class="methode-item__value">Discovery (premier contact)</div>
+        </div>
+        <div>
+          <div class="methode-item__label">Format</div>
+          <div class="methode-item__value">Téléphone, 30 à 45 min</div>
+        </div>
+        <div>
+          <div class="methode-item__label">Origine</div>
+          <div class="methode-item__value">Cold call (prospection à froid)</div>
+        </div>
+        <div>
+          <div class="methode-item__label">DISC</div>
+          <div class="methode-item__value">Multi (détection à chaud)</div>
+        </div>
+        <div>
+          <div class="methode-item__label">Volume</div>
+          <div class="methode-item__value">5+ calls / semaine</div>
+        </div>
+        <div>
+          <div class="methode-item__label">Méthodologies</div>
+          <div class="methode-item__value">SPICED + MEDDIC</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Principe directeur -->
+  <section class="section">
+    <div class="container--narrow">
+      <h5>Le principe directeur</h5>
+      <h2 style="margin-top: var(--space-3); margin-bottom: var(--space-6);">Écouter 70% du temps. Parler 30%.</h2>
+      <p style="font-size: 1.0625rem; line-height: 1.85; max-width: none;">
+        Un bon discovery call ne sert pas à pitcher l'offre. Il sert à comprendre la situation réelle du prospect, à identifier la vraie douleur quantifiée, et à décider ensemble si la suite a du sens. Sans douleur identifiée, sans Critical Event valide, pas de pitch : on disqualifie vite et proprement.
+      </p>
+      <p style="font-size: 1.0625rem; line-height: 1.85; max-width: none; margin-top: var(--space-4);">
+        La disqualification rapide est un cadeau pour les deux parties : elle évite 5 calls de plus à perdre du temps des deux côtés.
+      </p>
+    </div>
+  </section>
+
+  <!-- Structure du call -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-intro">
+        <h5>Structure du call</h5>
+        <h2>5 phases, 30 à 45 minutes</h2>
+        <p style="margin-top: var(--space-4);">
+          Le call suit un cadre fixe en 5 phases. Chaque phase a un objectif précis et un budget temps. La phase de présentation est <strong>conditionnelle</strong> : elle n'est déclenchée que si la phase Découverte a révélé une douleur réelle.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline__phase">
+          <div class="timeline__phase-time">3 à 5 min</div>
+          <div class="timeline__phase-name">Ouverture cold</div>
+          <div class="timeline__phase-desc">Justifier l'appel en 30 secondes, obtenir 5 minutes de plus, cadrer la suite.</div>
+        </div>
+        <div class="timeline__phase">
+          <div class="timeline__phase-time">15 à 20 min</div>
+          <div class="timeline__phase-name">Découverte SPICED</div>
+          <div class="timeline__phase-desc">Situation, Pain quantifiée, Impact business, Critical Event, Decision process.</div>
+        </div>
+        <div class="timeline__phase">
+          <div class="timeline__phase-time">5 à 10 min</div>
+          <div class="timeline__phase-name">Présentation (conditionnelle)</div>
+          <div class="timeline__phase-desc">Reformulation du pain, pitch en 3 bullets, différenciation. 5 min max.</div>
+        </div>
+        <div class="timeline__phase">
+          <div class="timeline__phase-time">5 à 10 min</div>
+          <div class="timeline__phase-name">Objections</div>
+          <div class="timeline__phase-desc">Reformuler, questionner, comprendre, puis répondre depuis battlecards.</div>
+        </div>
+        <div class="timeline__phase">
+          <div class="timeline__phase-time">3 à 5 min</div>
+          <div class="timeline__phase-name">Next step</div>
+          <div class="timeline__phase-desc">Engagement concret avec date et action précise. Jamais "on se rappelle".</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Phase 1 : ouverture cold -->
+  <section class="section">
+    <div class="container--narrow">
+      <h5>Phase 1 · Ouverture cold</h5>
+      <h2 style="margin-top: var(--space-3); margin-bottom: var(--space-6);">La règle des 20 secondes</h2>
+      <p style="font-size: 1rem; line-height: 1.75; max-width: none;">
+        En cold call téléphone, le prospect a la main sur le raccrochage. Tu as 20 secondes pour qu'il décide de t'écouter. Pas de cadrage en 4 temps comme en discovery classique : il faut d'abord justifier l'appel, ensuite seulement structurer.
+      </p>
+
+      <h4 style="margin-top: var(--space-8); margin-bottom: var(--space-3);">Étape 1 : pattern interrupt poli (10 sec)</h4>
+      <div class="verbatim">
+        Bonjour [Prénom], Jean-François Vilm à l'appareil, je sais que je vous appelle un peu à froid, est-ce que je vous prends <em>30 secondes</em> pour vous dire pourquoi je vous appelle, et après vous me dites si ça vaut la peine d'aller plus loin ?
+      </div>
+      <p style="font-size: 0.875rem; color: var(--color-text-muted); margin-top: var(--space-3);">
+        <strong>Pourquoi ça marche :</strong> transparence ("à froid"), demande micro-engagement (30 sec), donne le contrôle au prospect : ça calme un D et rassure un S/C.
+      </p>
+
+      <h4 style="margin-top: var(--space-8); margin-bottom: var(--space-3);">Étape 2 : pitch de la raison (20 sec)</h4>
+      <div class="verbatim">
+        Je dirige <em>e-novateur</em>, on est une équipe de 6 experts qui aide les dirigeants de PME à piloter leurs projets digitaux dans leur camp, pour qu'ils soient livrés dans les temps et dans le budget. Je vous appelle parce que <em>[raison spécifique : votre poste sur LinkedIn, votre annonce de refonte, le secteur distribution B2B où on voit beaucoup de projets qui dérapent]</em>. Ma question simple : vous avez un projet digital en cours ou qui se prépare ?
+      </div>
+      <p style="font-size: 0.875rem; color: var(--color-text-muted); margin-top: var(--space-3);">
+        <strong>Pourquoi ça marche :</strong> pose le contexte (qui je suis), donne la raison de l'appel (pas générique), termine par une question fermée binaire qui démarre la qualification immédiatement.
+      </p>
+
+      <h4 style="margin-top: var(--space-8); margin-bottom: var(--space-3);">Étape 3 : embranchement selon la réponse</h4>
+      <div class="table-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Réponse prospect</th>
+              <th>Réaction</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>"Oui, on a un projet"</strong></td>
+              <td>"Super, c'est exactement le moment où je peux être utile. Vous avez 5 min pour qu'on en parle, ou je vous rappelle à un meilleur créneau ?" → bascule en SPICED.</td>
+            </tr>
+            <tr>
+              <td><strong>"Non, pas pour l'instant"</strong></td>
+              <td>"OK, je comprends. Juste pour ma culture : c'est parce qu'il n'y a pas de projet identifié, ou parce que vous gérez ça en interne ?" → si rien, disqualifier proprement.</td>
+            </tr>
+            <tr>
+              <td><strong>"Pas le bon moment"</strong></td>
+              <td>"Pas de souci. Quand est-ce que ce serait un meilleur moment ? 5 min en fin de semaine ?" → reproposer un créneau précis.</td>
+            </tr>
+            <tr>
+              <td><strong>"Comment vous avez eu mon numéro ?"</strong></td>
+              <td>"Votre profil LinkedIn / l'annuaire CCI / la base SIRENE. Si l'appel ne vous convient pas, je raccroche tout de suite." → désamorce sans se justifier longtemps.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Détection DISC -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-intro">
+        <h5>Détection DISC à chaud</h5>
+        <h2>4 profils, 2 minutes d'écoute</h2>
+        <p style="margin-top: var(--space-4);">
+          Le DISC du prospect n'est pas connu à l'avance. La détection se fait dans les deux premières minutes du call, via la voix, le rythme, le vocabulaire et le comportement. En cas de doute, le mode par défaut est <strong>S/C</strong> : cohérent avec le profil ICP Isabelle Renard (Conscienciosité ++).
+        </p>
+      </div>
+
+      <div class="disc-grid">
+
+        <div class="disc-card disc-card--D">
+          <div class="disc-card__letter">D</div>
+          <div class="disc-card__name">Dominance</div>
+          <div class="disc-card__detail"><strong>Voix · rythme</strong>Forte, débit rapide, ton sec.</div>
+          <div class="disc-card__detail"><strong>Vocabulaire</strong>Résultats, performance, concrètement, combien.</div>
+          <div class="disc-card__detail"><strong>Comportement</strong>Coupe la parole, va droit au but, peu de civilités.</div>
+          <div class="disc-card__detail"><strong>Posture commerciale</strong>Factuel, chiffré, droit au but. Erreurs : bavardage, vagueur.</div>
+        </div>
+
+        <div class="disc-card disc-card--I">
+          <div class="disc-card__letter">I</div>
+          <div class="disc-card__name">Influence</div>
+          <div class="disc-card__detail"><strong>Voix · rythme</strong>Expressive, varie d'intonation, rit.</div>
+          <div class="disc-card__detail"><strong>Vocabulaire</strong>Génial, super, vision, équipe, anecdotes.</div>
+          <div class="disc-card__detail"><strong>Comportement</strong>Digresse, raconte, questions ouvertes spontanées.</div>
+          <div class="disc-card__detail"><strong>Posture commerciale</strong>Storytelling, vision du futur. Erreurs : trop de chiffres, ton sec.</div>
+        </div>
+
+        <div class="disc-card disc-card--S">
+          <div class="disc-card__letter">S</div>
+          <div class="disc-card__name">Stabilité</div>
+          <div class="disc-card__detail"><strong>Voix · rythme</strong>Calme, débit lent, silences.</div>
+          <div class="disc-card__detail"><strong>Vocabulaire</strong>Ensemble, tranquillement, voir, comprendre.</div>
+          <div class="disc-card__detail"><strong>Comportement</strong>Hésite, reformule prudemment, demande à réfléchir.</div>
+          <div class="disc-card__detail"><strong>Posture commerciale</strong>Rassurant, étape par étape. Erreurs : urgence, pression au closing.</div>
+        </div>
+
+        <div class="disc-card disc-card--C">
+          <div class="disc-card__letter">C</div>
+          <div class="disc-card__name">Conformité</div>
+          <div class="disc-card__detail"><strong>Voix · rythme</strong>Posée, articulation précise.</div>
+          <div class="disc-card__detail"><strong>Vocabulaire</strong>Exactement, précisément, données, process.</div>
+          <div class="disc-card__detail"><strong>Comportement</strong>Questions techniques, prend des notes, peu d'émotion.</div>
+          <div class="disc-card__detail"><strong>Posture commerciale</strong>Structuré, sourcé. Erreurs : superlatifs, marketing creux.</div>
+        </div>
+
+      </div>
+
+      <div class="notice notice--warning" style="margin-top: var(--space-8);">
+        <span class="notice__icon">💡</span>
+        <div class="notice__body">
+          <strong>Test rapide en 2 minutes</strong><br>
+          Pose la question : "Pouvez-vous me décrire en quelques mots ce qui se passe sur votre projet en ce moment ?". Réponse en 2 phrases factuelles : D ou C. Réponse longue avec contexte humain : I ou S. Débit rapide + termes business : D. Débit posé + termes techniques : C. Chaleureux + raconte : I. Prudent et collectif ("on", "l'équipe") : S.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Phase SPICED -->
+  <section class="section">
+    <div class="container">
+      <div class="section-intro">
+        <h5>Phase 2 · Découverte SPICED</h5>
+        <h2>15 à 20 minutes, 70% d'écoute</h2>
+        <p style="margin-top: var(--space-4);">
+          Tu ne lis pas les questions une par une. Tu en choisis 2 à 3 par section selon où le prospect t'emmène. Le but n'est pas de tout cocher, c'est de <strong>trouver la vraie douleur quantifiée</strong> et le <strong>Critical Event</strong>.
+        </p>
+      </div>
+
+      <!-- S Situation -->
+      <div class="accordion accordion--open">
+        <button class="accordion__trigger" aria-expanded="true">
+          <span><strong>S · Situation</strong> &nbsp; <span style="color: var(--color-text-muted); font-weight: 400;">3 min · poser le décor sans tomber dans le bavardage</span></span>
+          <span class="accordion__icon">−</span>
+        </button>
+        <div class="accordion__body">
+          <div class="table-wrap">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Profil</th>
+                  <th>Question d'entrée</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>D</strong></td><td>"Décrivez-moi votre projet digital en 2 minutes : périmètre, budget, où vous en êtes."</td></tr>
+                <tr><td><strong>I</strong></td><td>"Racontez-moi un peu votre projet, ce qui vous a poussé à le lancer."</td></tr>
+                <tr><td><strong>S</strong></td><td>"Si vous deviez me décrire votre situation actuelle sur ce sujet, comment vous la verriez ?"</td></tr>
+                <tr><td><strong>C</strong></td><td>"Pouvez-vous me donner le contexte, étape par étape : objectif, périmètre, prestataires consultés, planning ?"</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h5 style="margin-top: var(--space-6);">Questions de relance (toutes DISC)</h5>
+          <ul style="margin-top: var(--space-3); list-style: none; display: flex; flex-direction: column; gap: var(--space-2);">
+            <li style="padding-left: var(--space-5); position: relative;"><span style="position: absolute; left: 0; color: var(--color-accent);">→</span>"Qui est impliqué en interne sur ce projet ?"</li>
+            <li style="padding-left: var(--space-5); position: relative;"><span style="position: absolute; left: 0; color: var(--color-accent);">→</span>"Vous en êtes à quelle étape : réflexion, consultation devis, choix prestataire, exécution ?"</li>
+            <li style="padding-left: var(--space-5); position: relative;"><span style="position: absolute; left: 0; color: var(--color-accent);">→</span>"Vous avez déjà fait un projet de ce type avant ? Comment ça s'était passé ?"</li>
+          </ul>
+          <div class="notice notice--warning" style="margin-top: var(--space-5);">
+            <span class="notice__icon">🎯</span>
+            <div class="notice__body">
+              <strong>Trigger Isabelle</strong> : la question sur le projet précédent est clé. Elle déclenche très souvent l'évocation d'une mauvaise expérience passée, c'est ton entrée naturelle vers le Pain.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- P Pain -->
+      <div class="accordion">
+        <button class="accordion__trigger" aria-expanded="false">
+          <span><strong>P · Pain</strong> &nbsp; <span style="color: var(--color-text-muted); font-weight: 400;">5 à 7 min · le cœur du call, ne JAMAIS accepter une douleur abstraite</span></span>
+          <span class="accordion__icon">+</span>
+        </button>
+        <div class="accordion__body">
+          <div class="table-wrap">
+            <table class="comparison-table">
+              <thead><tr><th>Profil</th><th>Question d'entrée</th></tr></thead>
+              <tbody>
+                <tr><td><strong>D</strong></td><td>"Sur ce projet, qu'est-ce qui ne va pas ou risque de mal tourner ?"</td></tr>
+                <tr><td><strong>I</strong></td><td>"Qu'est-ce qui vous embête le plus en ce moment, honnêtement ?"</td></tr>
+                <tr><td><strong>S</strong></td><td>"Si on prend un peu de recul, qu'est-ce qui vous préoccupe le plus dans ce projet ?"</td></tr>
+                <tr><td><strong>C</strong></td><td>"Quels sont les 2 ou 3 risques principaux que vous identifiez sur ce projet ?"</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h5 style="margin-top: var(--space-6);">Technique du double-clic</h5>
+          <p style="margin-top: var(--space-3); font-size: 0.9375rem;">Ne JAMAIS s'arrêter à une douleur abstraite. Toujours quantifier.</p>
+          <div class="table-wrap" style="margin-top: var(--space-4);">
+            <table class="comparison-table">
+              <thead><tr><th>Le prospect dit</th><th>Tu réponds</th></tr></thead>
+              <tbody>
+                <tr><td>"On perd du temps"</td><td>"Combien d'heures par semaine, à peu près ?"</td></tr>
+                <tr><td>"C'est compliqué de comparer les devis"</td><td>"Vous en avez combien, et qu'est-ce qui vous bloque concrètement ?"</td></tr>
+                <tr><td>"J'ai peur que ça dérape"</td><td>"Vous avez déjà vécu un dérapage ? Sur quoi exactement ?"</td></tr>
+                <tr><td>"Mon équipe attend ce projet"</td><td>"Depuis combien de temps ? Et qu'est-ce qu'ils ne peuvent pas faire sans ?"</td></tr>
+                <tr><td>"C'est cher"</td><td>"Cher par rapport à quoi : un autre projet, votre budget initial, votre CA ?"</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- I Impact -->
+      <div class="accordion">
+        <button class="accordion__trigger" aria-expanded="false">
+          <span><strong>I · Impact</strong> &nbsp; <span style="color: var(--color-text-muted); font-weight: 400;">3 à 5 min · connecter la douleur aux conséquences business</span></span>
+          <span class="accordion__icon">+</span>
+        </button>
+        <div class="accordion__body">
+          <div class="table-wrap">
+            <table class="comparison-table">
+              <thead><tr><th>Profil</th><th>Question d'entrée</th></tr></thead>
+              <tbody>
+                <tr><td><strong>D</strong></td><td>"Concrètement, ça représente combien en CA, en coût ou en temps perdu ?"</td></tr>
+                <tr><td><strong>I</strong></td><td>"Si ce projet capote, qu'est-ce que ça change pour vous, votre équipe, votre boîte ?"</td></tr>
+                <tr><td><strong>S</strong></td><td>"Quel impact ça a sur votre quotidien et celui de l'équipe en ce moment ?"</td></tr>
+                <tr><td><strong>C</strong></td><td>"Vous avez chiffré ce que ça coûte si rien ne bouge ? On peut le faire ensemble si vous voulez."</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h5 style="margin-top: var(--space-6);">Technique de chiffrage en live</h5>
+          <div class="quote-block" style="margin-top: var(--space-4);">
+            <p>"On peut faire un calcul rapide ensemble : si vos commerciaux perdent 2h par jour en ressaisie, sur 200 jours par an, ça fait 400 heures × votre coût horaire (~30 €) = 12 000 €/an juste sur ce point. Et c'est sans compter les erreurs et la frustration. Ça vous parle ?"</p>
+          </div>
+
+          <div class="notice notice--warning" style="margin-top: var(--space-5);">
+            <span class="notice__icon">💡</span>
+            <div class="notice__body">
+              <strong>Pour Isabelle :</strong> la valeur économique du persona est de 35 à 45 k€ sur 6 mois (cf. PRICING). Tu as les chiffres pour cadrer l'enjeu.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- C Critical Event -->
+      <div class="accordion">
+        <button class="accordion__trigger" aria-expanded="false">
+          <span><strong>C · Critical Event</strong> &nbsp; <span style="color: var(--color-text-muted); font-weight: 400;">3 min · la question qui révèle l'urgence réelle</span></span>
+          <span class="accordion__icon">+</span>
+        </button>
+        <div class="accordion__body">
+          <p style="font-size: 0.9375rem;"><strong>Pourquoi MAINTENANT et pas dans 6 mois ?</strong> Sans urgence réelle, le deal va traîner ou mourir.</p>
+
+          <div class="table-wrap" style="margin-top: var(--space-5);">
+            <table class="comparison-table">
+              <thead><tr><th>Profil</th><th>Question d'entrée</th></tr></thead>
+              <tbody>
+                <tr><td><strong>D</strong></td><td>"Pourquoi vous regardez ce sujet maintenant et pas il y a 6 mois ?"</td></tr>
+                <tr><td><strong>I</strong></td><td>"Qu'est-ce qui s'est passé récemment qui rend ce sujet prioritaire ?"</td></tr>
+                <tr><td><strong>S</strong></td><td>"Qu'est-ce qui vous pousse à agir aujourd'hui plutôt que d'attendre ?"</td></tr>
+                <tr><td><strong>C</strong></td><td>"Y a-t-il une deadline ou un événement précis qui structure votre planning ?"</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h5 style="margin-top: var(--space-6);">Critical Events typiques à écouter</h5>
+          <ul class="pattern-list" style="margin-top: var(--space-3);">
+            <li><span class="pattern-list__num">1</span>Devis sur la table à signer dans X semaines</li>
+            <li><span class="pattern-list__num">2</span>Prestataire actuel qui sous-performe (déjà en train de chercher remplacement)</li>
+            <li><span class="pattern-list__num">3</span>Saison commerciale (e-commerce avant Q4)</li>
+            <li><span class="pattern-list__num">4</span>Levée de fonds, fin d'exercice, nouveau dirigeant</li>
+            <li><span class="pattern-list__num">5</span>Concurrent qui vient de digitaliser</li>
+          </ul>
+
+          <div class="notice notice--warning" style="margin-top: var(--space-5); background: var(--color-danger-light); border-color: #fca5a5;">
+            <span class="notice__icon">⚠️</span>
+            <div class="notice__body">
+              <strong>Pas de Critical Event = pas de deal à court terme.</strong> Bascule en mode nurturing (Next Step scénario C).
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- D Decision -->
+      <div class="accordion">
+        <button class="accordion__trigger" aria-expanded="false">
+          <span><strong>D · Decision process</strong> &nbsp; <span style="color: var(--color-text-muted); font-weight: 400;">3 min · comprendre comment ils achètent, pas juste qui décide</span></span>
+          <span class="accordion__icon">+</span>
+        </button>
+        <div class="accordion__body">
+          <h5>Questions à poser dans l'ordre</h5>
+          <ul class="pattern-list" style="margin-top: var(--space-3);">
+            <li><span class="pattern-list__num">1</span>Qui prend la décision finale sur ce type d'investissement ?</li>
+            <li><span class="pattern-list__num">2</span>Vous décidez seul·e ou il y a d'autres personnes impliquées (associé, DAF, conseil d'admin) ?</li>
+            <li><span class="pattern-list__num">3</span>Quel est votre process habituel pour valider une dépense de ce niveau ?</li>
+            <li><span class="pattern-list__num">4</span>Vous avez un budget déjà fléché pour ce sujet, ou il faudra le défendre en interne ?</li>
+            <li><span class="pattern-list__num">5</span>Sur quels critères vous allez choisir entre plusieurs options ?</li>
+            <li><span class="pattern-list__num">6</span>Quelle serait votre timeline idéale si on décide de bouger ?</li>
+          </ul>
+
+          <h5 style="margin-top: var(--space-6);">Mapping MEDDIC</h5>
+          <div class="table-wrap" style="margin-top: var(--space-3);">
+            <table class="comparison-table">
+              <thead><tr><th>MEDDIC</th><th>Couvert par</th></tr></thead>
+              <tbody>
+                <tr><td><strong>M</strong> Metrics</td><td>Phase Impact</td></tr>
+                <tr><td><strong>E</strong> Economic Buyer</td><td>"Qui prend la décision finale ?"</td></tr>
+                <tr><td><strong>D</strong> Decision Criteria</td><td>"Sur quels critères vous allez choisir ?"</td></tr>
+                <tr><td><strong>D</strong> Decision Process</td><td>"Quel est votre process ?"</td></tr>
+                <tr><td><strong>I</strong> Identify Pain</td><td>Phase Pain</td></tr>
+                <tr><td><strong>C</strong> Champion</td><td>"Qui dans l'équipe pousse le sujet avec vous ?"</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Pitch conditionnel -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-intro">
+        <h5>Phase 3 · Présentation conditionnelle</h5>
+        <h2>5 minutes max, et seulement si la qualification est OK</h2>
+      </div>
+
+      <div class="ba-grid">
+        <div class="ba-col ba-col--after">
+          <div class="ba-col__label">✓ GO Pitcher</div>
+          <ul class="ba-list">
+            <li>Une douleur réelle quantifiée (Pain + Impact)</li>
+            <li>Un Critical Event valide (urgence)</li>
+            <li>Un budget existant ou défendable</li>
+          </ul>
+        </div>
+        <div class="ba-col ba-col--before">
+          <div class="ba-col__label">✗ NO Pitcher</div>
+          <ul class="ba-list">
+            <li>Pas de douleur claire ("ça marche, je regardais juste")</li>
+            <li>Pas de Critical Event ("on verra dans 1 an")</li>
+            <li>Pas de budget ("on n'a rien prévu pour ça")</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="notice notice--warning" style="margin-top: var(--space-6); background: var(--color-danger-light); border-color: #fca5a5;">
+        <span class="notice__icon">🚫</span>
+        <div class="notice__body">
+          <strong>Anti-pattern absolu</strong> : pitcher quand le prospect n'a pas de besoin clair. C'est une perte de temps pour les deux et ça brûle le futur.
+        </div>
+      </div>
+
+      <h4 style="margin-top: var(--space-12); margin-bottom: var(--space-4);">Trame de pitch en 3 étapes</h4>
+
+      <h5>Étape 1 · Reformulation (30 sec)</h5>
+      <div class="verbatim">
+        Si je résume ce que vous me dites : votre principal sujet c'est <em>[reformulation EXACTE de la douleur dans les mots du prospect]</em>. Et l'enjeu, c'est <em>[Impact chiffré]</em>. C'est bien ça ?
+      </div>
+
+      <h5 style="margin-top: var(--space-8);">Étape 2 · Pitch (3 min max)</h5>
+      <div class="verbatim">
+        Notre approche, c'est de mettre une équipe dans <em>VOTRE camp</em> pour piloter le projet à votre place. Ça veut dire trois choses concrètes :<br><br>
+        <strong>1.</strong> On analyse vos devis avant que vous signiez, en termes business pas techniques.<br>
+        <strong>2.</strong> On pilote votre prestataire à votre place, vous recevez un point de 10 lignes par semaine.<br>
+        <strong>3.</strong> Si votre prestataire dérape, on a une équipe de 6 experts qui peut prendre le relais immédiatement.<br><br>
+        La différence avec ce qui existe : un AMOA freelance fait l'étape 1 et 2 mais n'a pas d'équipe de backup. Une agence a une équipe mais elle vend aussi l'exécution, donc elle a intérêt à élargir le scope. <em>Nous on fait les deux : neutralité totale ET équipe complète.</em>
+      </div>
+
+      <h5 style="margin-top: var(--space-8);">Étape 3 · Check (30 sec)</h5>
+      <div class="verbatim">
+        Des questions sur ce que je viens de dire ?
+      </div>
+    </div>
+  </section>
+
+  <!-- Objections -->
+  <section class="section">
+    <div class="container">
+      <div class="section-intro">
+        <h5>Phase 4 · Objections</h5>
+        <h2>Reformuler, questionner, comprendre, puis répondre</h2>
+        <p style="margin-top: var(--space-4);">
+          Process anti-objection en 4 temps : <strong>"Je comprends"</strong> (pas de combat) → <strong>reformulation</strong> ("vous voulez dire que...") → <strong>creuser la vraie raison</strong> ("qu'est-ce qui vous fait dire ça ?") → <strong>réponse</strong> depuis battlecards.
+        </p>
+      </div>
+
+      <div class="table-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th style="width: 30%;">Objection</th>
+              <th>Réponse</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>"C'est trop cher"</strong></td>
+              <td>"Trop cher par rapport à quoi ? Sur un projet à 50k€, un dépassement de 15% c'est 7 500 € que nos clients évitent. Notre mission Direction à 4 000€/mois s'autofinance en 2 mois. Le vrai coût c'est de NE PAS être bien piloté."</td>
+            </tr>
+            <tr>
+              <td><strong>"Mon agence a déjà un chef de projet"</strong></td>
+              <td>"Le chef de projet de votre agence travaille pour votre agence. Quand il vous propose un avenant, il défend QUI ? Ce n'est pas une critique, c'est juste la structure de leur modèle. Nous, on est rémunérés pour défendre VOS intérêts, point."</td>
+            </tr>
+            <tr>
+              <td><strong>"On a déjà un AMOA freelance"</strong></td>
+              <td>"Bonne idée, l'AMOA solo fait du bon travail sur le cadrage. La vraie question : si votre prestataire actuel dérape en mois 4, que fait votre AMOA ? Il alerte, mais il n'a pas d'équipe pour reprendre. Nous oui, c'est la différence."</td>
+            </tr>
+            <tr>
+              <td><strong>"Je peux gérer ça en interne"</strong></td>
+              <td>"Combien d'heures par semaine vous y passez actuellement ? × votre coût horaire dirigeant × 6 mois. Souvent on arrive à 7 500 à 12 500 €. Sans compter les erreurs non détectées."</td>
+            </tr>
+            <tr>
+              <td><strong>"Pas le bon moment"</strong></td>
+              <td>"Je comprends. Question franche : qu'est-ce qui rendrait le moment bon ? À partir de quand on aurait dû avoir cette discussion ?"</td>
+            </tr>
+            <tr>
+              <td><strong>"Je dois en parler en interne"</strong></td>
+              <td>"Bien sûr. Avec qui exactement ? Comment je peux vous aider à présenter le sujet ? Je peux vous préparer une note de 1 page si ça aide."</td>
+            </tr>
+            <tr>
+              <td><strong>"On va y réfléchir"</strong></td>
+              <td>"Très bien. Concrètement, sur quoi vous voulez réfléchir : la pertinence, le timing, le pricing, autre chose ? Comme ça je vous envoie les bonnes infos."</td>
+            </tr>
+            <tr>
+              <td><strong>"Comment je sais que vous êtes compétents ?"</strong></td>
+              <td>"C'est une question légitime. Je vous propose un test simple : vous m'envoyez vos devis, je les analyse en 48h gratuitement. Si l'analyse vous convainc, on parle de la suite. Sinon, vous gardez l'analyse, sans engagement."</td>
+            </tr>
+            <tr>
+              <td><strong>"Vous prenez une commission sur les agences ?"</strong></td>
+              <td>"Non, jamais. C'est même contractuel. Notre seule rémunération c'est votre mission. C'est ce qui rend notre conseil neutre, c'est notre principal asset."</td>
+            </tr>
+            <tr>
+              <td><strong>"Vos références ?"</strong></td>
+              <td>"Les profils de l'équipe sont publics (LinkedIn). Le portfolio est sur le site. Sur la mission DPD spécifiquement, on est en phase de constitution des références : les premiers clients ont des conditions préférentielles, c'est très transparent."</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 style="margin-top: var(--space-10); margin-bottom: var(--space-4);">Si le prospect insiste sur le pricing</h4>
+      <p>Donner le pricing simplement, sans s'excuser :</p>
+      <div class="verbatim" style="margin-top: var(--space-4);">
+        Trois formules : <em>Cadrage à 1 200 €</em> one-shot pour analyser vos devis et faire le cahier des charges, livré en 5 jours. <em>Direction à 4 000 €/mois</em> pour le pilotage complet du projet. <em>Équipe Complète à 6 500 €/mois</em> si on prend aussi une partie de l'exécution. Le Cadrage est déductible si on signe la mission Direction dans les 30 jours.
+      </div>
+    </div>
+  </section>
+
+  <!-- Next step -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-intro">
+        <h5>Phase 5 · Next step</h5>
+        <h2>4 scénarios selon le niveau de qualification</h2>
+        <p style="margin-top: var(--space-4);">
+          Ne JAMAIS dire "je vous rappelle la semaine prochaine" sans date précise, ni "on reste en contact". Toujours sortir du call avec un engagement concret : action exacte, qui fait quoi, quand.
+        </p>
+      </div>
+
+      <div class="grid grid-2">
+
+        <div class="scenario-card scenario-card--hot">
+          <div class="scenario-card__header">
+            <div class="scenario-card__title">Scénario A · Hautement qualifié</div>
+            <span class="score-badge score-badge--top">8 à 10/10</span>
+          </div>
+          <div class="scenario-card__criteria">Douleur forte + budget + Critical Event + intérêt manifeste</div>
+          <div class="scenario-card__verbatim">
+            "Voilà ce que je vous propose : on fait une mission Cadrage à 1 200 € sur vos devis. En 5 jours, vous avez une analyse claire de quel devis tient la route, où sont les zones de risque, et un cahier des charges qui protège vos intérêts. Si vous décidez ensuite de prendre la mission Direction, le Cadrage est déduit. On peut démarrer cette semaine ?"
+          </div>
+          <div class="scenario-card__commit">→ Engagement : confirmation du Cadrage par mail dans les 24h</div>
+        </div>
+
+        <div class="scenario-card scenario-card--warm">
+          <div class="scenario-card__header">
+            <div class="scenario-card__title">Scénario B · Validation interne nécessaire</div>
+            <span class="score-badge score-badge--high">6 à 7/10</span>
+          </div>
+          <div class="scenario-card__criteria">Besoin clair, mais décision partagée (associé, DAF) ou budget à défendre</div>
+          <div class="scenario-card__verbatim">
+            "Je vous propose deux choses : (1) je vous envoie d'ici demain matin une note de synthèse de 1 page que vous pouvez partager en interne avec [le décideur identifié], (2) on cale un deuxième call dans 7 jours, idéalement avec cette personne, pour répondre à ses questions. Vous me donnez son nom et son créneau ?"
+          </div>
+          <div class="scenario-card__commit">→ Engagement : date du second call + nom du stakeholder</div>
+        </div>
+
+        <div class="scenario-card scenario-card--cold">
+          <div class="scenario-card__header">
+            <div class="scenario-card__title">Scénario C · Pas mature</div>
+            <span class="score-badge score-badge--mid">4 à 5/10</span>
+          </div>
+          <div class="scenario-card__criteria">Besoin émergent, projet pas démarré, pas de Critical Event</div>
+          <div class="scenario-card__verbatim">
+            "Honnêtement, je ne pense pas qu'on soit utile aujourd'hui, votre projet n'est pas encore au stade où on peut faire la différence. Voilà ce que je vous propose : je vous envoie [le pitch deck e-novateur ou la note 'Comment éviter les 5 pièges classiques d'un projet digital PME']. On reprend contact dans 2 mois pour voir si ça a bougé ?"
+          </div>
+          <div class="scenario-card__commit">→ Engagement : envoi de la ressource + date de relance dans le CRM</div>
+        </div>
+
+        <div class="scenario-card scenario-card--disq">
+          <div class="scenario-card__header">
+            <div class="scenario-card__title">Scénario D · Disqualifié</div>
+            <span class="score-badge score-badge--low">0 à 3/10</span>
+          </div>
+          <div class="scenario-card__criteria">Pas de douleur, pas de budget, pas de timing, pas de fit</div>
+          <div class="scenario-card__verbatim">
+            "Je vais être franc avec vous : sur ce qu'on s'est dit, je ne pense pas qu'on soit le bon partenaire, et je ne veux pas vous faire perdre du temps. Si la situation change dans les 6 prochains mois, mon numéro c'est le [X] et mon mail [Y]. Bonne continuation, sincèrement."
+          </div>
+          <div class="scenario-card__commit">→ Aucun engagement. La disqualification rapide est un cadeau pour les deux.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MEDDIC scoring -->
+  <section class="section">
+    <div class="container">
+      <div class="section-intro">
+        <h5>Scoring MEDDIC</h5>
+        <h2>Évaluer la qualification en moins d'une minute</h2>
+        <p style="margin-top: var(--space-4);">
+          À remplir immédiatement après le call, avant l'évaporation des détails. Le score sur 10 détermine le verdict et la prochaine action commerciale.
+        </p>
+      </div>
+
+      <div class="meddic-grid">
+        <div class="meddic-cell">
+          <div class="meddic-cell__letter">M</div>
+          <div class="meddic-cell__name">Metrics</div>
+          <div class="meddic-cell__points">/2 points</div>
+          <div class="meddic-cell__desc">La douleur est-elle quantifiée ? (€, heures, %)</div>
+        </div>
+        <div class="meddic-cell">
+          <div class="meddic-cell__letter">E</div>
+          <div class="meddic-cell__name">Economic Buyer</div>
+          <div class="meddic-cell__points">/2 points</div>
+          <div class="meddic-cell__desc">Le décideur final est-il identifié et joignable ?</div>
+        </div>
+        <div class="meddic-cell">
+          <div class="meddic-cell__letter">D</div>
+          <div class="meddic-cell__name">Decision Criteria</div>
+          <div class="meddic-cell__points">/2 points</div>
+          <div class="meddic-cell__desc">Les critères de choix sont-ils explicités ?</div>
+        </div>
+        <div class="meddic-cell">
+          <div class="meddic-cell__letter">D</div>
+          <div class="meddic-cell__name">Decision Process</div>
+          <div class="meddic-cell__points">/2 points</div>
+          <div class="meddic-cell__desc">Le process et la timeline sont-ils clairs ?</div>
+        </div>
+        <div class="meddic-cell">
+          <div class="meddic-cell__letter">I</div>
+          <div class="meddic-cell__name">Identify Pain</div>
+          <div class="meddic-cell__points">/1 point</div>
+          <div class="meddic-cell__desc">La douleur est-elle réelle, pas juste polie ?</div>
+        </div>
+        <div class="meddic-cell">
+          <div class="meddic-cell__letter">C</div>
+          <div class="meddic-cell__name">Champion</div>
+          <div class="meddic-cell__points">/1 point</div>
+          <div class="meddic-cell__desc">Y a-t-il un allié interne qui pousse le sujet ?</div>
+        </div>
+      </div>
+
+      <h4 style="margin-top: var(--space-10); margin-bottom: var(--space-4);">Lecture du score</h4>
+      <div class="verdict-bar">
+        <div class="verdict-bar__cell verdict-bar__cell--hot">
+          <div class="verdict-bar__score">8 à 10</div>
+          <div class="verdict-bar__label">Hot lead</div>
+          <div class="verdict-bar__action">Pousser fort, Cadrage immédiat</div>
+        </div>
+        <div class="verdict-bar__cell verdict-bar__cell--warm">
+          <div class="verdict-bar__score">6 à 7</div>
+          <div class="verdict-bar__label">Warm lead</div>
+          <div class="verdict-bar__action">Nurturing actif, 2nd call sous 7-14 j</div>
+        </div>
+        <div class="verdict-bar__cell verdict-bar__cell--cold">
+          <div class="verdict-bar__score">4 à 5</div>
+          <div class="verdict-bar__label">Cold lead</div>
+          <div class="verdict-bar__action">Séquence longue, 1 contact / 2 mois</div>
+        </div>
+        <div class="verdict-bar__cell verdict-bar__cell--disq">
+          <div class="verdict-bar__score">0 à 3</div>
+          <div class="verdict-bar__label">Disqualifié</div>
+          <div class="verdict-bar__action">Archivage, pas de relance avant 6 mois</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cheat sheet -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-intro">
+        <h5>Cheat sheet · 5+ calls par semaine</h5>
+        <h2>Une page à imprimer et garder sous les yeux</h2>
+        <p style="margin-top: var(--space-4);">
+          Après les 5 premiers calls, c'est tout ce dont tu as besoin pendant l'appel. Le reste de la page sert de référentiel à consulter en préparation.
+        </p>
+      </div>
+
+      <div class="cheatsheet">
+
+        <h4>Cold call · Ouverture (20 sec)</h4>
+        <p style="color: rgba(255,255,255,0.85);">
+          "Bonjour [P], JF Vilm. Appel à froid, 30 sec pour expliquer pourquoi je vous appelle, après vous me dites ?"<br>
+          → "<em>e-novateur</em>, équipe de 6, on aide les PME à piloter leurs projets digitaux dans leur camp. Je vous appelle parce que [raison spécifique]. Vous avez un projet en cours ?"
+        </p>
+
+        <h4>DISC en 2 minutes</h4>
+        <ul>
+          <li><strong>D</strong> : voix sèche, débit rapide → factuel, chiffré</li>
+          <li><strong>I</strong> : voix expressive, raconte → storytelling, vision</li>
+          <li><strong>S</strong> : voix calme, hésite → rassurant, étape par étape</li>
+          <li><strong>C</strong> : voix posée, précis → structuré, sourcé</li>
+          <li>Doute → mode <em>S/C par défaut</em> (Isabelle)</li>
+        </ul>
+
+        <h4>SPICED · 15-20 min · 70% écoute</h4>
+        <ul>
+          <li><strong>S</strong> : "Décrivez-moi votre projet en 2 min"</li>
+          <li><strong>P</strong> : "Qu'est-ce qui ne va pas ?" + DOUBLE-CLIC chiffrage</li>
+          <li><strong>I</strong> : "Si rien ne change, qu'est-ce qui se passe ?"</li>
+          <li><strong>C</strong> : "Pourquoi maintenant et pas il y a 6 mois ?"</li>
+          <li><strong>D</strong> : "Qui décide ? Quel process ? Quelle timeline ?"</li>
+        </ul>
+
+        <h4>Pitch · 5 min MAX · conditionnel</h4>
+        <ul>
+          <li>Reformuler le pain</li>
+          <li>3 bullets : analyse devis / pilotage / backup équipe</li>
+          <li>Différenciation : <em>neutralité</em> (vs agence) + <em>équipe</em> (vs AMOA solo)</li>
+          <li>"Des questions ?"</li>
+        </ul>
+
+        <h4>Objections top 3</h4>
+        <ul>
+          <li><strong>"Trop cher"</strong> → "Par rapport à quoi ? Dépassement 15% = 7 500 €. Mission s'autofinance en 2 mois."</li>
+          <li><strong>"Agence a déjà un PM"</strong> → "Il bosse pour QUI ? Pas pour vous."</li>
+          <li><strong>"Je gère en interne"</strong> → "Combien d'heures × coût horaire ?"</li>
+        </ul>
+
+        <h4>Next step · 3 min</h4>
+        <ul>
+          <li><strong>A. Hot</strong> → Cadrage 1 200 € cette semaine</li>
+          <li><strong>B. Warm</strong> → Note 1 page + second call sous 7 jours</li>
+          <li><strong>C. Pas mature</strong> → Ressource + relance dans 2 mois</li>
+          <li><strong>D. Disqualifié</strong> → "Pas le bon partenaire, bonne continuation"</li>
+        </ul>
+
+        <h4>Scoring MEDDIC après call · CRM en 60 sec</h4>
+        <p style="color: rgba(255,255,255,0.85);">
+          <em>8-10</em> Hot &nbsp;|&nbsp; <em>6-7</em> Warm &nbsp;|&nbsp; <em>4-5</em> Cold &nbsp;|&nbsp; <em>0-3</em> Disqualifié
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Anti-patterns -->
+  <section class="section">
+    <div class="container--narrow">
+      <h5>Anti-patterns</h5>
+      <h2 style="margin-top: var(--space-3); margin-bottom: var(--space-6);">Ce qu'il ne faut jamais faire</h2>
+      <ul class="anti-pattern-list">
+        <li>Pitcher avant la phase Pain : qualification ratée, deal mort</li>
+        <li>Lire les questions une par une comme un script (ça s'entend)</li>
+        <li>Demander le budget en premier : fait fuir un I ou un S</li>
+        <li>Promettre sans engager : "on va voir" tue le deal</li>
+        <li>Oublier le Critical Event : sans urgence, pas de deal</li>
+        <li>Disqualifier trop tard : mieux vaut perdre 5 min que 5 calls</li>
+        <li>Pas de compte-rendu dans l'heure : les insights s'évaporent</li>
+        <li>Style générique : un call à un D n'est pas un call à un S</li>
+        <li>Présenter trop longtemps : 5 min max</li>
+        <li>Pas de next step concret : laisser le prospect décider seul = deal mort</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Comptes-rendus terrain -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-intro">
+        <h5>Comptes-rendus terrain</h5>
+        <h2>Apprentissages des calls réels</h2>
+        <p style="margin-top: var(--space-4);">
+          Chaque discovery call mené alimente cette section : score MEDDIC, douleurs récurrentes, objections nouvelles, mots qui marchent. Les patterns émergent à partir de 3 calls.
+        </p>
+      </div>
+
+      <div class="empty-state">
+        <div class="empty-state__icon">📞</div>
+        <div class="empty-state__title">Aucun compte-rendu pour l'instant</div>
+        <div class="empty-state__desc">
+          Le template <code>CALL_RECAP_TEMPLATE.md</code> est prêt dans le dossier projet. Après chaque call, dupliquer le fichier (nom : <code>CALL_RECAP_AAAA-MM-JJ_Prospect.md</code>) et le remplir dans l'heure. Les recaps apparaîtront ici automatiquement, avec une synthèse de patterns dès 3 entrées.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Préparation par lot -->
+  <section class="section">
+    <div class="container--narrow">
+      <h5>Préparation par lot</h5>
+      <h2 style="margin-top: var(--space-3); margin-bottom: var(--space-6);">Tenir 5+ calls par semaine sans perdre en qualité</h2>
+      <ul class="pattern-list">
+        <li><span class="pattern-list__num">1</span><span><strong>Lundi matin · 30 min</strong> : préparer la liste des 5 à 7 prospects de la semaine. LinkedIn ouvert, profils estimés DISC, signal récent noté.</span></li>
+        <li><span class="pattern-list__num">2</span><span><strong>Avant chaque call · 5 min</strong> : ouvrir le profil, relire les notes, confirmer DISC, 1 phrase d'accroche personnalisée.</span></li>
+        <li><span class="pattern-list__num">3</span><span><strong>Après chaque call · 15 min</strong> : remplir le CALL_RECAP, reporter dans CRM, planifier le next step.</span></li>
+        <li><span class="pattern-list__num">4</span><span><strong>Vendredi 17h · 30 min</strong> : revue hebdo, identifier les patterns (objections récurrentes, mots qui marchent), mettre à jour la cheat sheet, reporter dans SESSION_LOG.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Sources -->
+  <section class="section section--alt">
+    <div class="container--narrow">
+      <h5>Sources internes</h5>
+      <h2 style="margin-top: var(--space-3); margin-bottom: var(--space-6);">Fichiers du pipeline alimentant ce plan</h2>
+      <ul class="proof-list">
+        <li>
+          <p><strong>OFFER_FINAL.md v1.0</strong></p>
+          <p>Offre rédigée, différenciation, pricing, objections anticipées (sections 9 et 10).</p>
+        </li>
+        <li>
+          <p><strong>PERSONA_ACHETEUR_v2.md</strong></p>
+          <p>Isabelle Renard : douleurs (partie 6), journal intime (partie 7), objections (parties 12 et 13), Big Five OCEAN (partie 11).</p>
+        </li>
+        <li>
+          <p><strong>PRICING_BRIEF.md v1.0</strong></p>
+          <p>Tiers Cadrage 1 200 € · Direction 4 000 €/mois ⭐ · Équipe Complète 6 500 €/mois. Justifications ROI prêtes à l'emploi.</p>
+        </li>
+        <li>
+          <p><strong>COMPETITIVE_BRIEF.md v1.0</strong></p>
+          <p>Battlecards AMOA solo / Agence full service / Ne rien faire. Zone de différenciation : neutralité + exécution.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__left">
+        <strong>e-novateur</strong> : Étude offre Direction de Projet Digital
+      </div>
+      <div class="footer__right">
+        Page Discovery Call générée le 5 mai 2026 · Pipeline Offer · Usage privé
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <style id="auth-guard-style">html{visibility:hidden}</style>
+  <script>(function(){if(sessionStorage.getItem('mintizy_auth')==='ok'){document.documentElement.style.visibility='visible';}else{var prefix=window.location.pathname.indexOf('/pages/')!==-1?'../':'';window.location.replace(prefix+'login.html');}})();</script>
+  <title>Concurrence : Mintizy / Portail revendeurs ERP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+  <nav class="nav" aria-label="Navigation principale">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__brand"><span class="nav__brand-mark">M</span><span>Mintizy : étude</span></a>
+      <div class="nav__links">
+        <a href="../index.html" class="nav__link">Accueil</a>
+        <a href="offre.html" class="nav__link">Offre</a>
+        <a href="persona.html" class="nav__link">Personas</a>
+        <a href="marche.html" class="nav__link">Marché</a>
+        <a href="concurrence.html" class="nav__link nav__link--active">Concurrence</a>
+        <a href="pricing.html" class="nav__link">Pricing</a>
+        <a href="viabilite.html" class="nav__link">Viabilité</a>
+        <a href="sources.html" class="nav__link">Sources</a>
+      </div>
+      <span class="badge badge--neutral" style="margin-left: var(--space-3);">Doc interne</span>
+      <button class="nav__hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="nav__mobile-menu">
+        <a href="../index.html" class="nav__link">Accueil</a>
+        <a href="offre.html" class="nav__link">Offre</a>
+        <a href="persona.html" class="nav__link">Personas</a>
+        <a href="marche.html" class="nav__link">Marché</a>
+        <a href="concurrence.html" class="nav__link">Concurrence</a>
+        <a href="pricing.html" class="nav__link">Pricing</a>
+        <a href="viabilite.html" class="nav__link">Viabilité</a>
+        <a href="sources.html" class="nav__link">Sources</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" style="padding: var(--space-16) 0;">
+    <div class="container">
+      <p class="eyebrow">Section 4 / 6 : Concurrence</p>
+      <h1>Différenciation moyenne-forte. Pas de PIVOT recommandé.</h1>
+      <p class="hero__desc">5 battlecards rédigées. Frontière fonctionnelle Mintizy / Praxedo cristallisée : Praxedo Portail donneur d'ordres = portail B2B sous-traitance, Mintizy = portail B2B2C exposition client final.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <p class="eyebrow">Phrase de positionnement Mintizy</p>
+      <div class="quote quote--large">
+        Mintizy est le portail client B2B2C dédié à l'exposition de la maintenance vers les clients finaux du prestataire : intégrable à n'importe quel ERP via API ouverte, déployable en marque Mintizy ou en marque blanche, à pricing palier client final (pas per-user technicien). Selon le contexte du revendeur, Mintizy s'utilise en complément d'un FSM existant (Praxedo, Synchroteam) ou en alternative quand le besoin est strictement le portail client final.
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2 class="mb-6">Cartographie concurrentielle</h2>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <p class="eyebrow">Concurrents directs</p>
+          <ul class="simple-list">
+            <li>Praxedo (FSM dominant + Portail donneur d'ordres) <span class="badge badge--danger">🔴 Critique</span></li>
+            <li>Microsoft Dynamics 365 FS Portal <span class="badge badge--warning">🟠 Élevé</span></li>
+            <li>Sage X3 SAV + Weblinks (ADSI) <span class="badge badge--warning">🟠 Élevé</span></li>
+            <li>Synchroteam Customer Portal <span class="badge badge--neutral">🟡 Moyen</span></li>
+            <li>Twimm <span class="badge badge--success">🟢 Faible (cible différente)</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <p class="eyebrow">Concurrents indirects</p>
+          <ul class="simple-list">
+            <li>Portails maison développés en interne</li>
+            <li>Microsoft Power Pages / SharePoint custom</li>
+            <li>Solutions ITSM détournées (Zendesk Sunshine, Freshdesk)</li>
+            <li>Modules portail générique des ERP (Cegid XRP, Akuiteo, Divalto, Odoo Studio)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <p class="eyebrow">"Ne rien faire"</p>
+          <ul class="simple-list">
+            <li>Excel + Outlook</li>
+            <li>WhatsApp pro + PDFs</li>
+            <li>Site web statique avec onglet "interventions" non maintenu</li>
+          </ul>
+          <p class="text-small text-muted mt-4"><strong>Statut majoritaire</strong> chez les PME maintenance françaises. Concurrent le plus puissant, alimenté par l'inertie.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="mb-6">Matrice de positionnement</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Critère</th>
+              <th>Mintizy</th>
+              <th>Praxedo</th>
+              <th>D365 FS</th>
+              <th>Sage X3 SAV</th>
+              <th>Synchroteam</th>
+              <th>Excel/maison</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Indépendance ERP (intégrable à tout via API)</td><td><span class="badge badge--success">✅</span></td><td>⚠️</td><td>❌</td><td>❌</td><td>⚠️</td><td>N/A</td></tr>
+            <tr><td>UX dédiée client final non-tech</td><td><span class="badge badge--success">✅</span></td><td>⚠️</td><td>✅</td><td>❌</td><td>⚠️</td><td>❌</td></tr>
+            <tr><td>Marque blanche / co-branding</td><td><span class="badge badge--success">✅</span></td><td>❌</td><td>⚠️</td><td>⚠️</td><td>❌</td><td>N/A</td></tr>
+            <tr><td>Mobile + QR codes équipements</td><td><span class="badge badge--success">✅</span></td><td>⚠️</td><td>⚠️</td><td>❌</td><td>⚠️</td><td>❌</td></tr>
+            <tr><td>Marge revendeur récurrente</td><td><span class="badge badge--success">✅ 35-40%</span></td><td>⚠️</td><td>❌</td><td>⚠️</td><td>❌</td><td>N/A</td></tr>
+            <tr><td>Pricing palier client final (pas per-user)</td><td><span class="badge badge--success">✅</span></td><td>❌</td><td>❌</td><td>⚠️</td><td>❌</td><td>N/A</td></tr>
+            <tr><td>Conformité CERFA / F-Gas / réglementaire</td><td><span class="badge badge--success">✅</span></td><td>⚠️</td><td>⚠️</td><td>⚠️</td><td>❌</td><td>❌</td></tr>
+            <tr><td>Déploiement sous 4 semaines</td><td><span class="badge badge--success">✅</span></td><td>❌</td><td>❌</td><td>❌</td><td>⚠️</td><td>N/A</td></tr>
+            <tr><td>Adoption clients finaux mesurée</td><td><span class="badge badge--success">✅ 65-75% à 6 mois</span></td><td>❌</td><td>⚠️</td><td>❌</td><td>❌</td><td>❌</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-small text-muted mt-4">Mintizy gagne sur 6 critères clairement et égalise/perd sur 3 (UX, conformité, adoption : écart faible). Levier de différenciation principal : pricing palier + indépendance ERP + rôle B2B2C distinct.</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2 class="mb-6">5 battlecards : cliquer pour déplier</h2>
+
+      <!-- BATTLECARD 1 : Praxedo -->
+      <div class="battlecard">
+        <div class="battlecard__header">
+          <h3>1. Praxedo : Portail donneur d'ordres</h3>
+          <span class="battlecard__icon">▼</span>
+        </div>
+        <div class="battlecard__body">
+          <h4>Quand il apparaît</h4>
+          <p>Le revendeur ERP a déjà un partenariat Praxedo. Le client SAV utilise Praxedo et son commercial dit "on a déjà un portail". Salons FSM (présence dominante Praxedo).</p>
+
+          <h4>Son messaging</h4>
+          <p>"Le logiciel de gestion d'interventions leader du marché. Portail donneur d'ordres inclus."</p>
+
+          <h4>Pourquoi le prospect le considère</h4>
+          <p>Notoriété écrasante (10x plus connu que Mintizy). Le "portail" est annoncé en standard, l'acheteur croit que c'est la même fonction. Catalogue de connecteurs ERP déjà disponibles.</p>
+
+          <h4>Comment répondre (selon le contexte revendeur)</h4>
+          <p><strong>Cas A : revendeur sans Praxedo</strong> : "Le portail Praxedo est conçu pour la collaboration donneur d'ordres → sous-traitant. Si votre client SAV expose plutôt à des restaurateurs, des collectivités, des chaînes GMS qui veulent voir l'état de leurs équipements, Mintizy est plus adapté : pricing palier (pas per-user technicien), UX client final, marque blanche, déploiement 4 semaines."</p>
+          <p><strong>Cas B : revendeur avec Praxedo dans son bundle (modèle OCI)</strong> : "Praxedo équipe vos techniciens et la collaboration B2B. Mintizy adresse une autre fonction : exposer la vitrine commerciale au client final pour gagner les appels d'offres réglementés. OCI bundle les deux."</p>
+
+          <h4>Question qui fait réfléchir</h4>
+          <p><em>"Quand votre client SAV répond à un appel d'offres Carrefour, est-ce que le directeur de magasin se connecte à un portail orienté collaboration sous-traitance ou à un portail spécialisé exposition client final ?"</em></p>
+
+          <h4>Argument décisif</h4>
+          <p>À 252€/mois pour 35 techniciens vs 1 715€/mois Praxedo Classic, le ROI portail client final est x6 à x10 meilleur, même si Praxedo a plus de fonctionnalités globales : vous ne payez que pour ce dont vous avez besoin.</p>
+        </div>
+      </div>
+
+      <!-- BATTLECARD 2 : Microsoft -->
+      <div class="battlecard">
+        <div class="battlecard__header">
+          <h3>2. Microsoft Dynamics 365 Field Service Portal</h3>
+          <span class="battlecard__icon">▼</span>
+        </div>
+        <div class="battlecard__body">
+          <h4>Quand il apparaît</h4>
+          <p>Cabinet Dynamics 365 BC qui envisage de monter en compétence Field Service. Client SAV déjà sur Dynamics 365 FS (rare en PME, fréquent en mid-market). Salons Microsoft Inspire / Power Platform Summit.</p>
+
+          <h4>Son messaging</h4>
+          <p>"Customer portal with self-scheduling, technician tracking, surveys, all integrated in your Microsoft stack. Configure with Power Pages."</p>
+
+          <h4>Comment répondre</h4>
+          <p>"D365 Field Service Portal est puissant si votre client SAV utilise déjà Dynamics 365 Field Service, ce qui représente moins de 5% des PME maintenance françaises. Pour les 95% qui ont Dynamics 365 Business Central sans Field Service, ils n'ont PAS le portail. Mintizy s'intègre à BC seul en 4 semaines, sans dépendance Power Platform, à 252€/mois HT (vs 95-150€/user/mois pour FS). Sur 35 techniciens, l'économie est de 3 250 à 5 000€/mois."</p>
+
+          <h4>Argument décisif</h4>
+          <p>Mintizy x35 techniciens = 252€/mois. Dynamics 365 FS x35 utilisateurs = 3 500-5 000€/mois. Le client n'utilise le portail que pour 1 fonction : exposer les interventions. ROI évident.</p>
+        </div>
+      </div>
+
+      <!-- BATTLECARD 3 : Sage X3 -->
+      <div class="battlecard">
+        <div class="battlecard__header">
+          <h3>3. Sage X3 SAV + portails tiers (Weblinks ADSI, ASR SAV)</h3>
+          <span class="battlecard__icon">▼</span>
+        </div>
+        <div class="battlecard__body">
+          <h4>Quand il apparaît</h4>
+          <p>Cabinet Sage X3 expérimenté dit "on peut le faire avec le module SAV natif et un portail Weblinks". Discussion avec un Top League Sage X3.</p>
+
+          <h4>Comment répondre</h4>
+          <p>"Weblinks et le module SAV Sage X3 sont des solutions ERP-back-office : fonctionnels mais UX datée, peu de mobile, pas de QR codes équipements. Mintizy est conçu d'abord comme une vitrine UX-first pour le client final, pas comme une extension ERP. Et un portail custom Weblinks : licence souvent 250-400€/mois, dev d'intégration 4-8 semaines, vous portez le support N1 ET N2. Avec Mintizy : 252€/mois, 4 semaines passerelle amortie, support N1 par votre cabinet, N2 par UCCELLO."</p>
+
+          <h4>Argument décisif</h4>
+          <p>OCI est intégrateur Cegid. Ils auraient pu développer leur propre portail Cegid SAV. Ils ont choisi Mintizy. Leur retour : 4 clients facturés en 8 mois, 15 en pipeline. Le ROI est dans la rapidité de mise en marché et dans la marge récurrente sans dette technique.</p>
+        </div>
+      </div>
+
+      <!-- BATTLECARD 4 : Synchroteam -->
+      <div class="battlecard">
+        <div class="battlecard__header">
+          <h3>4. Synchroteam Customer Portal</h3>
+          <span class="battlecard__icon">▼</span>
+        </div>
+        <div class="battlecard__body">
+          <h4>Quand il apparaît</h4>
+          <p>Cabinet économique cherche solution multi. TPE PME qui veut "tout-en-un pas cher".</p>
+
+          <h4>Comment répondre</h4>
+          <p>"Synchroteam est un FSM low-cost multi-secteurs. Pour une PME maintenance technique pro structurée (cuisine pro, fitness, CVC, ascensoristes), le positionnement Mintizy est différent : portail spécialisé exposition client final B2B2C, pricing palier client final, déploiement via votre revendeur ERP existant. Ce n'est pas la même conversation commerciale."</p>
+
+          <h4>Argument décisif</h4>
+          <p>Synchroteam = solution autonome. Mintizy = brique ajoutée à votre bundle intégrateur. Ce n'est pas le même levier de différenciation pour vous.</p>
+        </div>
+      </div>
+
+      <!-- BATTLECARD 5 : Excel -->
+      <div class="battlecard">
+        <div class="battlecard__header">
+          <h3>5. "Ne rien faire / Excel + maison"</h3>
+          <span class="battlecard__icon">▼</span>
+        </div>
+        <div class="battlecard__body">
+          <h4>Quand il apparaît</h4>
+          <p>80% des prospects PME maintenance. Réponse "on a Excel et ça marche". "Mes clients ne demandent pas de portail."</p>
+
+          <h4>Pourquoi le prospect le considère</h4>
+          <p>Inertie. Peur de l'investissement abandonné (Praxedo sous-utilisé, CRM 2019 abandonné).</p>
+
+          <h4>Comment répondre</h4>
+          <p>"L'inertie a un coût caché : appels d'offres perdus, charge mentale interne, image dépassée. Cas concret : un frigoriste pro à Bordeaux a perdu un AO Carrefour 4 magasins (80k€/an) sur le critère 'plateforme de suivi en ligne'. Le portail à 252€/mois représente 0,3% du contrat perdu en facteur ROI."</p>
+
+          <h4>Argument décisif</h4>
+          <p>Sans engagement, 1 mois gratuit. Aucun risque de tester. Aucun risque de ne rien faire... sauf perdre les prochains AO.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <h2 class="mb-6">Verdict de différenciation</h2>
+      <div class="verdict verdict--success">
+        <span class="verdict__icon">✓</span>
+        <div>
+          <p class="verdict__title">DIFFÉRENCIATION MOYENNE-FORTE. Pas de PIVOT recommandé.</p>
+          <p class="verdict__text mb-2"><strong>Forte sur 3 axes</strong> : pricing palier client (vs per-user technicien), indépendance ERP (vs couplages Microsoft/Sage), rôle "vitrine B2B2C" distinct (vs portail B2B sous-traitance Praxedo).</p>
+          <p class="verdict__text mb-2"><strong>Moyenne sur la perception marché</strong> : Mintizy est moins connu que Praxedo. Le commercial revendeur doit faire un effort de pédagogie sur la frontière fonctionnelle.</p>
+          <p class="verdict__text"><strong>Priorités commerciales</strong> : (1) cristalliser la frontière Mintizy/FSM dans tous les supports, (2) préempter "vitrine B2B2C" comme la catégorie Mintizy, (3) adapter le discours au contexte revendeur (complément ou alternative).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <span>Étude générée 2026-05-05 · v1.0</span>
+        <span><a href="../index.html">Retour à l'accueil</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

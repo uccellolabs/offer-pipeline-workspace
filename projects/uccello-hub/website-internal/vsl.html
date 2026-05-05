@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Script VSL — Uccello Hub Étude Interne</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    /* ─── Page header ─── */
+    .page-header { background: var(--bg); border-bottom: 1px solid var(--border); border-left: 4px solid var(--primary); padding: 32px 0; }
+    .page-header-inner { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .page-eyebrow { font: 700 .5625rem/1 var(--fb); letter-spacing: .12em; text-transform: uppercase; color: var(--primary); margin-bottom: 8px; }
+    .page-title { font: 800 1.75rem/1.15 var(--fh); color: var(--text); margin-bottom: 6px; }
+    .page-subtitle { font: 400 .9375rem/1.6 var(--fb); color: var(--text-muted); }
+    .page-meta { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; flex-shrink: 0; }
+    .breadcrumb { padding: 12px 0; font: 400 .8125rem/1 var(--fb); color: var(--text-muted); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+    .breadcrumb a { color: var(--primary); }
+    .breadcrumb span { opacity: .4; }
+    .call-meta-item { display: flex; flex-direction: column; gap: 3px; }
+    .call-meta-label { font: 600 .5625rem/1 var(--fb); letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); }
+    .call-meta-val { font: 600 .875rem/1 var(--fb); color: var(--text); }
+
+    /* ─── Callout confidentiel ─── */
+    .callout { display: flex; gap: 12px; align-items: flex-start; background: rgba(245,158,11,.06); border: 1px solid rgba(245,158,11,.25); border-radius: var(--r); padding: 14px 16px; margin-bottom: 24px; }
+    .callout-icon { color: var(--amber); flex-shrink: 0; margin-top: 1px; }
+    .callout-text { font: 400 .875rem/1.55 var(--fb); color: var(--text); }
+    .callout-text strong { color: var(--text); }
+
+    /* ─── Pitch box (Big Promise) ─── */
+    .pitch-box { background: var(--primary); color: #fff; border-radius: var(--r); padding: 22px 26px; margin-bottom: 32px; }
+    .pitch-box .pitch-label { font: 600 .5625rem/1 var(--fb); letter-spacing: .12em; text-transform: uppercase; opacity: .75; margin-bottom: 8px; }
+    .pitch-box .pitch-text { font: 700 1.25rem/1.4 var(--fh); color: #fff; }
+    .pitch-box .pitch-meta { font: 400 .8125rem/1.5 var(--fb); color: rgba(255,255,255,.78); margin-top: 10px; }
+
+    /* ─── Section labels et contenu ─── */
+    .section-label { font: 700 .5625rem/1 var(--fb); letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+    .content { padding: 36px 0 64px; }
+    .content-section { margin-bottom: 44px; }
+
+    /* ─── Brief interne (grille de fiches) ─── */
+    .brief-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    @media (max-width: 720px) { .brief-grid { grid-template-columns: 1fr; } }
+    .brief-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r); padding: 14px 18px; box-shadow: var(--shadow); }
+    .brief-card .brief-label { font: 700 .5625rem/1 var(--fb); letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
+    .brief-card .brief-value { font: 600 .875rem/1.4 var(--fb); color: var(--text); }
+    .brief-card.full { grid-column: span 2; }
+    @media (max-width: 720px) { .brief-card.full { grid-column: span 1; } }
+
+    /* ─── Pillar cards (mécanisme 3 piliers) ─── */
+    .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 4px; }
+    @media (max-width: 720px) { .pillars-grid { grid-template-columns: 1fr; } }
+    .pillar-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r); padding: 18px 20px; box-shadow: var(--shadow); border-top: 3px solid var(--primary); }
+    .pillar-num { font: 800 .75rem/1 var(--fh); color: var(--primary); letter-spacing: .1em; margin-bottom: 6px; }
+    .pillar-title { font: 700 1rem/1.3 var(--fh); color: var(--text); margin-bottom: 6px; }
+    .pillar-desc { font: 400 .8125rem/1.55 var(--fb); color: var(--text-muted); }
+
+    /* ─── Douleur 3 niveaux ─── */
+    .pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    @media (max-width: 720px) { .pain-grid { grid-template-columns: 1fr; } }
+    .pain-card { background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--r); padding: 18px 20px; }
+    .pain-card.externe { border-left: 3px solid var(--red); }
+    .pain-card.interne { border-left: 3px solid var(--amber); }
+    .pain-card.philo   { border-left: 3px solid var(--primary); }
+    .pain-level { font: 700 .5625rem/1 var(--fb); letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+    .pain-card.externe .pain-level { color: #991b1b; }
+    .pain-card.interne .pain-level { color: #92400e; }
+    .pain-card.philo .pain-level   { color: var(--primary-dark); }
+    .pain-quote { font: 400 .9rem/1.55 var(--fb); color: var(--text); font-style: italic; }
+
+    /* ─── Tableau des hooks ─── */
+    .hooks-wrap { overflow-x: auto; border-radius: var(--r); border: 1px solid var(--border); box-shadow: var(--shadow); }
+    .hooks-table { width: 100%; border-collapse: collapse; font: 400 .8125rem/1.5 var(--fb); min-width: 720px; }
+    .hooks-table thead th { background: var(--bg-alt); border-bottom: 2px solid var(--border); font: 700 .5625rem/1 var(--fb); letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); padding: 10px 14px; text-align: left; }
+    .hooks-table tbody td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+    .hooks-table tbody tr:last-child td { border-bottom: none; }
+    .hooks-table tbody tr.selected td { background: var(--green-bg); }
+    .hooks-table .hook-num { font: 800 .9375rem/1 var(--fh); color: var(--primary); }
+    .hooks-table .hook-pattern { font: 600 .8125rem/1.3 var(--fb); color: var(--text); }
+    .hooks-table .hook-verbatim { font: 400 .8125rem/1.55 var(--fb); color: var(--text-muted); font-style: italic; max-width: 420px; }
+    .hook-badge { display: inline-flex; align-items: center; font: 700 .5625rem/1 var(--fb); letter-spacing: .1em; text-transform: uppercase; padding: 3px 8px; border-radius: 20px; }
+    .hook-badge.long { background: var(--green-bg); color: #065f46; border: 1px solid var(--green-border); }
+    .hook-badge.short { background: var(--primary-light); color: var(--primary-dark); border: 1px solid rgba(29,78,216,.2); }
+    .hook-badge.reserve { background: var(--bg-alt); color: var(--text-muted); border: 1px solid var(--border); }
+
+    /* ─── Acte cards ─── */
+    .acte-list { display: flex; flex-direction: column; gap: 14px; }
+    .acte-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r); box-shadow: var(--shadow); overflow: hidden; }
+    .acte-card.pic { border-left: 4px solid var(--amber); }
+    .acte-header { display: flex; gap: 14px; align-items: flex-start; padding: 16px 20px; border-bottom: 1px solid var(--border); background: var(--bg-alt); flex-wrap: wrap; }
+    .acte-num { width: 36px; height: 36px; border-radius: 50%; background: var(--primary); color: #fff; font: 800 .9375rem/1 var(--fh); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .acte-card.pic .acte-num { background: var(--amber); }
+    .acte-title-block { flex: 1; min-width: 220px; }
+    .acte-title { font: 700 1rem/1.3 var(--fh); color: var(--text); margin-bottom: 4px; }
+    .acte-meta { display: flex; flex-wrap: wrap; gap: 6px; }
+    .acte-meta-chip { font: 600 .5625rem/1 var(--fb); letter-spacing: .08em; text-transform: uppercase; padding: 3px 8px; border-radius: 20px; background: var(--bg); border: 1px solid var(--border); color: var(--text-muted); }
+    .acte-meta-chip.duration { background: var(--primary-light); color: var(--primary); border-color: rgba(29,78,216,.2); }
+    .acte-body { padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; }
+    .acte-staging { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 4px; padding: 10px 14px; font: 400 .8125rem/1.6 var(--fb); color: var(--text-muted); }
+    .acte-staging strong { color: var(--text); font-weight: 600; }
+    .acte-verbatim { font: 400 .9375rem/1.8 var(--fb); color: var(--text); background: #FAFBFF; border: 1px solid #e0e7f7; border-left: 3px solid var(--primary); padding: 16px 20px; border-radius: 0 4px 4px 0; white-space: pre-line; }
+    .acte-verbatim strong { color: #0F172A; font-weight: 700; background: rgba(245,158,11,.18); padding: 0 3px; border-radius: 2px; }
+    .acte-verbatim em { font-style: italic; color: var(--text-muted); }
+    .acte-annotation { display: flex; gap: 10px; align-items: flex-start; padding: 8px 12px; border-radius: 4px; font: 400 .8125rem/1.5 var(--fb); }
+    .acte-annotation strong { font-weight: 700; }
+    .acte-annotation.pause { background: var(--bg-alt); color: var(--text-muted); border-left: 2px solid var(--text-muted); }
+    .acte-annotation.open-loop { background: rgba(245,158,11,.08); color: #92400e; border-left: 2px solid var(--amber); }
+    .acte-annotation.bucket { background: var(--primary-light); color: var(--primary-dark); border-left: 2px solid var(--primary); }
+    .acte-annotation.yes-ladder { background: var(--green-bg); color: #065f46; border-left: 2px solid var(--green); }
+    .acte-annotation.future { background: rgba(14,165,233,.08); color: #075985; border-left: 2px solid var(--secondary); }
+    .acte-annotation.disqual { background: rgba(239,68,68,.06); color: #991b1b; border-left: 2px solid var(--red); }
+
+    /* ─── Mode lecture téléprompteur ─── */
+    .reader-toggle { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; background: var(--bg); border: 1px solid var(--border); border-radius: 20px; font: 600 .75rem/1 var(--fb); color: var(--text); cursor: pointer; transition: background .12s, border-color .12s; }
+    .reader-toggle:hover { background: var(--bg-alt); border-color: var(--primary); color: var(--primary); }
+    .reader-toggle svg { width: 14px; height: 14px; stroke-width: 2; }
+    body.reader-mode .acte-staging,
+    body.reader-mode .acte-annotation,
+    body.reader-mode .acte-meta { display: none; }
+    body.reader-mode .acte-verbatim { font-size: 1.125rem; line-height: 1.9; padding: 22px 26px; }
+    body.reader-mode .acte-card { border-color: var(--border-mid); }
+
+    /* ─── Cutdown variant ─── */
+    .cutdown-block { background: var(--primary-light); border: 1px solid rgba(29,78,216,.2); border-radius: var(--r); padding: 18px 22px; margin-bottom: 18px; }
+    .cutdown-label { font: 700 .5625rem/1 var(--fb); letter-spacing: .12em; text-transform: uppercase; color: var(--primary); margin-bottom: 6px; }
+    .cutdown-title { font: 700 1.0625rem/1.3 var(--fh); color: var(--primary-dark); margin-bottom: 6px; }
+    .cutdown-meta { font: 400 .8125rem/1.5 var(--fb); color: var(--primary-dark); opacity: .8; }
+
+    /* ─── Notes de production ─── */
+    .prod-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 720px) { .prod-grid { grid-template-columns: 1fr; } }
+    .prod-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r); padding: 16px 20px; box-shadow: var(--shadow); }
+    .prod-card .prod-title { font: 700 .875rem/1.3 var(--fh); color: var(--text); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    .prod-card ul { list-style: none; padding: 0; }
+    .prod-card li { font: 400 .8125rem/1.55 var(--fb); color: var(--text-muted); padding: 6px 0; display: flex; gap: 8px; align-items: flex-start; }
+    .prod-card li strong { color: var(--text); font-weight: 600; flex-shrink: 0; }
+    .prod-card li::before { content: '·'; color: var(--primary); font-weight: 700; flex-shrink: 0; }
+
+    /* ─── Checklist tournage (interactive) ─── */
+    .checklist-tournage { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r); padding: 8px 0; box-shadow: var(--shadow); }
+    .checklist-tournage label { display: flex; gap: 12px; align-items: flex-start; padding: 12px 20px; cursor: pointer; border-bottom: 1px solid var(--border); transition: background .12s; }
+    .checklist-tournage label:last-child { border-bottom: none; }
+    .checklist-tournage label:hover { background: var(--bg-alt); }
+    .checklist-tournage input[type="checkbox"] { margin-top: 2px; width: 16px; height: 16px; flex-shrink: 0; cursor: pointer; accent-color: var(--primary); }
+    .checklist-tournage span.task { font: 400 .875rem/1.5 var(--fb); color: var(--text); }
+    .checklist-tournage label.checked span.task { color: var(--text-muted); text-decoration: line-through; }
+
+    /* ─── Diagnostic table ─── */
+    .diag-table { width: 100%; border-collapse: collapse; font: 400 .8125rem/1.5 var(--fb); min-width: 540px; }
+    .diag-table thead th { background: var(--bg-alt); border-bottom: 2px solid var(--border); font: 700 .5625rem/1 var(--fb); letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); padding: 10px 14px; text-align: left; }
+    .diag-table tbody td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .diag-table tbody tr:last-child td { border-bottom: none; }
+    .diag-table tbody td:first-child { font-weight: 600; color: var(--text); }
+    .diag-table tbody td:nth-child(3) { color: var(--primary); font-weight: 600; }
+
+    /* ─── Mini hook spec ─── */
+    .hook-spec { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 8px; }
+    .hook-spec-item { background: var(--bg-alt); border-radius: 4px; padding: 8px 12px; }
+    .hook-spec-item .hsi-label { font: 700 .5rem/1 var(--fb); letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+    .hook-spec-item .hsi-value { font: 600 .8125rem/1.4 var(--fb); color: var(--text); }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════════════════ -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          ◆ Uccello Hub
+          <span class="nav-badge">Étude Interne</span>
+        </a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-controls="nav-links" aria-expanded="false"><span class="nav-toggle-bar"></span></button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="offre.html">Offre</a></li>
+          <li><a href="persona.html">Personas</a></li>
+          <li><a href="marche.html">Marché</a></li>
+          <li><a href="concurrence.html">Concurrence</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="viabilite.html">Viabilité</a></li>
+          <li><a href="prospection.html">Prospection</a></li>
+          <li><a href="cold-call.html">Cold Call</a></li>
+          <li><a href="vsl.html" class="active">VSL</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════════
+       EN-TÊTE DE PAGE
+  ══════════════════════════════════════════════════ -->
+  <header class="page-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Accueil</a>
+        <span>›</span>
+        <span>Script VSL</span>
+      </div>
+      <div class="page-header-inner">
+        <div>
+          <div class="page-eyebrow">Agent /offer-vsl-script · 2026-05-05 · v1.1 verbatim naturalisé</div>
+          <h1 class="page-title">Script VSL · Video Sales Letter</h1>
+          <p class="page-subtitle">12 actes verbatim long-form (10 min) + cutdown 90 sec · Cible Marc revendeur · DISC C dominant</p>
+        </div>
+        <div class="page-meta">
+          <div class="call-meta-item">
+            <span class="call-meta-label">Format</span>
+            <span class="call-meta-val">Mixte (face cam + B-roll)</span>
+          </div>
+          <div class="call-meta-item">
+            <span class="call-meta-label">Trafic</span>
+            <span class="call-meta-val">Tiède + Chaud</span>
+          </div>
+          <div class="call-meta-item">
+            <span class="call-meta-label">CTA</span>
+            <span class="call-meta-val">RDV qualifié 30 min</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════════════════
+       CONTENU
+  ══════════════════════════════════════════════════ -->
+  <div class="content">
+    <div class="container">
+
+      <!-- 0. Callout confidentiel -->
+      <div class="callout">
+        <i class="callout-icon" data-lucide="lock" style="width:16px;height:16px;"></i>
+        <p class="callout-text"><strong>Ressource opérationnelle confidentielle</strong> · positionnement, origin story, mécanisme propriétaire et pricing détaillé. Réservée à l'usage interne, ne pas partager publiquement. <strong>v1.1 :</strong> verbatim réécrit pour sonner parlé et naturel.</p>
+      </div>
+
+      <!-- 1. Big Promise + reader toggle -->
+      <div style="display: flex; gap: 14px; align-items: flex-start; flex-wrap: wrap; margin-bottom: 8px;">
+        <div class="pitch-box" style="flex: 1; min-width: 320px; margin-bottom: 0;">
+          <div class="pitch-label">Big Promise · 12 mots</div>
+          <div class="pitch-text">Ajoutez 1 700€ de MRR à votre cabinet sans embaucher ni développer.</div>
+          <div class="pitch-meta">Source : simulation 10 clients Team du PRICING_BRIEF (1 680€ arrondi). Défendable à l'oral si questionné.</div>
+        </div>
+        <button class="reader-toggle" id="reader-toggle" type="button" style="margin-top: 6px;">
+          <i data-lucide="book-open"></i>
+          <span>Mode lecture téléprompteur</span>
+        </button>
+      </div>
+
+      <!-- 2. Brief interne -->
+      <div class="content-section" style="margin-top: 32px;">
+        <div class="section-label">Brief interne · à intérioriser, pas à lire</div>
+
+        <div class="brief-grid">
+          <div class="brief-card">
+            <div class="brief-label">DISC dominant</div>
+            <div class="brief-value">C · analytique, prudent, ROI chiffré · 44% du CSV (cohérent COLD_CALL_SCRIPT)</div>
+          </div>
+          <div class="brief-card">
+            <div class="brief-label">Type d'offre</div>
+            <div class="brief-value">Hybride D · SaaS B2B + Accompagnement · CTA RDV qualifié 30 min</div>
+          </div>
+          <div class="brief-card">
+            <div class="brief-label">Niveau Schwartz</div>
+            <div class="brief-value">Product-aware → Most-aware · douleur à valider, pas à activer</div>
+          </div>
+          <div class="brief-card">
+            <div class="brief-label">Tonalité de marque</div>
+            <div class="brief-value">Trust &amp; Calm · institutionnel, solide · anti hype, anti hard-sell</div>
+          </div>
+          <div class="brief-card">
+            <div class="brief-label">Profil orateur</div>
+            <div class="brief-value">Autorité affirmée · 21 ans dev, 14 ans construction SaaS B2B · observation lucide, pas rock bottom</div>
+          </div>
+          <div class="brief-card">
+            <div class="brief-label">Cohérence ticket × CTA × durée × trafic</div>
+            <div class="brief-value"><span class="badge badge-green">Alignée</span> 99€/mois + 174€/client · RDV qualifié · 10 min · tiède/chaud</div>
+          </div>
+          <div class="brief-card full">
+            <div class="brief-label">One Big Domino · croyance fausse à abattre</div>
+            <div class="brief-value">« Pour productiser votre cabinet, vous croyez qu'il faut développer un produit ou recruter une équipe technique. C'est exactement ce qui vous bloque depuis 5 ans. »</div>
+          </div>
+          <div class="brief-card full">
+            <div class="brief-label">Origin story · le déclic</div>
+            <div class="brief-value">Vidéo d'une cheffe d'entreprise B2B expliquant que l'IA va tuer le modèle SaaS classique au profit d'un chat unique branché sur une base de données unifiée. 14 ans d'observation alignés en une seconde.</div>
+          </div>
+          <div class="brief-card">
+            <div class="brief-label">Stack ratio</div>
+            <div class="brief-value">~5,9× · valeur ancrée 6 400€ / coût première année ~1 089€ <span class="badge badge-green" style="margin-left:6px;">≥ 5×</span></div>
+          </div>
+          <div class="brief-card">
+            <div class="brief-label">Garantie réelle</div>
+            <div class="brief-value">1er mois offert · sandbox dédié · 0€ entrée · garantie 90 jours premier client</div>
+          </div>
+          <div class="brief-card">
+            <div class="brief-label">Pic émotionnel max</div>
+            <div class="brief-value">Acte 5 · chute du domino + révélation mécanisme</div>
+          </div>
+          <div class="brief-card">
+            <div class="brief-label">Levier urgence</div>
+            <div class="brief-value"><span class="badge badge-amber">Supprimé</span> Pas de Reason Why crédible (Hormozi). Conservé : coût d'inaction + pivot temporel marché IA.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Mécanisme : 3 piliers -->
+      <div class="content-section">
+        <div class="section-label">Mécanisme nommé · Le Hub Souverain · 3 piliers</div>
+        <div class="pillars-grid">
+          <div class="pillar-card">
+            <div class="pillar-num">Pilier 1</div>
+            <div class="pillar-title">Centralisation</div>
+            <div class="pillar-desc">Toutes les données de l'entreprise (CRM, projet, messagerie, facturation, calendrier) convergent dans un seul hub. Fin de la double saisie.</div>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-num">Pilier 2</div>
+            <div class="pillar-title">Interconnexion</div>
+            <div class="pillar-desc">Les outils SaaS existants (HubSpot, Notion, Monday, Pipedrive, Google Workspace) connectés via API. Pas de migration, branchement direct.</div>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-num">Pilier 3</div>
+            <div class="pillar-title">IA contextuelle souveraine</div>
+            <div class="pillar-desc">Chaque collaborateur a un assistant IA dans un chat avec accès limité à ses droits. Modèles open source on-premise. Aucune donnée ne sort.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. 3 niveaux de douleur -->
+      <div class="content-section">
+        <div class="section-label">3 niveaux de douleur · vocabulaire EXACT du PERSONA (journal intime du lundi 14 avril)</div>
+        <div class="pain-grid">
+          <div class="pain-card externe">
+            <div class="pain-level">Niveau externe · tangible/business</div>
+            <div class="pain-quote">« Le 1er du mois, je calcule encore. J'ai beau facturer 600€/jour, dix jours de creux et le mois se sent. Je vends du temps, et le temps c'est fini. »</div>
+          </div>
+          <div class="pain-card interne">
+            <div class="pain-level">Niveau interne · émotion brute</div>
+            <div class="pain-quote">« Le dimanche soir, ce nœud dans l'estomac quand j'ouvre l'agenda. Pas dramatique. Mais ça fait 5 ans que je vis ça. »</div>
+          </div>
+          <div class="pain-card philo">
+            <div class="pain-level">Niveau philosophique · identité/sens</div>
+            <div class="pain-quote">« Je suis bon. Vraiment. Mes clients me renouvellent. Mais quand je vois Arnaud sur LinkedIn parler de son MRR, je suis jaloux. Pas du succès. Jaloux de la sécurité. »</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Tableau des 7 hooks -->
+      <div class="content-section">
+        <div class="section-label">7 variantes du Hook · 50% de la conversion s'y joue · v1.1 naturalisée</div>
+        <div class="hooks-wrap">
+          <table class="hooks-table">
+            <thead>
+              <tr>
+                <th style="width: 40px;">#</th>
+                <th>Pattern</th>
+                <th>Verbatim (12-18 sec)</th>
+                <th>Émotion</th>
+                <th>Statut</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="hook-num">1</span></td>
+                <td><span class="hook-pattern">Identity-based</span></td>
+                <td class="hook-verbatim">« Si vous êtes consultant indépendant et que vous refusez de passer encore cinq ans à vendre du temps, restez avec moi dix minutes. Je vais vous montrer comment ajouter 1 700€ de MRR par mois à votre cabinet, sans rien embaucher et sans rien développer. »</td>
+                <td>Reconnaissance</td>
+                <td><span class="hook-badge reserve">Réserve</span></td>
+              </tr>
+              <tr class="selected">
+                <td><span class="hook-num">2</span></td>
+                <td><span class="hook-pattern">Promesse chiffrée + spécificité</span></td>
+                <td class="hook-verbatim">« Imaginez que vous avez dix clients qui vous paient 168€ net chaque mois. Ça fait 1 680€ qui tombent sur votre compte le 1er, sans que vous ayez décroché le téléphone une seule fois. C'est pas un fantasme, c'est juste un calcul. »</td>
+                <td>Curiosité + sécurité</td>
+                <td><span class="hook-badge long">VSL longue</span></td>
+              </tr>
+              <tr>
+                <td><span class="hook-num">3</span></td>
+                <td><span class="hook-pattern">Polarisation</span></td>
+                <td class="hook-verbatim">« Tout ce qu'on vous a vendu sur la productisation de votre cabinet, ces dernières années, c'est faux. Le diagnostic à 2 000€, le module de formation, ce sont des one-shots déguisés en produit. Pas du récurrent. »</td>
+                <td>Validation + irritation</td>
+                <td><span class="hook-badge reserve">Réserve A/B froid</span></td>
+              </tr>
+              <tr>
+                <td><span class="hook-num">4</span></td>
+                <td><span class="hook-pattern">Curiosité brute + dialogue interne</span></td>
+                <td class="hook-verbatim">« "Le dimanche soir, je calcule encore." Cette phrase-là, c'est une phrase que plusieurs consultants me disent chaque semaine. Et il y a une raison précise pour laquelle ça ne s'arrête jamais tout seul. »</td>
+                <td>Empathie + tension</td>
+                <td><span class="hook-badge reserve">Réserve</span></td>
+              </tr>
+              <tr class="selected">
+                <td><span class="hook-num">5</span></td>
+                <td><span class="hook-pattern">Disqualification (réactance)</span></td>
+                <td class="hook-verbatim">« Si vous adorez vendre 600€ de TJM et que vos dimanches soirs sans nœud à l'estomac vous suffisent, vous pouvez fermer cette vidéo tout de suite. Cette offre n'est pas pour vous. »</td>
+                <td>Réactance + qualification</td>
+                <td><span class="hook-badge short">Cutdown 90 sec</span></td>
+              </tr>
+              <tr>
+                <td><span class="hook-num">6</span></td>
+                <td><span class="hook-pattern">Question pré-suasive</span></td>
+                <td class="hook-verbatim">« Et si je vous disais que votre problème de MRR n'a en fait rien à voir avec votre offre, ni avec votre LinkedIn, ni avec votre prospection ? »</td>
+                <td>Remise en cause</td>
+                <td><span class="hook-badge reserve">Réserve</span></td>
+              </tr>
+              <tr>
+                <td><span class="hook-num">7</span></td>
+                <td><span class="hook-pattern">Démo / chiffre choc</span></td>
+                <td class="hook-verbatim">« Regardez ce chiffre : 168€ net par client, tous les mois, pendant plusieurs années. Et ce n'est pas un coaching ni une formation. »</td>
+                <td>Curiosité + crédibilité</td>
+                <td><span class="hook-badge reserve">Réserve</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font: 400 .8125rem/1.55 var(--fb); color: var(--text-muted); margin-top: 12px;">
+          → Reco optimale DISC C : <strong>#2 en hook principal</strong> (chiffré, méthodique, rassurant), <strong>#5 en cutdown</strong> (réactance + qualification). #3 et #6 en réserve si A/B test ad froid.
+        </p>
+      </div>
+
+      <!-- 6. Script verbatim 12 actes -->
+      <div class="content-section">
+        <div class="section-label">Script verbatim · 12 actes · 10 min total · v1.1 naturalisée</div>
+
+        <div class="acte-list">
+
+          <!-- Acte 1 -->
+          <div class="acte-card">
+            <div class="acte-header">
+              <div class="acte-num">1</div>
+              <div class="acte-title-block">
+                <div class="acte-title">Hook · Promesse chiffrée + spécificité (#2)</div>
+                <div class="acte-meta">
+                  <span class="acte-meta-chip duration">2% · 12-15 sec</span>
+                  <span class="acte-meta-chip">Surprise + reconnaissance</span>
+                  <span class="acte-meta-chip">Pre-suasion + Zeigarnik</span>
+                </div>
+              </div>
+            </div>
+            <div class="acte-body">
+              <div class="acte-staging">
+                <strong>Visuel :</strong> face caméra plan poitrine, fond neutre Trust &amp; Calm, lumière douce. À « 1 680€ » : incrustation chiffre plein écran, blanc sur bleu Uccello.<br>
+                <strong>Ton :</strong> posé, voix grave, rythme net. <strong>Débit :</strong> 155 mots/min. <strong>Regard :</strong> direct lentille, fixe.
+              </div>
+              <div class="acte-verbatim">« Imaginez que vous avez dix clients qui vous paient <strong>168€ net</strong> chaque mois. Ça fait <strong>1 680€</strong> qui tombent sur votre compte le 1er, sans que vous ayez décroché le téléphone une seule fois. C'est pas un fantasme, c'est juste un calcul. »</div>
+              <div class="acte-annotation pause"><strong>PAUSE 1 sec</strong></div>
+              <div class="acte-annotation open-loop"><strong>OPEN LOOP n°1 :</strong> « Dans les dix prochaines minutes, je vais vous montrer le seul calcul qui détermine si ce modèle peut marcher pour votre cabinet à vous, ou si vous devriez fermer cet onglet maintenant. <strong>Restez avec moi quelques minutes</strong>, vous allez voir. »</div>
+            </div>
+          </div>
+
+          <!-- Acte 2 -->
+          <div class="acte-card">
+            <div class="acte-header">
+              <div class="acte-num">2</div>
+              <div class="acte-title-block">
+                <div class="acte-title">Douleur sur 3 niveaux</div>
+                <div class="acte-meta">
+                  <span class="acte-meta-chip duration">9% · 54-60 sec</span>
+                  <span class="acte-meta-chip">Validation</span>
+                  <span class="acte-meta-chip">Mirror neurons + 3 niveaux</span>
+                </div>
+              </div>
+            </div>
+            <div class="acte-body">
+              <div class="acte-staging">
+                <strong>Visuel :</strong> face cam, puis B-roll discret · agenda papier ouvert + écran tableur + fenêtre LinkedIn anonymisée sur « Arnaud » parlant de son MRR.<br>
+                <strong>Ton :</strong> gravité bienveillante. <strong>Débit :</strong> 150 mots/min, ralenti 10% sur la philosophie.
+              </div>
+              <div class="acte-verbatim">« Vous savez exactement de quoi je parle.
+
+<em>[Niveau externe — B-roll agenda + tableur]</em>
+On est le 1er du mois et vous êtes encore en train de calculer si vous aurez assez de jours facturés pour boucler. Vous avez beau facturer 600€ par jour, il suffit de dix jours de creux dans le trimestre pour que le mois suivant se fasse sentir. Le problème de fond, c'est que <strong>vous vendez du temps</strong>. Et le temps, par définition, c'est fini.
+
+<em>[Niveau interne — retour face cam, regard direct]</em>
+Et puis il y a le <strong>dimanche soir</strong>. Ce moment où vous ouvrez l'agenda et où ce petit nœud revient dans l'estomac. C'est pas dramatique au sens où vous avez de la trésorerie, mais psychologiquement, ça fait cinq ans que ça dure, et ça vous épuise. »</div>
+              <div class="acte-annotation pause"><strong>PAUSE 1 sec</strong></div>
+              <div class="acte-verbatim"><em>[Niveau philosophique — débit ralenti, regard appuyé]</em>
+« Le pire dans tout ça, c'est que <strong>vous êtes bon</strong>. Vraiment bon. Vos clients vous renouvellent, ils vous recommandent. Mais quand vous voyez Arnaud, sur LinkedIn, qui parle de son MRR qui rentre tous les mois et de sa première recrue, vous mettez un petit like, et au fond de vous, vous êtes jaloux. Pas du succès, hein. <strong>Jaloux de la sécurité.</strong> »</div>
+              <div class="acte-annotation pause"><strong>PAUSE 1 sec</strong></div>
+              <div class="acte-annotation bucket"><strong>BUCKET BRIGADE :</strong> « Et voilà ce que personne ne vous a vraiment expliqué : <strong>ça ne s'arrête jamais tout seul</strong>. Il y a une raison précise pour laquelle ça dure depuis cinq ans. »</div>
+            </div>
+          </div>
+
+          <!-- Acte 3 -->
+          <div class="acte-card">
+            <div class="acte-header">
+              <div class="acte-num">3</div>
+              <div class="acte-title-block">
+                <div class="acte-title">Epiphany Bridge · origin story</div>
+                <div class="acte-meta">
+                  <span class="acte-meta-chip duration">11% · 66-72 sec</span>
+                  <span class="acte-meta-chip">Espoir</span>
+                  <span class="acte-meta-chip">Oxytocine via story</span>
+                </div>
+              </div>
+            </div>
+            <div class="acte-body">
+              <div class="acte-staging">
+                <strong>Visuel :</strong> face cam, ton plus chaleureux. À l'épiphanie, slide animée « 5 outils, 10 outils, 20 outils » qui se réduit en « 1 hub + 1 chat ».<br>
+                <strong>Ton :</strong> autorité affirmée + observation lucide. <strong>Débit :</strong> 155 mots/min.<br>
+                <strong>Regard :</strong> légèrement déporté en backstory, revient lentille à l'épiphanie.
+              </div>
+              <div class="acte-verbatim">« <em>[Backstory — regard légèrement déporté]</em>
+Pour le contexte rapide, je suis développeur depuis 21 ans, et ça fait <strong>14 ans</strong> que je construis des SaaS B2B. Pendant toutes ces années, j'ai vu défiler des centaines de PME, et c'était toujours le même schéma : 5 outils, 10 outils, parfois 20. Et à chaque fois, des collaborateurs qui ressaisissent les mêmes informations dans trois endroits différents.
+
+<em>[Le déclic — retour face cam, débit ralenti]</em>
+Et puis il y a quelques mois, je tombe sur une vidéo. Une cheffe d'entreprise B2B qui explique calmement, sans aucune hype, que <strong>l'IA est en train de tuer le modèle classique des SaaS</strong>. Elle disait que d'ici trois ans, on n'aura plus besoin de quinze applications bien designées les unes à côté des autres. On aura besoin d'<strong>un seul chat, branché sur une base de données unifiée</strong>, qui sait tout et répond à tout. »</div>
+              <div class="acte-annotation pause"><strong>PAUSE 1 sec</strong></div>
+              <div class="acte-verbatim">« <em>[L'épiphanie — regard caméra, ton affirmé]</em>
+Et là, en l'écoutant, j'ai senti que <strong>quatorze ans d'observation venaient de s'aligner en une seconde</strong>. Parce que le problème de vos clients PME, en fait, il ne se résout pas en empilant un SaaS de plus dans leur stack. Il se résout en <strong>interconnectant ceux qu'ils ont déjà</strong>, et en mettant un assistant IA souverain au milieu.
+
+<em>[Nouvelle opportunité]</em>
+Donc je me suis renseigné, sérieusement. Et j'ai fini par construire ma propre solution. Une solution <strong>hyper intuitive</strong>, qu'un consultant qui connaît Make peut déployer en une journée. Avec les données hébergées directement chez le client. Aucune fuite, aucune dépendance américaine.
+
+<em>[Premiers résultats]</em>
+Ça s'appelle <strong>Uccello Hub</strong>. Et dans les premières semaines après l'avoir terminée, j'ai contacté trois consultants comme vous, à froid. Sur les trois, <strong>deux m'ont rappelé pour un rendez-vous</strong>. Sans pitch travaillé, sans landing page. Juste avec l'idée. »</div>
+              <div class="acte-annotation open-loop"><strong>OPEN LOOP n°2 :</strong> « Et c'est exactement à ce moment-là que j'ai compris quelque chose : la croyance qui vous fait dire "pour productiser, il faut développer", c'est précisément ce qui vous bloque depuis cinq ans. Je vous montre pourquoi dans 90 secondes. »</div>
+            </div>
+          </div>
+
+          <!-- Acte 4 -->
+          <div class="acte-card">
+            <div class="acte-header">
+              <div class="acte-num">4</div>
+              <div class="acte-title-block">
+                <div class="acte-title">Fausses solutions</div>
+                <div class="acte-meta">
+                  <span class="acte-meta-chip duration">11% · 66-72 sec</span>
+                  <span class="acte-meta-chip">Frustration validée</span>
+                  <span class="acte-meta-chip">Confirmation bias</span>
+                </div>
+              </div>
+            </div>
+            <div class="acte-body">
+              <div class="acte-staging">
+                <strong>Visuel :</strong> split-screen « approche / résultat », barré rouge sur l'approche qui ne tient pas.<br>
+                <strong>Ton :</strong> factuel, presque clinique. <strong>Débit :</strong> 160 mots/min.
+              </div>
+              <div class="acte-verbatim">« Et le truc, c'est que vous avez sans doute déjà essayé. Au moins trois fois.
+
+<em>[Première tentative — split-screen « Diagnostic 2 000€ » / « 3 vendus puis silence »]</em>
+La première fois, vous avez monté un diagnostic à 2 000€. Vous en avez peut-être vendu trois, ou cinq, et puis le téléphone s'est progressivement arrêté de sonner. C'est normal, parce qu'au fond, <strong>un diagnostic, c'est un one-shot déguisé en produit</strong>. Pas du récurrent.
+
+<em>[Deuxième tentative — split-screen « Make / ChatGPT recommandé » / « Marge 0€, technicien requis »]</em>
+La deuxième fois, vous avez recommandé Make à un client, ou ChatGPT à un autre. Le client a payé directement l'éditeur, et vous, vous <strong>n'avez pas touché un centime en récurrent</strong>. Et le mois où une automatisation casse, c'est vous qu'on rappelle. Sans facturer.
+
+<em>[Troisième tentative — split-screen « Microsoft Copilot » / « Données USA, M365 only »]</em>
+Et la troisième, peut-être que vous avez pensé à Microsoft Copilot. Mais dès que la DSI vous demande <strong>où vont les données</strong>, vous séchez. Parce que la réponse, c'est Cloud Act américain, et c'est uniquement M365. Or vos clients PME, eux, ils utilisent HubSpot, Notion, Monday. Copilot ne les voit même pas. »</div>
+              <div class="acte-annotation yes-ladder"><strong>YES LADDER 1 :</strong> « Vous reconnaissez le schéma, là, dans ce que je raconte ? »</div>
+              <div class="acte-annotation pause"><strong>PAUSE 1 sec</strong></div>
+              <div class="acte-verbatim">« Aucune de ces trois approches ne tient sur le long terme. Et <strong>ce n'est pas votre faute</strong>, je vous rassure. C'est juste que ces approches sont structurellement cassées pour un consultant indépendant qui veut du MRR. »</div>
+            </div>
+          </div>
+
+          <!-- Acte 5 PIC -->
+          <div class="acte-card pic">
+            <div class="acte-header">
+              <div class="acte-num">5</div>
+              <div class="acte-title-block">
+                <div class="acte-title">Mécanisme + chute du One Big Domino · pic émotionnel</div>
+                <div class="acte-meta">
+                  <span class="acte-meta-chip duration">14% · 84-90 sec</span>
+                  <span class="acte-meta-chip">Aha</span>
+                  <span class="acte-meta-chip">Dopamine + commitment</span>
+                </div>
+              </div>
+            </div>
+            <div class="acte-body">
+              <div class="acte-staging">
+                <strong>Visuel :</strong> slide animée du Hub Souverain. Apparition séquentielle des 3 piliers en cercles concentriques.<br>
+                <strong>Ton :</strong> révélation, débit ralenti 10%. Sourire léger possible. <strong>Regard :</strong> caméra direct, posture stable.
+              </div>
+              <div class="acte-verbatim">« Alors voilà la vérité.
+
+Quand on parle de productiser votre cabinet, on vous a fait croire pendant des années qu'il fallait soit <strong>développer un produit de zéro</strong>, soit <strong>recruter une équipe technique</strong> pour le faire à votre place. »</div>
+              <div class="acte-annotation pause"><strong>PAUSE 1 sec</strong> · point pivot du script</div>
+              <div class="acte-verbatim">« <strong>C'est faux.</strong> Et c'est exactement cette croyance qui vous bloque depuis cinq ans.
+
+Parce que ce qui marche, c'est l'inverse. Vous ne développez rien. Vous ne recrutez personne. Vous <strong>revendez un produit qui existe déjà</strong>, qui a été pensé spécifiquement pour des consultants comme vous, avec un modèle qui repose sur trois piliers. »</div>
+              <div class="acte-annotation yes-ladder"><strong>YES LADDER 2 :</strong> « Restez avec moi soixante secondes, c'est vraiment là que tout se joue. »</div>
+              <div class="acte-verbatim">« <em>[Pilier 1, Centralisation — slide pilier 1 apparaît]</em>
+Le premier pilier, c'est la <strong>centralisation</strong>. Toutes les données de votre client, le CRM, les projets, la messagerie, la facturation, le calendrier, tout ça converge dans un seul hub. <strong>Fin de la double saisie.</strong> Et vos clients vont vous le dire eux-mêmes : c'est ce qu'ils cherchent depuis trois ans sans avoir le mot pour le décrire.
+
+<em>[Pilier 2, Interconnexion — slide pilier 2]</em>
+Le deuxième pilier, c'est l'<strong>interconnexion</strong>. Tous les outils SaaS qu'ils utilisent déjà, HubSpot, Notion, Monday, Pipedrive, Google Workspace, on les connecte via API. Vous n'imposez <strong>aucune migration</strong> à personne. Vous vous branchez juste sur ce qu'ils ont déjà payé.
+
+<em>[Pilier 3, IA contextuelle souveraine — slide pilier 3]</em>
+Et le troisième pilier, c'est l'<strong>IA contextuelle souveraine</strong>. Chaque collaborateur a un assistant IA dans un chat, mais avec un accès limité à ce qu'il a le droit de voir, et rien d'autre. Tableau de bord en un clic. Mail rédigé en dix secondes. Et surtout, <strong>les modèles tournent en open source sur l'infrastructure du client</strong>. Aucune donnée ne sort. Et c'est exactement pour ça que <strong>le DSI signe</strong>. »</div>
+              <div class="acte-annotation pause"><strong>PAUSE 1 sec</strong></div>
+              <div class="acte-verbatim">« Ces trois piliers ensemble, c'est ce qu'on appelle <strong>Le Hub Souverain</strong>. Et vous, vous le déployez chez votre client en <strong>une seule journée</strong>. »</div>
+              <div class="acte-annotation open-loop"><strong>OPEN LOOP n°3 :</strong> « Et pour une raison très précise que je vais vous donner dans deux minutes, c'est exactement ce schéma à trois piliers qui transforme votre cabinet en une vraie machine à MRR. »</div>
+              <div class="acte-annotation future"><strong>FUTURE PACING transverse :</strong> « Vous voyez déjà la conversation que vous allez avoir avec votre prochain client, là ? C'est exactement pour ça que vous êtes encore en train de regarder cette vidéo. »</div>
+            </div>
+          </div>
+
+          <!-- Acte 6 -->
+          <div class="acte-card">
+            <div class="acte-header">
+              <div class="acte-num">6</div>
+              <div class="acte-title-block">
+                <div class="acte-title">Preuve · 3 chiffres</div>
+                <div class="acte-meta">
+                  <span class="acte-meta-chip duration">11% · 66-72 sec</span>
+                  <span class="acte-meta-chip">Sécurité</span>
+                  <span class="acte-meta-chip">Social proof + spécificité</span>
+                </div>
+              </div>
+            </div>
+            <div class="acte-body">
+              <div class="acte-staging">
+                <strong>Visuel :</strong> chiffres animés, captures d'écran réelles de la sandbox, témoignage texte anonymisé.<br>
+                <strong>Ton :</strong> factuel, sourcé. <strong>Débit :</strong> 155 mots/min.<br>
+                <strong>Note honnêteté :</strong> 0 client payant à ce jour. Cas Claire = projection ROI sourcée. 2 RDV cold call = signal marché récent (pas cas client).
+              </div>
+              <div class="acte-verbatim">« Et je vais pas vous balancer des promesses en l'air. Je vais juste vous donner trois chiffres concrets.
+
+<em>[Chiffre 1, 4 800€ — chiffre incrusté]</em>
+Le premier chiffre, c'est <strong>4 800€</strong>. C'est ce qu'une agence de douze personnes économise en masse salariale chaque mois, quand chaque collaborateur récupère trente minutes par jour. Le calcul est simple : 40€ de l'heure chargé, fois trente minutes, fois douze personnes, fois vingt jours ouvrés. C'est un calcul standard, vérifiable. Et votre client, lui, il paye 349€ par mois pour récupérer ça. Autrement dit, <strong>il rembourse son abonnement en deux jours ouvrés</strong>.
+
+<em>[Chiffre 2, 2 sur 3 — chiffre incrusté]</em>
+Le deuxième chiffre, c'est <strong>2 sur 3</strong>. Parce que sur les trois premiers consultants comme vous que j'ai appelés à froid, deux m'ont rappelé pour un rendez-vous. Pas un message LinkedIn. Pas une publicité. Un appel froid. Sans pitch travaillé. Et si juste l'idée fait ça à froid, imaginez maintenant ce que ça donne avec un produit en main et une démo.
+
+<em>[Chiffre 3, 14 ans — chiffre incrusté]</em>
+Et le troisième chiffre, c'est <strong>14 ans</strong>. Parce que ça fait quatorze ans que je construis des SaaS B2B. C'est pas un side project que j'ai bricolé entre deux clients. C'est une architecture qui tient, avec une souveraineté pensée dès le départ, des modèles open source hébergés en France ou directement chez votre client. Aucune donnée ne quitte l'infrastructure. Et le RGPD, chez nous, c'est pas un argument marketing, <strong>c'est l'architecture</strong>. »</div>
+              <div class="acte-annotation yes-ladder"><strong>YES LADDER 3 :</strong> « Vous voyez maintenant la différence avec toutes les solutions qui surfent sur l'IA depuis six mois ? »</div>
+              <div class="acte-annotation pause"><strong>PAUSE 1 sec</strong></div>
+            </div>
+          </div>
+
+          <!-- Acte 7 -->
+          <div class="acte-card">
+            <div class="acte-header">
+              <div class="acte-num">7</div>
+              <div class="acte-title-block">
+                <div class="acte-title">Future Pacing immersif</div>
+                <div class="acte-meta">
+                  <span class="acte-meta-chip duration">11% · 66-72 sec</span>
+                  <span class="acte-meta-chip">Projection</span>
+                  <span class="acte-meta-chip">Mémoire prospective + endowment</span>
+                </div>
+              </div>
+            </div>
+            <div class="acte-body">
+              <div class="acte-staging">
+                <strong>Visuel :</strong> transitions douces avant/après. B-roll réussite, prise de café calme un dimanche matin, agenda allégé.<br>
+                <strong>Ton :</strong> voix posée, presque chuchotée par moments. <strong>Débit :</strong> 145 mots/min. <strong>Regard :</strong> caméra, ouvert.
+              </div>
+              <div class="acte-verbatim">« Maintenant, <strong>imaginez la situation dans six mois</strong>.
+
+<em>[VAK Visuel]</em> Vous êtes le matin du 1er du mois, vous regardez votre tableau de bord, et il y a cinq clients actifs. <strong>840€ de MRR net</strong> qui sont déjà tombés sur votre compte, sans que vous ayez décroché le téléphone une seule fois. Et juste à côté, il y a un setup de 800€ pour le nouveau client que vous avez signé la semaine dernière.
+
+<em>[VAK Auditif]</em> Et puis votre client vous <strong>appelle</strong>. Mais cette fois, c'est pas pour vous engueuler ou vous demander un correctif. C'est pour vous <strong>remercier</strong>. Parce que sa DSI a validé la solution sans broncher, et c'est la première fois qu'il entend parler de souveraineté avec un produit qui livre vraiment.
+
+<em>[VAK Kinesthésique]</em> Et le <strong>dimanche soir</strong>, vous fermez votre ordinateur, et <strong>ce nœud dans l'estomac, il n'est plus là</strong>. Parce que vous savez que le mois prochain, les <strong>1 700€ de récurrent tomberont</strong>, peu importe que vous ayez facturé cinq jours ou quinze jours en mission. C'est exactement ça que vous gagnez. <strong>Pas un produit. Une nouvelle façon de respirer.</strong> »</div>
+              <div class="acte-annotation yes-ladder"><strong>YES LADDER 4 :</strong> « Vous voyez ce que ça change concrètement ? »</div>
+              <div class="acte-annotation pause"><strong>PAUSE 1 sec</strong></div>
+              <div class="acte-annotation future"><strong>FUTURE PACING transverse :</strong> « Cette image-là, gardez-la à l'esprit. Parce que c'est exactement vers ça qu'on va dans la prochaine partie. »</div>
+            </div>
+          </div>
+
+          <!-- Acte 8 -->
+          <div class="acte-card">
+            <div class="acte-header">
+              <div class="acte-num">8</div>
+              <div class="acte-title-block">
+                <div class="acte-title">Offre + Stack + Risk Reversal</div>
+                <div class="acte-meta">
+                  <span class="acte-meta-chip duration">14% · 84-90 sec</span>
+                  <span class="acte-meta-chip">Anticipation</span>
+                  <span class="acte-meta-chip">Ancrage</span>
+                </div>
+              </div>
+            </div>
+            <div class="acte-body">
+              <div class="acte-staging">
+                <strong>Visuel :</strong> slide stack avec valeurs ancrées qui s'ajoutent une à une. Pause 2 sec sur « valeur totale » avant le prix réel.<br>
+                <strong>Ton :</strong> assertif, structuré. <strong>Débit :</strong> 160 mots/min.<br>
+                <strong>Stack ratio :</strong> 5,9× (6 400€ ancrés / 1 089€ première année).
+              </div>
+              <div class="acte-verbatim">« Alors voilà concrètement ce que vous obtenez quand vous rejoignez le programme partenaire Uccello Hub.
+
+<em>[Le résultat principal]</em>
+Vous démarrez avec un produit complet, un modèle de revenus récurrents qui tourne, et une <strong>marge nette de 48%</strong> sur chaque client que vous signez. Sans avoir rien à développer. Sans avoir rien à recruter.
+
+<em>[Ce qui est inclus — stack visuel]</em>
+Dans le programme, vous avez sept choses concrètes.
+
+D'abord, une <strong>sandbox dédiée</strong>, avec un accès complet à la plateforme avant même que vous ayez signé votre premier client. Valeur ancrée : <strong>500€</strong>.
+
+Ensuite, une <strong>formation initiale d'une journée</strong>. Vous êtes opérationnel en moins de 24 heures. Valeur ancrée : <strong>1 200€</strong>.
+
+Vous avez aussi un <strong>support technique de niveau 2</strong>, illimité, pendant 12 mois. Vous, vous gérez la relation avec vos clients ; nous, on gère les problèmes techniques en arrière-plan. Valeur ancrée : <strong>2 400€</strong>.
+
+Toutes les <strong>mises à jour du produit</strong> sont incluses, les nouveaux connecteurs comme les nouvelles fonctions IA. Valeur ancrée : <strong>600€</strong>.
+
+Vous recevez un <strong>kit de déploiement client</strong> complet, avec les scripts, les checklists et une démo prête à l'emploi. Valeur ancrée : <strong>800€</strong>.
+
+Et un <strong>audit sécurité initial</strong>, qui vous donne une preuve écrite à montrer à la DSI quand elle vous demande où vont les données. Valeur ancrée : <strong>500€</strong>.
+
+Enfin, vous bénéficiez du <strong>co-marketing</strong> : votre logo dans nos communications et un accompagnement commercial sur la durée. Valeur ancrée : <strong>400€</strong>.
+
+Au total, ça fait une <strong>valeur ressentie de 6 400€</strong>. »</div>
+              <div class="acte-annotation pause"><strong>PAUSE 2 sec</strong> · laisser l'écart faire son travail</div>
+              <div class="acte-verbatim">« Et votre prix dans tout ça ? <strong>Zéro frais d'entrée. 99€ par mois d'accès à la plateforme. Et le premier mois est offert.</strong>
+
+<em>[Justification]</em>
+Pour mettre les choses en perspective, votre premier client Team vous rapporte <strong>168€ net par mois</strong>, plus <strong>800€ de setup</strong> à la signature. Donc votre accès plateforme est couvert dès le premier client signé. Et chaque client suivant, c'est de la marge pure.
+
+<em>[Risk reversal — ton ferme]</em>
+Et puis il y a le risk reversal. <strong>Premier mois offert. Sandbox avant signature.</strong> Et surtout, <strong>garantie 90 jours</strong>. Si vous n'avez pas signé votre premier client au bout de 90 jours, on vous désinscrit, on récupère l'accès, <strong>zéro frais</strong>. Le risque est de mon côté, pas du vôtre. »</div>
+              <div class="acte-annotation future"><strong>FUTURE PACING transverse :</strong> « 168€ par client, fois dix clients, fois 36 mois. Faites le calcul mentalement, juste deux secondes, et vous verrez. »</div>
+            </div>
+          </div>
+
+          <!-- Acte 9 -->
+          <div class="acte-card">
+            <div class="acte-header">
+              <div class="acte-num">9</div>
+              <div class="acte-title-block">
+                <div class="acte-title">Objections (Feel/Felt/Found) + disqualification</div>
+                <div class="acte-meta">
+                  <span class="acte-meta-chip duration">7% · 42-48 sec</span>
+                  <span class="acte-meta-chip">Apaisement</span>
+                  <span class="acte-meta-chip">Mirroring + réactance désamorcée</span>
+                </div>
+              </div>
+            </div>
+            <div class="acte-body">
+              <div class="acte-staging">
+                <strong>Visuel :</strong> cadre simple, texte des objections incrusté à côté du visage.<br>
+                <strong>Ton :</strong> empathique, ferme. <strong>Débit :</strong> 155 mots/min.
+              </div>
+              <div class="acte-verbatim">« À ce stade-là, il y a trois questions qui reviennent systématiquement.
+
+<em>[Première objection]</em>
+La première, c'est : <em>« Je ne suis pas assez technique pour faire du support. »</em>
+Je comprends, je me la suis posée moi-même au début. Mais voilà ce que j'ai découvert : si vous connaissez Make et que vous comprenez les APIs, <strong>vous êtes déjà dans les 10% supérieurs des revendeurs potentiels</strong>. Et de toute façon, le support technique de niveau 2, il reste chez moi. Vous, vous configurez la plateforme et vous gérez la relation. <strong>Vous ne codez pas une seule ligne.</strong>
+
+<em>[Deuxième objection]</em>
+La deuxième : <em>« Et si je n'arrive pas à signer de client ? »</em>
+Là encore, j'ai prévu une réponse claire. <strong>Garantie 90 jours.</strong> Si pas de premier client signé au bout de 90 jours, désinscription sans frais. <strong>Vous ne risquez vraiment que votre temps.</strong>
+
+<em>[Troisième objection]</em>
+Et la troisième : <em>« Et si Uccello Labs disparaît demain ? »</em>
+Le contrat partenaire intègre des clauses de continuité de service écrites noir sur blanc. Et si jamais vous choisissez le mode on-premise pour vos clients sensibles, <strong>l'infrastructure leur appartient à eux</strong>. Ils ne dépendent de personne. »</div>
+              <div class="acte-annotation disqual"><strong>DISQUALIFICATION (réactance) :</strong> « Maintenant, soyons honnêtes deux secondes : si vous n'avez aucun contact avec des dirigeants de PME aujourd'hui, <strong>ce programme n'est pas pour vous</strong>. Vraiment. »</div>
+            </div>
+          </div>
+
+          <!-- Acte 10 -->
+          <div class="acte-card">
+            <div class="acte-header">
+              <div class="acte-num">10</div>
+              <div class="acte-title-block">
+                <div class="acte-title">Coût de l'inaction · aversion à la perte</div>
+                <div class="acte-meta">
+                  <span class="acte-meta-chip duration">5% · 30-36 sec</span>
+                  <span class="acte-meta-chip">Tension</span>
+                  <span class="acte-meta-chip">Aversion à la perte</span>
+                </div>
+              </div>
+            </div>
+            <div class="acte-body">
+              <div class="acte-staging">
+                <strong>Visuel :</strong> compteur stylisé qui accumule un coût symbolique. Pas de fausse urgence visuelle.<br>
+                <strong>Ton :</strong> grave, posé. <strong>Débit :</strong> 145 mots/min. <strong>Regard :</strong> appuyé.<br>
+                <strong>Note Hormozi :</strong> levier rareté/scarcity supprimé (pas de Reason Why crédible). Conservé : coût inaction + pivot temporel marché.
+              </div>
+              <div class="acte-verbatim">« Et il faut que vous sachiez quelque chose : <strong>pendant que vous êtes en train de regarder cette vidéo, le coût continue</strong>.
+
+Si dans douze mois vous n'avez rien changé, vous serez encore là, le 1er du mois, à faire les mêmes calculs. <strong>Cinq ans plus douze mois, ça fait six ans de la même tension.</strong> Et pendant ce temps-là, vos clients PME, eux, vont commencer à choisir un autre consultant que vous, qui leur aura apporté l'IA souveraine en premier. <strong>Pas vous.</strong>
+
+Et ce n'est pas une menace que je vous fais. <strong>C'est juste l'arithmétique du marché en 2026.</strong> »</div>
+              <div class="acte-annotation pause"><strong>PAUSE 1 sec</strong></div>
+            </div>
+          </div>
+
+          <!-- Acte 11 -->
+          <div class="acte-card">
+            <div class="acte-header">
+              <div class="acte-num">11</div>
+              <div class="acte-title-block">
+                <div class="acte-title">CTA cristallin · 5 étapes</div>
+                <div class="acte-meta">
+                  <span class="acte-meta-chip duration">4% · 24-28 sec</span>
+                  <span class="acte-meta-chip">Soulagement</span>
+                  <span class="acte-meta-chip">Friction réduite</span>
+                </div>
+              </div>
+            </div>
+            <div class="acte-body">
+              <div class="acte-staging">
+                <strong>Visuel :</strong> flèche animée vers bouton, encart CTA fixe en bas d'écran avec URL calendrier.<br>
+                <strong>Ton :</strong> direct, calme. <strong>Débit :</strong> 155 mots/min. <strong>Regard :</strong> caméra direct, fixe.<br>
+                <strong>URL CTA :</strong> https://calendar.app.google/SuqHzLZ9sNQvdGtP6
+              </div>
+              <div class="acte-verbatim">« Alors maintenant, <strong>cliquez sur le bouton bleu juste sous cette vidéo</strong>. Vous allez tomber sur mon calendrier, et vous choisissez <strong>30 minutes</strong> qui vous arrangent dans la semaine.
+
+On va échanger ensemble, et <strong>si votre profil et votre clientèle correspondent au programme, je vous montre la sandbox en direct</strong>. Et si ce n'est pas le cas, je vous le dirai aussi, franchement. Aucun engagement, c'est gratuit, et ça prend <strong>30 minutes maximum</strong>.</div>
+              <div class="acte-annotation yes-ladder"><strong>YES LADDER 5 :</strong> « 30 minutes contre <strong>1 700€ de MRR potentiel sans embaucher ni développer</strong>, je pense que le calcul est assez simple. »</div>
+              <div class="acte-verbatim">« <strong>Cliquez maintenant.</strong> »</div>
+            </div>
+          </div>
+
+          <!-- Acte 12 -->
+          <div class="acte-card">
+            <div class="acte-header">
+              <div class="acte-num">12</div>
+              <div class="acte-title-block">
+                <div class="acte-title">Outro · peak-end design</div>
+                <div class="acte-meta">
+                  <span class="acte-meta-chip duration">4% · 24-28 sec</span>
+                  <span class="acte-meta-chip">Clarté</span>
+                  <span class="acte-meta-chip">Peak-end rule</span>
+                </div>
+              </div>
+            </div>
+            <div class="acte-body">
+              <div class="acte-staging">
+                <strong>Visuel :</strong> signature visuelle, logo Uccello Hub + tagline. Coupe finale lente.<br>
+                <strong>Ton :</strong> grave, bienveillant. <strong>Débit :</strong> 140 mots/min. <strong>Regard :</strong> caméra, ouvert.
+              </div>
+              <div class="acte-verbatim">« Et si vous êtes encore en train de regarder cette vidéo, <strong>c'est qu'au fond, vous savez déjà ce qu'il y a à faire.</strong>
+
+Vous avez <strong>deux routes possibles</strong>.
+La première, c'est de fermer cet onglet. Et dans six mois, vous ferez exactement le même calcul, avec exactement le même nœud à l'estomac le dimanche soir.
+La deuxième, c'est de cliquer sur le bouton. <strong>On parle ensemble pendant trente minutes</strong>, et vous repartez avec une réponse claire dans un sens ou dans l'autre.
+
+<strong>Vous vendez du temps depuis cinq ans. Il est peut-être temps de vendre autre chose.</strong>
+
+<strong>Cliquez.</strong>
+
+Jonathan, fondateur d'<strong>Uccello Labs</strong>. »</div>
+              <div class="acte-annotation future"><strong>PEAK-END :</strong> ralenti, tenir le silence 2 sec après la signature avant le fade out.</div>
+              <div class="acte-staging"><strong>P.S. (transcript écrit, sous la vidéo) :</strong> « 168€ net par client, tous les mois, sans avoir à supporter le client techniquement. Le bouton est juste sous cette vidéo. Et avec la <strong>garantie 90 jours</strong>, vous ne risquez vraiment que votre temps. »</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 7. Cutdown 90 sec -->
+      <div class="content-section">
+        <div class="section-label">Variante courte · cutdown 90 sec · ad Meta / LinkedIn / retargeting</div>
+        <div class="cutdown-block">
+          <div class="cutdown-label">Format</div>
+          <div class="cutdown-title">6 actes condensés · Hook #5 (disqualification) · ~225-240 mots</div>
+          <div class="cutdown-meta">CTA identique · même calendrier · pour audience Most-aware (retargeting) ou teaser haut de funnel</div>
+        </div>
+
+        <div class="acte-list">
+
+          <!-- Cutdown 1 -->
+          <div class="acte-card">
+            <div class="acte-header">
+              <div class="acte-num">1</div>
+              <div class="acte-title-block">
+                <div class="acte-title">Hook · Disqualification (#5)</div>
+                <div class="acte-meta">
+                  <span class="acte-meta-chip duration">5% · 5-6 sec</span>
+                  <span class="acte-meta-chip">Réactance</span>
+                </div>
+              </div>
+            </div>
+            <div class="acte-body">
+              <div class="acte-staging">
+                <strong>Visuel :</strong> face cam, regard direct, premier plan serré. Texte choc incrusté « ARRÊT ».<br>
+                <strong>Ton :</strong> ferme.
+              </div>
+              <div class="acte-verbatim">« Si vous adorez vendre 600€ de TJM, <strong>vous pouvez fermer cette vidéo tout de suite</strong>. »</div>
+              <div class="acte-annotation pause"><strong>PAUSE 0,5 sec</strong></div>
+            </div>
+          </div>
+
+          <!-- Cutdown 2 -->
+          <div class="acte-card">
+            <div class="acte-header">
+              <div class="acte-num">2</div>
+              <div class="acte-title-block">
+                <div class="acte-title">Douleur condensée</div>
+                <div class="acte-meta">
+                  <span class="acte-meta-chip duration">15% · 13-15 sec</span>
+                </div>
+              </div>
+            </div>
+            <div class="acte-body">
+              <div class="acte-staging"><strong>B-roll :</strong> agenda + écran tableur.</div>
+              <div class="acte-verbatim">« Mais si le <strong>dimanche soir</strong> vous êtes encore en train de calculer si vous allez avoir assez de jours facturés pour boucler le mois, et que ça dure depuis cinq ans, <strong>les 75 prochaines secondes valent vraiment votre attention</strong>. »</div>
+            </div>
+          </div>
+
+          <!-- Cutdown 3 -->
+          <div class="acte-card">
+            <div class="acte-header">
+              <div class="acte-num">3</div>
+              <div class="acte-title-block">
+                <div class="acte-title">Mécanisme + 1 phrase d'origine</div>
+                <div class="acte-meta">
+                  <span class="acte-meta-chip duration">20% · 18-20 sec</span>
+                </div>
+              </div>
+            </div>
+            <div class="acte-body">
+              <div class="acte-staging"><strong>Slide animée :</strong> 3 piliers Uccello Hub.</div>
+              <div class="acte-verbatim">« <strong>14 ans</strong> à construire des SaaS B2B m'ont appris une seule chose : vos clients PME ne veulent pas un SaaS de plus dans leur stack. Ils veulent <strong>un seul hub</strong> qui centralise leurs outils, qui les interconnecte, et qui leur donne une <strong>IA souveraine accessible dans un chat</strong>. Avec les données qui restent chez eux. Aucune fuite. Ça s'appelle <strong>Uccello Hub</strong>. »</div>
+            </div>
+          </div>
+
+          <!-- Cutdown 4 -->
+          <div class="acte-card">
+            <div class="acte-header">
+              <div class="acte-num">4</div>
+              <div class="acte-title-block">
+                <div class="acte-title">Projection chiffrée</div>
+                <div class="acte-meta">
+                  <span class="acte-meta-chip duration">15% · 13-15 sec</span>
+                </div>
+              </div>
+            </div>
+            <div class="acte-body">
+              <div class="acte-staging"><strong>Visuel :</strong> chiffres animés · 168€ × 10 = 1 680€/mois.</div>
+              <div class="acte-verbatim">« Et vous, vous le revendez à vos clients pour <strong>168€ net par mois et par client</strong>. Avec seulement <strong>dix clients</strong>, ça fait <strong>1 680€ de MRR récurrent</strong> qui rentrent tous les mois. Sans embaucher, sans développer, sans coder. »</div>
+            </div>
+          </div>
+
+          <!-- Cutdown 5 -->
+          <div class="acte-card">
+            <div class="acte-header">
+              <div class="acte-num">5</div>
+              <div class="acte-title-block">
+                <div class="acte-title">Offre condensée + Risk reversal</div>
+                <div class="acte-meta">
+                  <span class="acte-meta-chip duration">25% · 22-25 sec</span>
+                </div>
+              </div>
+            </div>
+            <div class="acte-body">
+              <div class="acte-staging"><strong>Stack rapide :</strong> 4 bullets visuels.</div>
+              <div class="acte-verbatim">« <strong>Zéro frais d'entrée</strong>, premier mois offert, sandbox dédiée avant même de signer. Et surtout, une <strong>garantie 90 jours</strong> : si vous n'avez pas signé votre premier client au bout de 90 jours, on vous désinscrit et on récupère l'accès, <strong>zéro frais à payer</strong>. Vous ne risquez vraiment que votre temps. Le contrat partenaire est prêt, la plateforme aussi. »</div>
+            </div>
+          </div>
+
+          <!-- Cutdown 6 -->
+          <div class="acte-card">
+            <div class="acte-header">
+              <div class="acte-num">6</div>
+              <div class="acte-title-block">
+                <div class="acte-title">CTA + outro fusionnés</div>
+                <div class="acte-meta">
+                  <span class="acte-meta-chip duration">20% · 18-20 sec</span>
+                </div>
+              </div>
+            </div>
+            <div class="acte-body">
+              <div class="acte-staging"><strong>Encart CTA fixe</strong> + flèche animée.</div>
+              <div class="acte-verbatim">« Alors <strong>cliquez sur le bouton juste sous cette vidéo</strong>. Vous prenez 30 minutes dans mon calendrier, et on échange. Si votre profil correspond, je vous montre la sandbox. Et si c'est pas le cas, je vous le dirai aussi, franchement. <strong>30 minutes contre 1 700€ de MRR potentiel.</strong> Vous vendez du temps depuis cinq ans : il est temps de vendre autre chose. Jonathan, <strong>Uccello Labs</strong>. »</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 8. Notes de production -->
+      <div class="content-section">
+        <div class="section-label">Notes de production · direction d'acteur</div>
+        <div class="prod-grid">
+          <div class="prod-card">
+            <div class="prod-title">Pauses signature à tenir</div>
+            <ul>
+              <li><strong>Hook :</strong> 1 sec après « C'est pas un fantasme, c'est juste un calcul. »</li>
+              <li><strong>Acte 2 philo :</strong> ralentir 10% sur « jaloux de la sécurité »</li>
+              <li><strong>Acte 5 chute :</strong> 1 sec après « C'est faux »</li>
+              <li><strong>Acte 8 prix :</strong> 2 sec entre 6 400€ et 99€</li>
+              <li><strong>Acte 12 outro :</strong> 2 sec de silence après « Uccello Labs » avant fade</li>
+            </ul>
+          </div>
+          <div class="prod-card">
+            <div class="prod-title">B-roll / visuels par acte</div>
+            <ul>
+              <li><strong>Acte 1 :</strong> incrustation 1 680€</li>
+              <li><strong>Acte 2 :</strong> agenda + tableur + LinkedIn anonymisé</li>
+              <li><strong>Acte 3 :</strong> animation « 5-10-20 outils → 1 hub »</li>
+              <li><strong>Acte 4 :</strong> split-screens approche/résultat barrés</li>
+              <li><strong>Acte 5 :</strong> slide 3 piliers en cercles concentriques</li>
+              <li><strong>Acte 6 :</strong> chiffres animés 4 800€ / 2-sur-3 / 14 ans</li>
+              <li><strong>Acte 7 :</strong> avant/après dimanche matin</li>
+              <li><strong>Acte 8 :</strong> stack avec valeurs ancrées qui s'ajoutent</li>
+              <li><strong>Acte 11 :</strong> flèche animée + encart CTA fixe</li>
+              <li><strong>Acte 12 :</strong> signature visuelle + logo</li>
+            </ul>
+          </div>
+          <div class="prod-card">
+            <div class="prod-title">Mots à appuyer · règle</div>
+            <ul>
+              <li>v1.1 : nombre de mots gras réduit pour laisser respirer</li>
+              <li>1 à 2 mots par phrase max en gras</li>
+              <li>Vérifier que chaque mot souligné dans le verbatim reçoit une emphase à l'oral</li>
+              <li>Ne pas appuyer toute la phrase</li>
+              <li>Ralentir 10% sur acte 5 (révélation) et acte 10 (coût inaction)</li>
+            </ul>
+          </div>
+          <div class="prod-card">
+            <div class="prod-title">Tics de langage · adapter à toi</div>
+            <ul>
+              <li>Le script doit sonner comme toi, pas comme un téléprompteur</li>
+              <li>Tu peux remplacer "donc" par "alors", inverser, ajouter des "vous voyez", "hein", "en fait" si c'est ton parler naturel</li>
+              <li><strong>NE PAS CASSER :</strong> Big Promise (acte 1)</li>
+              <li><strong>NE PAS CASSER :</strong> chute de domino (acte 5)</li>
+              <li><strong>NE PAS CASSER :</strong> 3 chiffres (acte 6)</li>
+              <li><strong>NE PAS CASSER :</strong> 7 livrables avec valeurs ancrées (acte 8)</li>
+              <li><strong>NE PAS CASSER :</strong> garantie 90 jours · 5 étapes du CTA (acte 11)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. Checklist tournage -->
+      <div class="content-section">
+        <div class="section-label">Checklist avant tournage · cocher au fur et à mesure</div>
+        <div class="checklist-tournage" id="checklist-tournage">
+          <label><input type="checkbox"><span class="task">Verdict OFFER_FINAL = VIABLE confirmé</span></label>
+          <label><input type="checkbox"><span class="task">Hook #2 testé sur 3 personnes du réseau · au moins 2 sur 3 ont posé une question dans les 15 sec</span></label>
+          <label><input type="checkbox"><span class="task">Origin story validée par toi · vidéo cheffe d'entreprise + 14 ans construction SaaS</span></label>
+          <label><input type="checkbox"><span class="task">Chiffres sourcés ou estimations signalées · 4 800€ / 168€ / 2 sur 3 / 14 ans</span></label>
+          <label><input type="checkbox"><span class="task">Mots gras (emphases) marqués dans le téléprompteur</span></label>
+          <label><input type="checkbox"><span class="task">Pauses signature notées · 1 sec acte 1, 2 sec acte 8, 2 sec acte 12</span></label>
+          <label><input type="checkbox"><span class="task">Lecture seul chronométrée · viser 9 min 30 à 10 min 30 sur la longue, 85 à 95 sec sur le cutdown</span></label>
+          <label><input type="checkbox"><span class="task">Lecture sur smartphone vertical · preview TikTok-style</span></label>
+          <label><input type="checkbox"><span class="task">Test acte 5 sur consultant non technique · doit comprendre les 3 piliers en une lecture</span></label>
+          <label><input type="checkbox"><span class="task">Garantie 90 jours · à lire à voix haute, vérifier l'aplomb. Si hésitation, retravailler les conditions.</span></label>
+          <label><input type="checkbox"><span class="task">URL CTA testée · calendar.app.google/SuqHzLZ9sNQvdGtP6 fonctionne</span></label>
+          <label><input type="checkbox"><span class="task">B-roll préparé pour les 10 actes qui en utilisent</span></label>
+          <label><input type="checkbox"><span class="task">Tournage en conditions réelles · téléprompteur testé</span></label>
+        </div>
+        <p style="font: 400 .75rem/1.55 var(--fb); color: var(--text-muted); margin-top: 10px;">État sauvegardé localement (localStorage) · pratique pour reprendre la checklist sur plusieurs sessions.</p>
+      </div>
+
+      <!-- 10. Diagnostic post-publication -->
+      <div class="content-section">
+        <div class="section-label">Diagnostic post-publication · changer un seul acte à la fois</div>
+        <div class="table-wrap">
+          <table class="diag-table">
+            <thead>
+              <tr>
+                <th>Symptôme</th>
+                <th>Cause probable</th>
+                <th>Acte à reprendre</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Drop-off &gt; 50% à 0-15 sec</td><td>Hook qui ne capte pas</td><td>Acte 1 · 5 nouveaux hooks</td></tr>
+              <tr><td>Drop-off &gt; 30% à 30-60 sec</td><td>Acte 2 trop long ou pas douloureux</td><td>Acte 2</td></tr>
+              <tr><td>Drop-off à 1:30-2:30</td><td>Origin story plate</td><td>Acte 3 · mur + sensoriel</td></tr>
+              <tr><td>Drop-off à 4-5 min</td><td>Mécanisme confus</td><td>Acte 5 · 3 piliers</td></tr>
+              <tr><td>Bonne rétention, pas de clic CTA</td><td>Offre / prix / garantie / CTA</td><td>Actes 8, 9, 11</td></tr>
+              <tr><td>Bonne rétention + clics, pas d'achat</td><td>Friction post-VSL</td><td>Page paiement / Calendly</td></tr>
+              <tr><td>Vues fortes mais audience hors cible</td><td>Ciblage ad ou hook trop large</td><td>Acte 1 + ciblage</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font: 400 .8125rem/1.55 var(--fb); color: var(--text-muted); margin-top: 12px;">
+          <strong>Règle d'or :</strong> changer un seul acte à la fois, mesurer 500 nouvelles vues. Tests A/B du hook · 3-5 hooks en parallèle, budget identique, 48-72h. Métrique : <strong>hook rate (% qui regarde &gt; 3 sec)</strong>, pas CTR global. Garder top 1-2.
+        </p>
+      </div>
+
+      <!-- 11. Sources utilisées -->
+      <div class="content-section">
+        <div class="section-label">Sources utilisées du pipeline</div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Fichier</th>
+                <th>Version</th>
+                <th>Usage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>OFFER_FINAL.md</td><td>v1.0</td><td>Big Promise, mécanisme 3 piliers, objections, garantie</td></tr>
+              <tr><td>PERSONA_ACHETEUR.md</td><td>v1.0</td><td>Marc, douleur 3 niveaux, journal intime, vocabulaire, DISC C</td></tr>
+              <tr><td>COMPETITIVE_BRIEF.md</td><td>v1.0</td><td>Fausses solutions (Make, Copilot, Diagnostic), différenciation</td></tr>
+              <tr><td>PRICING_BRIEF.md</td><td>v2.0</td><td>168€ net, 1 680€/mois, simulation 10 clients, stack value</td></tr>
+              <tr><td>PROJECT_CONTEXT.md</td><td>—</td><td>21 ans dev, 14 ans SaaS, Trust &amp; Calm, charte visuelle</td></tr>
+              <tr><td>SESSION_LOG.md</td><td>—</td><td>2 RDV sur 3 cold calls vague 1 (signal marché)</td></tr>
+              <tr><td>COLD_CALL_SCRIPT.md</td><td>—</td><td>DISC C dominant confirmé</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">◆ Uccello Hub</span>
+        <span>Document interne — usage privé uniquement</span>
+        <span>v1.1 · 5 mai 2026 · Uccello Labs</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    lucide.createIcons();
+
+    // Reader mode toggle
+    var toggle = document.getElementById('reader-toggle');
+    if (toggle) {
+      toggle.addEventListener('click', function() {
+        document.body.classList.toggle('reader-mode');
+        var span = toggle.querySelector('span');
+        if (document.body.classList.contains('reader-mode')) {
+          span.textContent = 'Quitter le mode lecture';
+        } else {
+          span.textContent = 'Mode lecture téléprompteur';
+        }
+      });
+    }
+
+    // Checklist tournage · persistance localStorage
+    var checklist = document.getElementById('checklist-tournage');
+    if (checklist) {
+      var key = 'vsl-checklist-tournage';
+      var saved = JSON.parse(localStorage.getItem(key) || '{}');
+      var labels = checklist.querySelectorAll('label');
+      labels.forEach(function(label, idx) {
+        var cb = label.querySelector('input[type="checkbox"]');
+        if (saved[idx]) {
+          cb.checked = true;
+          label.classList.add('checked');
+        }
+        cb.addEventListener('change', function() {
+          if (cb.checked) label.classList.add('checked');
+          else label.classList.remove('checked');
+          saved[idx] = cb.checked;
+          localStorage.setItem(key, JSON.stringify(saved));
+        });
+      });
+    }
+  </script>
+</body>
+</html>

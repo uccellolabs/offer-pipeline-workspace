@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <style id="auth-guard-style">html{visibility:hidden}</style>
+  <script>(function(){if(sessionStorage.getItem('mintizy_auth')==='ok'){document.documentElement.style.visibility='visible';}else{var prefix=window.location.pathname.indexOf('/pages/')!==-1?'../':'';window.location.replace(prefix+'login.html');}})();</script>
+  <title>Personas : Mintizy / Portail revendeurs ERP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+  <nav class="nav" aria-label="Navigation principale">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__brand"><span class="nav__brand-mark">M</span><span>Mintizy : étude</span></a>
+      <div class="nav__links">
+        <a href="../index.html" class="nav__link">Accueil</a>
+        <a href="offre.html" class="nav__link">Offre</a>
+        <a href="persona.html" class="nav__link nav__link--active">Personas</a>
+        <a href="marche.html" class="nav__link">Marché</a>
+        <a href="concurrence.html" class="nav__link">Concurrence</a>
+        <a href="pricing.html" class="nav__link">Pricing</a>
+        <a href="viabilite.html" class="nav__link">Viabilité</a>
+        <a href="sources.html" class="nav__link">Sources</a>
+      </div>
+      <span class="badge badge--neutral" style="margin-left: var(--space-3);">Doc interne</span>
+      <button class="nav__hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="nav__mobile-menu">
+        <a href="../index.html" class="nav__link">Accueil</a>
+        <a href="offre.html" class="nav__link">Offre</a>
+        <a href="persona.html" class="nav__link">Personas</a>
+        <a href="marche.html" class="nav__link">Marché</a>
+        <a href="concurrence.html" class="nav__link">Concurrence</a>
+        <a href="pricing.html" class="nav__link">Pricing</a>
+        <a href="viabilite.html" class="nav__link">Viabilité</a>
+        <a href="sources.html" class="nav__link">Sources</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" style="padding: var(--space-16) 0;">
+    <div class="container">
+      <p class="eyebrow">Section 2 / 6 : Personas</p>
+      <h1>Deux profils, deux logiques. L'acheteur revendeur et l'utilisateur final.</h1>
+      <p class="hero__desc">Stéphane Maréchal décide d'ajouter Mintizy au bundle. Pascal Dubreuil paie l'abonnement et expose ses interventions à ses clients finaux.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+
+      <div data-tabs>
+        <div class="tabs" role="tablist">
+          <button class="tabs__btn tabs__btn--active" data-tab="acheteur" role="tab">Stéphane / Acheteur revendeur</button>
+          <button class="tabs__btn" data-tab="utilisateur" role="tab">Pascal / Utilisateur final</button>
+        </div>
+
+        <!-- ============ ACHETEUR ============ -->
+        <div id="acheteur" class="tab-panel tab-panel--active">
+
+          <div class="grid grid-2 mb-8">
+            <div>
+              <p class="eyebrow">Persona acheteur</p>
+              <h2>Stéphane Maréchal, 49 ans</h2>
+              <p class="lead mt-2">Directeur Associé chez ProConcept ERP, cabinet d'intégration Sage X3 + Cegid XRP Flex de 35 collaborateurs basé à Lyon.</p>
+              <div class="flex gap-2 flex-wrap mt-4">
+                <span class="badge badge--primary">Score prospectabilité 7/10</span>
+                <span class="badge badge--success">Cible prioritaire</span>
+              </div>
+            </div>
+            <div class="card card--featured">
+              <h4 class="mb-4">Synthèse express</h4>
+              <p class="mb-2"><strong>Veut</strong> : brique différenciante récurrente sans R&D, +200 à 300€/mois marge nette par client.</p>
+              <p class="mb-2"><strong>Bloqué par</strong> : peur du go-direct éditeur tiers, doute sur le ROI passerelle, manque de bandwidth.</p>
+              <p class="mb-2"><strong>Budget</strong> : &lt; 5k€ setup, dev passerelle accepté si &lt; 3 semaines.</p>
+              <p><strong>Objection #1</strong> : "Si Mintizy se fait racheter ou go-direct, je suis dépendant."</p>
+            </div>
+          </div>
+
+          <h3 class="mb-4">Want, Objectif, Fantasme</h3>
+          <div class="quote quote--large mb-6">
+            "Je veux ajouter à mon bundle SAV une brique différenciante qui rapporte de la marge récurrente sans embaucher, parce que je sens que mon cabinet stagne en marge alors que la concurrence pousse des offres plus complètes."
+            <span class="quote__attr">: Stéphane Maréchal, 49 ans, Directeur Associé</span>
+          </div>
+
+          <div class="before-after mb-8">
+            <div class="before">
+              <h4>Situation actuelle</h4>
+              <p class="text-small">35 collaborateurs, 4,8M€ CA, 60% jour/homme, marge nette ~9%. Practice SAV stagne depuis 18 mois. 2 deals SAV perdus cette année face à des concurrents qui bundlent un FSM + portail.</p>
+            </div>
+            <div class="after">
+              <h4>Situation de rêve</h4>
+              <p class="text-small">45 collaborateurs en 3 ans, CA 7M€, 50% récurrent, marge nette 14%, leader régional reconnu. Transmission/revente du cabinet à un multiple correct grâce à la part récurrente significative.</p>
+            </div>
+          </div>
+
+          <h3 class="mb-4">Journal intime, 15 mars 2026, 22h47</h3>
+          <div class="quote mb-6">
+            <p class="mb-4">Encore une journée à rallonge. Aujourd'hui Sébastien m'a annoncé qu'il partait chez un concurrent à Genève. Trois ans de formation et il s'en va. C'est le troisième en huit mois.</p>
+            <p class="mb-4">Marie m'a demandé hier soir si je travaillais autant pour rien. Elle ne comprend pas pourquoi je ne lâche pas. Mais je ne peux pas vendre maintenant, le cabinet n'a pas la part de récurrent suffisante pour valoir un multiple correct.</p>
+            <p class="mb-4">J'ai vu passer Mintizy l'an dernier sur LinkedIn. OCI les distribue. J'ai vérifié, c'est sérieux, ils ont un vrai produit qui tourne, hébergement français, des clients réels. Le directeur technique d'OCI est un copain de promo, je peux l'appeler. Mais j'hésite. Si je signe avec eux, je deviens dépendant.</p>
+            <p>Sauf que si je ne fais rien, je perds mes deals SAV un par un. Demain j'appelle OCI pour comprendre comment ça se passe vraiment.</p>
+          </div>
+
+          <h3 class="mb-4">Croyances, valeurs, vocabulaire</h3>
+          <div class="grid grid-3 mb-8">
+            <div class="card">
+              <h4>Idées importantes</h4>
+              <p class="text-small text-muted">Pérennité du cabinet via la récurrence. Le client paye pour un résultat, pas pour des heures. Parole donnée vaut un contrat.</p>
+            </div>
+            <div class="card">
+              <h4>Croyances limitantes</h4>
+              <p class="text-small text-muted">"Mes commerciaux ne sauront pas vendre du SaaS partenaire. Mes clients sont conservateurs. Tous les éditeurs finissent par go-direct."</p>
+            </div>
+            <div class="card">
+              <h4>Vocabulaire</h4>
+              <p class="text-small text-muted">"Bundle", "récurrent", "ARR", "cycle de vente", "deal SAV", "passerelle API", "go-to-market", "marge nette", "Top League".</p>
+            </div>
+          </div>
+
+          <h3 class="mb-4">Objections principales et reframing</h3>
+
+          <div class="accordion">
+            <button class="accordion__trigger" aria-expanded="false">
+              <span>"Je n'ai pas le bandwidth dev pour la passerelle"</span>
+              <span class="accordion__icon">▾</span>
+            </button>
+            <div class="accordion__body">
+              <p><strong>Question de doute</strong> : "Combien de jours-homme avez-vous chiffré la dernière fois pour un dev custom de portail ? Et combien de mois pour le livrer ?"</p>
+              <p><strong>Contre-exemple</strong> : OCI a livré sa passerelle Cegid XRP Flex en 17 jours-homme, soit moins de 4 semaines sur un dev senior partagé. ROI 5x plus rapide qu'un dev custom.</p>
+              <p><strong>Croyance B</strong> : L'investissement dev est ponctuel, la marge récurrente est perpétuelle. 3 semaines de dev = ~12k€ de coût interne = amorti en 14 mois avec setup fee 990€/client.</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion__trigger" aria-expanded="false">
+              <span>"Et si vous go-direct sur ma base ?"</span>
+              <span class="accordion__icon">▾</span>
+            </button>
+            <div class="accordion__body">
+              <p><strong>Contre-exemple</strong> : Notre contrat OCI inclut clause de non-prospection sur clients actifs revendeur. UCCELLO LABS n'a aucun commercial dédié à la prospection grand compte SAV. Notre modèle économique repose sur le canal revendeur, pas l'inverse.</p>
+              <p><strong>Croyance B</strong> : Le canal revendeur est notre stratégie commerciale principale, pas un complément. Vous saboter, c'est nous saborder.</p>
+              <p><strong>Action</strong> : Exclusivité territoriale (région ou département) ou sectorielle dès 3 clients signés sur 18 mois.</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion__trigger" aria-expanded="false">
+              <span>"Pricing trop bas pour me valoir le coup en marge"</span>
+              <span class="accordion__icon">▾</span>
+            </button>
+            <div class="accordion__body">
+              <p>Tranche médiane palier 11-50 utilisateurs : 67€ marge récurrente UCCELLO + 40% revendeur = 67€/client/mois sans charge. Sur 10 clients : 670€/mois = 8 000€/an de marge nette.</p>
+              <p>Setup fee 990€ HT one-shot conservé à 100% par le revendeur. Sur cohort 5 clients/an : 4 950€/an additionnels. Total année 1 : 9 270€. ROI passerelle : 14 mois.</p>
+            </div>
+          </div>
+
+          <h3 class="mt-8 mb-4">Canaux d'acquisition recommandés</h3>
+          <div class="grid grid-3">
+            <div class="card">
+              <h4>LinkedIn Sales Navigator</h4>
+              <p class="text-small text-muted">Filtres "Directeur Général / Associé / Commercial" + "Cegid / Sage / Dynamics / Divalto" + 10-200 employés FR. Volume estimé : 600-1 200 décideurs nominatifs.</p>
+            </div>
+            <div class="card">
+              <h4>Événements partenaires éditeurs</h4>
+              <p class="text-small text-muted">Cegid Connections, Sage Universités, Microsoft Inspire, CXP Innovation Day. RDV pré-bookés via LinkedIn 2 semaines avant.</p>
+            </div>
+            <div class="card">
+              <h4>Recommandation OCI</h4>
+              <p class="text-small text-muted">Témoignage chiffré OCI publié sur LinkedIn et exploité comme étude de cas. Effet de pair entre dirigeants de cabinets.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ============ UTILISATEUR ============ -->
+        <div id="utilisateur" class="tab-panel">
+
+          <div class="grid grid-2 mb-8">
+            <div>
+              <p class="eyebrow">Persona utilisateur final</p>
+              <h2>Pascal Dubreuil, 52 ans</h2>
+              <p class="lead mt-2">Dirigeant fondateur de Froid Service Atlantique, société de maintenance frigorifique pour cuisines pro et GMS, 35 techniciens, 18M€ CA, basée près de Bordeaux. Cliente du revendeur ERP depuis 4 ans.</p>
+              <div class="flex gap-2 flex-wrap mt-4">
+                <span class="badge badge--success">Score via revendeur 8/10</span>
+                <span class="badge badge--warning">Score direct 4/10 (canal indirect by design)</span>
+              </div>
+            </div>
+            <div class="card card--featured">
+              <h4 class="mb-4">Synthèse express</h4>
+              <p class="mb-2"><strong>Veut</strong> : portail clé-en-main pour gagner les AO réglementés (Carrefour, McDonald's, GMS).</p>
+              <p class="mb-2"><strong>Bloqué par</strong> : peur que ses techniciens regimbent, doute sur l'usage réel par clients finaux, fatigue des outils sous-utilisés.</p>
+              <p class="mb-2"><strong>WTP</strong> : 250-500€/mois HT, jusqu'à 600€ avec preuves ROI.</p>
+              <p><strong>Objection #1</strong> : "On a Excel, mes clients ne demandent pas de portail."</p>
+            </div>
+          </div>
+
+          <h3 class="mb-4">Want et trigger d'achat</h3>
+          <div class="quote quote--large mb-6">
+            "Je veux un portail où mes clients voient en temps réel l'état de leurs équipements et des interventions, parce que ça me fait gagner les appels d'offres et ça arrête mon téléphone qui sonne 30 fois par jour."
+            <span class="quote__attr">: Pascal Dubreuil, 52 ans, dirigeant frigoriste</span>
+          </div>
+
+          <p class="mb-4"><strong>Trigger d'achat principal</strong> : perte d'un appel d'offres 4 hyper Carrefour à 80k€/an, il y a 9 mois. Le concurrent gagnant avait un portail de suivi en ligne. Pascal a compris qu'il était dépassé sur ce critère.</p>
+
+          <h3 class="mb-4">Journal intime, 22 avril 2026, 21h30</h3>
+          <div class="quote mb-6">
+            <p class="mb-4">Aujourd'hui Quentin m'a montré sur son téléphone le portail d'un de nos concurrents, je ne dirai pas lequel. Le client connecte son compte, il voit ses 12 magasins, l'état de chaque intervention en cours, l'historique sur 3 ans. Le tout aux couleurs du concurrent, propre, professionnel.</p>
+            <p class="mb-4">Mon fils m'a regardé avec ce mélange de respect et d'agacement qu'il a depuis 6 mois. Il ne dit rien mais je sais ce qu'il pense : papa, on est en retard.</p>
+            <p class="mb-4">Hier matin Sandrine m'a passé encore le téléphone trois fois en une heure. Trois clients qui voulaient savoir où on en était sur leurs frigos. C'est l'enfer.</p>
+            <p>Si j'investis 3 000€ par an et que je gagne ne serait-ce qu'un seul appel d'offres à 40 ou 50k€ par an, c'est rentable au facteur 15. Mais je suis fatigué de tester des outils qui ne tiennent pas leurs promesses.</p>
+          </div>
+
+          <h3 class="mb-4">Valeur économique pour Pascal</h3>
+          <div class="table-wrap mb-8">
+            <table>
+              <thead>
+                <tr><th>Levier</th><th>Calcul</th><th class="num">Valeur annuelle</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>1 appel d'offres remporté grâce au portail</td><td>1 contrat 40-80k€/an, attribution 30% au critère portail</td><td class="num">12 000 à 24 000€</td></tr>
+                <tr><td>Réduction appels entrants -40%</td><td>1h/jour × 220j × 35€/h</td><td class="num">7 700€</td></tr>
+                <tr><td>Évitement dev portail custom</td><td>30-80k€ amortis sur 5 ans</td><td class="num">6 000 à 16 000€</td></tr>
+                <tr><td>Conformité audit qualité</td><td>16h × 35€/h économisées</td><td class="num">560€</td></tr>
+                <tr style="background: var(--color-accent-soft);"><td colspan="2"><strong>Valeur totale annuelle estimée</strong></td><td class="num"><strong>26 à 48 000€</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="mb-4">Objections principales</h3>
+
+          <div class="accordion">
+            <button class="accordion__trigger" aria-expanded="false">
+              <span>"Mes clients finaux ne se connecteront pas au portail"</span>
+              <span class="accordion__icon">▾</span>
+            </button>
+            <div class="accordion__body">
+              <p>Sur les cuisinistes pros déjà équipés Mintizy, le taux de connexion mensuel des clients finaux est de 65 à 75% au bout de 6 mois. Levier : QR code apposé physiquement sur l'équipement réparé + email post-intervention avec lien direct.</p>
+              <p>Le portail n'a pas besoin de 100% d'usage pour être rentable. Il suffit qu'il soit présentable lors d'un appel d'offres et utilisé par les 20% de clients exigeants.</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion__trigger" aria-expanded="false">
+              <span>"Encore un abonnement, j'en ai déjà trop"</span>
+              <span class="accordion__icon">▾</span>
+            </button>
+            <div class="accordion__body">
+              <p>Quel a été le ROI réel de chacun de vos abonnements en termes de CA gagné ou perdu ? Lequel vous a déjà fait gagner un appel d'offres ?</p>
+              <p>Cegid vous fait gagner du temps interne. Praxedo digitalise vos techniciens. Aucun ne joue sur l'image perçue par votre client final dans un AO. Le portail, lui, est l'unique outil qui se voit dans une réponse à AO.</p>
+              <p><strong>Action</strong> : 3 mois résiliables. Sur cette fenêtre, inclusion du portail dans 1 réponse AO. Si gain, on continue.</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion__trigger" aria-expanded="false">
+              <span>"Mon revendeur Cegid me vend ça pour la marge"</span>
+              <span class="accordion__icon">▾</span>
+            </button>
+            <div class="accordion__body">
+              <p>Oui, le revendeur prend une marge ~40%, c'est son métier. Mais il est responsable du déploiement et du support N1, donc engagé sur la réussite. Sa marge ne se déclenche que si vous restez client.</p>
+              <p>Le pricing palier client final (252€/mois pour 11-50 users) est 6 à 13x moins cher que les FSM concurrents (Praxedo Classic 1 715€/mois pour 35 techniciens) sur le sous-périmètre portail.</p>
+            </div>
+          </div>
+
+          <h3 class="mt-8 mb-4">Note stratégique : canal indirect by design</h3>
+          <div class="verdict verdict--success">
+            <span class="verdict__icon">ℹ</span>
+            <div>
+              <p class="verdict__title">UCCELLO ne prospecte pas Pascal directement</p>
+              <p class="verdict__text">Le persona utilisateur est <strong>servi via le revendeur</strong>. UCCELLO arme le revendeur avec un kit commercial (deck, ROI calculator, scripts d'objection, témoignages) pour qu'il convertisse Pascal. Le vrai produit marketing UCCELLO sur ce canal est ce kit revendeur, pas la prospection directe utilisateur.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <span>Étude générée 2026-05-05 · v1.0</span>
+        <span><a href="../index.html">Retour à l'accueil</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
