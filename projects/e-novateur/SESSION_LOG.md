@@ -17,6 +17,7 @@
 | /offer-prospection-strategy | ⬜ | — | — |
 | /offer-discovery-call | ✅ 2026-05-05 | DISCOVERY_CALL_PLAN.md v1.0 + CALL_RECAP_TEMPLATE.md | Discovery cold téléphone, multi-DISC, mode scaling 5+/sem |
 | /offer-study-website (interne) v2 | ✅ 2026-05-05 | `website/pages/discovery-call.html` | Page Discovery Call ajoutée au site interne (nav + carte accueil) |
+| /offer-discovery-call v1.1 | ✅ 2026-05-06 | DISCOVERY_CALL_PLAN.md v1.1 + page web mise à jour | Bascule perspective : commercial parle, JF Vilm name-droppé comme directeur de projet |
 | /offer-study-website (interne) | ✅ 2026-05-04 | `projects/e-novateur/website/` | Publié Forge (DNS SSL à finaliser) |
 | /offer-study-website (public) | ✅ 2026-05-05 | `projects/e-novateur/website-public/` | Landing page publique — même design system que pitch deck |
 
@@ -93,6 +94,14 @@
 → Carte ajoutée dans la grille du pipeline en accueil (rang : Outil terrain)
 → Design system existant réutilisé tel quel (slate + amber, DM Serif Display + Plus Jakarta Sans), styles spécifiques scopés `<style>` dans la page (timeline, verbatim, disc-card, scenario-card, meddic-cell, cheatsheet, etc.)
 /offer-study-website (interne) : ✅ 2026-05-05
+
+**2026-05-06** `/offer-discovery-call` v1.1 — Bascule perspective commerciale
+→ DISCOVERY_CALL_PLAN.md v1.1 : la voix qui parle dans les verbatims est celle d'un commercial de l'équipe, pas celle de Jean-François fondateur
+→ Posture clarifiée : le commercial est le point d'entrée, JF Vilm est name-droppé comme **directeur de projet** à 3 moments-clés (pitch, objection compétences, scénario warm = 2nd call avec JF)
+→ Verbatim mis à jour : ouverture "[Votre prénom] de chez e-novateur" (au lieu de "JF Vilm à l'appareil"), pitch "Chez e-novateur on met une équipe..." (au lieu de "Je dirige e-novateur"), objection compétences "JF analyse vos devis en 48h" (au lieu de "je les analyse"), scénario warm "2nd call avec moi ET JF"
+→ Page web `discovery-call.html` mise à jour : nouvelle section "Posture du commercial" en intro (3 moments name-drop JF), tag version v1.1, footer daté
+→ Levier commercial nouveau : routing du 2nd call avec le directeur de projet désilote la décision côté prospect (DAF/associé peut poser ses questions techniques en direct à JF)
+/offer-discovery-call v1.1 : ✅ 2026-05-06
 
 ---
 

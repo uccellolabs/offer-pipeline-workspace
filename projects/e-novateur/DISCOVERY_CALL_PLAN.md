@@ -1,14 +1,23 @@
 # DISCOVERY_CALL_PLAN.md : e-novateur
 
-- Date : 2026-05-05 | Version : 1.0 | Agent : /offer-discovery-call
+- Date : 2026-05-06 | Version : 1.1 | Agent : /offer-discovery-call
 - Type de call : Discovery (premier contact)
 - Durée prévue : 30 à 45 min
 - Format : Téléphone (pas de visio, pas de slide)
 - Origine : Cold call (prospection à froid, pas de canal préalable)
 - Profil DISC du prospect : Inconnu (détection à chaud en 2 min, voir §2)
 - ICP de référence : Isabelle Renard (PERSONA_ACHETEUR_v2.md)
+- **Perspective parlant** : commercial de l'équipe e-novateur (pas le fondateur)
 
 > Ce plan est conçu pour un rythme 5+ calls/semaine. Le cadre est unique, les variantes DISC sont compactes. Une cheat sheet 1 page en fin de doc pour les calls suivants.
+
+> **Posture du commercial** : tu représentes le collectif e-novateur, pas une seule personne. Tu peux et dois name-dropper Jean-François Vilm comme **directeur de projet** pour appuyer la crédibilité technique aux moments-clés (analyse de devis, pilotage, validation des livrables). Mais le pitch, la qualification et le suivi commercial passent par toi : tu es le point d'entrée, JF est l'expert qui exécute.
+
+### Changelog v1.1
+
+- Réécriture des verbatims (ouverture cold + scénarios + objections) pour qu'ils sonnent juste dans la bouche d'un commercial, pas du fondateur
+- Ajout du levier "second call avec Jean-François notre directeur de projet" en scénario B (warm) : crédibilité technique + désilote la décision côté prospect
+- Ajustement de la cheat sheet et des objections "compétences" / "test gratuit" pour parler au nom de l'équipe ("on les analyse") plutôt qu'en first person ("je les analyse")
 
 ---
 
@@ -33,15 +42,15 @@ En cold call téléphone, le prospect a la main sur le raccrochage. Tu as 20 sec
 
 **Étape 1 : pattern interrupt poli (10 sec)**
 
-> "Bonjour [Prénom], Jean-François Vilm à l'appareil, je sais que je vous appelle un peu à froid, est-ce que je vous prends 30 secondes pour vous dire pourquoi je vous appelle, et après vous me dites si ça vaut la peine d'aller plus loin ?"
+> "Bonjour [Prénom], [Votre prénom] [Votre nom] à l'appareil de chez e-novateur, je sais que je vous appelle un peu à froid, est-ce que je vous prends 30 secondes pour vous dire pourquoi je vous appelle, et après vous me dites si ça vaut la peine d'aller plus loin ?"
 
-> Pourquoi ça marche : transparence ("à froid"), demande micro-engagement (30 sec), donne le contrôle au prospect (ça calme un D et rassure un S/C).
+> Pourquoi ça marche : transparence ("à froid"), demande micro-engagement (30 sec), donne le contrôle au prospect (ça calme un D et rassure un S/C). En te présentant "de chez e-novateur" plutôt que "je dirige e-novateur", tu enlèves au prospect l'impression que c'est le patron qui appelle pour vendre, donc moins de pression perçue.
 
 **Étape 2 : pitch de la raison (20 sec)**
 
-> "Je dirige e-novateur, on est une équipe de 6 experts qui aide les dirigeants de PME à piloter leurs projets digitaux dans leur camp, pour qu'ils soient livrés dans les temps et dans le budget. Je vous appelle parce que [raison spécifique : votre poste sur LinkedIn, votre annonce de refonte, le secteur distribution B2B où on voit beaucoup de projets qui dérapent en ce moment]. Ma question simple : vous avez un projet digital en cours ou qui se prépare ?"
+> "Chez e-novateur on est une équipe de 6 experts qui aide les dirigeants de PME à piloter leurs projets digitaux dans leur camp, pour qu'ils soient livrés dans les temps et dans le budget. Je vous appelle parce que [raison spécifique : votre poste sur LinkedIn, votre annonce de refonte, le secteur distribution B2B où on voit beaucoup de projets qui dérapent en ce moment]. Ma question simple : vous avez un projet digital en cours ou qui se prépare ?"
 
-> Pourquoi ça marche : pose le contexte (qui je suis), donne la raison de l'appel (pas générique), termine par une question fermée binaire (oui/non) qui démarre la qualification immédiatement.
+> Pourquoi ça marche : pose le contexte (qui est l'équipe), donne la raison de l'appel (pas générique), termine par une question fermée binaire (oui/non) qui démarre la qualification immédiatement.
 
 **Étape 3 : embranchement selon réponse**
 
@@ -50,7 +59,7 @@ En cold call téléphone, le prospect a la main sur le raccrochage. Tu as 20 sec
 | "Oui, on a un projet" | "Super, c'est exactement le moment où je peux être utile. Vous avez 5 min pour qu'on en parle, ou je vous rappelle à un meilleur créneau ?" → bascule §2 |
 | "Non, pas pour l'instant" | "OK, je comprends. Juste pour ma culture : c'est parce qu'il n'y a pas de projet identifié, ou parce que vous gérez ça en interne ?" → si rien : disqualifier proprement, demander si OK pour rester en contact dans 6 mois |
 | "Pas le bon moment" | "Pas de souci. Quand est-ce que ce serait un meilleur moment ? 5 min en fin de semaine ?" → reproposer un créneau précis |
-| "Comment vous avez eu mon numéro ?" | "Votre profil LinkedIn / l'annuaire CCI / la base SIRENE, je travaille sur le secteur [X]. Si l'appel ne vous convient pas, je raccroche tout de suite, dites-moi." → désamorce sans se justifier longtemps |
+| "Comment vous avez eu mon numéro ?" | "Votre profil LinkedIn / l'annuaire CCI / la base SIRENE, on travaille avec l'équipe e-novateur sur le secteur [X]. Si l'appel ne vous convient pas, je raccroche tout de suite, dites-moi." → désamorce sans se justifier longtemps |
 
 ### Adaptation DISC de l'ouverture (sans connaître le profil)
 
@@ -259,10 +268,10 @@ Tu ne lis PAS les questions une par une. Tu en choisis 2 à 3 par section selon 
 
 **Étape 2 : pitch (3 min max)**
 
-> "Notre approche, c'est de mettre une équipe dans VOTRE camp pour piloter le projet à votre place. Ça veut dire trois choses concrètes :
-> 1. On analyse vos devis avant que vous signiez, en termes business pas techniques
-> 2. On pilote votre prestataire à votre place, vous recevez un point de 10 lignes par semaine
-> 3. Si votre prestataire dérape, on a une équipe de 6 experts qui peut prendre le relais immédiatement
+> "Chez e-novateur, on met une équipe dans VOTRE camp pour piloter le projet à votre place. Ça veut dire trois choses concrètes :
+> 1. On analyse vos devis avant que vous signiez, en termes business pas techniques. C'est notre directeur de projet, Jean-François Vilm, qui s'en charge personnellement.
+> 2. On pilote votre prestataire à votre place, vous recevez un point de 10 lignes par semaine.
+> 3. Si votre prestataire dérape, on a une équipe de 6 experts qui peut prendre le relais immédiatement (dev, design, marketing).
 >
 > La différence avec ce qui existe : un AMOA freelance fait l'étape 1 et 2 mais n'a pas d'équipe de backup. Une agence a une équipe mais elle vend aussi l'exécution, donc elle a intérêt à élargir le scope. Nous on fait les deux : neutralité totale ET équipe complète."
 
@@ -307,7 +316,7 @@ Tu ne lis PAS les questions une par une. Tu en choisis 2 à 3 par section selon 
 | **"Pas le bon moment"** | "Je comprends. Question franche : qu'est-ce qui rendrait le moment bon ? À partir de quand on aurait dû avoir cette discussion ?" |
 | **"Je dois en parler en interne"** | "Bien sûr. Avec qui exactement ? Comment je peux vous aider à présenter le sujet ? Je peux vous préparer une note de 1 page si ça aide." |
 | **"On va y réfléchir"** | "Très bien. Concrètement, sur quoi vous voulez réfléchir : la pertinence, le timing, le pricing, autre chose ? Comme ça je vous envoie les bonnes infos." |
-| **"Comment je sais que vous êtes compétents ?"** | "C'est une question légitime. Je vous propose un test simple : vous m'envoyez vos devis, je les analyse en 48h gratuitement. Si l'analyse vous convainc, on parle de la suite. Sinon, vous gardez l'analyse, sans engagement." |
+| **"Comment je sais que vous êtes compétents ?"** | "C'est une question légitime. Je vous propose un test simple : vous m'envoyez vos devis, notre directeur de projet Jean-François les analyse en 48h, gratuitement. Si l'analyse vous convainc, on parle de la suite. Sinon, vous gardez l'analyse, sans engagement." |
 | **"Vous prenez une commission sur les agences ?"** | "Non, jamais. C'est même contractuel. Notre seule rémunération c'est votre mission. C'est ce qui rend notre conseil neutre, c'est notre principal asset." |
 | **"Vos références ?"** | "Les profils de l'équipe sont publics (LinkedIn). Le portfolio est sur le site. Sur la mission DPD spécifiquement, on est en phase de constitution des références : les premiers clients ont des conditions préférentielles, c'est très transparent." |
 
@@ -332,7 +341,7 @@ Tu ne lis PAS les questions une par une. Tu en choisis 2 à 3 par section selon 
 **Critères** : douleur forte + budget + critical event + intérêt manifeste
 
 **Next step proposé :**
-> "Voilà ce que je vous propose : on fait une mission Cadrage à 1 200 € sur vos devis. En 5 jours, vous avez une analyse claire de quel devis tient la route, où sont les zones de risque, et un cahier des charges qui protège vos intérêts. Si vous décidez ensuite de prendre la mission Direction, le Cadrage est déduit. On peut démarrer cette semaine ?"
+> "Voilà ce que je vous propose : on lance une mission Cadrage à 1 200 € sur vos devis. En 5 jours, Jean-François notre directeur de projet vous livre une analyse claire de quel devis tient la route, où sont les zones de risque, et un cahier des charges qui protège vos intérêts. Si vous décidez ensuite de prendre la mission Direction, le Cadrage est déduit. Je vous envoie le bon de commande aujourd'hui, on peut démarrer cette semaine ?"
 
 **Engagement à obtenir** : confirmation du Cadrage par mail dans les 24h.
 
@@ -343,9 +352,9 @@ Tu ne lis PAS les questions une par une. Tu en choisis 2 à 3 par section selon 
 **Critères** : besoin clair, mais décision partagée (associé, DAF) ou budget à défendre
 
 **Next step proposé :**
-> "Je vous propose deux choses : [1] je vous envoie d'ici demain matin une note de synthèse de 1 page que vous pouvez partager en interne avec [le décideur identifié], [2] on cale un deuxième call dans 7 jours, idéalement avec cette personne, pour répondre à ses questions. Vous me donnez son nom et son créneau ?"
+> "Je vous propose deux choses : [1] je vous envoie d'ici demain matin une note de synthèse de 1 page que vous pouvez partager en interne avec [le décideur identifié], [2] on cale un deuxième call dans 7 jours avec moi ET notre directeur de projet Jean-François, idéalement avec votre [associé / DAF / décideur] aussi, pour qu'il puisse répondre directement à ses questions techniques. Vous me donnez son nom et son créneau ?"
 
-**Engagement à obtenir** : date du second call + nom du stakeholder.
+**Engagement à obtenir** : date du second call + nom du stakeholder + ajout de Jean-François au call (lever de doute technique côté prospect, désilote la décision).
 
 ---
 
@@ -450,11 +459,12 @@ VERDICT : Hot / Warm / Cold / Disqualifié
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │ COLD CALL OUVERTURE (20 sec)                                │
-│ "Bonjour [P], JF Vilm. Appel à froid, 30 sec pour expliquer │
-│ pourquoi je vous appelle, après vous me dites ?"            │
-│ → "e-novateur, équipe de 6, on aide les PME à piloter leurs │
-│ projets digitaux dans leur camp. Je vous appelle parce que  │
-│ [raison spécifique]. Vous avez un projet en cours ?"        │
+│ "Bonjour [P], [Votre prénom] de chez e-novateur. Appel à    │
+│ froid, 30 sec pour expliquer pourquoi je vous appelle,      │
+│ après vous me dites ?"                                      │
+│ → "Chez e-novateur, équipe de 6, on aide les PME à piloter  │
+│ leurs projets digitaux dans leur camp. Je vous appelle      │
+│ parce que [raison spécifique]. Vous avez un projet ?"       │
 ├─────────────────────────────────────────────────────────────┤
 │ DISC EN 2 MIN                                               │
 │ D : voix sèche, débit rapide → factuel, chiffré             │
@@ -472,7 +482,7 @@ VERDICT : Hot / Warm / Cold / Disqualifié
 ├─────────────────────────────────────────────────────────────┤
 │ PITCH (5 min MAX, conditionnel)                             │
 │ 1. Reformuler le pain                                       │
-│ 2. 3 bullets : analyse devis / pilotage / backup équipe     │
+│ 2. 3 bullets : analyse devis (par JF) / pilotage / backup   │
 │ 3. Différenciation : neutralité (vs agence) + équipe (vs    │
 │    AMOA solo)                                               │
 │ 4. "Des questions ?"                                        │
@@ -484,8 +494,8 @@ VERDICT : Hot / Warm / Cold / Disqualifié
 │ "Je gère en interne" → "Combien d'heures × coût horaire ?"  │
 ├─────────────────────────────────────────────────────────────┤
 │ NEXT STEP (3 min)                                           │
-│ A. Hot → Cadrage 1 200 € cette semaine                      │
-│ B. Warm → Note 1 page + second call sous 7 jours            │
+│ A. Hot → Cadrage 1 200 € (livré par JF) cette semaine       │
+│ B. Warm → Note 1 page + 2nd call avec JF sous 7 jours       │
 │ C. Pas mature → Ressource + relance dans 2 mois             │
 │ D. Disqualifié → "Pas le bon partenaire, bonne continuation"│
 ├─────────────────────────────────────────────────────────────┤
