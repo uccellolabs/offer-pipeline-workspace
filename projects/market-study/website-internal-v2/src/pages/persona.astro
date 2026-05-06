@@ -1,0 +1,293 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Personas acheteur · Étude Offer Pipeline"
+  description="3 personas distincts : Julien (DFY freelance), Marc (DIY freelance senior power user IA), Hélène (Direction cabinet 5-30 consultants)."
+  current="persona"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow" style="color: var(--color-secondary);">Agent /offer-persona · v2</span>
+      <h1>Personas acheteur</h1>
+      <p class="lead">
+        2 fichiers persona pour 3 sous-personas. Le DFY (Julien — préservé v1) reste un seul
+        avatar. Le DIY recouvre 2 comportements d'achat radicalement différents (Marc solo
+        + Hélène cabinet) qu'on documente distinctement.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="table-wrap">
+        <table class="compare">
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th>Julien (DFY)</th>
+              <th>Marc (DIY-Solo)</th>
+              <th>Hélène (DIY-Studio)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Statut</td><td>Freelance / consultant solo</td><td>Freelance senior power user IA</td><td>Direction cabinet 5-30 consultants</td></tr>
+            <tr><td>Âge</td><td>30-42 ans</td><td>38-50 ans</td><td>40-55 ans</td></tr>
+            <tr><td>Décide</td><td>Seul</td><td>Seul</td><td>Chaîne (Direction + IT + Ops)</td></tr>
+            <tr><td>Mobile principal</td><td>Décrocher des clients réguliers</td><td>Autonomie + souveraineté</td><td>ROI consultants + souveraineté data</td></tr>
+            <tr><td>Budget max</td><td>900-1 500 €</td><td>3 000-5 000 €</td><td>8 000-25 000 € + custom</td></tr>
+            <tr><td>Cycle décision</td><td>3-14 jours</td><td>14-30 jours</td><td>60-180 jours</td></tr>
+            <tr><td>Score prospectabilité</td><td><span class="score-badge score-badge--top">9/10</span></td><td><span class="score-badge score-badge--high">7/10</span></td><td><span class="score-badge score-badge--mid">6/10</span></td></tr>
+            <tr><td>Porte cible</td><td><strong>Offer Clarity</strong></td><td><strong>Pipeline Solo</strong></td><td><strong>Pipeline Studio</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <article class="persona-block">
+        <div class="persona-header">
+          <div class="persona-avatar">J</div>
+          <div>
+            <h2 style="margin: 0;">Julien · DFY freelance</h2>
+            <p style="color: var(--color-text-muted); margin: 0;">Consultant freelance digital · 35 ans · 2 ans d'activité</p>
+          </div>
+          <div class="score-badge score-badge--top" style="margin-left: auto;">9/10 prospectable</div>
+        </div>
+
+        <div class="grid grid--2">
+          <div>
+            <h4 style="color: var(--color-primary);">Synthèse express</h4>
+            <ul style="font-size: 0.95rem; color: var(--color-text-mid);">
+              <li><strong>Veut :</strong> Décrocher des clients réguliers à meilleur tarif</li>
+              <li><strong>Bloqué par :</strong> Offre trop large, message flou, manque de temps + méthode</li>
+              <li><strong>Budget max :</strong> 900-1 500€</li>
+              <li><strong>Objection :</strong> "Je peux le faire moi-même" / "Comment savoir si ça marchera ?"</li>
+              <li><strong>TJM actuel :</strong> 600-850€/jour</li>
+              <li><strong>Revenus :</strong> 4-7 k€/mois (variable, creux à 2-3 k€)</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 style="color: var(--color-primary);">Want / Objectif réel</h4>
+            <p class="quote" style="margin-top: var(--space-3);">
+              "Je veux plus de clients, et de meilleurs clients."
+              <span class="quote__author">Want explicite</span>
+            </p>
+            <p style="color: var(--color-text-mid); font-size: 0.95rem;">
+              <strong>Objectif réel :</strong> Une offre si claire que les prospects comprennent
+              immédiatement. Et une liste de prospects qualifiés pour démarrer demain.
+            </p>
+          </div>
+        </div>
+
+        <details class="mt-6">
+          <summary>Journal intime (extrait — 400 mots)</summary>
+          <div class="journal" style="margin-top: var(--space-4);">
+            <p><em>Dimanche soir, 22h30.</em></p>
+            <p>La mission chez Thibault se termine vendredi. Je le savais depuis 3 semaines. J'ai rien fait. Enfin, j'ai regardé mon LinkedIn deux ou trois fois, j'ai pensé à "poster quelque chose", j'ai réfléchi à ce que j'allais écrire, j'ai fermé l'onglet.</p>
+            <p>La vraie vérité c'est que je sais pas quoi dire. Qui je suis ? Consultant en transformation digitale. Ok, et donc ? Ça aide qui, exactement ?</p>
+            <p>Ce que je veux c'est simple. Je veux que quelqu'un qui arrive sur mon profil comprenne immédiatement ce que je fais. Je veux avoir une liste de 50 personnes à contacter demain. Je veux un message à leur envoyer qui ne ressemble pas à du spam.</p>
+            <p>Est-ce que ça existe quelqu'un qui fait ça ? Pas juste qui m'explique comment faire — qui le FAIT avec moi et me livre quelque chose de concret ? Pas une formation. Un livrable. Une offre. Des prospects. Des messages.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Objections + reframing</summary>
+          <table class="compare" style="margin-top: var(--space-3);">
+            <thead>
+              <tr><th>Objection</th><th>Réponse à préparer</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>"Je peux le faire moi-même"</td><td>"Tu l'as déjà fait 3 fois et tu n'as pas terminé. Pas un problème de compétence, un problème de temps et de méthode externe."</td></tr>
+              <tr><td>"Comment savoir si ça marchera ?"</td><td>"Tu reçois un livrable concret. Pas de promesse sur les clients — promesse sur la clarté."</td></tr>
+              <tr><td>"1 500€ c'est beaucoup"</td><td>"1 client supplémentaire à 700€/jour = ROI en 2 jours de mission."</td></tr>
+            </tbody>
+          </table>
+        </details>
+
+        <details>
+          <summary>Canaux d'acquisition Julien</summary>
+          <ul class="mt-3">
+            <li><strong>LinkedIn :</strong> 80-120k profils FR actifs ("Consultant indépendant" + secteur conseil/marketing/tech)</li>
+            <li><strong>Communautés :</strong> Slack "Freelance en France" (3k+), groupes FB (15k+), Discord Indie Hackers FR</li>
+            <li><strong>Prescripteurs :</strong> Comptables Shine/Indy/Georges, formations CPF, coaches reconversion</li>
+          </ul>
+        </details>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <article class="persona-block">
+        <div class="persona-header">
+          <div class="persona-avatar" style="background: linear-gradient(135deg, #0EA5E9, #06B6D4);">M</div>
+          <div>
+            <h2 style="margin: 0;">Marc · DIY freelance / solo</h2>
+            <p style="color: var(--color-text-muted); margin: 0;">Consultant senior power user IA · 44 ans · 4-12 ans d'activité freelance</p>
+          </div>
+          <div class="score-badge score-badge--high" style="margin-left: auto;">7/10 prospectable</div>
+        </div>
+
+        <div class="grid grid--2">
+          <div>
+            <h4 style="color: var(--color-primary);">Synthèse express</h4>
+            <ul style="font-size: 0.95rem; color: var(--color-text-mid);">
+              <li><strong>Veut :</strong> Pipeline IA installé chez lui, sans dépendance SaaS</li>
+              <li><strong>Bloqué par :</strong> Setups maison ChatGPT/n8n bricolés instables</li>
+              <li><strong>Budget max :</strong> 3 000-5 000€</li>
+              <li><strong>Objection :</strong> "Pourquoi payer plutôt que monter le setup en 80h ?" / "Et si Anthropic change ses prix ?"</li>
+              <li><strong>TJM :</strong> 1 000-1 500€/jour</li>
+              <li><strong>Revenus :</strong> 12-22 k€/mois HT</li>
+              <li><strong>Stack actuelle :</strong> Claude Pro/Code + ChatGPT Plus + Cursor + Make/n8n bricolé + Notion</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 style="color: var(--color-primary);">Want / Objectif réel</h4>
+            <p class="quote" style="margin-top: var(--space-3);">
+              "Mon propre stack IA propre, qui ne dépend pas d'un SaaS qui peut me lâcher demain."
+              <span class="quote__author">Want explicite</span>
+            </p>
+            <p style="color: var(--color-text-mid); font-size: 0.95rem;">
+              <strong>Objectif réel :</strong> Pipeline pro installé chez lui, qu'il maîtrise et
+              qu'il peut démontrer à ses clients pour se différencier sur le marché senior.
+            </p>
+          </div>
+        </div>
+
+        <details class="mt-6">
+          <summary>Journal intime (extrait — 400 mots)</summary>
+          <div class="journal" style="margin-top: var(--space-4);">
+            <p><em>Mardi soir, 23h.</em></p>
+            <p>J'ai relancé mon setup pour la mission Stellar. Le workflow Make qui devait orchestrer les 4 prompts de l'analyse concurrentielle m'a lâché à la troisième étape. C'est de la rustine. J'ai 3 missions en parallèle, je peux pas continuer comme ça.</p>
+            <p>J'ai vu le post de Jonathan SARDO sur LinkedIn la semaine dernière. Il parle d'un pipeline de création d'offres B2B qu'il a construit pour son propre usage. Il l'utilise en production. Si je pouvais avoir SON pipeline chez moi, installé, opérationnel — je ferais Stellar en 5 jours au lieu de 4 semaines.</p>
+            <p>Le souci : je veux pas un SaaS. Je veux pas que mes prompts, mes données clients, mes analyses passent par un serveur qui m'appartient pas. Je veux ça chez MOI. Sur ma machine.</p>
+            <p>Question simple : est-ce qu'il vend l'install ? Combien ? Est-ce qu'il peut connecter à mon Notion / Hubspot / Drive ? Si la réponse tient en 3 jours, je signe.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Objections + reframing Marc</summary>
+          <table class="compare" style="margin-top: var(--space-3);">
+            <thead><tr><th>Objection</th><th>Réponse</th></tr></thead>
+            <tbody>
+              <tr><td>"Pourquoi pas le faire en 80h ?"</td><td>"Tu peux. Tu as essayé 18 mois. Tu peux racheter ce temps pour 3 000€, ou le mettre sur 3 missions à 1 200€/jour."</td></tr>
+              <tr><td>"Et si Anthropic change ses CGU ?"</td><td>"Les skills sont open. Tu maintiens en interne. Le contrat de support 590€/an couvre les mises à jour."</td></tr>
+              <tr><td>"Pourquoi pas un setup n8n ?"</td><td>"n8n c'est l'orchestration. Le pipeline c'est la méthodologie + 50 itérations sur les prompts en production."</td></tr>
+              <tr><td>"Et si je veux le revendre à mes clients ?"</td><td>"Autorisé pour usage solo. Pour la revente, licence revendeur séparée."</td></tr>
+            </tbody>
+          </table>
+        </details>
+
+        <details>
+          <summary>Canaux d'acquisition Marc</summary>
+          <ul class="mt-3">
+            <li><strong>LinkedIn :</strong> 25-40k profils FR (consultants seniors AI-curious)</li>
+            <li><strong>Communautés :</strong> Indie Hackers FR (Discord ~3k), NoCode FR (Slack ~5k), ProductHunt makers</li>
+            <li><strong>Newsletters :</strong> Ben's Bites, Génération IA, Le Brief IA, Latent Space</li>
+            <li><strong>Forums :</strong> Hacker News (souveraineté), Reddit r/ClaudeAI, r/LocalLLaMA</li>
+          </ul>
+        </details>
+      </article>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <article class="persona-block">
+        <div class="persona-header">
+          <div class="persona-avatar" style="background: linear-gradient(135deg, #1E3A8A, #1D4ED8);">H</div>
+          <div>
+            <h2 style="margin: 0;">Hélène · DIY agence / cabinet</h2>
+            <p style="color: var(--color-text-muted); margin: 0;">Directrice associée / COO de cabinet conseil 5-30 consultants · 47 ans</p>
+          </div>
+          <div class="score-badge score-badge--mid" style="margin-left: auto;">6/10 prospectable</div>
+        </div>
+
+        <div class="grid grid--2">
+          <div>
+            <h4 style="color: var(--color-primary);">Synthèse express</h4>
+            <ul style="font-size: 0.95rem; color: var(--color-text-mid);">
+              <li><strong>Veut :</strong> Outil interne IA souverain connecté CRM</li>
+              <li><strong>Bloqué par :</strong> SaaS opaques + Big4 hors budget + adoption interne stagnante</li>
+              <li><strong>Budget max :</strong> 8 000-25 000€ + custom</li>
+              <li><strong>Objection :</strong> "Pourquoi pas notre dev IT en interne ?" / "Et si on change d'éditeur d'IA dans 2 ans ?"</li>
+              <li><strong>CA cabinet :</strong> 1,5 - 12 M€</li>
+              <li><strong>TJM consultants :</strong> 1 000-1 800€</li>
+              <li><strong>Initiatives IA déjà engagées :</strong> ChatGPT Enterprise testé, GPTs custom (adoption stagne)</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 style="color: var(--color-primary);">Want / Objectif réel</h4>
+            <p class="quote" style="margin-top: var(--space-3);">
+              "Un outil interne IA pour nos consultants, qui s'intègre à notre Hubspot, qui ne mette pas nos données clients dans un cloud opaque."
+              <span class="quote__author">Want explicite</span>
+            </p>
+            <p style="color: var(--color-text-mid); font-size: 0.95rem;">
+              <strong>Objectif réel :</strong> Récupérer 2 jours/consultant/mission sur les phases
+              répétitives pour libérer du temps facturable à plus haute valeur.
+            </p>
+          </div>
+        </div>
+
+        <details class="mt-6">
+          <summary>Journal intime (extrait — 400 mots)</summary>
+          <div class="journal" style="margin-top: var(--space-4);">
+            <p><em>Mardi 21h, sur le canapé après la réunion projet.</em></p>
+            <p>Cinq sujets sur la table, et quatre d'entre eux contenaient le mot "IA" — et aucun ne donnait le sentiment d'avancer vraiment.</p>
+            <p>L'initiative ChatGPT Enterprise lancée en septembre, on en est où ? À une utilisation moyenne de 2-3 prompts/semaine/consultant. Autant dire rien.</p>
+            <p>Ce que je veux n'est pas compliqué. Un outil interne qui prend les phases répétitives — cadrage, persona, étude marché, concurrence, pricing — et qui les produit en 1-2 jours au lieu de 5-7. Connecté à notre Hubspot. Souverain.</p>
+            <p>Le devis Capgemini à 180k€ je l'ai laissé dans un tiroir. Je veux un OUTIL. Pas un projet. Si Jonathan peut me livrer ça en 8-10 semaines pour 12-18k€ + custom Hubspot, je signe.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Chaîne de décision Hélène (B2B classique)</summary>
+          <table class="compare" style="margin-top: var(--space-3);">
+            <thead>
+              <tr><th>Rôle</th><th>Influence</th><th>Préoccupation principale</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Hélène</strong> (directrice associée / COO)</td><td>Décideur économique</td><td>ROI consultants + cohérence stratégique</td></tr>
+              <tr><td>CEO / Managing Partner</td><td>Sponsor</td><td>Différenciation marché + investissement raisonnable</td></tr>
+              <tr><td>CIO / Lead Tech</td><td>Validateur technique</td><td>Sécurité, RGPD, intégration Hubspot, dépendance Anthropic</td></tr>
+              <tr><td>Lead consultant senior</td><td>Utilisateur final</td><td>"Est-ce que ça m'aide ou ça me ralentit ?"</td></tr>
+              <tr><td>DAF / contrôleur</td><td>Validateur budget</td><td>ROI mesurable, prix vs benchmark Big4</td></tr>
+            </tbody>
+          </table>
+        </details>
+
+        <details>
+          <summary>Objections + reframing Hélène</summary>
+          <table class="compare" style="margin-top: var(--space-3);">
+            <thead><tr><th>Objection</th><th>Réponse</th></tr></thead>
+            <tbody>
+              <tr><td>"Pourquoi pas notre dev IT ?"</td><td>"Vous pouvez. 6 mois d'apprentissage. Pipeline Studio en 8-10 sem, opérationnel."</td></tr>
+              <tr><td>"Et si Anthropic change ses CGU ?"</td><td>"Pipeline portable (skills + agents). Maintenance annuelle inclut migration."</td></tr>
+              <tr><td>"Pourquoi pas Capgemini ?"</td><td>"Eux livrent un projet à 100-200k€. Moi je livre un outil à 12-22k€. Catégorie différente."</td></tr>
+              <tr><td>"Comment garantir l'adoption ?"</td><td>"Formation 1/2 journée + checklist 30j + 2 sessions revue J+30/J+60."</td></tr>
+              <tr><td>"Souveraineté data ?"</td><td>"Tout sur votre infrastructure. Aucune donnée client chez Uccello. RGPD ok."</td></tr>
+            </tbody>
+          </table>
+        </details>
+
+        <details>
+          <summary>Canaux d'acquisition Hélène</summary>
+          <ul class="mt-3">
+            <li><strong>LinkedIn :</strong> 3-5k profils FR dirigeants cabinets cibles</li>
+            <li><strong>Réseau pro :</strong> CANAL #1 — entrée par recommandation, anciens collègues</li>
+            <li><strong>Communautés DG :</strong> Syntec, AFCM, France Conseil, APM, Réseau Entreprendre</li>
+            <li><strong>Events :</strong> Big Data & AI Paris, Cigref Symposium, AI Mastery Day</li>
+            <li><strong>Prescripteurs :</strong> Cabinets d'avocats tech (KGA, August Debouzy), Mercer, Korn Ferry</li>
+          </ul>
+        </details>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

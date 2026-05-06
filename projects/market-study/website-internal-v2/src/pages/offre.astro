@@ -1,0 +1,225 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Offre finale (gamme 3 portes) · Étude Offer Pipeline"
+  description="OFFER_FINAL v2 — gamme parapluie Offer Pipeline avec 3 produits : Offer Clarity (DFY), Pipeline Solo (DIY freelance), Pipeline Studio (DIY agence)."
+  current="offre"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow" style="color: var(--color-secondary);">Agent /offer-final · v2</span>
+      <h1>Offre finale — gamme à 3 portes</h1>
+      <p class="lead">
+        Le pipeline IA de création d'offres B2B disponible en livrable, en install, ou en stack
+        interne. 3 produits, 1 backend éprouvé en production, 0 SaaS.
+      </p>
+      <div class="meta">
+        <span>Statut : <strong>PRÊT À UTILISER</strong></span>
+        <span>Verdict : <strong style="color: #22C55E;">VIABLE</strong></span>
+        <span>Date : <strong>2026-05-06</strong></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Architecture commerciale</span>
+      <h2>3 portes, 1 backend.</h2>
+
+      <pre style="margin-top: var(--space-6); white-space: pre; font-size: 0.78rem; line-height: 1.5;">
+                          ┌─────────────────────────┐
+                          │  PIPELINE OFFER (BACKEND)  │
+                          │   skills + agents Claude   │
+                          │   (asset propriétaire)     │
+                          └────────────┬─────────────┘
+                                       │
+                ┌──────────────────────┼─────────────────────────┐
+                │                      │                         │
+                ▼                      ▼                         ▼
+       ┌────────────────┐    ┌──────────────────┐    ┌──────────────────────┐
+       │  OFFER CLARITY │    │  PIPELINE SOLO   │    │   PIPELINE STUDIO    │
+       │  DFY freelance │    │  DIY freelance   │    │   DIY agence/cabinet │
+       │  Livrable 48h  │    │  Install 5 jours │    │  Setup 6-10 semaines │
+       │  890-1490€     │    │  1990-2990€      │    │  6990-9990€ + custom │
+       │  Cycle 3-14j   │    │  Cycle 14-30j    │    │  Cycle 60-180j       │
+       └────────────────┘    └──────────────────┘    └──────────────────────┘
+              │                       │                        │
+              ▼                       ▼                        ▼
+          Volume                    Marge                  Ancrage long
+       (proof of value)         (autonomie)            (revenus pros)
+      </pre>
+
+      <p style="font-size: 1.05rem; color: var(--color-text-mid); margin-top: var(--space-6);">
+        Positionnement parapluie : <em>"Offer Pipeline — Le pipeline IA de création d'offres B2B,
+        disponible en livrable, en install, ou en stack interne."</em>
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="eyebrow">Score de viabilité globale</span>
+      <h2>VIABLE — 3 douleurs, 3 cibles, 3 marchés mûrs</h2>
+
+      <div class="grid grid--3 mt-6">
+        <div class="card">
+          <span class="eyebrow">Critère 1 — Douleurs</span>
+          <ul style="list-style: none; padding: 0; margin: var(--space-3) 0;">
+            <li>DFY Julien : <strong>8/10</strong></li>
+            <li>DIY Marc : <strong>6/10</strong></li>
+            <li>DIY Hélène : <strong>7/10</strong></li>
+          </ul>
+          <span class="score-badge score-badge--top">✅ 3 douleurs réelles et monétisables</span>
+        </div>
+        <div class="card">
+          <span class="eyebrow">Critère 2 — Prospectabilité</span>
+          <ul style="list-style: none; padding: 0; margin: var(--space-3) 0;">
+            <li>DFY Julien : <strong>9/10</strong> (LinkedIn)</li>
+            <li>DIY Marc : <strong>7/10</strong> (contenu + IH)</li>
+            <li>DIY Hélène : <strong>6/10</strong> (réseau pro)</li>
+          </ul>
+          <span class="score-badge score-badge--high">✅ Avec séquencement DFY d'abord</span>
+        </div>
+        <div class="card">
+          <span class="eyebrow">Critère 3 — Marché</span>
+          <ul style="list-style: none; padding: 0; margin: var(--space-3) 0;">
+            <li>DFY : Marché éduqué, paie déjà</li>
+            <li>DIY-S : Power users avec budget</li>
+            <li>DIY-A : 78% cabinets engagés IA</li>
+          </ul>
+          <span class="score-badge score-badge--top">✅ Tous matures</span>
+        </div>
+      </div>
+
+      <div class="verdict verdict--success mt-8">
+        <strong style="font-size: 1.1rem; display: block; margin-bottom: var(--space-2);">
+          ✅ VERDICT GLOBAL : VIABLE — gamme cohérente, séquencée, no-SaaS aligné contrainte
+        </strong>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Conditions non négociables</span>
+      <h2>6 conditions pour que la gamme tienne.</h2>
+
+      <ol style="font-size: 1.02rem; color: var(--color-text-mid); margin-top: var(--space-5); line-height: 1.8;">
+        <li><strong>Séquencer le go-to-market</strong> — pas tout lancer en parallèle. DFY (M1-3) → DIY-A (M3-6) → DIY-S (M6-12).</li>
+        <li><strong>Valider DFY par 2-3 missions pilotes</strong> avant d'ouvrir DIY-A (preuve sociale + témoignages).</li>
+        <li><strong>Valider DIY-A par 1 client pilote signé</strong> avant d'ouvrir DIY-S (référence cabinet).</li>
+        <li><strong>Brander en parapluie</strong> ("Offer Pipeline" + 3 produits nommés) — pas 3 marques distinctes.</li>
+        <li><strong>Cadrer la dépendance Anthropic</strong> dans les contrats DIY (clauses upgrade + support migration).</li>
+        <li><strong>Plafonner la production solo</strong> : 3 dossiers DFY/mois max + 1 setup DIY en cours simultané.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="eyebrow">Plan go-to-market 12 mois</span>
+      <h2>Phase par phase.</h2>
+
+      <div style="margin-top: var(--space-6); display: flex; flex-direction: column; gap: var(--space-5);">
+        <article class="card">
+          <h3 style="color: var(--color-primary);">Mois 1-3 — Lancement Offer Clarity (DFY)</h3>
+          <ul style="margin-top: var(--space-3);">
+            <li>Sem 1-2 : 2 missions pilotes 490€ → 2 témoignages détaillés publics</li>
+            <li>Sem 3-6 : Page Offer Clarity + 3 posts LinkedIn/sem sur la douleur "offre floue"</li>
+            <li>Sem 7-12 : LinkedIn outbound 20-30 profils Julien/sem + conversion en sessions</li>
+          </ul>
+          <p style="color: var(--color-text-mid); margin: var(--space-3) 0 0; font-style: italic;">
+            <strong>Objectif M3 :</strong> 5-10 clients DFY au prix plein, 3+ témoignages publics
+          </p>
+        </article>
+
+        <article class="card">
+          <h3 style="color: var(--color-primary);">Mois 3-6 — Ouverture Pipeline Studio (DIY-A)</h3>
+          <ul style="margin-top: var(--space-3);">
+            <li>Activation réseau pro Jonathan + identification 20-40 cabinets cibles</li>
+            <li>Création page Pipeline Studio + 1 post LinkedIn long format/sem</li>
+            <li>2-3 discovery calls cabinets/sem</li>
+            <li>1 mission pilote DIY-A à tarif réduit (5 990€ + 1 connecteur Hubspot offert)</li>
+          </ul>
+          <p style="color: var(--color-text-mid); margin: var(--space-3) 0 0; font-style: italic;">
+            <strong>Objectif M6 :</strong> 1-2 cabinets pilotes signés, 1 référence cabinet publiable
+          </p>
+        </article>
+
+        <article class="card">
+          <h3 style="color: var(--color-primary);">Mois 6-12 — Ouverture Pipeline Solo (DIY-S)</h3>
+          <ul style="margin-top: var(--space-3);">
+            <li>Lancement public quand DFY a 5+ témoignages + 1 cabinet référence</li>
+            <li>Cible : power users IA déjà clients DFY ou contacts Indie Hackers / NoCode FR</li>
+            <li>Contenu LinkedIn 2-3 posts/sem sur la souveraineté + cas Pipeline Solo</li>
+            <li>2-3 démos en visio/sem aux profils Marc qualifiés</li>
+          </ul>
+          <p style="color: var(--color-text-mid); margin: var(--space-3) 0 0; font-style: italic;">
+            <strong>Objectif M12 :</strong> 3-5 clients DIY-S payants
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <span class="eyebrow">KPI 12 mois</span>
+      <h2>Objectif réaliste pour un solo bootstrappé.</h2>
+
+      <pre style="margin-top: var(--space-6);">
+DFY  :  10-15 clients × ~1 200€ moyen   = 12-18 k€
+DIY-S:   3-5 clients × ~2 500€ moyen   =  8-13 k€
+DIY-A:   2-3 clients × ~15 000€ moyen   = 30-45 k€
+
+Maintenance/support :                     2-5 k€
+TOTAL CA an 1                          : 52-81 k€
+</pre>
+
+      <p class="lead mt-6">
+        Année 2 (cabinets DIY-A référencés + bouche-à-oreille pro) : projection
+        <strong>120-220 k€</strong> réaliste si les conditions de séquencement sont respectées.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="eyebrow">Points de vigilance exécution</span>
+      <h2>Risques cadrés.</h2>
+
+      <div class="table-wrap mt-6">
+        <table class="compare">
+          <thead>
+            <tr><th>Point</th><th>Statut</th><th>Action recommandée</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Capacité Jonathan solo</td><td><span class="score-badge score-badge--mid">⚠️ Plafond physique</span></td><td>Plafonner 3 DFY/mois + 1 DIY simultané</td></tr>
+            <tr><td>Zéro cas client aujourd'hui</td><td><span class="score-badge score-badge--mid">⚠️ Friction maxi</span></td><td>M1-2 : 2 missions DFY pilotes 490€ + 1 DIY-A pilote 5 990€</td></tr>
+            <tr><td>Branding</td><td><span class="score-badge score-badge--mid">⚠️ À figer</span></td><td>"Offer Pipeline" parapluie + 3 produits nommés</td></tr>
+            <tr><td>Dépendance Anthropic</td><td><span class="score-badge score-badge--mid">⚠️ Risque structurel</span></td><td>Clauses contrat client + maintenance optionnelle</td></tr>
+            <tr><td>Risque revente DIY → concurrence DFY</td><td><span class="score-badge score-badge--mid">⚠️ À cadrer</span></td><td>Clause licence non revendable par défaut</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Sources utilisées</span>
+      <h2>Tout est sourcé.</h2>
+
+      <ul class="mt-4">
+        <li>IDEA_BRIEF_v2.md — 3 archétypes scorés (2026-05-06)</li>
+        <li>OFFER_BRIEF_v2.md — cadrage gamme + market research v2 (2026-05-06)</li>
+        <li>PERSONA_ACHETEUR_DFY.md — Julien (issu de v1)</li>
+        <li>PERSONA_ACHETEUR_DIY.md — Marc + Hélène (2026-05-06)</li>
+        <li>COMPETITIVE_BRIEF_v2.md — n8n + Big4 + cabinets IA (2026-05-06)</li>
+        <li>PRICING_BRIEF_v2.md — Service + Setup + Setup custom, no-SaaS (2026-05-06)</li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact · Étude Offer Pipeline"
+  description="Coordonnées Jonathan SARDO — Uccello Labs. Étude interne v2 du projet market-study."
+  current="contact"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow" style="color: var(--color-secondary);">Contact</span>
+      <h1>Coordonnées projet</h1>
+      <p class="lead">
+        Étude interne v2 du projet market-study. Cette page est la page de référence pour
+        retrouver les coordonnées et le statut courant du projet.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid--2">
+        <div class="card">
+          <h3 style="color: var(--color-primary);">Jonathan SARDO</h3>
+          <p style="color: var(--color-text-mid); margin: var(--space-3) 0;">
+            Fondateur Uccello Labs, opérateur du projet market-study.
+            21 ans de conception logicielle B2B (Laravel, architecture SaaS).
+            Auteur du pipeline offer-pipeline éprouvé en production interne.
+          </p>
+          <ul style="list-style: none; padding: 0; margin-top: var(--space-4); display: flex; flex-direction: column; gap: var(--space-2); font-size: 0.95rem;">
+            <li><strong>Email :</strong> <a href="mailto:jonathan@uccellolabs.com">jonathan@uccellolabs.com</a></li>
+            <li><strong>LinkedIn :</strong> <a href="https://www.linkedin.com/in/jonathansardo/" target="_blank" rel="noopener noreferrer">linkedin.com/in/jonathansardo</a></li>
+            <li><strong>Site :</strong> <a href="https://uccellolabs.com" target="_blank" rel="noopener noreferrer">uccellolabs.com</a></li>
+            <li><strong>Calendrier :</strong> <a href="https://cal.com/jonathan-sardo" target="_blank" rel="noopener noreferrer">cal.com/jonathan-sardo</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--color-primary);">Site public commercial</h3>
+          <p style="color: var(--color-text-mid); margin: var(--space-3) 0;">
+            Vitrine commerciale ouverte de la gamme Offer Pipeline. Indexable, destinée aux prospects.
+          </p>
+          <ul style="list-style: none; padding: 0; margin-top: var(--space-4); display: flex; flex-direction: column; gap: var(--space-2); font-size: 0.95rem;">
+            <li><strong>URL :</strong> <a href="https://offer-pipeline.uccello.io" target="_blank" rel="noopener noreferrer">offer-pipeline.uccello.io</a></li>
+            <li><strong>Pages :</strong> 6 (gamme, 3 produits, pour-qui, contact)</li>
+            <li><strong>Stack :</strong> Astro 5 (statique)</li>
+            <li><strong>Hébergement :</strong> Forge (à provisionner)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--color-primary);">Statut projet</h3>
+          <ul style="list-style: none; padding: 0; margin-top: var(--space-4); display: flex; flex-direction: column; gap: var(--space-2); font-size: 0.95rem;">
+            <li><strong>Projet :</strong> market-study</li>
+            <li><strong>Version :</strong> 2.0 (re-cadrage gamme 3 portes)</li>
+            <li><strong>Date :</strong> 2026-05-06</li>
+            <li><strong>Verdict :</strong> ✅ VIABLE</li>
+            <li><strong>Phase :</strong> Pré-lancement (préparation supports + missions pilotes)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--color-primary);">Prochaines étapes pipeline</h3>
+          <ul style="list-style: none; padding: 0; margin-top: var(--space-4); display: flex; flex-direction: column; gap: var(--space-2); font-size: 0.95rem;">
+            <li>○ <code>/offer-pitch-deck</code> (pitch Studio pour CODIR cabinet)</li>
+            <li>○ <code>/offer-prospection-strategy</code> (séquences par persona)</li>
+            <li>○ <code>/offer-prospection-list</code> (vagues prospects)</li>
+            <li>○ <code>/offer-discovery-call</code> (plans par persona)</li>
+            <li>○ <code>/offer-cold-call</code> (DIY agence — réseau pro)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container container--narrow">
+      <span class="eyebrow">Confidentialité</span>
+      <h2>Cette étude reste interne.</h2>
+      <p style="color: var(--color-text-mid); font-size: 1.05rem;">
+        Les données stratégiques (analyse concurrentielle détaillée, score de viabilité,
+        battlecards, prix au temps custom) ne doivent pas être diffusées publiquement.
+        Le site public <a href="https://offer-pipeline.uccello.io" target="_blank" rel="noopener noreferrer">offer-pipeline.uccello.io</a>
+        contient une version filtrée des informations commerciales.
+      </p>
+      <p style="color: var(--color-text-mid); font-size: 1.05rem;">
+        En cas de partage du lien interne avec un partenaire ou un consultant externe,
+        rappeler la nature confidentielle et demander de ne pas redistribuer.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

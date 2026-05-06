@@ -1,0 +1,232 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Concurrence · Étude Offer Pipeline"
+  description="COMPETITIVE_BRIEF v2 — cartographie élargie : RESET / LiveMentor (DFY), n8n consultants / OSS (DIY-Solo), Big4 IA / cabinets boutique (DIY-Studio). 4 battlecards opérationnelles."
+  current="concurrence"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow" style="color: var(--color-secondary);">Agent /offer-competitive-intel · v2</span>
+      <h1>Cartographie concurrentielle</h1>
+      <p class="lead">
+        V1 ne couvrait que le pan DFY (RESET, LiveMentor, Scalecity, ChatGPT DIY). V2 ajoute
+        le pan DIY freelance (consultants n8n, frameworks OSS) et le pan DIY agence (Big4 IA,
+        cabinets boutique, intégrateurs CRM).
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">A. DFY freelance</span>
+      <h2>Concurrents directs Julien (repris v1)</h2>
+
+      <div class="table-wrap mt-4">
+        <table class="compare">
+          <thead>
+            <tr><th>#</th><th>Acteur</th><th>Ticket</th><th>Format</th><th>Adresse Julien</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>D1</td><td><strong>RESET / Joffrey Jochum</strong></td><td>1 900-2 500€</td><td>Coaching 6 sem 1:1</td><td>✅ Direct</td></tr>
+            <tr><td>D2</td><td><strong>LiveMentor</strong></td><td>2-4k€ (CPF)</td><td>Formation 3-4 mois</td><td>⚠️ Plutôt débutants</td></tr>
+            <tr><td>D3</td><td><strong>Scalecity / Koino</strong></td><td>0-500€</td><td>Contenu / formation</td><td>❌ Insuffisant pour confirmé</td></tr>
+            <tr><td>I1</td><td>Apollo / Lemlist / Clay</td><td>50-200€/mois</td><td>Outils prospection</td><td>Outil sans offre</td></tr>
+            <tr><td>I2</td><td>ChatGPT / Notion DIY</td><td>0€</td><td>Bricolage</td><td>Jamais terminé</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="color: var(--color-text-mid); margin-top: var(--space-4); font-style: italic;">
+        Zone gagnée DFY : Vitesse + Concret + Prospects (cf. v1).
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="eyebrow">B. DIY freelance — Marc</span>
+      <h2>Concurrents directs Pipeline Solo</h2>
+
+      <div class="table-wrap mt-4">
+        <table class="compare">
+          <thead>
+            <tr><th>#</th><th>Acteur</th><th>Ticket</th><th>Format</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>MS1</td><td><strong>Consultants n8n / Make</strong> (FR : Lounes Yermeche, Augustin Marty, Charles Tixier...)</td><td>1 500-5 000€</td><td>Setup workflow IA sur mesure</td></tr>
+            <tr><td>MS2</td><td><strong>Formations "Build Your AI Stack"</strong> (Wunjo, Make Mastery, AI for Consultants)</td><td>500-2 500€</td><td>Formation en ligne</td></tr>
+            <tr><td>MS3</td><td><strong>Frameworks open-source IA</strong> (CrewAI, LangChain Templates, AutoGen)</td><td>0€</td><td>Open-source</td></tr>
+            <tr><td>MS4</td><td><strong>Indie consultants packages</strong> (Gumroad, Lemlist...)</td><td>99-500€</td><td>Produit digital</td></tr>
+            <tr><td>MI1</td><td>ChatGPT Enterprise / Claude Pro / Cursor</td><td>20-200€/mois</td><td>Subscription perso</td></tr>
+            <tr><td>MI2</td><td>GPTs custom OpenAI / Claude Projects</td><td>Inclus subscription</td><td>Setup ad-hoc</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="mt-8">Matrice positionnement Marc</h3>
+      <div class="table-wrap mt-4">
+        <table class="compare">
+          <thead>
+            <tr>
+              <th>Critère</th>
+              <th>Pipeline Solo</th>
+              <th>n8n consultants</th>
+              <th>Frameworks OSS</th>
+              <th>Formations IA</th>
+              <th>Setup maison</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Pipeline propriétaire spécialisé "offres B2B"</td><td><span class="compare__yes">✓✓</span></td><td><span class="compare__no">×</span></td><td><span class="compare__no">×</span></td><td><span class="compare__no">×</span></td><td><span class="compare__no">×</span></td></tr>
+            <tr><td>Setup pro en 5 jours</td><td><span class="compare__yes">✓✓</span></td><td><span class="compare__partial">~</span></td><td><span class="compare__no">×</span></td><td><span class="compare__no">×</span></td><td><span class="compare__no">×</span></td></tr>
+            <tr><td>Méthodologie business intégrée</td><td><span class="compare__yes">✓✓</span></td><td><span class="compare__no">×</span></td><td><span class="compare__no">×</span></td><td><span class="compare__partial">~</span></td><td><span class="compare__partial">~</span></td></tr>
+            <tr><td>Expert sénior derrière (21 ans)</td><td><span class="compare__yes">✓✓</span></td><td><span class="compare__partial">~</span></td><td><span class="compare__no">×</span></td><td><span class="compare__partial">~</span></td><td>N/A</td></tr>
+            <tr><td>Souveraineté (install machine client)</td><td><span class="compare__yes">✓</span></td><td><span class="compare__yes">✓</span></td><td><span class="compare__yes">✓</span></td><td>N/A</td><td><span class="compare__yes">✓</span></td></tr>
+            <tr><td>Prix accessible (&lt;5k€)</td><td><span class="compare__yes">✓</span></td><td><span class="compare__yes">✓</span></td><td><span class="compare__yes">✓ (0€)</span></td><td><span class="compare__yes">✓</span></td><td><span class="compare__yes">✓ (0€)</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="color: var(--color-text-mid); margin-top: var(--space-4); font-style: italic;">
+        Zone gagnée Marc : <strong>Pipeline propriétaire éprouvé + spécialisation métier
+        "offres B2B" + expert sénior livreur</strong> — combo introuvable ailleurs.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">C. DIY agence — Hélène</span>
+      <h2>Concurrents directs Pipeline Studio</h2>
+
+      <div class="table-wrap mt-4">
+        <table class="compare">
+          <thead>
+            <tr><th>#</th><th>Acteur</th><th>Ticket</th><th>Format</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>HS1</td><td><strong>Big4 IA</strong> (Capgemini Invent / Onepoint AI / Sopra Steria AI)</td><td>60-200k€</td><td>Projet 6-12 mois</td></tr>
+            <tr><td>HS2</td><td><strong>Cabinets IA spécialisés FR</strong> (Artefact, Quantmetry, Hub Institute, Datavalue)</td><td>50-150k€</td><td>Mission 3-9 mois</td></tr>
+            <tr><td>HS3</td><td><strong>Intégrateurs CRM avec offre IA</strong> (Acceleria, Coddity, Markentive)</td><td>8-30k€</td><td>Setup 4-12 sem</td></tr>
+            <tr><td>HS4</td><td><strong>Cabinets IA "boutique"</strong> (Fabernovel, Datawise, Ekimetrics)</td><td>20-80k€</td><td>Mission 2-6 mois</td></tr>
+            <tr><td>HI1</td><td>ChatGPT Enterprise / Claude for Work</td><td>Subscription équipe</td><td>SaaS</td></tr>
+            <tr><td>HI2</td><td>Microsoft Copilot for M365</td><td>Inclus bundle</td><td>SaaS bundle</td></tr>
+            <tr><td>HI4</td><td>Recrutement AI engineer interne</td><td>80-120k€/an salaire</td><td>Embauche</td></tr>
+            <tr><td>HI5</td><td>Continuer GPTs custom maison</td><td>0€ (statu quo)</td><td>Bricolage</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="mt-8">Matrice positionnement Hélène</h3>
+      <div class="table-wrap mt-4">
+        <table class="compare">
+          <thead>
+            <tr>
+              <th>Critère</th>
+              <th>Pipeline Studio</th>
+              <th>Big4 IA</th>
+              <th>Cabinets boutique</th>
+              <th>Intégrateurs CRM</th>
+              <th>Recrutement</th>
+              <th>ChatGPT Ent.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Outil packagé (vs projet)</td><td><span class="compare__yes">✓✓</span></td><td><span class="compare__no">×</span></td><td><span class="compare__partial">~</span></td><td><span class="compare__partial">~</span></td><td><span class="compare__no">×</span></td><td><span class="compare__yes">✓</span></td></tr>
+            <tr><td>Spécialisation "création offres B2B"</td><td><span class="compare__yes">✓✓</span></td><td><span class="compare__no">×</span></td><td><span class="compare__partial">~</span></td><td><span class="compare__no">×</span></td><td><span class="compare__no">×</span></td><td><span class="compare__no">×</span></td></tr>
+            <tr><td>Setup en 6-10 semaines</td><td><span class="compare__yes">✓</span></td><td><span class="compare__no">×</span></td><td><span class="compare__partial">~</span></td><td><span class="compare__yes">✓</span></td><td><span class="compare__no">×</span></td><td><span class="compare__yes">✓</span></td></tr>
+            <tr><td>Ticket 12-22k€</td><td><span class="compare__yes">✓</span></td><td><span class="compare__no">×</span></td><td><span class="compare__partial">~</span></td><td><span class="compare__yes">✓</span></td><td>N/A</td><td><span class="compare__partial">~</span></td></tr>
+            <tr><td>Souveraineté data (no SaaS hébergé)</td><td><span class="compare__yes">✓✓</span></td><td><span class="compare__yes">✓</span></td><td><span class="compare__yes">✓</span></td><td><span class="compare__partial">~</span></td><td><span class="compare__yes">✓</span></td><td><span class="compare__no">×</span></td></tr>
+            <tr><td>Connecteurs CRM (Hubspot/Pipedrive)</td><td><span class="compare__yes">✓</span></td><td><span class="compare__yes">✓</span></td><td><span class="compare__partial">~</span></td><td><span class="compare__yes">✓✓</span></td><td><span class="compare__yes">✓</span></td><td><span class="compare__partial">~</span></td></tr>
+            <tr><td>Expertise business "offer prod"</td><td><span class="compare__yes">✓✓</span></td><td><span class="compare__partial">~</span></td><td><span class="compare__partial">~</span></td><td><span class="compare__no">×</span></td><td><span class="compare__no">×</span></td><td><span class="compare__no">×</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="color: var(--color-text-mid); margin-top: var(--space-4); font-style: italic;">
+        Zone gagnée Hélène : <strong>Outil packagé + spécialisation métier conseil + souveraineté
+        + budget mid-cap raisonnable</strong> — combo qui n'existe pas en FR au moment de la rédaction.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="eyebrow">Battlecards</span>
+      <h2>Réponses opérationnelles</h2>
+
+      <div class="battlecard">
+        <button class="battlecard__header">
+          <span>Pipeline Studio vs Capgemini Invent / Big4 IA</span>
+        </button>
+        <div class="battlecard__body">
+          <div class="battlecard__row"><span class="battlecard__label">Quand il apparaît</span><span>Hélène dit "on a un devis Big4 à 100-200k€"</span></div>
+          <div class="battlecard__row"><span class="battlecard__label">Son messaging</span><span>"Transformation IA cabinet — méthodologie + change + delivery"</span></div>
+          <div class="battlecard__row"><span class="battlecard__label">Pourquoi considéré</span><span>Légitimité grand compte, validation comex facilitée</span></div>
+          <div class="battlecard__row"><span class="battlecard__label">Comment répondre</span><span>"Capgemini te livre un projet de transformation : 6-12 mois, 100-200k€, équipe de 5 consultants qui repart à la fin. Pipeline Studio te livre un OUTIL — pas un projet. 8-10 semaines, 12-22k€, opérationnel le dernier jour."</span></div>
+          <div class="battlecard__row"><span class="battlecard__label">Question qui fait réfléchir</span><span><em>"Vos consultants veulent un outil dans leurs mains la semaine prochaine — ou un projet de transformation qui sera fini quand le suivant comex commencera ?"</em></span></div>
+          <div class="battlecard__row"><span class="battlecard__label">Argument décisif</span><span>"À J+90 : avec eux tu paies encore. Avec nous tu utilises et tu factures."</span></div>
+        </div>
+      </div>
+
+      <div class="battlecard">
+        <button class="battlecard__header">
+          <span>Pipeline Studio vs Cabinets IA boutique (Fabernovel/Datawise/Ekimetrics)</span>
+        </button>
+        <div class="battlecard__body">
+          <div class="battlecard__row"><span class="battlecard__label">Quand il apparaît</span><span>"On a vu Fabernovel / Datawise / Ekimetrics, ils sont sympas et agiles"</span></div>
+          <div class="battlecard__row"><span class="battlecard__label">Son messaging</span><span>"AI strategy + builds personnalisés"</span></div>
+          <div class="battlecard__row"><span class="battlecard__label">Pourquoi considéré</span><span>Plus agiles que Big4, prix dans le budget, profils sénior</span></div>
+          <div class="battlecard__row"><span class="battlecard__label">Comment répondre</span><span>"Ils font de l'excellent travail sur mesure. Ils construisent un POC personnalisé qui répond au brief. Mais à la fin, c'est un asset que vous maintenez vous-même. Pipeline Studio te livre un pipeline déjà éprouvé en production."</span></div>
+          <div class="battlecard__row"><span class="battlecard__label">Question qui fait réfléchir</span><span><em>"Tu veux un POC sur mesure ou un outil métier déjà éprouvé que tu adaptes à ton vocabulaire ?"</em></span></div>
+          <div class="battlecard__row"><span class="battlecard__label">Argument décisif</span><span>"Pipeline Studio = 2 ans de raffinage en production sur 'création d'offres B2B'. Aucun POC sur mesure ne donne ça en 8-10 semaines."</span></div>
+        </div>
+      </div>
+
+      <div class="battlecard">
+        <button class="battlecard__header">
+          <span>Pipeline Studio vs ChatGPT Enterprise / Microsoft Copilot</span>
+        </button>
+        <div class="battlecard__body">
+          <div class="battlecard__row"><span class="battlecard__label">Quand il apparaît</span><span>"On a déjà ChatGPT Enterprise / on regarde Copilot"</span></div>
+          <div class="battlecard__row"><span class="battlecard__label">Son messaging</span><span>"AI assistant pour toute l'équipe — productivité générale"</span></div>
+          <div class="battlecard__row"><span class="battlecard__label">Pourquoi considéré</span><span>Déjà déployé / inclus dans bundle Office</span></div>
+          <div class="battlecard__row"><span class="battlecard__label">Comment répondre</span><span>"ChatGPT Enterprise est un assistant horizontal. Usage moyen 2-3 prompts/sem/consultant — pourquoi ? Pas de pipeline métier derrière. Pipeline Studio est un OUTIL spécialisé qui produit offres / études / cadrages. Complémentaire, pas concurrent."</span></div>
+          <div class="battlecard__row"><span class="battlecard__label">Question qui fait réfléchir</span><span><em>"Combien de cadrages d'offre clients vos consultants produisent par mois avec ChatGPT Enterprise aujourd'hui ?"</em></span></div>
+          <div class="battlecard__row"><span class="battlecard__label">Argument décisif</span><span>"ChatGPT = horizontal. Pipeline Studio = vertical métier. Vous gardez ChatGPT pour le quotidien — Pipeline Studio pour la production."</span></div>
+        </div>
+      </div>
+
+      <div class="battlecard">
+        <button class="battlecard__header">
+          <span>Pipeline Solo vs Setup maison / Frameworks OSS</span>
+        </button>
+        <div class="battlecard__body">
+          <div class="battlecard__row"><span class="battlecard__label">Quand il apparaît</span><span>Marc se dit "je peux le coder seul avec CrewAI/LangChain"</span></div>
+          <div class="battlecard__row"><span class="battlecard__label">Son messaging</span><span>(interne) "C'est gratuit, c'est open, je contrôle"</span></div>
+          <div class="battlecard__row"><span class="battlecard__label">Pourquoi considéré</span><span>Souveraineté, contrôle, économie</span></div>
+          <div class="battlecard__row"><span class="battlecard__label">Comment répondre</span><span>"Tu peux. Tu as déjà essayé un setup maison 18 mois. Pipeline Solo te vend 2 ans de raffinage en production. Tu peux le recréer en 6 mois, ou l'avoir vendredi prochain pour 2,5 jours de mission à ton TJM."</span></div>
+          <div class="battlecard__row"><span class="battlecard__label">Question qui fait réfléchir</span><span><em>"Combien de missions tu as ratées ces 12 derniers mois faute de capacité — et combien ce setup t'aurait fait gagner ?"</em></span></div>
+          <div class="battlecard__row"><span class="battlecard__label">Argument décisif</span><span>"Le code, tu peux le refaire. Les 50 itérations sur les prompts qui font la différence — non, sauf à les refaire toi-même."</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Risques concurrentiels 12-24 mois</span>
+      <h2>Ce qui peut nous arriver dessus.</h2>
+
+      <ul style="font-size: 1rem; color: var(--color-text-mid); margin-top: var(--space-4);">
+        <li><strong>Big4 IA lance un "AI for consulting offer production" packagé</strong> → menace sur Pipeline Studio. <em>Mitigation : occuper le terrain dès Mois 3-6 avec 1-2 cabinets référents.</em></li>
+        <li><strong>Cabinet IA boutique packagise un produit "AI offer pipeline"</strong> → <em>Mitigation : référencer 1-2 clients pilotes vite.</em></li>
+        <li><strong>CrewAI / LangChain publient un template "B2B offer pipeline" gratuit</strong> → <em>Mitigation : la valeur n'est pas le code, c'est la méthodologie + prompts éprouvés — documenter.</em></li>
+        <li><strong>Anthropic / OpenAI publient un "Agent Builder for B2B" packagé</strong> → menace structurelle → <em>Mitigation : l'expertise installation + intégration CRM custom + formation reste hors de leur scope.</em></li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

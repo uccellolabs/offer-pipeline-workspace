@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Marché · Étude Offer Pipeline"
+  description="MARKET RESEARCH v2 — TAM/SAM/SOM par archétype (DFY freelance, DIY freelance, DIY agence). Canaux d'acquisition différenciés, signaux de croissance."
+  current="marche"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow" style="color: var(--color-secondary);">Agent /offer-market-research · v2</span>
+      <h1>Marché — TAM / SAM / SOM par archétype</h1>
+      <p class="lead">
+        Le SAM v1 (50k profils freelance) ne couvrait que le DFY. La v2 produit 3 dimensionnements
+        de marché distincts, avec canaux d'acquisition différenciés et signaux de croissance.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">A. DFY freelance — Julien</span>
+      <h2>Marché conservé v1</h2>
+
+      <div class="stats mt-6">
+        <div class="stat">
+          <div class="stat__number">1,2M</div>
+          <div class="stat__label">TAM<br/>Freelances FR (Malt 2024)</div>
+        </div>
+        <div class="stat">
+          <div class="stat__number">144k</div>
+          <div class="stat__label">SAM avec WTP<br/>(20% du SAM 720k)</div>
+        </div>
+        <div class="stat">
+          <div class="stat__number">50k</div>
+          <div class="stat__label">SAM profil Julien<br/>(consultant/digital, 18-36 mois)</div>
+        </div>
+        <div class="stat">
+          <div class="stat__number">20-80</div>
+          <div class="stat__label">SOM 12 mois<br/>LinkedIn outbound expert</div>
+        </div>
+      </div>
+
+      <div class="card mt-6">
+        <h4 style="color: var(--color-primary);">Canal retenu</h4>
+        <p style="color: var(--color-text-mid); margin: var(--space-3) 0 0;">
+          <strong>Direct — LinkedIn outbound + communautés freelance.</strong> Aucun intermédiaire
+          en phase 0. Revendeurs / apporteurs envisagés en phase 2 (communautés, comptables
+          spécialisés indépendants).
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="eyebrow">B. DIY freelance — Marc</span>
+      <h2>Nouveau dimensionnement v2</h2>
+
+      <div class="table-wrap mt-6">
+        <table class="compare">
+          <thead>
+            <tr><th>Périmètre</th><th>Volume</th><th>Source</th><th>Méthode</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>TAM — Freelances/consultants seniors FR (5+ ans XP, profil business)</td><td>~150 000</td><td>INSEE + Malt 2024</td><td>Estimé</td></tr>
+            <tr><td>SAM — Sous-segment "AI-curious" (early adopters IA)</td><td>~25 000-40 000</td><td>LinkedIn + Indie Hackers FR + audiences newsletters IA FR</td><td>Estimé</td></tr>
+            <tr><td>SAM — Avec budget 2-5k€ pour outil pro</td><td>~8 000-15 000</td><td>Sous-ensemble freelances 1k+ TJM</td><td>Estimé</td></tr>
+            <tr><td><strong>SOM 12m</strong> (Pipeline Solo, ticket 2-3k€, vente directe)</td><td><strong>8-25 clients</strong></td><td>Estimation cycle 14-30j</td><td>Estimé</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card mt-6">
+        <h4 style="color: var(--color-primary);">Canal retenu</h4>
+        <p style="color: var(--color-text-mid); margin: var(--space-3) 0 0;">
+          <strong>Contenu LinkedIn expert long format</strong> (2-3 posts/sem sur le pipeline,
+          souveraineté IA, retours d'expérience clients DFY) <strong>+ bouche-à-oreille via
+          communauté DFY + ciblage Indie Hackers / NoCode FR</strong>.
+        </p>
+      </div>
+
+      <div class="card mt-4">
+        <h4 style="color: var(--color-primary);">Signaux de croissance</h4>
+        <ul class="mt-3">
+          <li>Marché des "AI consultants" / "AI builders" en croissance forte (LinkedIn FR : <strong>+180% en 24 mois</strong>)</li>
+          <li>Communautés FR power users IA (NoCode FR, Indie Hackers FR) en croissance régulière</li>
+          <li>Demande "outil souverain" en hausse (rapports CNIL/Cigref 2025)</li>
+          <li>Multiplication des stack-customs documentés sur ProductHunt et Hacker News</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">C. DIY agence — Hélène</span>
+      <h2>Nouveau dimensionnement v2</h2>
+
+      <div class="table-wrap mt-6">
+        <table class="compare">
+          <thead>
+            <tr><th>Périmètre</th><th>Volume</th><th>Source</th><th>Méthode</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>TAM — Cabinets conseil + agences strat 5-30 personnes FR</td><td>~7 000</td><td>Syntec (~1 500) + AFCM (~3 000) + studios produit (~500) + équipes innovation PME (~2 000)</td><td>Triangulé</td></tr>
+            <tr><td>SAM — Avec maturité IA + budget setup IA dédié</td><td>~1 500-2 500</td><td>McKinsey AI Survey 2025 (78% engagés)</td><td>Estimé</td></tr>
+            <tr><td>SAM — Avec besoin spécifique "AI for offer/strategy production"</td><td>~600-1 000</td><td>Sous-ensemble conseil/strat</td><td>Estimé</td></tr>
+            <tr><td><strong>SOM 12m</strong> (Pipeline Studio, ticket 8-18k€)</td><td><strong>5-15 clients</strong></td><td>Cycle 60-180j × bande passante Jonathan</td><td>Estimé</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card mt-6">
+        <h4 style="color: var(--color-primary);">Canal retenu</h4>
+        <p style="color: var(--color-text-mid); margin: var(--space-3) 0 0;">
+          <strong>Vente consultative via réseau pro Jonathan + recommandations + événements ciblés</strong>
+          (Cigref, Big Data & AI Paris, Transform). <strong>Pas de cold outbound</strong> — cycle
+          trop long pour un solo bootstrappé sans légitimité préalable. Légitimité construite via
+          DFY (témoignages publics) + contenu LinkedIn expert.
+        </p>
+      </div>
+
+      <div class="card mt-4">
+        <h4 style="color: var(--color-primary);">Signaux de croissance</h4>
+        <ul class="mt-3">
+          <li><strong>78% des cabinets conseil ont engagé un projet IA</strong> (McKinsey 2025)</li>
+          <li>Marché des intégrateurs Hubspot Solutions Partners FR : forte croissance, tickets 5-30k€</li>
+          <li>Pénurie de profils "AI engineer" → cabinets achètent du "AI install service" plutôt que recruter</li>
+          <li>Sensibilité forte à la souveraineté data (Cigref, France Stratégie 2025)</li>
+          <li>Big4 IA (Capgemini Invent, Onepoint) saturés et chers → opportunité pour acteur agile</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="eyebrow">Hypothèses à valider terrain</span>
+      <h2>Ce qu'il faut trianguler.</h2>
+
+      <div class="table-wrap mt-6">
+        <table class="compare">
+          <thead>
+            <tr><th>Hypothèse</th><th>Statut</th><th>Source</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Volume DIY freelance ~25-40k profils FR</td><td><span class="score-badge score-badge--mid">⚠️ À trianguler</span></td><td>Entretiens informels Indie Hackers</td></tr>
+            <tr><td>Volume DIY agence ~1500-2500 cabinets FR</td><td><span class="score-badge score-badge--mid">⚠️ À valider</span></td><td>Syntec / AFCM / Cigref</td></tr>
+            <tr><td>WTP DIY freelance : 2-5k€ pour install</td><td><span class="score-badge score-badge--mid">⚠️ À valider</span></td><td>5 entretiens informels</td></tr>
+            <tr><td>WTP DIY agence : 12-22k€ setup + custom</td><td><span class="score-badge score-badge--mid">⚠️ À valider</span></td><td>3-5 discovery cabinets</td></tr>
+            <tr><td>Cycle vente DIY agence 60-180j</td><td><span class="score-badge score-badge--top">✅ Cohérent</span></td><td>Standard conseil B2B</td></tr>
+            <tr><td>Souveraineté = vrai déclencheur (vs argument marketing)</td><td><span class="score-badge score-badge--mid">⚠️ À valider</span></td><td>Rapports Cigref 2025</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Checkpoint viabilité 3 v2</span>
+      <h2>Budget + Maturité par archétype</h2>
+
+      <div class="table-wrap mt-6">
+        <table class="compare">
+          <thead>
+            <tr><th></th><th>DFY Julien</th><th>DIY Marc</th><th>DIY Hélène</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Budget dédié</td><td>Oui ✅</td><td>Oui ✅</td><td>Oui ✅ (CODIR)</td></tr>
+            <tr><td>Maturité</td><td>Éduqué ✅</td><td>Éduqué ✅</td><td>Émergente ⚠️</td></tr>
+            <tr><td>Décideurs</td><td>1</td><td>1</td><td>3-5 (chaîne)</td></tr>
+            <tr><td>Cycle closing</td><td>3-14j</td><td>14-30j</td><td>60-180j</td></tr>
+            <tr><td>Signal</td><td><span class="score-badge score-badge--top">✅</span></td><td><span class="score-badge score-badge--top">✅</span></td><td><span class="score-badge score-badge--mid">⚠️ Long mais haute valeur</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

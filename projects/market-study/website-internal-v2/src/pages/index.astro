@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const cards = [
+  { href: '/decouverte/', title: 'Découverte d\'opportunités', desc: '3 archétypes scorés (DFY 24, DIY-Solo 25, DIY-Studio 26)', tag: 'IDEA_BRIEF v2' },
+  { href: '/offre/', title: 'Offre finale (gamme 3 portes)', desc: 'Page parapluie + 3 fiches produit + plan go-to-market 12 mois', tag: 'OFFER_FINAL v2' },
+  { href: '/persona/', title: 'Personas acheteur', desc: 'Julien (DFY) + Marc & Hélène (DIY)', tag: 'PERSONA v2' },
+  { href: '/marche/', title: 'Marché', desc: 'TAM/SAM/SOM par archétype, canaux, signaux croissance', tag: 'MARKET v2' },
+  { href: '/concurrence/', title: 'Cartographie concurrentielle', desc: 'RESET, Big4 IA, cabinets boutique, n8n consultants, frameworks OSS', tag: 'COMPETITIVE v2' },
+  { href: '/pricing/', title: 'Architecture tarifaire', desc: '3 modèles : DFY one-shot, DIY-Solo setup, DIY-Studio setup + custom', tag: 'PRICING v2' },
+  { href: '/viabilite/', title: 'Score de viabilité', desc: 'VIABLE — 3 douleurs réelles, 3 cibles prospectables, 3 marchés mûrs', tag: 'VERDICT' },
+  { href: '/contact/', title: 'Contact & coordonnées', desc: 'Jonathan SARDO, Uccello Labs', tag: 'INFO' },
+];
+---
+
+<BaseLayout
+  title="Étude Offer Pipeline · Accueil"
+  description="Étude interne du pipeline market-study v2 — gamme 3 portes (DFY + DIY-Solo + DIY-Studio)"
+  current="home"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow" style="color: var(--color-secondary);">Étude interne v2 · Confidentielle</span>
+      <h1>Offer Pipeline · Étude complète gamme 3 portes</h1>
+      <p class="lead">
+        Re-cadrage du projet market-study le 2026-05-06 pour intégrer les 2 personas DIY
+        (Marc, Hélène) à côté du DFY (Julien). Architecture commerciale en 3 portes,
+        modèle no-SaaS, séquencement go-to-market sur 12 mois.
+      </p>
+      <div class="meta">
+        <span>Projet : <strong>market-study</strong></span>
+        <span>Opérateur : <strong>Jonathan SARDO</strong></span>
+        <span>Version : <strong>2.0</strong></span>
+        <span>Date : <strong>2026-05-06</strong></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="stats">
+        <div class="stat">
+          <div class="stat__number">3</div>
+          <div class="stat__label">Archétypes scorés<br/>DFY 24 · Solo 25 · Studio 26</div>
+        </div>
+        <div class="stat">
+          <div class="stat__number">2</div>
+          <div class="stat__label">Personas distincts<br/>(DFY · DIY)</div>
+        </div>
+        <div class="stat">
+          <div class="stat__number">VIABLE</div>
+          <div class="stat__label">Verdict global<br/>Score douleur 7/10 moyen</div>
+        </div>
+        <div class="stat">
+          <div class="stat__number">50-80k€</div>
+          <div class="stat__label">CA cible année 1<br/>(120-220k€ année 2)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div style="max-width: 60ch; margin-bottom: var(--space-8);">
+        <span class="eyebrow">État du pipeline</span>
+        <h2>Tracker des agents lancés</h2>
+      </div>
+
+      <div class="pipeline-tracker">
+        <span class="pipeline-step pipeline-step--done">idea-finder v2</span>
+        <span class="pipeline-step pipeline-step--done">offer-cadrage v2</span>
+        <span class="pipeline-step pipeline-step--done">persona v2</span>
+        <span class="pipeline-step pipeline-step--done">market-research v2</span>
+        <span class="pipeline-step pipeline-step--done">competitive-intel v2</span>
+        <span class="pipeline-step pipeline-step--done">pricing v2</span>
+        <span class="pipeline-step pipeline-step--done">offer-final v2</span>
+        <span class="pipeline-step pipeline-step--done">study-website v2</span>
+        <span class="pipeline-step pipeline-step--pending">pitch-deck</span>
+        <span class="pipeline-step pipeline-step--pending">prospection-strategy</span>
+        <span class="pipeline-step pipeline-step--pending">prospection-list</span>
+        <span class="pipeline-step pipeline-step--pending">discovery-call</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div style="max-width: 60ch; margin-bottom: var(--space-8);">
+        <span class="eyebrow">Sections de l'étude</span>
+        <h2>Naviguer dans les livrables v2</h2>
+      </div>
+
+      <div class="grid grid--3">
+        {cards.map((c) => (
+          <a href={c.href} style="text-decoration: none; color: inherit;">
+            <article class="card" style="height: 100%; transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.borderColor='var(--color-primary)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--color-border)';">
+              <span class="eyebrow" style="color: var(--color-text-muted); font-size: 0.65rem;">{c.tag}</span>
+              <h3 style="margin: var(--space-2) 0 var(--space-3); color: var(--color-text);">{c.title}</h3>
+              <p style="color: var(--color-text-mid); font-size: 0.9rem; margin: 0;">{c.desc}</p>
+              <div style="margin-top: var(--space-4); color: var(--color-primary); font-size: 0.85rem; font-weight: 600;">Voir →</div>
+            </article>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container container--narrow">
+      <span class="eyebrow">Synthèse exécutive</span>
+      <h2 class="mb-6">Pourquoi cette v2.</h2>
+      <p class="lead">
+        La v1 (avril 2026) ne couvrait que l'angle DFY freelance avec un verdict
+        <strong>"VIABLE SOUS CONDITIONS"</strong> plafonné à ~70k€/an (capacité physique solo
+        de Jonathan : 2-4 dossiers/mois × 1 490€).
+      </p>
+      <p class="lead">
+        Re-cadrage demandé le 2026-05-06 par Jonathan : challenge complet du pipeline, ajout
+        de 2 personas DIY (Marc + Hélène), contrainte non négociable
+        <strong>"pas de SaaS"</strong> (DIY = service d'installation sur machine client +
+        intégrations CRM custom).
+      </p>
+      <p class="lead">
+        Verdict v2 : <strong style="color: var(--color-success);">VIABLE</strong> sur les
+        3 archétypes (DIY-Studio meilleur score à 26/30), gamme à 3 portes parapluie
+        "Offer Pipeline", séquencement go-to-market <strong>DFY → DIY-Studio → DIY-Solo</strong>
+        sur 12 mois pour casser le plafond de revenus solo.
+      </p>
+
+      <div class="verdict verdict--success">
+        <strong style="font-size: 1.1rem; display: block; margin-bottom: var(--space-2);">
+          ✅ Verdict global : VIABLE
+        </strong>
+        Conditions non négociables : (1) séquencer le go-to-market, (2) cas pilotes par porte,
+        (3) plafond production solo 3 DFY/mois + 1 DIY simultané, (4) branding parapluie,
+        (5) clauses contractuelles dépendance Anthropic, (6) clause licence DIY non revendable.
+      </div>
+    </div>
+  </section>
+</BaseLayout>

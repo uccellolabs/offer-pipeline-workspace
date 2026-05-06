@@ -1,0 +1,74 @@
+---
+// Login page — protection client-side simple
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Connexion · Étude Offer Pipeline</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+      @import '../styles/global.css';
+    </style>
+    <script src="/auth.js" is:inline></script>
+  </head>
+  <body>
+    <div class="login">
+      <div class="login__card">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
+          <span style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: linear-gradient(135deg, #1D4ED8, #0EA5E9); border-radius: 8px; color: #fff; font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem; font-weight: 700;">OPi</span>
+          <div>
+            <strong style="font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem;">Offer Pipeline</strong>
+            <div style="font-size: 0.8rem; color: #6B7280;">Étude interne v2 — confidentielle</div>
+          </div>
+        </div>
+
+        <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Accès restreint</h1>
+        <p style="color: #6B7280; font-size: 0.95rem; margin-bottom: 0;">
+          Cette étude contient des données stratégiques internes (analyse concurrentielle,
+          pricing, score de viabilité). Mot de passe nécessaire pour continuer.
+        </p>
+
+        <form id="login-form" class="login__form" autocomplete="off">
+          <label style="font-size: 0.85rem; font-weight: 600;" for="password">Mot de passe</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            required
+            autocomplete="current-password"
+            autofocus
+          />
+          <div id="login-error" class="login__error" role="alert" aria-live="polite"></div>
+          <button type="submit" class="btn btn--primary" style="width: 100%;">Accéder à l'étude</button>
+        </form>
+
+        <p style="margin-top: 2rem; font-size: 0.8rem; color: #9CA3AF; line-height: 1.6;">
+          Protection légère client-side (SHA-256). Pour une sécurité robuste, prévoir une auth
+          serveur (Cloudflare Access, Netlify Identity).
+          <br/>Session valide 12 heures après connexion.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      // Si déjà authentifié, rediriger directement
+      try {
+        const raw = sessionStorage.getItem('op-internal-auth');
+        if (raw) {
+          const { exp } = JSON.parse(raw);
+          if (Date.now() < exp) {
+            const params = new URLSearchParams(window.location.search);
+            window.location.href = params.get('next') || '/';
+          }
+        }
+      } catch {}
+    </script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+---
+const { current } = Astro.props;
+const links = [
+  { href: '/', label: 'Accueil', key: 'home' },
+  { href: '/decouverte/', label: 'Découverte', key: 'decouverte' },
+  { href: '/offre/', label: 'Offre', key: 'offre' },
+  { href: '/persona/', label: 'Personas', key: 'persona' },
+  { href: '/marche/', label: 'Marché', key: 'marche' },
+  { href: '/concurrence/', label: 'Concurrence', key: 'concurrence' },
+  { href: '/pricing/', label: 'Pricing', key: 'pricing' },
+  { href: '/viabilite/', label: 'Viabilité', key: 'viabilite' },
+  { href: '/contact/', label: 'Contact', key: 'contact' },
+];
+---
+
+<nav class="nav" id="site-nav" aria-label="Navigation interne">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand" aria-label="Étude interne, accueil">
+        <span class="nav__brand-mark">OPi</span>
+        <span>Offer Pipeline <small>· étude v2</small></span>
+      </a>
+
+      <ul class="nav__links">
+        {links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="nav__link"
+              aria-current={current === link.key ? 'page' : undefined}
+            >{link.label}</a>
+          </li>
+        ))}
+        <li><button type="button" class="nav__link nav__logout" data-logout aria-label="Se déconnecter">⏻ Logout</button></li>
+      </ul>
+
+      <button class="nav__hamburger" type="button" aria-label="Ouvrir le menu" aria-controls="nav-mobile" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="nav__mobile" id="nav-mobile">
+    <ul>
+      {links.map((link) => (
+        <li><a href={link.href}>{link.label}</a></li>
+      ))}
+      <li><a href="#" data-logout>Se déconnecter</a></li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  const nav = document.getElementById('site-nav');
+  const burger = nav?.querySelector('.nav__hamburger');
+  burger?.addEventListener('click', () => {
+    const isOpen = nav?.dataset.open === 'true';
+    if (nav) nav.dataset.open = isOpen ? 'false' : 'true';
+    burger.setAttribute('aria-expanded', String(!isOpen));
+  });
+</script>

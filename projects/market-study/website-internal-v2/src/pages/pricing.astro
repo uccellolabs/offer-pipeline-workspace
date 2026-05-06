@@ -1,0 +1,321 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Pricing · Étude Offer Pipeline"
+  description="PRICING_BRIEF v2 — 3 modèles économiques distincts, no SaaS : Service one-shot (DFY), Setup forfait (DIY-Solo), Setup + custom + maintenance (DIY-Studio)."
+  current="pricing"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow" style="color: var(--color-secondary);">Agent /offer-pricing · v2</span>
+      <h1>Architecture tarifaire — 3 modèles, aucun SaaS</h1>
+      <p class="lead">
+        <strong>Contrainte non négociable :</strong> aucun produit de la gamme n'est un SaaS.
+        Pas de pricing par usage, par siège, par mois. Le client paie pour livrer, installer
+        ou configurer — pas pour utiliser.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Vue de gamme</span>
+      <h2>3 modèles économiques distincts</h2>
+
+      <div class="table-wrap mt-6">
+        <table class="compare">
+          <thead>
+            <tr><th>Archétype</th><th>Type offre</th><th>Modèle économique</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>DFY Julien</strong></td><td>B — Service / Prestation</td><td>Forfait one-shot (+ option récurrence)</td></tr>
+            <tr><td><strong>DIY Marc</strong> (Pipeline Solo)</td><td>C — Setup + Service</td><td>Forfait setup + support annuel optionnel</td></tr>
+            <tr><td><strong>DIY Hélène</strong> (Pipeline Studio)</td><td>C — Setup + Service custom</td><td>Forfait setup + custom au temps + maintenance annuelle</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="eyebrow">A. Offer Clarity (DFY)</span>
+      <h2>Pricing v1 conservé</h2>
+
+      <div class="grid grid--2 mt-6" style="max-width: 900px;">
+        <article class="pricing-card">
+          <div class="pricing-card__head">
+            <span class="eyebrow">Clarity</span>
+            <div><span class="pricing-card__price">890€</span><span class="pricing-card__suffix">HT</span></div>
+            <p style="color: var(--color-text-mid); margin: var(--space-3) 0 0; font-size: 0.9rem;">L'essentiel pour démarrer.</p>
+          </div>
+          <div class="pricing-card__body">
+            <ul>
+              <li>Session de cadrage 1h30</li>
+              <li>Pipeline complet (offre + persona)</li>
+              <li>Pitch deck HTML 12 slides</li>
+              <li>3 templates LinkedIn + 3 emails</li>
+              <li>30 prospects qualifiés CSV</li>
+              <li class="no">Analyse concurrence</li>
+              <li class="no">Recommandations pricing</li>
+              <li class="no">Session suivi 30 jours</li>
+              <li>Délai 48h</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="pricing-card pricing-card--featured">
+          <div class="pricing-card__head" style="background: linear-gradient(135deg, var(--color-secondary-light), #FFF);">
+            <span class="eyebrow" style="color: var(--color-primary);">Clarity Pro · recommandé</span>
+            <div><span class="pricing-card__price">1 490€</span><span class="pricing-card__suffix">HT</span></div>
+            <p style="color: var(--color-text-mid); margin: var(--space-3) 0 0; font-size: 0.9rem;">Le package complet.</p>
+          </div>
+          <div class="pricing-card__body">
+            <ul>
+              <li>Session de cadrage 2h</li>
+              <li>Pipeline complet (offre + persona + analyse concurrence)</li>
+              <li>Pitch deck HTML 12 slides</li>
+              <li><strong>5 templates LinkedIn + 5 emails</strong></li>
+              <li><strong>80 prospects qualifiés CSV</strong></li>
+              <li><strong>Analyse concurrence + battlecard</strong></li>
+              <li><strong>Recommandations pricing</strong></li>
+              <li><strong>Session suivi à 30 jours (30 min)</strong></li>
+              <li>Délai 72h</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <p class="mt-6" style="color: var(--color-text-mid); font-size: 0.9rem;">
+        <strong>Option mise à jour trimestrielle : 390€ HT</strong> — nouvelle liste prospects + revue offre.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">B. Pipeline Solo (DIY freelance)</span>
+      <h2>Setup + support annuel optionnel</h2>
+
+      <div class="grid grid--2 mt-6" style="max-width: 900px;">
+        <article class="pricing-card">
+          <div class="pricing-card__head">
+            <span class="eyebrow">Solo</span>
+            <div><span class="pricing-card__price">1 990€</span><span class="pricing-card__suffix">HT</span></div>
+            <p style="color: var(--color-text-mid); margin: var(--space-3) 0 0; font-size: 0.9rem;">Porte d'entrée — setup propre.</p>
+          </div>
+          <div class="pricing-card__body">
+            <ul>
+              <li>Audit besoins 1h</li>
+              <li>Installation pipeline + 14 skills</li>
+              <li>Configuration templates par défaut</li>
+              <li class="no">Personnalisation terminologie</li>
+              <li class="no">Connecteur léger</li>
+              <li>Session formation 2h</li>
+              <li>Documentation standard</li>
+              <li>Support email/Slack 30 jours</li>
+              <li>Délai 5 jours</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="pricing-card pricing-card--featured">
+          <div class="pricing-card__head" style="background: linear-gradient(135deg, var(--color-secondary-light), #FFF);">
+            <span class="eyebrow" style="color: var(--color-primary);">Solo + Custom · recommandé</span>
+            <div><span class="pricing-card__price">2 990€</span><span class="pricing-card__suffix">HT</span></div>
+            <p style="color: var(--color-text-mid); margin: var(--space-3) 0 0; font-size: 0.9rem;">Setup adapté au métier.</p>
+          </div>
+          <div class="pricing-card__body">
+            <ul>
+              <li>Audit besoins 1h30</li>
+              <li>Installation pipeline + 14 skills</li>
+              <li>Configuration templates par défaut</li>
+              <li><strong>Personnalisation terminologie / 1 secteur</strong></li>
+              <li><strong>1 connecteur léger inclus</strong></li>
+              <li>Session formation 2h30</li>
+              <li><strong>Documentation personnalisée</strong></li>
+              <li><strong>Support email/Slack 60 jours</strong></li>
+              <li>Délai 7-10 jours</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <div class="card mt-6">
+        <h4 style="color: var(--color-primary);">Contrat de support annuel — optionnel</h4>
+        <p style="color: var(--color-text-mid); margin: var(--space-3) 0;">
+          <strong>590€ HT/an.</strong> Mises à jour pipeline + breaking changes Anthropic + 4h/an dépannage + accès anticipé nouveaux templates.
+        </p>
+        <p style="color: var(--color-text-muted); font-size: 0.85rem; margin: 0;">
+          <em>Pas un abonnement d'usage. Le pipeline tourne sans. Tu peux ne jamais le souscrire.</em>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="eyebrow">C. Pipeline Studio (DIY agence)</span>
+      <h2>Setup + custom au temps + maintenance optionnelle</h2>
+
+      <div class="grid grid--2 mt-6" style="max-width: 900px;">
+        <article class="pricing-card">
+          <div class="pricing-card__head">
+            <span class="eyebrow">Studio Essentials</span>
+            <div><span class="pricing-card__price">6 990€</span><span class="pricing-card__suffix">HT</span></div>
+            <p style="color: var(--color-text-mid); margin: var(--space-3) 0 0; font-size: 0.9rem;">Cabinet 5-10 consultants.</p>
+          </div>
+          <div class="pricing-card__body">
+            <ul>
+              <li>Discovery 2h</li>
+              <li>Installation pipeline cabinet</li>
+              <li>Adaptation terminologie cabinet</li>
+              <li>1 connecteur inclus</li>
+              <li>1 template secteur</li>
+              <li>Formation 1 demi-journée (5 personnes)</li>
+              <li>Documentation standard</li>
+              <li>Support 60 jours</li>
+              <li>Délai 6-8 semaines</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="pricing-card pricing-card--featured">
+          <div class="pricing-card__head" style="background: linear-gradient(135deg, var(--color-secondary-light), #FFF);">
+            <span class="eyebrow" style="color: var(--color-primary);">Studio Pro · recommandé</span>
+            <div><span class="pricing-card__price">9 990€</span><span class="pricing-card__suffix">HT</span></div>
+            <p style="color: var(--color-text-mid); margin: var(--space-3) 0 0; font-size: 0.9rem;">Cabinet 10-30 consultants.</p>
+          </div>
+          <div class="pricing-card__body">
+            <ul>
+              <li>Discovery 4h (2 sessions)</li>
+              <li>Installation pipeline cabinet</li>
+              <li><strong>Adaptation terminologie étendue</strong></li>
+              <li><strong>2 connecteurs inclus (CRM + outil interne)</strong></li>
+              <li><strong>2-3 templates secteur</strong></li>
+              <li><strong>Formation 1 journée (10 personnes)</strong></li>
+              <li><strong>Documentation personnalisée + playbook</strong></li>
+              <li><strong>Support 90 jours + revues J+30 / J+60</strong></li>
+              <li>Délai 8-10 semaines</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="mt-8">Custom au temps — TJM 1 200€ HT</h3>
+      <div class="table-wrap mt-4">
+        <table class="compare">
+          <thead><tr><th>Type de custom</th><th>Estimation</th><th>Tarif</th></tr></thead>
+          <tbody>
+            <tr><td>Connecteur CRM additionnel (Pipedrive, Salesforce, Sellsy)</td><td>2-4 jours</td><td>2 400-4 800 €</td></tr>
+            <tr><td>Connecteur outil interne (API custom client)</td><td>3-7 jours</td><td>3 600-8 400 €</td></tr>
+            <tr><td>Adaptation skill spécifique (ex : pharma)</td><td>2-5 jours</td><td>2 400-6 000 €</td></tr>
+            <tr><td>Formation équipe étendue (>10 personnes)</td><td>1-2 jours</td><td>1 200-2 400 €</td></tr>
+            <tr><td>Audit/revue projet à 3 mois</td><td>0,5-1 jour</td><td>600-1 200 €</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="mt-8">Maintenance annuelle — optionnelle</h3>
+      <div class="grid grid--2 mt-4">
+        <article class="pricing-card">
+          <div class="pricing-card__head">
+            <span class="eyebrow">Maintenance Standard</span>
+            <div><span class="pricing-card__price">1 990€</span><span class="pricing-card__suffix">HT/an</span></div>
+          </div>
+          <div class="pricing-card__body">
+            <ul>
+              <li>Mises à jour pipeline</li>
+              <li>Adaptation breaking changes Anthropic</li>
+              <li>4h dépannage/an</li>
+              <li>Session de revue annuelle 1h</li>
+              <li>Accès anticipé nouveaux skills</li>
+            </ul>
+          </div>
+        </article>
+        <article class="pricing-card">
+          <div class="pricing-card__head">
+            <span class="eyebrow">Maintenance Pro</span>
+            <div><span class="pricing-card__price">3 990€</span><span class="pricing-card__suffix">HT/an</span></div>
+          </div>
+          <div class="pricing-card__body">
+            <ul>
+              <li>Mises à jour pipeline</li>
+              <li>Adaptation breaking changes Anthropic</li>
+              <li><strong>12h dépannage/an</strong></li>
+              <li><strong>Revue 2h + atelier équipe</strong></li>
+              <li><strong>Priority support 24h ouvré</strong></li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="mt-8">Tickets typiques cabinet</h3>
+      <div class="table-wrap mt-4">
+        <table class="compare">
+          <thead><tr><th>Profil cabinet</th><th>Setup</th><th>Custom typique</th><th>Maintenance</th><th>Total an 1</th></tr></thead>
+          <tbody>
+            <tr><td>5-10 consultants, simple</td><td>6 990€</td><td>0-3 000€</td><td>1 990€</td><td><strong>9-12 k€</strong></td></tr>
+            <tr><td>10-20 consultants, intégration CRM</td><td>9 990€</td><td>4-8 000€</td><td>1 990-3 990€</td><td><strong>16-22 k€</strong></td></tr>
+            <tr><td>20-30 consultants, multi-connecteurs</td><td>9 990€</td><td>8-15 000€</td><td>3 990€</td><td><strong>22-30 k€</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Vérification — Prix vs Budget personas</span>
+      <h2>Tous les prix dans la zone d'achat.</h2>
+
+      <pre class="mt-4">
+                          DFY (Julien)    DIY-S (Marc)     DIY-A (Hélène)
+Budget max persona      : 1 500 €         5 000 €          25 000 €
+Tier d'entrée           :   890 €  ✅      1 990 € ✅       9-12 k€ ✅
+Tier recommandé         : 1 490 €  ✅      2 990 € ✅      16-22 k€ ✅
+Plafond avec custom     :  -              3 580 €          26-30 k€ ✅
+Signal                  : Aligné          Aligné           Aligné, pas de boucle
+</pre>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="eyebrow">Justifications consolidées</span>
+      <h2>Réponses prêtes à l'emploi.</h2>
+
+      <details>
+        <summary>ROI Offer Clarity (DFY)</summary>
+        <p>"Pour un consultant freelance à 700€/jour, un seul client décroché grâce à l'offre clarifiée couvre le coût du service en moins de 2 jours de mission. C'est l'investissement le plus rentable à ce stade."</p>
+      </details>
+
+      <details>
+        <summary>ROI Pipeline Solo (DIY-S)</summary>
+        <p>"Pour un consultant à 1 200€/jour, Pipeline Solo c'est 2,5 jours de mission. Une mission rendue possible grâce à la rapidité du pipeline = ROI immédiat. Sans compter le temps que tu rachètes sur tes 18 mois d'essais maison."</p>
+      </details>
+
+      <details>
+        <summary>ROI Pipeline Studio (DIY-A)</summary>
+        <p>"Cabinet 8 consultants × 2 jours/mois économisés × 1 200€ TJM = 19 200€/mois de capacité libérée. Pipeline Studio à 12-22k€ s'amortit en 1-2 mois si l'adoption tient."</p>
+      </details>
+
+      <details>
+        <summary>Comparaison RESET (vs Clarity Pro)</summary>
+        <p>"Comparé à RESET (1 900-2 500€ pour 6 semaines), Clarity Pro (1 490€) est moins cher et te livre les résultats en 72h. La différence : tu as la liste de prospects et les supports dès vendredi — pas dans 6 semaines."</p>
+      </details>
+
+      <details>
+        <summary>Comparaison Big4 (vs Studio)</summary>
+        <p>"Capgemini Invent vous facturera 80-180k€ pour un projet de transformation 6-12 mois. Pipeline Studio est livré en 8-10 semaines pour 12-22k€. Vos consultants sortent avec un outil dans les mains, pas avec un POC à industrialiser ensuite."</p>
+      </details>
+
+      <details>
+        <summary>Souveraineté</summary>
+        <p>"Tout est installé chez vous (Pipeline Solo / Studio) ou produit en off-platform et livré (Offer Clarity). L'API Anthropic est appelée pour la génération mais aucune donnée client n'est stockée chez Uccello. RGPD ok, audit possible."</p>
+      </details>
+    </div>
+  </section>
+</BaseLayout>

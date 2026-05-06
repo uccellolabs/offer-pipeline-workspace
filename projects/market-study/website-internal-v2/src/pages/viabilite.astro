@@ -1,0 +1,183 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Viabilité · Étude Offer Pipeline"
+  description="Score global de viabilité v2 : VIABLE — 3 douleurs réelles, 3 cibles prospectables, 3 marchés mûrs. Conditions non négociables et points de vigilance exécution."
+  current="viabilite"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow" style="color: var(--color-secondary);">Score de viabilité globale</span>
+      <h1>Verdict v2 — VIABLE</h1>
+      <p class="lead">
+        Gamme cohérente sur les 3 archétypes. Séquencée, no-SaaS aligné contrainte Jonathan,
+        casse le plafond du DFY solo (~70k€) en ouvrant 100-300k€/an avec la gamme entière.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>3 critères, 3 archétypes</h2>
+
+      <div class="grid grid--3 mt-6">
+        <article class="card">
+          <h3 style="color: var(--color-primary);">Critère 1 — Douleur</h3>
+          <p style="color: var(--color-text-mid);">Intensité + Déjà dépensé pour résoudre</p>
+
+          <div style="margin-top: var(--space-5); display:flex; flex-direction:column; gap: var(--space-3);">
+            <div style="display:flex; justify-content:space-between; align-items:center; padding: var(--space-2) 0; border-bottom: 1px dashed var(--color-border);">
+              <span><strong>DFY Julien</strong></span>
+              <span class="score-badge score-badge--top">8/10</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; padding: var(--space-2) 0; border-bottom: 1px dashed var(--color-border);">
+              <span><strong>DIY Marc</strong></span>
+              <span class="score-badge score-badge--high">6/10</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; padding: var(--space-2) 0;">
+              <span><strong>DIY Hélène</strong></span>
+              <span class="score-badge score-badge--high">7/10</span>
+            </div>
+          </div>
+
+          <div class="verdict verdict--success" style="margin-top: var(--space-5); padding: var(--space-4);">
+            <strong>✅ 3 douleurs réelles et monétisables</strong>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3 style="color: var(--color-primary);">Critère 2 — Prospectabilité</h3>
+          <p style="color: var(--color-text-mid);">Accessibilité + Volume cible</p>
+
+          <div style="margin-top: var(--space-5); display:flex; flex-direction:column; gap: var(--space-3);">
+            <div style="display:flex; justify-content:space-between; align-items:center; padding: var(--space-2) 0; border-bottom: 1px dashed var(--color-border);">
+              <span><strong>DFY Julien</strong></span>
+              <span class="score-badge score-badge--top">9/10</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; padding: var(--space-2) 0; border-bottom: 1px dashed var(--color-border);">
+              <span><strong>DIY Marc</strong></span>
+              <span class="score-badge score-badge--high">7/10</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; padding: var(--space-2) 0;">
+              <span><strong>DIY Hélène</strong></span>
+              <span class="score-badge score-badge--mid">6/10</span>
+            </div>
+          </div>
+
+          <div class="verdict verdict--success" style="margin-top: var(--space-5); padding: var(--space-4);">
+            <strong>✅ Avec séquencement DFY d'abord</strong>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3 style="color: var(--color-primary);">Critère 3 — Marché</h3>
+          <p style="color: var(--color-text-mid);">Budget dédié + Maturité + Cycle</p>
+
+          <ul style="margin-top: var(--space-5); list-style: none; padding: 0; display: flex; flex-direction: column; gap: var(--space-3); font-size: 0.9rem;">
+            <li><strong>DFY :</strong> Marché éduqué, paie déjà ✅</li>
+            <li><strong>DIY-S :</strong> Power users avec budget ✅</li>
+            <li><strong>DIY-A :</strong> 78% cabinets engagés IA (McKinsey) ✅</li>
+          </ul>
+
+          <div class="verdict verdict--success" style="margin-top: var(--space-5); padding: var(--space-4);">
+            <strong>✅ Tous matures (Hélène : émergente)</strong>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="verdict verdict--success" style="font-size: 1.1rem;">
+        <strong style="font-size: 1.4rem; display: block; margin-bottom: var(--space-3); color: var(--color-success);">
+          ✅ VERDICT GLOBAL : VIABLE
+        </strong>
+        Gamme cohérente, séquencée, no-SaaS aligné contrainte Jonathan.
+        Casse le plafond du DFY solo (~70k€/an v1) en ouvrant 100-300k€/an avec la gamme entière.
+        <br/><br/>
+        <strong>KPI réaliste an 1 :</strong> 50-80 k€ CA. <strong>Année 2 :</strong> 120-220 k€ projetés.
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Conditions non négociables</span>
+      <h2>6 conditions pour que la gamme tienne.</h2>
+
+      <ol style="font-size: 1.02rem; color: var(--color-text-mid); margin-top: var(--space-5); line-height: 1.9;">
+        <li><strong>Séquencer le go-to-market.</strong> DFY (M1-3) → DIY-A (M3-6) → DIY-S (M6-12). Pas tout en parallèle, risque éparpillement Jonathan.</li>
+        <li><strong>Valider DFY par 2-3 missions pilotes</strong> avant d'ouvrir DIY-A (preuve sociale + témoignages).</li>
+        <li><strong>Valider DIY-A par 1 client pilote signé</strong> avant d'ouvrir DIY-S (référence cabinet).</li>
+        <li><strong>Brander en parapluie</strong> ("Offer Pipeline" + 3 produits nommés) — pas 3 marques distinctes (coût × 3, dilution).</li>
+        <li><strong>Cadrer la dépendance Anthropic</strong> dans les contrats DIY (clauses upgrade + support migration).</li>
+        <li><strong>Plafonner la production solo</strong> : 3 dossiers DFY/mois max + 1 setup DIY simultané. Au-delà, embauche ou refus.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="eyebrow">Points de vigilance exécution</span>
+      <h2>Risques cadrés et actions recommandées.</h2>
+
+      <div class="table-wrap mt-6">
+        <table class="compare">
+          <thead><tr><th>Point</th><th>Statut</th><th>Action recommandée</th></tr></thead>
+          <tbody>
+            <tr><td>Capacité Jonathan solo</td><td><span class="score-badge score-badge--mid">⚠️ Plafond physique</span></td><td>Plafonner 3 DFY/mois + 1 DIY en cours simultané</td></tr>
+            <tr><td>Zéro cas client aujourd'hui</td><td><span class="score-badge score-badge--mid">⚠️ Friction maxi</span></td><td>M1-2 : 2 missions DFY pilotes 490€ + 1 DIY-A pilote 5 990€</td></tr>
+            <tr><td>Branding</td><td><span class="score-badge score-badge--mid">⚠️ À figer</span></td><td>"Offer Pipeline" parapluie + 3 noms produits</td></tr>
+            <tr><td>Dépendance Anthropic</td><td><span class="score-badge score-badge--mid">⚠️ Risque structurel</span></td><td>Clauses contrat + maintenance optionnelle qui couvre breaking changes</td></tr>
+            <tr><td>Risque revente DIY → concurrence DFY</td><td><span class="score-badge score-badge--mid">⚠️ À cadrer</span></td><td>Clause licence non revendable par défaut + option licence revendeur séparée</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Checklist faisabilité</span>
+      <h2>Ce qui tient, ce qui reste à construire.</h2>
+
+      <ul style="list-style: none; padding: 0; margin-top: var(--space-5); display: flex; flex-direction: column; gap: var(--space-3);">
+        <li style="display: flex; gap: var(--space-3); padding: var(--space-3); background: var(--color-success-light); border-radius: var(--radius-sm);">
+          <strong style="color: var(--color-success);">✓</strong>
+          Backend (pipeline) déjà éprouvé en production interne — pas de R&D bloquante
+        </li>
+        <li style="display: flex; gap: var(--space-3); padding: var(--space-3); background: var(--color-success-light); border-radius: var(--radius-sm);">
+          <strong style="color: var(--color-success);">✓</strong>
+          Capacité Jonathan compatible (3 DFY/mois + 1 DIY simultané) — plafond physique géré
+        </li>
+        <li style="display: flex; gap: var(--space-3); padding: var(--space-3); background: var(--color-success-light); border-radius: var(--radius-sm);">
+          <strong style="color: var(--color-success);">✓</strong>
+          Compétences techniques pour custom (Laravel + connecteurs CRM)
+        </li>
+        <li style="display: flex; gap: var(--space-3); padding: var(--space-3); background: var(--color-success-light); border-radius: var(--radius-sm);">
+          <strong style="color: var(--color-success);">✓</strong>
+          Compétences vente B2B sénior pour DIY-A (à mi-chemin, à muscler avec contenu)
+        </li>
+        <li style="display: flex; gap: var(--space-3); padding: var(--space-3); background: var(--color-success-light); border-radius: var(--radius-sm);">
+          <strong style="color: var(--color-success);">✓</strong>
+          Budget acquisition zéro compatible avec canal LinkedIn + réseau pro
+        </li>
+        <li style="display: flex; gap: var(--space-3); padding: var(--space-3); background: var(--color-success-light); border-radius: var(--radius-sm);">
+          <strong style="color: var(--color-success);">✓</strong>
+          Contrainte no-SaaS respectée sur les 3 portes
+        </li>
+        <li style="display: flex; gap: var(--space-3); padding: var(--space-3); background: var(--color-success-light); border-radius: var(--radius-sm);">
+          <strong style="color: var(--color-success);">✓</strong>
+          Conformité RGPD via install client
+        </li>
+        <li style="display: flex; gap: var(--space-3); padding: var(--space-3); background: var(--color-warning-light); border-radius: var(--radius-sm);">
+          <strong style="color: var(--color-warning);">○</strong>
+          Cas client réel sur chaque porte — à construire (M1-3 DFY, M3-6 DIY-A, M6-12 DIY-S)
+        </li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

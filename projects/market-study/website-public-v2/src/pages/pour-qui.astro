@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const personas = [
+  {
+    initials: 'J',
+    name: 'Julien',
+    role: 'Consultant freelance · 35 ans',
+    door: 'Offer Clarity',
+    doorHref: '/offer-clarity/',
+    doorClass: 'clarity',
+    quote: "Je veux que quelqu'un qui arrive sur mon profil comprenne immédiatement ce que je fais. Pas une formation. Un livrable. Une offre. Des prospects.",
+    fits: [
+      "Consultant freelance digital, ops, product, transformation, 18-36 mois d'activité",
+      "TJM 600-850 €, 4-7 k€/mois variable",
+      "Offre trop large, message flou, missions Malt en stagnation",
+      "Veut un livrable concret, pas un coaching de 6 semaines",
+    ],
+    notFits: [
+      "Tu viens de te lancer (<6 mois)",
+      "Tu as déjà une offre claire et une prospection active",
+      "Tu cherches un coaching humain de plusieurs semaines",
+    ],
+  },
+  {
+    initials: 'M',
+    name: 'Marc',
+    role: 'Consultant senior, power user IA · 44 ans',
+    door: 'Pipeline Solo',
+    doorHref: '/pipeline-solo/',
+    doorClass: 'solo',
+    quote: "Je veux pas un SaaS qui voit mes données clients. Je veux pas une formation pour apprendre à monter mon stack. Je veux l'outil opérationnel chez moi, vendredi.",
+    fits: [
+      "Consultant freelance senior, 4-12 ans d'activité, TJM 1 000-1 500 €",
+      "3-6 clients en parallèle, scale-ups + ETI",
+      "Stack IA actuel bricolé (Claude, GPT, n8n, Make) qui marche à 70 %",
+      "Refus du SaaS, valorise la souveraineté data, veut son propre outil",
+    ],
+    notFits: [
+      "Tu débutes avec l'IA (achète plutôt Offer Clarity)",
+      "Tu veux apprendre à construire un pipeline (achète une formation)",
+      "Tu n'as pas l'usage récurrent (1-2 missions IA-augmentées/an minimum)",
+    ],
+  },
+  {
+    initials: 'H',
+    name: 'Hélène',
+    role: 'Directrice associée / COO de cabinet · 47 ans',
+    door: 'Pipeline Studio',
+    doorHref: '/pipeline-studio/',
+    doorClass: 'studio',
+    quote: "On a engagé l'IA il y a 12 mois. Adoption moyenne : 2-3 prompts par semaine. L'IA reste un gadget, pas un levier. Je veux un outil. Pas un projet.",
+    fits: [
+      "Cabinet conseil ou agence stratégie 5-30 consultants",
+      "CA 1,5-12 M€, TJM consultant 1 000-1 800 €",
+      "Initiative IA déjà engagée mais adoption qui stagne",
+      "Refus des Big4 (60-200k€), refus du recrutement AI engineer (6 mois rampup)",
+    ],
+    notFits: [
+      "Cabinet 1-4 personnes (achetez Pipeline Solo)",
+      "Vous cherchez un projet de transformation IA complet (Big4 vous conviendra)",
+      "Vous n'avez pas de sponsor IA interne (CIO ou directeur innovation)",
+      "Vos consultants ne produisent pas régulièrement des offres / études / cadrages",
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Pour qui · Trois personas, trois portes de la gamme Offer Pipeline"
+  description="La gamme Offer Pipeline s'adresse à 3 profils précis : Julien le consultant freelance qui veut un livrable, Marc le power user IA qui veut son outil, Hélène la direction de cabinet qui veut une stack interne."
+  current="pour-qui"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow" style="color: var(--color-secondary);">Pour qui</span>
+      <h1>Trois profils. Trois portes.<br/>Une seule qui te correspond.</h1>
+      <p class="lead">
+        Tu n'achètes pas la même chose selon où tu es. Voilà les trois personas pour qui la
+        gamme Offer Pipeline est faite — et les profils pour qui elle ne l'est pas.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid" style="gap: var(--space-12);">
+        {personas.map((p, i) => (
+          <article class="persona" style={`background: ${i % 2 === 0 ? 'var(--color-bg)' : 'var(--color-bg-alt)'};`}>
+            <div style="display: grid; grid-template-columns: 1fr; gap: var(--space-6);">
+              <div style="display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap;">
+                <div class="persona__avatar">{p.initials}</div>
+                <div>
+                  <h2 class="persona__name" style="margin: 0;">{p.name}</h2>
+                  <p class="persona__role" style="margin: 0;">{p.role}</p>
+                </div>
+                <a href={p.doorHref} class="btn btn--outline" style="margin-left: auto;">→ {p.door}</a>
+              </div>
+
+              <p class="persona__quote">{p.quote}</p>
+
+              <div class="grid grid--2" style="gap: var(--space-6);">
+                <div>
+                  <h4 style="color: var(--color-success); margin-bottom: var(--space-3);">C'est pour toi si</h4>
+                  <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap: var(--space-2);">
+                    {p.fits.map((f) => (
+                      <li style="display:flex; gap: var(--space-2); align-items:flex-start; font-size: 0.95rem; color: var(--color-text-mid);">
+                        <span style="color: var(--color-success); font-weight: 700; flex-shrink: 0;">✓</span>
+                        <span>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <h4 style="color: var(--color-danger); margin-bottom: var(--space-3);">Ce n'est pas pour toi si</h4>
+                  <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap: var(--space-2);">
+                    {p.notFits.map((nf) => (
+                      <li style="display:flex; gap: var(--space-2); align-items:flex-start; font-size: 0.95rem; color: var(--color-text-mid);">
+                        <span style="color: var(--color-danger); font-weight: 700; flex-shrink: 0;">×</span>
+                        <span>{nf}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container container--narrow text-center">
+      <span class="eyebrow">Encore un doute</span>
+      <h2>Tu hésites entre deux portes ?</h2>
+      <p class="lead" style="margin: var(--space-6) auto;">
+        C'est normal. La gamme est conçue pour que tu identifies vite ta porte, mais les zones
+        grises existent. 30 minutes en visio, on tranche ensemble.
+      </p>
+      <a href="/contact/" class="btn btn--primary btn--lg">Réserver une session de cadrage offerte</a>
+    </div>
+  </section>
+</BaseLayout>

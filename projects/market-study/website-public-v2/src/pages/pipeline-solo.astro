@@ -1,0 +1,273 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Pipeline Solo · Mon pipeline IA installé chez toi"
+  description="Pipeline Solo, pour les consultants seniors et freelances power users IA : installation du pipeline propriétaire sur ta machine en 5-10 jours, formation incluse, support optionnel. À partir de 1 990€ HT, no SaaS."
+  current="solo"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow" style="color: var(--color-secondary);">Pipeline Solo · Do It Yourself</span>
+      <h1>Tu as essayé de monter ton stack IA seul.<br/>18 mois plus tard, ça marche à moitié.</h1>
+      <p class="lead">
+        Pipeline Solo, c'est mon pipeline propriétaire installé sur ta machine, opérationnel
+        vendredi prochain. Formé, documenté, à toi pour toujours. Pas de SaaS, pas d'abonnement
+        d'usage. Tu utilises, tu factures.
+      </p>
+      <div class="hero__ctas">
+        <a href="#tarifs" class="btn btn--inverse btn--lg">Voir les tarifs</a>
+        <a href="/contact/?formule=solo" class="btn btn--ghost btn--lg" style="color:#fff; border:1px solid rgba(255,255,255,0.25);">Réserver une découverte 30 min</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <span class="eyebrow">Le problème</span>
+      <h2>Tu vends de l'IA à tes clients. Mais ton setup est branlant.</h2>
+      <p class="lead">
+        Tu utilises Claude, GPT, Cursor, n8n, Make. Tu as monté un setup maison sur 12-18 mois.
+        Ça marche à 70%. Quand tu dois livrer une étude de marché complète, tu fais 5 prompts
+        à la main, tu recopies dans Notion, tu reformates. Le temps que tu gagnes avec l'IA,
+        tu le perds en plomberie.
+      </p>
+      <p class="lead">
+        Tu refuses ChatGPT Enterprise (données clients dans un cloud opaque), tu refuses les
+        formations "Build Your AI Stack" (tu sais déjà faire), tu veux <strong>l'outil
+        opérationnel chez toi</strong>. Pas une compétence à acquérir. Pas un SaaS qui te lâche
+        demain.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div style="max-width: 60ch; margin-bottom: var(--space-12);">
+        <span class="eyebrow">Pourquoi rien d'autre ne tient</span>
+        <h2>Tu as vu passer toutes les options. Voilà pourquoi aucune ne convient.</h2>
+      </div>
+
+      <div class="grid grid--2">
+        <div class="card">
+          <h4 style="margin-bottom: var(--space-3);">Setup maison (CrewAI, LangChain, n8n)</h4>
+          <p style="color: var(--color-text-mid); font-size: 0.95rem;">
+            80h+ de plomberie. Fragile, non versionné, pas reproductible. Et zéro méthodologie
+            business derrière, juste de la techno.
+          </p>
+        </div>
+        <div class="card">
+          <h4 style="margin-bottom: var(--space-3);">Cours / formations IA</h4>
+          <p style="color: var(--color-text-mid); font-size: 0.95rem;">
+            "Apprends à monter ton stack" sur 12 modules. Tu n'as pas besoin d'apprendre,
+            tu as besoin de l'outil opérationnel.
+          </p>
+        </div>
+        <div class="card">
+          <h4 style="margin-bottom: var(--space-3);">Consultant n8n / Make freelance</h4>
+          <p style="color: var(--color-text-mid); font-size: 0.95rem;">
+            Workflows horizontaux sur mesure. Pas un pipeline propriétaire spécialisé "création
+            d'offres B2B" éprouvé en production.
+          </p>
+        </div>
+        <div class="card">
+          <h4 style="margin-bottom: var(--space-3);">ChatGPT Enterprise / Claude for Work</h4>
+          <p style="color: var(--color-text-mid); font-size: 0.95rem;">
+            SaaS hébergé. Données clients dans un cloud opaque. Tu refuses, et tu as raison.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div style="max-width: 60ch; margin-bottom: var(--space-12);">
+        <span class="eyebrow">Comment ça se passe</span>
+        <h2>5 à 10 jours. Une session. Et c'est à toi.</h2>
+      </div>
+
+      <ol style="list-style:none; padding:0; counter-reset: step; display:flex; flex-direction:column; gap: var(--space-5);">
+        <li class="card" style="display:flex; gap: var(--space-5); align-items:flex-start;">
+          <span style="counter-increment: step; flex-shrink:0; width:48px; height:48px; background: linear-gradient(135deg, #1D4ED8, #0EA5E9); border-radius: var(--radius-md); display:flex; align-items:center; justify-content:center; color:#fff; font-family: var(--font-display); font-weight:700; font-size:1.25rem;">1</span>
+          <div>
+            <h4 style="margin-bottom: var(--space-2);">Audit de ton setup</h4>
+            <p style="color: var(--color-text-mid); margin: 0;">
+              Visio 1h-1h30. On regarde ta machine, ta stack actuelle, tes cas d'usage,
+              tes intégrations. On définit le scope d'install et la terminologie à adapter.
+            </p>
+          </div>
+        </li>
+        <li class="card" style="display:flex; gap: var(--space-5); align-items:flex-start;">
+          <span style="counter-increment: step; flex-shrink:0; width:48px; height:48px; background: linear-gradient(135deg, #1D4ED8, #0EA5E9); border-radius: var(--radius-md); display:flex; align-items:center; justify-content:center; color:#fff; font-family: var(--font-display); font-weight:700; font-size:1.25rem;">2</span>
+          <div>
+            <h4 style="margin-bottom: var(--space-2);">Installation du pipeline</h4>
+            <p style="color: var(--color-text-mid); margin: 0;">
+              J'installe le pipeline + 14 skills + agents Claude sur ta machine. Configuration
+              des templates par défaut. Adaptation terminologie / 1 secteur métier (formule Pro).
+              1 connecteur léger Notion / Drive / autre (formule Pro).
+            </p>
+          </div>
+        </li>
+        <li class="card" style="display:flex; gap: var(--space-5); align-items:flex-start;">
+          <span style="counter-increment: step; flex-shrink:0; width:48px; height:48px; background: linear-gradient(135deg, #1D4ED8, #0EA5E9); border-radius: var(--radius-md); display:flex; align-items:center; justify-content:center; color:#fff; font-family: var(--font-display); font-weight:700; font-size:1.25rem;">3</span>
+          <div>
+            <h4 style="margin-bottom: var(--space-2);">Session de prise en main</h4>
+            <p style="color: var(--color-text-mid); margin: 0;">
+              2h-2h30 sur un cas réel à toi. On lance le pipeline ensemble, je te montre les
+              bonnes pratiques, les pièges, comment l'adapter à tes propres clients.
+            </p>
+          </div>
+        </li>
+        <li class="card" style="display:flex; gap: var(--space-5); align-items:flex-start;">
+          <span style="counter-increment: step; flex-shrink:0; width:48px; height:48px; background: linear-gradient(135deg, #1D4ED8, #0EA5E9); border-radius: var(--radius-md); display:flex; align-items:center; justify-content:center; color:#fff; font-family: var(--font-display); font-weight:700; font-size:1.25rem;">4</span>
+          <div>
+            <h4 style="margin-bottom: var(--space-2);">Tu pars autonome</h4>
+            <p style="color: var(--color-text-mid); margin: 0;">
+              Documentation personnalisée + 30 à 60 jours de support email/Slack inclus.
+              Au-delà, tu peux souscrire un contrat de support annuel optionnel pour les mises
+              à jour et le dépannage.
+            </p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="tarifs">
+    <div class="container">
+      <div style="max-width: 56ch; margin: 0 auto var(--space-12); text-align:center;">
+        <span class="eyebrow">Les tarifs</span>
+        <h2>Deux formules. Aucun abonnement d'usage.</h2>
+      </div>
+
+      <div class="grid grid--2" style="max-width: 900px; margin: 0 auto;">
+        <article class="card">
+          <span class="eyebrow">Solo</span>
+          <div style="margin: var(--space-4) 0;">
+            <span class="door__price">1 990</span>
+            <span class="door__price-suffix">€ HT</span>
+          </div>
+          <p style="color: var(--color-text-mid); margin-bottom: var(--space-5);">
+            Porte d'entrée — install propre, terminologie standard.
+          </p>
+          <ul class="door__features" style="margin: 0;">
+            <li>Audit besoins 1h</li>
+            <li>Installation pipeline + 14 skills</li>
+            <li>Configuration templates par défaut</li>
+            <li>Session formation 2h sur cas réel</li>
+            <li>Documentation standard</li>
+            <li>Support email/Slack 30 jours</li>
+            <li>Délai 5 jours</li>
+          </ul>
+          <a href="/contact/?formule=solo" class="btn btn--outline" style="display:flex; margin-top: var(--space-6);">Choisir Solo</a>
+        </article>
+
+        <article class="card card--featured">
+          <span class="eyebrow">Solo + Custom</span>
+          <div style="margin: var(--space-4) 0;">
+            <span class="door__price">2 990</span>
+            <span class="door__price-suffix">€ HT</span>
+          </div>
+          <p style="color: var(--color-text-mid); margin-bottom: var(--space-5);">
+            Pour Marc qui veut un setup adapté à son métier.
+          </p>
+          <ul class="door__features" style="margin: 0;">
+            <li>Audit besoins 1h30</li>
+            <li>Installation pipeline + 14 skills</li>
+            <li>Configuration templates par défaut</li>
+            <li><strong>Personnalisation terminologie / 1 secteur</strong></li>
+            <li><strong>1 connecteur léger inclus (Notion, Drive, autre)</strong></li>
+            <li>Session formation 2h30</li>
+            <li><strong>Documentation personnalisée</strong></li>
+            <li><strong>Support email/Slack 60 jours</strong></li>
+            <li>Délai 7-10 jours</li>
+          </ul>
+          <a href="/contact/?formule=solo-pro" class="btn btn--primary" style="display:flex; margin-top: var(--space-6);">Choisir Solo + Custom</a>
+        </article>
+      </div>
+
+      <div style="max-width: 700px; margin: var(--space-10) auto 0; padding: var(--space-6); background: var(--color-bg); border-radius: var(--radius-lg); border: 1px solid var(--color-border);">
+        <h4 style="margin-bottom: var(--space-3);">Contrat de support annuel <span style="color: var(--color-text-muted); font-weight: 400;">— optionnel</span></h4>
+        <p style="color: var(--color-text-mid); margin-bottom: var(--space-3);">
+          <strong>590€ HT/an.</strong> Mises à jour pipeline (nouvelles versions, breaking
+          changes Anthropic), 4h/an de dépannage, accès anticipé aux nouveaux templates.
+        </p>
+        <p style="color: var(--color-text-muted); font-size: 0.9rem; margin: 0;">
+          Pas un abonnement d'usage. Le pipeline tourne sans. Le support couvre l'évolution
+          et le dépannage. Tu peux ne jamais le souscrire.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <span class="eyebrow text-center" style="display:block; text-align:center;">ROI</span>
+      <h2 class="text-center">2,5 jours de ton TJM. 1 mission gagnée. Amorti.</h2>
+      <p class="lead text-center" style="margin: var(--space-6) auto 0;">
+        Pour un consultant à 1 200€/jour, Pipeline Solo c'est 2,5 jours de mission. Une seule
+        mission rendue possible grâce à la rapidité du pipeline = ROI immédiat. Sans compter
+        le temps que tu rachètes sur tes 18 mois d'essais maison.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container container--narrow">
+      <span class="eyebrow">Objections fréquentes</span>
+      <h2 class="mb-8">Ce que tu te dis probablement.</h2>
+
+      <details>
+        <summary>"Pourquoi pas le faire moi-même en 80h ?"</summary>
+        <p>
+          Tu peux. Tu as déjà essayé un setup maison 18 mois. Tu peux racheter ce temps pour
+          1 990-2 990€, ou le mettre sur 3 missions client à 1 200€/jour. Le code, tu peux le
+          refaire. Les 50 itérations sur les prompts qui font la différence en production —
+          non, sauf à les refaire toi-même.
+        </p>
+      </details>
+
+      <details>
+        <summary>"Et si Anthropic change ses CGU ou triple ses prix ?"</summary>
+        <p>
+          Les skills sont modulaires et documentés. Tu maintiens le pipeline en interne.
+          Le contrat de support annuel (590€/an) couvre les mises à jour si l'API évolue.
+          Sans contrat, tu as la doc pour t'adapter toi-même.
+        </p>
+      </details>
+
+      <details>
+        <summary>"Pourquoi pas un setup n8n générique ?"</summary>
+        <p>
+          n8n c'est l'orchestration. Le pipeline c'est la méthodologie + les prompts éprouvés.
+          Tu peux tout recoder, mais 2 ans de raffinage en production t'arrivent en 5 jours.
+        </p>
+      </details>
+
+      <details>
+        <summary>"Et si je veux installer chez mes propres clients ?"</summary>
+        <p>
+          C'est explicitement autorisé pour ton usage solo. Si tu veux installer chez tes
+          clients (revente), il faut une licence revendeur (clause séparée à discuter en
+          discovery).
+        </p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <span class="eyebrow" style="color: rgba(255,255,255,0.8);">Étape 1 — sans engagement</span>
+        <h2>30 minutes pour scoper ton install.</h2>
+        <p>
+          On regarde ton setup actuel, tes cas d'usage et on cale le scope d'install. Si
+          Pipeline Solo n'est pas la bonne porte, je te le dis directement.
+        </p>
+        <a href="/contact/?formule=solo" class="btn btn--inverse btn--lg">Réserver la découverte offerte</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

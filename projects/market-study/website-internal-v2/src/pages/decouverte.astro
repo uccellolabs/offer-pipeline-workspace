@@ -1,0 +1,250 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const archetypes = [
+  {
+    title: '#1 — DFY freelance ("Offer Clarity")',
+    score: 24,
+    cible: 'Julien, consultant freelance 30-42 ans, 18-36 mois',
+    achete: 'Un livrable complet (offre + persona + pitch deck + templates + 30-80 prospects CSV)',
+    delai: '48-72h',
+    modele: 'Forfait service one-shot 890-1490€ HT',
+    som: '20-80 clients/an',
+    ca: '18-120 k€/an',
+    fit: 3,
+    detail: [
+      ['Intensité douleur', 5],
+      ['Volume segment', 5],
+      ['WTP', 4],
+      ['Fit compétences', 5],
+      ['Fit orientation', 3],
+      ['Faisabilité', 2],
+    ],
+    note: 'Faisabilité faible — Jonathan livre seul, plafond 2-4 dossiers/mois. Le DFY ne casse pas le plafond de revenus.',
+  },
+  {
+    title: '#2 — DIY freelance ("Pipeline Solo")',
+    score: 25,
+    cible: 'Marc, consultant senior 38-50 ans, 5-15 ans expérience, power user IA',
+    achete: 'Installation pipeline propriétaire sur sa machine + 30-60j support',
+    delai: '5-10 jours',
+    modele: 'Forfait setup 1990-2990€ + support 590€/an optionnel',
+    som: '8-25 clients/an',
+    ca: '16-75 k€/an',
+    fit: 4,
+    detail: [
+      ['Intensité douleur', 3],
+      ['Volume segment', 3],
+      ['WTP', 5],
+      ['Fit compétences', 5],
+      ['Fit orientation', 5],
+      ['Faisabilité', 4],
+    ],
+    note: 'Faisabilité plus haute que DFY car installation est semi-standardisable (script + checklist). WTP supérieur.',
+  },
+  {
+    title: '#3 — DIY agence ("Pipeline Studio")',
+    score: 26,
+    cible: 'Hélène, Direction stratégie/innovation cabinet 5-30 consultants, 40-55 ans',
+    achete: 'Setup pipeline en environnement cabinet + connecteurs CRM + formation équipe',
+    delai: '6-10 semaines',
+    modele: 'Setup 6990-9990€ + custom (1200€/jour) + maintenance 1990-3990€/an optionnelle',
+    som: '5-15 clients/an',
+    ca: '40-270 k€/an',
+    fit: 5,
+    detail: [
+      ['Intensité douleur', 4],
+      ['Volume segment', 3],
+      ['WTP', 5],
+      ['Fit compétences', 5],
+      ['Fit orientation', 5],
+      ['Faisabilité', 4],
+    ],
+    note: 'Faisabilité 4/5 — delivery custom mais ticket × volume = 50-150k€/an réaliste avec 5-15 clients. Casse le plafond du DFY.',
+  },
+];
+---
+
+<BaseLayout
+  title="Découverte d'opportunités · Étude Offer Pipeline"
+  description="Re-cadrage IDEA_BRIEF v2 avec 3 archétypes scorés (DFY freelance, DIY freelance, DIY agence) et tableau des sources utilisées."
+  current="decouverte"
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="eyebrow" style="color: var(--color-secondary);">Agent /offer-idea-finder · Re-run v2</span>
+      <h1>Découverte d'opportunités</h1>
+      <p class="lead">
+        Pourquoi cette v2 : la v1 a tranché entre Idée #1 (service freelance DFY) et Idée #2
+        (étude PME DFY) en oubliant la troisième voie — vendre <strong>le pipeline lui-même</strong>
+        plutôt que ses livrables. Re-cadrage avec 3 archétypes parallèles.
+      </p>
+      <div class="meta">
+        <span>Version : <strong>2.0</strong></span>
+        <span>Date : <strong>2026-05-06</strong></span>
+        <span>Plaintes analysées : <strong>30+</strong></span>
+        <span>Sources : <strong>10+</strong></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="eyebrow">Méthode</span>
+      <h2>Sources utilisées (traçabilité)</h2>
+
+      <div class="table-wrap mt-6">
+        <table class="compare">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Source</th>
+              <th>Type</th>
+              <th>Utilisation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td><a href="https://www.malt.fr/blog/etude-malt-2023" target="_blank" rel="noopener noreferrer">Étude Malt 2023</a></td><td>Étude FR</td><td>60% prospection = douleur n°1 freelance</td></tr>
+            <tr><td>2</td><td><a href="https://www.lefreelance.fr" target="_blank" rel="noopener noreferrer">lefreelance.fr</a></td><td>Blog FR</td><td>Témoignages "site peaufiné, pas prospecté"</td></tr>
+            <tr><td>3</td><td><a href="https://www.scalecity.fr" target="_blank" rel="noopener noreferrer">scalecity.fr</a></td><td>Blog FR</td><td>Pattern positionnement / niche</td></tr>
+            <tr><td>4</td><td><a href="https://www.koino.fr" target="_blank" rel="noopener noreferrer">koino.fr</a></td><td>Blog FR</td><td>Formations freelance + prix marché</td></tr>
+            <tr><td>5</td><td><a href="https://www.reddit.com/r/freelancing/" target="_blank" rel="noopener noreferrer">r/freelancing</a></td><td>Forum</td><td>Top comments "système prospection"</td></tr>
+            <tr><td>6</td><td><a href="https://compapro.com" target="_blank" rel="noopener noreferrer">compapro.com</a></td><td>Blog FR</td><td>Prix études marché PME (5-20k€)</td></tr>
+            <tr><td>7</td><td><a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener noreferrer">McKinsey AI Survey 2025</a></td><td>Étude</td><td>78% cabinets engagés sur projet IA</td></tr>
+            <tr><td>8</td><td><a href="https://www.cigref.fr" target="_blank" rel="noopener noreferrer">Cigref publications 2025</a></td><td>Étude pro</td><td>Souveraineté data en cabinet</td></tr>
+            <tr><td>9</td><td><a href="https://www.indiehackers.com" target="_blank" rel="noopener noreferrer">Indie Hackers FR</a></td><td>Forum</td><td>Stacks ChatGPT/Claude bricolés</td></tr>
+            <tr><td>10</td><td><a href="https://www.syntec.fr" target="_blank" rel="noopener noreferrer">Syntec / AFCM</a></td><td>Pro</td><td>Volume cabinets/agences FR</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Shortlist</span>
+      <h2>3 archétypes scorés</h2>
+
+      <div style="margin-top: var(--space-8); display: flex; flex-direction: column; gap: var(--space-6);">
+        {archetypes.map((a) => (
+          <article class="card">
+            <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; margin-bottom: var(--space-4);">
+              <div>
+                <h3>{a.title}</h3>
+                <p style="color: var(--color-text-mid); margin: 0;">{a.cible}</p>
+              </div>
+              <div class="score-badge score-badge--top" style="font-size: 0.95rem; padding: 0.4rem 0.85rem;">{a.score}/30</div>
+            </div>
+
+            <div class="grid grid--2" style="gap: var(--space-5); margin: var(--space-5) 0;">
+              <div>
+                <div class="battlecard__label">Achète</div>
+                <div style="margin-top: var(--space-1);">{a.achete}</div>
+              </div>
+              <div>
+                <div class="battlecard__label">Délai</div>
+                <div style="margin-top: var(--space-1);">{a.delai}</div>
+              </div>
+              <div>
+                <div class="battlecard__label">Modèle</div>
+                <div style="margin-top: var(--space-1);">{a.modele}</div>
+              </div>
+              <div>
+                <div class="battlecard__label">SOM 12m / CA potentiel</div>
+                <div style="margin-top: var(--space-1);"><strong>{a.som}</strong> · {a.ca}</div>
+              </div>
+            </div>
+
+            <details>
+              <summary>Détail du score</summary>
+              <table class="compare" style="margin-top: var(--space-3);">
+                <thead>
+                  <tr><th>Critère</th><th>Score /5</th></tr>
+                </thead>
+                <tbody>
+                  {a.detail.map(([k, v]) => (
+                    <tr><td>{k}</td><td><strong>{v}</strong></td></tr>
+                  ))}
+                </tbody>
+              </table>
+              <p style="margin-top: var(--space-4); color: var(--color-text-mid); font-style: italic;">
+                {a.note}
+              </p>
+            </details>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="eyebrow">Synthèse</span>
+      <h2>Comparaison des 3 archétypes</h2>
+
+      <div class="table-wrap mt-6">
+        <table class="compare">
+          <thead>
+            <tr>
+              <th>Archétype</th>
+              <th>Score</th>
+              <th>Ticket</th>
+              <th>SOM 12m</th>
+              <th>CA potentiel an</th>
+              <th>Fit Jonathan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#1 DFY freelance ("Offer Clarity")</td>
+              <td><span class="score-badge score-badge--high">24/30</span></td>
+              <td>890-1 490 €</td>
+              <td>20-80</td>
+              <td>18-120 k€</td>
+              <td>⭐⭐⭐</td>
+            </tr>
+            <tr>
+              <td>#2 DIY freelance ("Pipeline Solo")</td>
+              <td><span class="score-badge score-badge--high">25/30</span></td>
+              <td>2-3 k€</td>
+              <td>8-25</td>
+              <td>16-75 k€</td>
+              <td>⭐⭐⭐⭐</td>
+            </tr>
+            <tr>
+              <td>#3 DIY agence ("Pipeline Studio")</td>
+              <td><span class="score-badge score-badge--top">26/30</span></td>
+              <td>8-18 k€</td>
+              <td>5-15</td>
+              <td><strong>40-270 k€</strong></td>
+              <td>⭐⭐⭐⭐⭐</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="verdict verdict--success mt-8">
+        <strong style="font-size: 1.05rem; display: block; margin-bottom: var(--space-2);">
+          Recommandation : architecture commerciale en 3 portes (gamme parapluie)
+        </strong>
+        Aucun archétype n'écrase totalement les autres → ils peuvent <strong>coexister</strong>.
+        Le DFY est le meilleur produit d'appel (volume + cycle court). Le DIY agence est le meilleur
+        générateur de marge (ticket × fit Jonathan max). Séquencement DFY → DIY-A → DIY-S sur 12 mois.
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <span class="eyebrow">Points critiques</span>
+      <h2>À challenger en /offer-cadrage v2</h2>
+      <ol style="font-size: 1.05rem; color: var(--color-text-mid); margin-top: var(--space-6);">
+        <li><strong>Architecture commerciale :</strong> 3 portes parallèles ou séquentielles ? Si séquentiel, quel ordre ?</li>
+        <li><strong>Risque éparpillement Jonathan</strong> (solo + Uccello Hub + 3 offres) : comment cadrer ?</li>
+        <li><strong>Intersection commerciale :</strong> un client DFY peut-il devenir client DIY ensuite ? Cannibalisation ?</li>
+        <li><strong>Branding :</strong> 1 marque mère "Offer Pipeline" + 3 produits, ou 3 marques distinctes ?</li>
+        <li><strong>Risque dépendance Anthropic / Claude Code</strong> : à clarifier dans les contrats DIY.</li>
+      </ol>
+    </div>
+  </section>
+</BaseLayout>

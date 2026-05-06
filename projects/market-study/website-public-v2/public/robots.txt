@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://offer-pipeline.uccello.io/sitemap-index.xml
