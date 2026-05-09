@@ -1,0 +1,21 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Éditeurs
+.vscode/
+*.swp
+*.swo
+
+# Curseur - ne pas versionner l'état interne
+.cursor/
+
+# Worktrees Claude (répertoires imbriqués ; gitlink casse Forge / clone)
+.claude/worktrees/
+
+# Fichier projet actif (état local, pas à versionner)
+.active-project
+
+# Artefacts locaux enrichissement prospection (régénérables avec --fetch-siege / scripts)
+projects/*/_tmp*.json
+projects/*/_prospects_siege_gouv.json
