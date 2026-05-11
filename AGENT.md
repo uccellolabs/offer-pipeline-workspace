@@ -185,7 +185,7 @@ Le coach business vit **au-dessus** des projets. Ses fichiers sont à la racine 
     - `AGENT.md` : miroir de `CLAUDE.md` (mêmes sections, toujours synchronisé)
     - `templates/SESSION_LOG.template.md` : statut pipeline + tableau versions
 
-    **Dans le workspace (`/Users/jonathan/development/www/agents/offer-pipeline-workspace`) :**
+    **Dans le workspace (`offer-pipeline-workspace`, dépôt parallèle à `offer-pipeline`) :**
     - `CLAUDE.md` : mêmes sections que ci-dessus
     - `AGENT.md` : miroir de `CLAUDE.md`
     - `README.md` : structure projet, tableau pipeline, notes explicatives
@@ -291,6 +291,35 @@ ls ~/.cursor/skills/ui-ux-pro-max/SKILL.md   # Cursor
 ```
 
 **Si non installé :** le site est quand même généré, mais les règles de design (responsive, typographie, palettes) seront moins précises.
+
+### Skill `motion-framer` (requis pour `/offer-study-website` et `/offer-commercial-proposal`)
+
+Complète `ui-ux-pro-max` : encadre la stratégie d'animation des sites
+(hero stagger, reveal scroll-triggered, hover lifts, nav scrolled, gestures,
+`prefers-reduced-motion`). Chargé **systématiquement** par les deux skills
+de génération web.
+
+**Installation Claude Code (depuis le repo public freshtechbro/claudedesignskills) :**
+```bash
+mkdir -p ~/.claude/skills/motion-framer
+curl -sL "https://raw.githubusercontent.com/freshtechbro/claudedesignskills/main/.claude/skills/motion-framer/SKILL.md" \
+  -o ~/.claude/skills/motion-framer/SKILL.md
+```
+
+**Installation Cursor :**
+```bash
+mkdir -p ~/.cursor/skills/motion-framer
+curl -sL "https://raw.githubusercontent.com/freshtechbro/claudedesignskills/main/.claude/skills/motion-framer/SKILL.md" \
+  -o ~/.cursor/skills/motion-framer/SKILL.md
+```
+
+**Vérification :**
+```bash
+ls ~/.claude/skills/motion-framer/SKILL.md   # Claude Code
+ls ~/.cursor/skills/motion-framer/SKILL.md   # Cursor
+```
+
+**Si non installé :** le site est généré, mais sans set d'animations cohérent (rendu statique, paraît amateur en 2026).
 
 ---
 
