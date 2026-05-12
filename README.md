@@ -104,6 +104,10 @@ workspace/
 │   ├── JOURNAL/                 ← Phase 2 : briefings matin + reviews soir + deep journal
 │   ├── REVIEWS/                 ← Phase 2 : rétros hebdo + fin de cycle
 │   └── MEETINGS/                ← CR de réunions à ingérer (clients, partenaires)
+├── .claude/
+│   └── scripts/                 ← Scripts utilitaires (auto-sync GitHub, etc.)
+│       ├── autosync-pull.sh
+│       └── autosync-push.sh
 └── .active-project              ← Projet actif courant (souvent ignoré par git)
 ```
 
@@ -161,9 +165,96 @@ Committer les outputs après chaque étape :
 
 ```bash
 git add projects/mon-projet/
-git commit -m "feat(mon-projet): /offer-cadrage — GO validé"
+git commit -m "feat(mon-projet): /offer-cadrage : GO validé"
 git push
 ```
+
+---
+
+## Auto-sync GitHub (optionnel)
+
+Le template embarque 2 scripts dans `.claude/scripts/` qui, branchés sur des **hooks Claude Code**, synchronisent automatiquement le workspace avec GitHub. Utile si tu veux pouvoir consulter / éditer tes briefs depuis le téléphone (Working Copy iOS, GitHub Mobile) ou bosser sur plusieurs machines sans penser à `git push`.
+
+| Hook | Script | Quand | Effet |
+|---|---|---|---|
+| `SessionStart` | `autosync-pull.sh` | Au démarrage de Claude Code | `git pull --rebase --autostash origin main` (récupère les commits faits depuis une autre machine ou le téléphone) |
+| `Stop` | `autosync-push.sh` | À chaque fin de tour Claude | Si dirty : `git add -A && git commit && git push origin main` |
+
+**Protections du push** (anti-erreur classique) : skip si `node_modules/` détecté dans les changements, skip si un fichier > 10 MB est en jeu. Logs : `~/Library/Logs/<nom-du-workspace>-autosync.log` (le nom dérive automatiquement du dossier).
+
+**Portabilité** : les scripts dérivent le chemin du workspace de leur propre emplacement (via `BASH_SOURCE`), pas de path hardcodé. Ils marchent dès le clone, sur n'importe quelle machine.
+
+### Activer
+
+1. Clone ton workspace (issu de ce template), puis assure-toi que les scripts sont exécutables :
+
+   ```bash
+   chmod +x .claude/scripts/autosync-*.sh
+   ```
+
+2. Crée `.claude/settings.local.json` à la racine du workspace. Ce fichier est **gitignored** (perso, jamais committé), donc à recréer sur chaque machine.
+
+   ```json
+   {
+     "hooks": {
+       "SessionStart": [
+         {
+           "hooks": [
+             {
+               "type": "command",
+               "command": "/CHEMIN/ABSOLU/VERS/ton-workspace/.claude/scripts/autosync-pull.sh",
+               "timeout": 30,
+               "statusMessage": "Pulling remote changes..."
+             }
+           ]
+         }
+       ],
+       "Stop": [
+         {
+           "hooks": [
+             {
+               "type": "command",
+               "command": "/CHEMIN/ABSOLU/VERS/ton-workspace/.claude/scripts/autosync-push.sh",
+               "timeout": 60,
+               "async": true
+             }
+           ]
+         }
+       ]
+     }
+   }
+   ```
+
+   Remplace `/CHEMIN/ABSOLU/VERS/ton-workspace` par le chemin réel (ex. fais `pwd` depuis la racine du workspace pour l'obtenir).
+
+3. Dans Claude Code, tape `/hooks` une fois pour recharger la config (ou ferme/relance Claude Code).
+
+4. Vérifie que les hooks fonctionnent après quelques tours :
+
+   ```bash
+   tail -f ~/Library/Logs/$(basename "$PWD")-autosync.log
+   ```
+
+   Tu dois voir des entrées `Stop push: N files` (auto-commit) ou `SessionStart pull` (auto-pull).
+
+### Désactiver
+
+- Soit `/hooks` dans Claude Code, retire les hooks
+- Soit supprime la section `"hooks"` de `.claude/settings.local.json`
+- Soit supprime le fichier complet pour repartir à zéro
+
+### Limites à connaître
+
+- Les hooks `Stop` ne fire **que** quand tu travailles avec Claude Code. Une édition manuelle dans Cursor / un IDE / le Finder n'est pas pushée immédiatement. Elle sera capturée au **prochain `Stop`** (au premier tour Claude suivant) puisque `git add -A` ramasse tout l'état dirty.
+- Pas de relecture humaine avant push : une boulette part en quelques secondes sur GitHub. Le `.gitignore` du template bloque déjà `.env`, secrets, `node_modules/` ; les protections du script blo­quent les fichiers > 10 MB. Mais ça reste un push automatique, pas un workflow de PR.
+- Historique git plus bruité (commits `auto: <timestamp> (N files)`). Si tu veux un historique propre pour publier ce repo, préfère du commit manuel.
+
+### Pour le téléphone
+
+- **GitHub Mobile** (gratuit, iOS/Android) : lecture des `.md` partout
+- **Working Copy** (iOS, ~22€) : clone + édition + commit depuis le téléphone
+
+Avec l'auto-pull au `SessionStart`, toute modif faite depuis le téléphone est récupérée à la prochaine session Claude.
 
 ---
 

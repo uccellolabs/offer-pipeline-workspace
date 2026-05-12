@@ -4,8 +4,10 @@ Thumbs.db
 
 # Éditeurs
 .vscode/
+.idea/
 *.swp
 *.swo
+*~
 
 # Curseur - ne pas versionner l'état interne
 .cursor/
@@ -13,9 +15,57 @@ Thumbs.db
 # Worktrees Claude (répertoires imbriqués ; gitlink casse Forge / clone)
 .claude/worktrees/
 
+# Config locale Claude Code (perso, jamais committé)
+.claude/settings.local.json
+
 # Fichier projet actif (état local, pas à versionner)
 .active-project
 
 # Artefacts locaux enrichissement prospection (régénérables avec --fetch-siege / scripts)
 projects/*/_tmp*.json
 projects/*/_prospects_siege_gouv.json
+
+# Secrets (sécurité)
+.env
+.env.*
+*.env
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+credentials.json
+credentials.*.json
+secrets.json
+secrets.*.json
+*.token
+.aws/
+.netrc
+
+# Dépendances Node / Python / Bun
+node_modules/
+.pnp.*
+.yarn/
+.npm/
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.python-version
+
+# Builds / dists
+dist/
+build/
+.next/
+.nuxt/
+.astro/
+.output/
+.cache/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
